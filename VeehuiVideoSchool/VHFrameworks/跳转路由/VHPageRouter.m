@@ -10,6 +10,7 @@
 
 #import "InitializationViewController.h"
 #import "UserLoginStartViewController.h"
+#import "MainStartTabbarViewController.h"
 
 @implementation VHPageRouter
 
@@ -25,6 +26,10 @@
     [self presentViewController:loginController];
 }
 
++ (void) entryMainPage{
+    MainStartTabbarViewController* startController = [[MainStartTabbarViewController alloc] initWithNibName:nil bundle:nil];
+    [[NSObject rootWindow] setRootViewController:startController];
+}
 
 //跳转到指定的界面
 + (void) entryPageController:(VHBaseViewController*) controller{

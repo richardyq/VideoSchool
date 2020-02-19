@@ -26,8 +26,11 @@ entryIntoUserLoginPage
 */
 + (void) entryIntoUserLoginPage:(dismissControllerHandler) handler;
 
-
-
+/**
+entryMainPage
+进入APP主界面
+*/
++ (void) entryMainPage;
 /**
  entryPageController
  跳转到指定界面

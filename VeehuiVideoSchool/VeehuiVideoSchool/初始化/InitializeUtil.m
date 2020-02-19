@@ -104,9 +104,11 @@
 }
 
 - (void) startInitialize{
-    
     //检查版本更新
     //TODO: 检查版本更新
+    
+    [VHPageRouter entryMainPage];
+    return;
     
     [self startUserLogin];
 }

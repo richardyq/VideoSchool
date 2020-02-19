@@ -21,6 +21,8 @@
 		270A032B23FBD21300FD4431 /* CommonBaseBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A032A23FBD21300FD4431 /* CommonBaseBussiness.m */; };
 		270A032E23FBD3F100FD4431 /* VHCountDownUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A032D23FBD3F100FD4431 /* VHCountDownUtil.m */; };
 		270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A033023FBE96C00FD4431 /* UserLoginWithMobileFunction.m */; };
+		27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DA223FCDF6D004A9C85 /* MainStartTabbarViewController.m */; };
+		27206DA623FCDF76004A9C85 /* HomeStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DA423FCDF76004A9C85 /* HomeStartViewController.m */; };
 		277F918123FA274B0055C773 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F918023FA274B0055C773 /* AppDelegate.m */; };
 		277F918C23FA274C0055C773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277F918B23FA274C0055C773 /* Assets.xcassets */; };
 		277F918F23FA274C0055C773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277F918D23FA274C0055C773 /* LaunchScreen.storyboard */; };
@@ -84,6 +86,10 @@
 		270A032D23FBD3F100FD4431 /* VHCountDownUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHCountDownUtil.m; sourceTree = "<group>"; };
 		270A032F23FBE96C00FD4431 /* UserLoginWithMobileFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginWithMobileFunction.h; sourceTree = "<group>"; };
 		270A033023FBE96C00FD4431 /* UserLoginWithMobileFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginWithMobileFunction.m; sourceTree = "<group>"; };
+		27206DA123FCDF6D004A9C85 /* MainStartTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStartTabbarViewController.h; sourceTree = "<group>"; };
+		27206DA223FCDF6D004A9C85 /* MainStartTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStartTabbarViewController.m; sourceTree = "<group>"; };
+		27206DA423FCDF76004A9C85 /* HomeStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeStartViewController.m; sourceTree = "<group>"; };
+		27206DA523FCDF76004A9C85 /* HomeStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeStartViewController.h; sourceTree = "<group>"; };
 		277F917C23FA274B0055C773 /* 微医汇学习.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微医汇学习.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277F917F23FA274B0055C773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		277F918023FA274B0055C773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -250,6 +256,33 @@
 			path = Function;
 			sourceTree = "<group>";
 		};
+		27206D9523FCD61D004A9C85 /* 主页面 */ = {
+			isa = PBXGroup;
+			children = (
+				27206D9623FCD61D004A9C85 /* UI */,
+			);
+			path = "主页面";
+			sourceTree = "<group>";
+		};
+		27206D9623FCD61D004A9C85 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				27206DA123FCDF6D004A9C85 /* MainStartTabbarViewController.h */,
+				27206DA223FCDF6D004A9C85 /* MainStartTabbarViewController.m */,
+				27206D9D23FCDF35004A9C85 /* APP首页 */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		27206D9D23FCDF35004A9C85 /* APP首页 */ = {
+			isa = PBXGroup;
+			children = (
+				27206DA523FCDF76004A9C85 /* HomeStartViewController.h */,
+				27206DA423FCDF76004A9C85 /* HomeStartViewController.m */,
+			);
+			path = "APP首页";
+			sourceTree = "<group>";
+		};
 		277F917323FA274B0055C773 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +306,7 @@
 		277F917E23FA274B0055C773 /* VeehuiVideoSchool */ = {
 			isa = PBXGroup;
 			children = (
+				27206D9523FCD61D004A9C85 /* 主页面 */,
 				277F91C223FA396B0055C773 /* 用户模块 */,
 				277F919B23FA2B750055C773 /* 初始化 */,
 				277F917F23FA274B0055C773 /* AppDelegate.h */,
@@ -681,6 +715,7 @@
 				277F91B923FA30CF0055C773 /* UIImage+VHExt.m in Sources */,
 				270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */,
 				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
+				27206DA623FCDF76004A9C85 /* HomeStartViewController.m in Sources */,
 				277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */,
 				277F918123FA274B0055C773 /* AppDelegate.m in Sources */,
 				277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */,
@@ -693,6 +728,7 @@
 				277F91D723FA6BA30055C773 /* VHBaseViewController.m in Sources */,
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
 				277F91C623FA3B720055C773 /* UserInfoModel.m in Sources */,
+				27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */,
 				277F919223FA274C0055C773 /* main.m in Sources */,
 				270A030C23FB895500FD4431 /* UserLoginWithWechatFunction.m in Sources */,
 				270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */,
