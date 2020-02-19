@@ -28,4 +28,6 @@ return ;    \
 #define Navi_height         (isPhoneX ? 88 : 64)
 #define Status_Height       (isPhoneX ? 44 : 20)
 
+#define ScreenSizeRate      (kScreenWidth / 375.)
+
 #endif /* VeehuiDefine_h */

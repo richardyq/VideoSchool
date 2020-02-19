@@ -7,8 +7,15 @@
 //
 
 #import "HomeStartViewController.h"
+#import "HomeStartNavigationView.h"
+#import "HomeStartTableViewController.h"
 
 @interface HomeStartViewController ()
+
+@property (nonatomic, strong) HomeStartNavigationView* navigationView;
+@property (nonatomic, strong) HomeStartTableViewController* tableViewController;
+
+
 
 @end
 
@@ -21,14 +28,39 @@
     [self setFd_interactivePopDisabled:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) updateViewConstraints{
+    [super updateViewConstraints];
+    
+    [self.navigationView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.height.mas_equalTo(@44);
+        make.top.equalTo(self.view).offset(Status_Height);
+    }];
+    
+    [self.tableViewController.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.navigationView.mas_bottom);
+    }];
 }
-*/
+
+
+#pragma mark - settingAndGetting
+
+
+- (HomeStartNavigationView*) navigationView{
+    if (!_navigationView) {
+        _navigationView = (HomeStartNavigationView*)[self.view addView:[HomeStartNavigationView class]];
+    }
+    return _navigationView;
+}
+
+- (HomeStartTableViewController*) tableViewController{
+    if (!_tableViewController) {
+        _tableViewController = [[HomeStartTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        [self addChildViewController:_tableViewController];
+        [self.view addSubview:_tableViewController.tableView];
+    }
+    return _tableViewController;
+}
 
 @end

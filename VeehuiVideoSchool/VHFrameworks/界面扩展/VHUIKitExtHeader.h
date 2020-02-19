@@ -14,4 +14,12 @@
 #import "UIView+VHBoarderExt.h"
 #import "UIColor+VHStandExt.h"
 #import "UIBarButtonItem+VHKitExt.h"
+
+#pragma mark 通用继承类
+#import "VHTableViewCell.h"
+
+#pragma mark 自定义控件
+#import "VHGridItemControl.h"
+
+
 #endif /* VHUIKitExtHeader_h */

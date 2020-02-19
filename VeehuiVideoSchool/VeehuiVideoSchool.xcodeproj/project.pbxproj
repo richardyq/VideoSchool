@@ -23,6 +23,11 @@
 		270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A033023FBE96C00FD4431 /* UserLoginWithMobileFunction.m */; };
 		27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DA223FCDF6D004A9C85 /* MainStartTabbarViewController.m */; };
 		27206DA623FCDF76004A9C85 /* HomeStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DA423FCDF76004A9C85 /* HomeStartViewController.m */; };
+		27206DA923FCDFE6004A9C85 /* HomeStartNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DA823FCDFE6004A9C85 /* HomeStartNavigationView.m */; };
+		27206DAC23FD08F1004A9C85 /* HomeStartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DAB23FD08F1004A9C85 /* HomeStartTableViewController.m */; };
+		27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DAF23FD0C07004A9C85 /* HomeStartGirdTableViewCell.m */; };
+		27206DB423FD0C93004A9C85 /* VHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DB323FD0C93004A9C85 /* VHTableViewCell.m */; };
+		27206DB823FD0D81004A9C85 /* VHGridItemControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DB723FD0D81004A9C85 /* VHGridItemControl.m */; };
 		277F918123FA274B0055C773 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F918023FA274B0055C773 /* AppDelegate.m */; };
 		277F918C23FA274C0055C773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277F918B23FA274C0055C773 /* Assets.xcassets */; };
 		277F918F23FA274C0055C773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277F918D23FA274C0055C773 /* LaunchScreen.storyboard */; };
@@ -90,6 +95,17 @@
 		27206DA223FCDF6D004A9C85 /* MainStartTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStartTabbarViewController.m; sourceTree = "<group>"; };
 		27206DA423FCDF76004A9C85 /* HomeStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeStartViewController.m; sourceTree = "<group>"; };
 		27206DA523FCDF76004A9C85 /* HomeStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeStartViewController.h; sourceTree = "<group>"; };
+		27206DA723FCDFE6004A9C85 /* HomeStartNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStartNavigationView.h; sourceTree = "<group>"; };
+		27206DA823FCDFE6004A9C85 /* HomeStartNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStartNavigationView.m; sourceTree = "<group>"; };
+		27206DAA23FD08F1004A9C85 /* HomeStartTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStartTableViewController.h; sourceTree = "<group>"; };
+		27206DAB23FD08F1004A9C85 /* HomeStartTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStartTableViewController.m; sourceTree = "<group>"; };
+		27206DAE23FD0C07004A9C85 /* HomeStartGirdTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStartGirdTableViewCell.h; sourceTree = "<group>"; };
+		27206DAF23FD0C07004A9C85 /* HomeStartGirdTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStartGirdTableViewCell.m; sourceTree = "<group>"; };
+		27206DB223FD0C93004A9C85 /* VHTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHTableViewCell.h; sourceTree = "<group>"; };
+		27206DB323FD0C93004A9C85 /* VHTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHTableViewCell.m; sourceTree = "<group>"; };
+		27206DB623FD0D81004A9C85 /* VHGridItemControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHGridItemControl.h; sourceTree = "<group>"; };
+		27206DB723FD0D81004A9C85 /* VHGridItemControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHGridItemControl.m; sourceTree = "<group>"; };
+		27206DB923FD1100004A9C85 /* VHUIKitExtHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHUIKitExtHeader.h; sourceTree = "<group>"; };
 		277F917C23FA274B0055C773 /* 微医汇学习.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微医汇学习.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277F917F23FA274B0055C773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		277F918023FA274B0055C773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,7 +126,6 @@
 		277F91B523FA30710055C773 /* UIView+VHSubviewExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+VHSubviewExt.m"; sourceTree = "<group>"; };
 		277F91B723FA30CF0055C773 /* UIImage+VHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+VHExt.h"; sourceTree = "<group>"; };
 		277F91B823FA30CF0055C773 /* UIImage+VHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VHExt.m"; sourceTree = "<group>"; };
-		277F91BA23FA31350055C773 /* VHUIKitExtHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHUIKitExtHeader.h; sourceTree = "<group>"; };
 		277F91BB23FA31A80055C773 /* UIView+VHBoarderExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+VHBoarderExt.h"; sourceTree = "<group>"; };
 		277F91BC23FA31A80055C773 /* UIView+VHBoarderExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+VHBoarderExt.m"; sourceTree = "<group>"; };
 		277F91BE23FA32410055C773 /* UIColor+VHStandExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+VHStandExt.h"; sourceTree = "<group>"; };
@@ -277,10 +292,42 @@
 		27206D9D23FCDF35004A9C85 /* APP首页 */ = {
 			isa = PBXGroup;
 			children = (
+				27206DAD23FD09D2004A9C85 /* Cells */,
 				27206DA523FCDF76004A9C85 /* HomeStartViewController.h */,
 				27206DA423FCDF76004A9C85 /* HomeStartViewController.m */,
+				27206DA723FCDFE6004A9C85 /* HomeStartNavigationView.h */,
+				27206DA823FCDFE6004A9C85 /* HomeStartNavigationView.m */,
+				27206DAA23FD08F1004A9C85 /* HomeStartTableViewController.h */,
+				27206DAB23FD08F1004A9C85 /* HomeStartTableViewController.m */,
 			);
 			path = "APP首页";
+			sourceTree = "<group>";
+		};
+		27206DAD23FD09D2004A9C85 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				27206DAE23FD0C07004A9C85 /* HomeStartGirdTableViewCell.h */,
+				27206DAF23FD0C07004A9C85 /* HomeStartGirdTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		27206DB123FD0C7E004A9C85 /* 继承类 */ = {
+			isa = PBXGroup;
+			children = (
+				27206DB223FD0C93004A9C85 /* VHTableViewCell.h */,
+				27206DB323FD0C93004A9C85 /* VHTableViewCell.m */,
+			);
+			path = "继承类";
+			sourceTree = "<group>";
+		};
+		27206DB523FD0D5E004A9C85 /* 自有控件 */ = {
+			isa = PBXGroup;
+			children = (
+				27206DB623FD0D81004A9C85 /* VHGridItemControl.h */,
+				27206DB723FD0D81004A9C85 /* VHGridItemControl.m */,
+			);
+			path = "自有控件";
 			sourceTree = "<group>";
 		};
 		277F917323FA274B0055C773 = {
@@ -372,6 +419,9 @@
 		277F91A623FA2C470055C773 /* 界面扩展 */ = {
 			isa = PBXGroup;
 			children = (
+				27206DB923FD1100004A9C85 /* VHUIKitExtHeader.h */,
+				27206DB523FD0D5E004A9C85 /* 自有控件 */,
+				27206DB123FD0C7E004A9C85 /* 继承类 */,
 				277F91B323FA30070055C773 /* 基础扩展 */,
 			);
 			path = "界面扩展";
@@ -419,7 +469,6 @@
 				277F91B523FA30710055C773 /* UIView+VHSubviewExt.m */,
 				277F91B723FA30CF0055C773 /* UIImage+VHExt.h */,
 				277F91B823FA30CF0055C773 /* UIImage+VHExt.m */,
-				277F91BA23FA31350055C773 /* VHUIKitExtHeader.h */,
 				277F91BB23FA31A80055C773 /* UIView+VHBoarderExt.h */,
 				277F91BC23FA31A80055C773 /* UIView+VHBoarderExt.m */,
 				277F91BE23FA32410055C773 /* UIColor+VHStandExt.h */,
@@ -703,15 +752,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27206DAC23FD08F1004A9C85 /* HomeStartTableViewController.m in Sources */,
 				277F91B623FA30710055C773 /* UIView+VHSubviewExt.m in Sources */,
 				270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */,
 				270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */,
 				270A031F23FBC34C00FD4431 /* UserMobileLoginViewController.m in Sources */,
+				27206DA923FCDFE6004A9C85 /* HomeStartNavigationView.m in Sources */,
 				270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */,
 				270A032223FBC35E00FD4431 /* UserPageRouter.m in Sources */,
 				277F91E123FA83A50055C773 /* UserLoginTypeView.m in Sources */,
 				270A032B23FBD21300FD4431 /* CommonBaseBussiness.m in Sources */,
 				277F91DD23FA752D0055C773 /* WechatUtil.m in Sources */,
+				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
 				277F91B923FA30CF0055C773 /* UIImage+VHExt.m in Sources */,
 				270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */,
 				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
@@ -722,6 +774,7 @@
 				270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */,
 				270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */,
 				277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */,
+				27206DB423FD0C93004A9C85 /* VHTableViewCell.m in Sources */,
 				270A031C23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m in Sources */,
 				277F91CE23FA3F980055C773 /* UserLoginStartViewController.m in Sources */,
 				270A032E23FBD3F100FD4431 /* VHCountDownUtil.m in Sources */,
@@ -735,6 +788,7 @@
 				277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */,
 				277F91C023FA32410055C773 /* UIColor+VHStandExt.m in Sources */,
 				277F91B223FA2D8F0055C773 /* VHPageRouter.m in Sources */,
+				27206DB823FD0D81004A9C85 /* VHGridItemControl.m in Sources */,
 				277F91C923FA3C350055C773 /* UserModuleUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
