@@ -8,6 +8,7 @@
 
 #import "HomeStartTableViewController.h"
 #import "HomeStartGirdTableViewCell.h"
+#import "MedicalVideoPageRouter.h"
 
 typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     Gird_Section,
@@ -25,7 +26,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setFd_interactivePopDisabled:YES];
     self.tableView.estimatedRowHeight = 44.;
 
     self.tableView.tableHeaderView = self.tableHeaderView;
@@ -77,6 +78,12 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     switch (indexPath.section) {
         case Gird_Section:{
             cell = [tableView dequeueReusableCellWithIdentifier:[HomeStartGirdTableViewCell cellReuseIdentifier]];
+            HomeStartGirdTableViewCell* gridCell = (HomeStartGirdTableViewCell*) cell;
+            WS(weakSelf)
+            [gridCell onGridAction:^(NSInteger index) {
+                SAFE_WEAKSELF(weakSelf)
+                [weakSelf startGridItemAction:index];
+            }];
             break;
         }
         default:
@@ -111,5 +118,22 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, [self tableHeaderViewHeight:section])];
     
     return headerView;
+}
+
+#pragma mark - start grid event
+- (void) startGridItemAction:(NSInteger) index{
+    switch (index) {
+        case StartGird_Meeting:{
+                
+            break;
+        }
+        case StartGird_MedicalVideo:{
+            //医学视频
+            [MedicalVideoPageRouter entryMedicalStartListPage];
+            break;
+        }
+        default:
+            break;
+    }
 }
 @end

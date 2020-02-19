@@ -8,10 +8,21 @@
 
 #import "VHTableViewCell.h"
 
+typedef NS_ENUM(NSUInteger, EHomeStartGirdIndex) {
+    StartGird_Meeting,
+    StartGird_MedicalVideo,
+    StartGird_Course,
+    StartGird_Score,
+    StartGird_Subjects,
+};
+
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^HomeStartGirdAction)(NSInteger index);
 
 @interface HomeStartGirdTableViewCell : VHTableViewCell
 
+- (void) onGridAction:(HomeStartGirdAction) action;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -20,6 +20,6 @@
 
 #pragma mark 自定义控件
 #import "VHGridItemControl.h"
-
+#import "SegmentView.h"
 
 #endif /* VHUIKitExtHeader_h */

@@ -43,6 +43,7 @@
 @property (nonatomic, strong) UIView* gridView;
 @property (nonatomic, strong) NSArray<HomeStartGridItemControl*>* gridItems;
 
+@property (nonatomic, copy) HomeStartGirdAction gridAction;
 @end
 
 @implementation HomeStartGirdTableViewCell
@@ -74,6 +75,10 @@
     }];
 }
 
+- (void) onGridAction:(HomeStartGirdAction) action{
+    self.gridAction = action;
+}
+
 #pragma mark - settingAndGetting
 
 - (UIView*) gridView{
@@ -99,10 +104,27 @@
             HomeStartGridItemControl* item = [[HomeStartGridItemControl alloc] initWithImageName:iconName name:name];
             [gridItems addObject:item];
             [self.gridView addSubview:item];
+            
+            [item addTarget:self action:@selector(girItemClickedAction:) forControlEvents:UIControlEventTouchUpInside];
+            
         }];
         _gridItems = gridItems;
     }
     return _gridItems;
+}
+
+#pragma mark grid events
+- (void) girItemClickedAction:(id) sender{
+    NSInteger index = [self.gridItems indexOfObject:sender];
+    if (index == NSNotFound) {
+        return;
+    }
+    
+    if (self.gridAction) {
+        self.gridAction(index);
+    }
+    
+    return;
 }
 
 @end
