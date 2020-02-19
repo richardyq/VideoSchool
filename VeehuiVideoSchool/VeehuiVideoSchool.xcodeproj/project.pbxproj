@@ -1,0 +1,918 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A02FF23FB7C4700FD4431 /* VHHTTPRequest.m */; };
+		270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A030223FB7DCB00FD4431 /* VHHTTPFunction.m */; };
+		270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A030623FB823F00FD4431 /* VHHTTPFunctionManager.m */; };
+		270A030C23FB895500FD4431 /* UserLoginWithWechatFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A030B23FB895500FD4431 /* UserLoginWithWechatFunction.m */; };
+		270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A030E23FB90D200FD4431 /* UserInfoBusiness.m */; };
+		270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A031223FB933700FD4431 /* WechatAuthRespModel.m */; };
+		270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A031823FBC20700FD4431 /* VHBaseNavigationViewController.m */; };
+		270A031C23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A031B23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m */; };
+		270A031F23FBC34C00FD4431 /* UserMobileLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A031E23FBC34C00FD4431 /* UserMobileLoginViewController.m */; };
+		270A032223FBC35E00FD4431 /* UserPageRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A032123FBC35E00FD4431 /* UserPageRouter.m */; };
+		270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A032723FBD10B00FD4431 /* MobileVerifyCodeFunction.m */; };
+		270A032B23FBD21300FD4431 /* CommonBaseBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A032A23FBD21300FD4431 /* CommonBaseBussiness.m */; };
+		270A032E23FBD3F100FD4431 /* VHCountDownUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A032D23FBD3F100FD4431 /* VHCountDownUtil.m */; };
+		270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A033023FBE96C00FD4431 /* UserLoginWithMobileFunction.m */; };
+		277F918123FA274B0055C773 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F918023FA274B0055C773 /* AppDelegate.m */; };
+		277F918C23FA274C0055C773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277F918B23FA274C0055C773 /* Assets.xcassets */; };
+		277F918F23FA274C0055C773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277F918D23FA274C0055C773 /* LaunchScreen.storyboard */; };
+		277F919223FA274C0055C773 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F919123FA274C0055C773 /* main.m */; };
+		277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F919F23FA2B900055C773 /* InitializationViewController.m */; };
+		277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91AC23FA2CB10055C773 /* NSObject+VHRootExt.m */; };
+		277F91B223FA2D8F0055C773 /* VHPageRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91B123FA2D8F0055C773 /* VHPageRouter.m */; };
+		277F91B623FA30710055C773 /* UIView+VHSubviewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91B523FA30710055C773 /* UIView+VHSubviewExt.m */; };
+		277F91B923FA30CF0055C773 /* UIImage+VHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91B823FA30CF0055C773 /* UIImage+VHExt.m */; };
+		277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91BC23FA31A80055C773 /* UIView+VHBoarderExt.m */; };
+		277F91C023FA32410055C773 /* UIColor+VHStandExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91BF23FA32410055C773 /* UIColor+VHStandExt.m */; };
+		277F91C623FA3B720055C773 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91C523FA3B720055C773 /* UserInfoModel.m */; };
+		277F91C923FA3C350055C773 /* UserModuleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91C823FA3C350055C773 /* UserModuleUtil.m */; };
+		277F91CE23FA3F980055C773 /* UserLoginStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91CD23FA3F980055C773 /* UserLoginStartViewController.m */; };
+		277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91D023FA40AD0055C773 /* InitializeUtil.m */; };
+		277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91D323FA43340055C773 /* NSString+VHExt.m */; };
+		277F91D723FA6BA30055C773 /* VHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91D623FA6BA30055C773 /* VHBaseViewController.m */; };
+		277F91DD23FA752D0055C773 /* WechatUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91DC23FA752D0055C773 /* WechatUtil.m */; };
+		277F91E123FA83A50055C773 /* UserLoginTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F91E023FA83A40055C773 /* UserLoginTypeView.m */; };
+		277F91F723FA9BA70055C773 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 277F91E523FA9BA70055C773 /* UMSocialSDKResources.bundle */; };
+		277F91F823FA9BA70055C773 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91E623FA9BA70055C773 /* UShareUI.framework */; };
+		277F91F923FA9BA70055C773 /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91E823FA9BA70055C773 /* UMSocialNetwork.framework */; };
+		277F91FA23FA9BA70055C773 /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 277F91E923FA9BA70055C773 /* UMSocialSDKPromptResources.bundle */; };
+		277F91FB23FA9BA70055C773 /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91EA23FA9BA70055C773 /* UMSocialCore.framework */; };
+		277F91FC23FA9BA70055C773 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91ED23FA9BA70055C773 /* libSocialWeChat.a */; };
+		277F91FD23FA9BA70055C773 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 277F91F223FA9BA70055C773 /* README.txt */; };
+		277F91FE23FA9BA70055C773 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91F423FA9BA70055C773 /* libWeChatSDK.a */; };
+		277F91FF23FA9BA70055C773 /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91F623FA9BA70055C773 /* libUMSocialLog.a */; };
+		4349556A26761D4D3C13D144 /* Pods_VeehuiVideoSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11A6F1D89A2F2FE05B147EEA /* Pods-VeehuiVideoSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeehuiVideoSchool.debug.xcconfig"; path = "Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool.debug.xcconfig"; sourceTree = "<group>"; };
+		270A02FD23FB7BCE00FD4431 /* VHRequestDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHRequestDefine.h; sourceTree = "<group>"; };
+		270A02FE23FB7C4700FD4431 /* VHHTTPRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHHTTPRequest.h; sourceTree = "<group>"; };
+		270A02FF23FB7C4700FD4431 /* VHHTTPRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHHTTPRequest.m; sourceTree = "<group>"; };
+		270A030123FB7DCB00FD4431 /* VHHTTPFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHHTTPFunction.h; sourceTree = "<group>"; };
+		270A030223FB7DCB00FD4431 /* VHHTTPFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHHTTPFunction.m; sourceTree = "<group>"; };
+		270A030423FB7E5F00FD4431 /* VHRequestHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHRequestHeader.h; sourceTree = "<group>"; };
+		270A030523FB823F00FD4431 /* VHHTTPFunctionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHHTTPFunctionManager.h; sourceTree = "<group>"; };
+		270A030623FB823F00FD4431 /* VHHTTPFunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHHTTPFunctionManager.m; sourceTree = "<group>"; };
+		270A030A23FB895500FD4431 /* UserLoginWithWechatFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginWithWechatFunction.h; sourceTree = "<group>"; };
+		270A030B23FB895500FD4431 /* UserLoginWithWechatFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginWithWechatFunction.m; sourceTree = "<group>"; };
+		270A030D23FB90D200FD4431 /* UserInfoBusiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoBusiness.h; sourceTree = "<group>"; };
+		270A030E23FB90D200FD4431 /* UserInfoBusiness.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoBusiness.m; sourceTree = "<group>"; };
+		270A031123FB933700FD4431 /* WechatAuthRespModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WechatAuthRespModel.h; sourceTree = "<group>"; };
+		270A031223FB933700FD4431 /* WechatAuthRespModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WechatAuthRespModel.m; sourceTree = "<group>"; };
+		270A031723FBC20700FD4431 /* VHBaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHBaseNavigationViewController.h; sourceTree = "<group>"; };
+		270A031823FBC20700FD4431 /* VHBaseNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHBaseNavigationViewController.m; sourceTree = "<group>"; };
+		270A031A23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+VHKitExt.h"; sourceTree = "<group>"; };
+		270A031B23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+VHKitExt.m"; sourceTree = "<group>"; };
+		270A031D23FBC34C00FD4431 /* UserMobileLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMobileLoginViewController.h; sourceTree = "<group>"; };
+		270A031E23FBC34C00FD4431 /* UserMobileLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMobileLoginViewController.m; sourceTree = "<group>"; };
+		270A032023FBC35E00FD4431 /* UserPageRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserPageRouter.h; sourceTree = "<group>"; };
+		270A032123FBC35E00FD4431 /* UserPageRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserPageRouter.m; sourceTree = "<group>"; };
+		270A032623FBD10B00FD4431 /* MobileVerifyCodeFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileVerifyCodeFunction.h; sourceTree = "<group>"; };
+		270A032723FBD10B00FD4431 /* MobileVerifyCodeFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileVerifyCodeFunction.m; sourceTree = "<group>"; };
+		270A032923FBD21300FD4431 /* CommonBaseBussiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonBaseBussiness.h; sourceTree = "<group>"; };
+		270A032A23FBD21300FD4431 /* CommonBaseBussiness.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonBaseBussiness.m; sourceTree = "<group>"; };
+		270A032C23FBD3F100FD4431 /* VHCountDownUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHCountDownUtil.h; sourceTree = "<group>"; };
+		270A032D23FBD3F100FD4431 /* VHCountDownUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHCountDownUtil.m; sourceTree = "<group>"; };
+		270A032F23FBE96C00FD4431 /* UserLoginWithMobileFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginWithMobileFunction.h; sourceTree = "<group>"; };
+		270A033023FBE96C00FD4431 /* UserLoginWithMobileFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginWithMobileFunction.m; sourceTree = "<group>"; };
+		277F917C23FA274B0055C773 /* 微医汇学习.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微医汇学习.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		277F917F23FA274B0055C773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		277F918023FA274B0055C773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		277F918B23FA274C0055C773 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		277F918E23FA274C0055C773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		277F919023FA274C0055C773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		277F919123FA274C0055C773 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		277F919923FA290F0055C773 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		277F919E23FA2B900055C773 /* InitializationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitializationViewController.h; sourceTree = "<group>"; };
+		277F919F23FA2B900055C773 /* InitializationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitializationViewController.m; sourceTree = "<group>"; };
+		277F91AB23FA2CB10055C773 /* NSObject+VHRootExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+VHRootExt.h"; sourceTree = "<group>"; };
+		277F91AC23FA2CB10055C773 /* NSObject+VHRootExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VHRootExt.m"; sourceTree = "<group>"; };
+		277F91AE23FA2D160055C773 /* VHCommonFunc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHCommonFunc.h; sourceTree = "<group>"; };
+		277F91AF23FA2D320055C773 /* VHFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHFramework.h; sourceTree = "<group>"; };
+		277F91B023FA2D8F0055C773 /* VHPageRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHPageRouter.h; sourceTree = "<group>"; };
+		277F91B123FA2D8F0055C773 /* VHPageRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHPageRouter.m; sourceTree = "<group>"; };
+		277F91B423FA30710055C773 /* UIView+VHSubviewExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+VHSubviewExt.h"; sourceTree = "<group>"; };
+		277F91B523FA30710055C773 /* UIView+VHSubviewExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+VHSubviewExt.m"; sourceTree = "<group>"; };
+		277F91B723FA30CF0055C773 /* UIImage+VHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+VHExt.h"; sourceTree = "<group>"; };
+		277F91B823FA30CF0055C773 /* UIImage+VHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VHExt.m"; sourceTree = "<group>"; };
+		277F91BA23FA31350055C773 /* VHUIKitExtHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHUIKitExtHeader.h; sourceTree = "<group>"; };
+		277F91BB23FA31A80055C773 /* UIView+VHBoarderExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+VHBoarderExt.h"; sourceTree = "<group>"; };
+		277F91BC23FA31A80055C773 /* UIView+VHBoarderExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+VHBoarderExt.m"; sourceTree = "<group>"; };
+		277F91BE23FA32410055C773 /* UIColor+VHStandExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+VHStandExt.h"; sourceTree = "<group>"; };
+		277F91BF23FA32410055C773 /* UIColor+VHStandExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VHStandExt.m"; sourceTree = "<group>"; };
+		277F91C123FA36E30055C773 /* VeehuiDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VeehuiDefine.h; sourceTree = "<group>"; };
+		277F91C423FA3B720055C773 /* UserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		277F91C523FA3B720055C773 /* UserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		277F91C723FA3C350055C773 /* UserModuleUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserModuleUtil.h; path = "VeehuiVideoSchool/用户模块/UserModuleUtil.h"; sourceTree = SOURCE_ROOT; };
+		277F91C823FA3C350055C773 /* UserModuleUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UserModuleUtil.m; path = "VeehuiVideoSchool/用户模块/UserModuleUtil.m"; sourceTree = SOURCE_ROOT; };
+		277F91CC23FA3F980055C773 /* UserLoginStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginStartViewController.h; sourceTree = "<group>"; };
+		277F91CD23FA3F980055C773 /* UserLoginStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginStartViewController.m; sourceTree = "<group>"; };
+		277F91CF23FA40AD0055C773 /* InitializeUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitializeUtil.h; sourceTree = "<group>"; };
+		277F91D023FA40AD0055C773 /* InitializeUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitializeUtil.m; sourceTree = "<group>"; };
+		277F91D223FA43340055C773 /* NSString+VHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+VHExt.h"; sourceTree = "<group>"; };
+		277F91D323FA43340055C773 /* NSString+VHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+VHExt.m"; sourceTree = "<group>"; };
+		277F91D523FA6BA30055C773 /* VHBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHBaseViewController.h; sourceTree = "<group>"; };
+		277F91D623FA6BA30055C773 /* VHBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHBaseViewController.m; sourceTree = "<group>"; };
+		277F91DA23FA75070055C773 /* VHThirdLibHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHThirdLibHeader.h; sourceTree = "<group>"; };
+		277F91DB23FA752D0055C773 /* WechatUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WechatUtil.h; sourceTree = "<group>"; };
+		277F91DC23FA752D0055C773 /* WechatUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WechatUtil.m; sourceTree = "<group>"; };
+		277F91DF23FA83A40055C773 /* UserLoginTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginTypeView.h; sourceTree = "<group>"; };
+		277F91E023FA83A40055C773 /* UserLoginTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginTypeView.m; sourceTree = "<group>"; };
+		277F91E523FA9BA70055C773 /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		277F91E623FA9BA70055C773 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		277F91E823FA9BA70055C773 /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
+		277F91E923FA9BA70055C773 /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
+		277F91EA23FA9BA70055C773 /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialCore.framework; sourceTree = "<group>"; };
+		277F91ED23FA9BA70055C773 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
+		277F91EE23FA9BA70055C773 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		277F91F023FA9BA70055C773 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		277F91F123FA9BA70055C773 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		277F91F223FA9BA70055C773 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		277F91F323FA9BA70055C773 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		277F91F423FA9BA70055C773 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		277F91F623FA9BA70055C773 /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeehuiVideoSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB649F237B87A9872CF9CF0A /* Pods-VeehuiVideoSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeehuiVideoSchool.release.xcconfig"; path = "Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		277F917923FA274B0055C773 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				277F91FB23FA9BA70055C773 /* UMSocialCore.framework in Frameworks */,
+				277F91FC23FA9BA70055C773 /* libSocialWeChat.a in Frameworks */,
+				277F91FE23FA9BA70055C773 /* libWeChatSDK.a in Frameworks */,
+				277F91F823FA9BA70055C773 /* UShareUI.framework in Frameworks */,
+				277F91FF23FA9BA70055C773 /* libUMSocialLog.a in Frameworks */,
+				4349556A26761D4D3C13D144 /* Pods_VeehuiVideoSchool.framework in Frameworks */,
+				277F91F923FA9BA70055C773 /* UMSocialNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AD3F9F39658FF2A3D1DC417 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		270A02FB23FB7B5500FD4431 /* 数据请求 */ = {
+			isa = PBXGroup;
+			children = (
+				270A02FC23FB7B5500FD4431 /* HTTP请求 */,
+				270A02FD23FB7BCE00FD4431 /* VHRequestDefine.h */,
+				270A030423FB7E5F00FD4431 /* VHRequestHeader.h */,
+			);
+			path = "数据请求";
+			sourceTree = "<group>";
+		};
+		270A02FC23FB7B5500FD4431 /* HTTP请求 */ = {
+			isa = PBXGroup;
+			children = (
+				270A02FE23FB7C4700FD4431 /* VHHTTPRequest.h */,
+				270A02FF23FB7C4700FD4431 /* VHHTTPRequest.m */,
+				270A030123FB7DCB00FD4431 /* VHHTTPFunction.h */,
+				270A030223FB7DCB00FD4431 /* VHHTTPFunction.m */,
+				270A030523FB823F00FD4431 /* VHHTTPFunctionManager.h */,
+				270A030623FB823F00FD4431 /* VHHTTPFunctionManager.m */,
+			);
+			path = "HTTP请求";
+			sourceTree = "<group>";
+		};
+		270A030823FB893000FD4431 /* Bussiness */ = {
+			isa = PBXGroup;
+			children = (
+				270A030923FB893000FD4431 /* Functions */,
+				270A030D23FB90D200FD4431 /* UserInfoBusiness.h */,
+				270A030E23FB90D200FD4431 /* UserInfoBusiness.m */,
+			);
+			path = Bussiness;
+			sourceTree = "<group>";
+		};
+		270A030923FB893000FD4431 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				270A030A23FB895500FD4431 /* UserLoginWithWechatFunction.h */,
+				270A030B23FB895500FD4431 /* UserLoginWithWechatFunction.m */,
+				270A032F23FBE96C00FD4431 /* UserLoginWithMobileFunction.h */,
+				270A033023FBE96C00FD4431 /* UserLoginWithMobileFunction.m */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		270A031023FB931800FD4431 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				270A031123FB933700FD4431 /* WechatAuthRespModel.h */,
+				270A031223FB933700FD4431 /* WechatAuthRespModel.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		270A032323FBD0C000FD4431 /* 公用基础 */ = {
+			isa = PBXGroup;
+			children = (
+				270A032423FBD0C000FD4431 /* Business */,
+			);
+			path = "公用基础";
+			sourceTree = "<group>";
+		};
+		270A032423FBD0C000FD4431 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				270A032523FBD0C000FD4431 /* Function */,
+				270A032923FBD21300FD4431 /* CommonBaseBussiness.h */,
+				270A032A23FBD21300FD4431 /* CommonBaseBussiness.m */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		270A032523FBD0C000FD4431 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				270A032623FBD10B00FD4431 /* MobileVerifyCodeFunction.h */,
+				270A032723FBD10B00FD4431 /* MobileVerifyCodeFunction.m */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
+		277F917323FA274B0055C773 = {
+			isa = PBXGroup;
+			children = (
+				277F919A23FA292B0055C773 /* VHFrameworks */,
+				277F919823FA29000055C773 /* SupportFiles */,
+				277F917E23FA274B0055C773 /* VeehuiVideoSchool */,
+				277F917D23FA274B0055C773 /* Products */,
+				9D009C4286473EC2B54EF355 /* Pods */,
+				0AD3F9F39658FF2A3D1DC417 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		277F917D23FA274B0055C773 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				277F917C23FA274B0055C773 /* 微医汇学习.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		277F917E23FA274B0055C773 /* VeehuiVideoSchool */ = {
+			isa = PBXGroup;
+			children = (
+				277F91C223FA396B0055C773 /* 用户模块 */,
+				277F919B23FA2B750055C773 /* 初始化 */,
+				277F917F23FA274B0055C773 /* AppDelegate.h */,
+				277F918023FA274B0055C773 /* AppDelegate.m */,
+				270A032323FBD0C000FD4431 /* 公用基础 */,
+				277F918B23FA274C0055C773 /* Assets.xcassets */,
+				277F918D23FA274C0055C773 /* LaunchScreen.storyboard */,
+				277F919023FA274C0055C773 /* Info.plist */,
+				277F919123FA274C0055C773 /* main.m */,
+			);
+			path = VeehuiVideoSchool;
+			sourceTree = "<group>";
+		};
+		277F919823FA29000055C773 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				277F919923FA290F0055C773 /* PrefixHeader.pch */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		277F919A23FA292B0055C773 /* VHFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				270A02FB23FB7B5500FD4431 /* 数据请求 */,
+				277F91D823FA74E70055C773 /* 第三方 */,
+				277F91A923FA2C7C0055C773 /* 公用类 */,
+				277F91A623FA2C470055C773 /* 界面扩展 */,
+				277F91A723FA2C470055C773 /* 跳转路由 */,
+				277F91AF23FA2D320055C773 /* VHFramework.h */,
+				277F91C123FA36E30055C773 /* VeehuiDefine.h */,
+			);
+			path = VHFrameworks;
+			sourceTree = "<group>";
+		};
+		277F919B23FA2B750055C773 /* 初始化 */ = {
+			isa = PBXGroup;
+			children = (
+				277F919C23FA2B750055C773 /* UI */,
+				277F91CF23FA40AD0055C773 /* InitializeUtil.h */,
+				277F91D023FA40AD0055C773 /* InitializeUtil.m */,
+			);
+			path = "初始化";
+			sourceTree = "<group>";
+		};
+		277F919C23FA2B750055C773 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				277F919D23FA2B750055C773 /* ViewController */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		277F919D23FA2B750055C773 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				277F919E23FA2B900055C773 /* InitializationViewController.h */,
+				277F919F23FA2B900055C773 /* InitializationViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		277F91A623FA2C470055C773 /* 界面扩展 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91B323FA30070055C773 /* 基础扩展 */,
+			);
+			path = "界面扩展";
+			sourceTree = "<group>";
+		};
+		277F91A723FA2C470055C773 /* 跳转路由 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91B023FA2D8F0055C773 /* VHPageRouter.h */,
+				277F91B123FA2D8F0055C773 /* VHPageRouter.m */,
+				277F91D523FA6BA30055C773 /* VHBaseViewController.h */,
+				277F91D623FA6BA30055C773 /* VHBaseViewController.m */,
+				270A031723FBC20700FD4431 /* VHBaseNavigationViewController.h */,
+				270A031823FBC20700FD4431 /* VHBaseNavigationViewController.m */,
+			);
+			path = "跳转路由";
+			sourceTree = "<group>";
+		};
+		277F91A923FA2C7C0055C773 /* 公用类 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91AA23FA2C920055C773 /* Catagory */,
+				277F91AE23FA2D160055C773 /* VHCommonFunc.h */,
+				270A032C23FBD3F100FD4431 /* VHCountDownUtil.h */,
+				270A032D23FBD3F100FD4431 /* VHCountDownUtil.m */,
+			);
+			path = "公用类";
+			sourceTree = "<group>";
+		};
+		277F91AA23FA2C920055C773 /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				277F91AB23FA2CB10055C773 /* NSObject+VHRootExt.h */,
+				277F91AC23FA2CB10055C773 /* NSObject+VHRootExt.m */,
+				277F91D223FA43340055C773 /* NSString+VHExt.h */,
+				277F91D323FA43340055C773 /* NSString+VHExt.m */,
+			);
+			path = Catagory;
+			sourceTree = "<group>";
+		};
+		277F91B323FA30070055C773 /* 基础扩展 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91B423FA30710055C773 /* UIView+VHSubviewExt.h */,
+				277F91B523FA30710055C773 /* UIView+VHSubviewExt.m */,
+				277F91B723FA30CF0055C773 /* UIImage+VHExt.h */,
+				277F91B823FA30CF0055C773 /* UIImage+VHExt.m */,
+				277F91BA23FA31350055C773 /* VHUIKitExtHeader.h */,
+				277F91BB23FA31A80055C773 /* UIView+VHBoarderExt.h */,
+				277F91BC23FA31A80055C773 /* UIView+VHBoarderExt.m */,
+				277F91BE23FA32410055C773 /* UIColor+VHStandExt.h */,
+				277F91BF23FA32410055C773 /* UIColor+VHStandExt.m */,
+				270A031A23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.h */,
+				270A031B23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m */,
+			);
+			path = "基础扩展";
+			sourceTree = "<group>";
+		};
+		277F91C223FA396B0055C773 /* 用户模块 */ = {
+			isa = PBXGroup;
+			children = (
+				270A030823FB893000FD4431 /* Bussiness */,
+				277F91CA23FA3F5C0055C773 /* UI */,
+				277F91C723FA3C350055C773 /* UserModuleUtil.h */,
+				277F91C823FA3C350055C773 /* UserModuleUtil.m */,
+				277F91C323FA39840055C773 /* DataModel */,
+			);
+			path = "用户模块";
+			sourceTree = "<group>";
+		};
+		277F91C323FA39840055C773 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				277F91C423FA3B720055C773 /* UserInfoModel.h */,
+				277F91C523FA3B720055C773 /* UserInfoModel.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		277F91CA23FA3F5C0055C773 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				277F91CB23FA3F5C0055C773 /* 用户登录 */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		277F91CB23FA3F5C0055C773 /* 用户登录 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91DE23FA838E0055C773 /* Views */,
+				270A031D23FBC34C00FD4431 /* UserMobileLoginViewController.h */,
+				270A031E23FBC34C00FD4431 /* UserMobileLoginViewController.m */,
+				277F91CC23FA3F980055C773 /* UserLoginStartViewController.h */,
+				277F91CD23FA3F980055C773 /* UserLoginStartViewController.m */,
+				270A032023FBC35E00FD4431 /* UserPageRouter.h */,
+				270A032123FBC35E00FD4431 /* UserPageRouter.m */,
+			);
+			path = "用户登录";
+			sourceTree = "<group>";
+		};
+		277F91D823FA74E70055C773 /* 第三方 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91E223FA9BA70055C773 /* 友盟 */,
+				277F91D923FA74E70055C773 /* 微信 */,
+				277F91DA23FA75070055C773 /* VHThirdLibHeader.h */,
+			);
+			path = "第三方";
+			sourceTree = "<group>";
+		};
+		277F91D923FA74E70055C773 /* 微信 */ = {
+			isa = PBXGroup;
+			children = (
+				270A031023FB931800FD4431 /* DataModel */,
+				277F91DB23FA752D0055C773 /* WechatUtil.h */,
+				277F91DC23FA752D0055C773 /* WechatUtil.m */,
+			);
+			path = "微信";
+			sourceTree = "<group>";
+		};
+		277F91DE23FA838E0055C773 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				277F91DF23FA83A40055C773 /* UserLoginTypeView.h */,
+				277F91E023FA83A40055C773 /* UserLoginTypeView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		277F91E223FA9BA70055C773 /* 友盟 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91E323FA9BA70055C773 /* UMSocial6.4.8 */,
+			);
+			path = "友盟";
+			sourceTree = "<group>";
+		};
+		277F91E323FA9BA70055C773 /* UMSocial6.4.8 */ = {
+			isa = PBXGroup;
+			children = (
+				277F91E423FA9BA70055C773 /* UMSocialUI */,
+				277F91E723FA9BA70055C773 /* UMSocialSDK */,
+				277F91EB23FA9BA70055C773 /* SocialLibraries */,
+				277F91F523FA9BA70055C773 /* UMSocialSDKPlugin */,
+			);
+			path = UMSocial6.4.8;
+			sourceTree = "<group>";
+		};
+		277F91E423FA9BA70055C773 /* UMSocialUI */ = {
+			isa = PBXGroup;
+			children = (
+				277F91E523FA9BA70055C773 /* UMSocialSDKResources.bundle */,
+				277F91E623FA9BA70055C773 /* UShareUI.framework */,
+			);
+			path = UMSocialUI;
+			sourceTree = "<group>";
+		};
+		277F91E723FA9BA70055C773 /* UMSocialSDK */ = {
+			isa = PBXGroup;
+			children = (
+				277F91E823FA9BA70055C773 /* UMSocialNetwork.framework */,
+				277F91E923FA9BA70055C773 /* UMSocialSDKPromptResources.bundle */,
+				277F91EA23FA9BA70055C773 /* UMSocialCore.framework */,
+			);
+			path = UMSocialSDK;
+			sourceTree = "<group>";
+		};
+		277F91EB23FA9BA70055C773 /* SocialLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				277F91EC23FA9BA70055C773 /* WeChat */,
+			);
+			path = SocialLibraries;
+			sourceTree = "<group>";
+		};
+		277F91EC23FA9BA70055C773 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				277F91ED23FA9BA70055C773 /* libSocialWeChat.a */,
+				277F91EE23FA9BA70055C773 /* UMSocialWechatHandler.h */,
+				277F91EF23FA9BA70055C773 /* WechatSDK */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		277F91EF23FA9BA70055C773 /* WechatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				277F91F023FA9BA70055C773 /* WXApi.h */,
+				277F91F123FA9BA70055C773 /* WXApiObject.h */,
+				277F91F223FA9BA70055C773 /* README.txt */,
+				277F91F323FA9BA70055C773 /* WechatAuthSDK.h */,
+				277F91F423FA9BA70055C773 /* libWeChatSDK.a */,
+			);
+			path = WechatSDK;
+			sourceTree = "<group>";
+		};
+		277F91F523FA9BA70055C773 /* UMSocialSDKPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				277F91F623FA9BA70055C773 /* libUMSocialLog.a */,
+			);
+			path = UMSocialSDKPlugin;
+			sourceTree = "<group>";
+		};
+		9D009C4286473EC2B54EF355 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11A6F1D89A2F2FE05B147EEA /* Pods-VeehuiVideoSchool.debug.xcconfig */,
+				AB649F237B87A9872CF9CF0A /* Pods-VeehuiVideoSchool.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		277F917B23FA274B0055C773 /* VeehuiVideoSchool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 277F919523FA274C0055C773 /* Build configuration list for PBXNativeTarget "VeehuiVideoSchool" */;
+			buildPhases = (
+				B67CDE730F0C1B63539FD04C /* [CP] Check Pods Manifest.lock */,
+				277F917823FA274B0055C773 /* Sources */,
+				277F917923FA274B0055C773 /* Frameworks */,
+				277F917A23FA274B0055C773 /* Resources */,
+				3C6E77D93915F14EB474BBBC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VeehuiVideoSchool;
+			productName = VeehuiVideoSchool;
+			productReference = 277F917C23FA274B0055C773 /* 微医汇学习.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		277F917423FA274B0055C773 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "殷全";
+				TargetAttributes = {
+					277F917B23FA274B0055C773 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 277F917723FA274B0055C773 /* Build configuration list for PBXProject "VeehuiVideoSchool" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 277F917323FA274B0055C773;
+			productRefGroup = 277F917D23FA274B0055C773 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				277F917B23FA274B0055C773 /* VeehuiVideoSchool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		277F917A23FA274B0055C773 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				277F918F23FA274C0055C773 /* LaunchScreen.storyboard in Resources */,
+				277F918C23FA274C0055C773 /* Assets.xcassets in Resources */,
+				277F91F723FA9BA70055C773 /* UMSocialSDKResources.bundle in Resources */,
+				277F91FA23FA9BA70055C773 /* UMSocialSDKPromptResources.bundle in Resources */,
+				277F91FD23FA9BA70055C773 /* README.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C6E77D93915F14EB474BBBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B67CDE730F0C1B63539FD04C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VeehuiVideoSchool-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		277F917823FA274B0055C773 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				277F91B623FA30710055C773 /* UIView+VHSubviewExt.m in Sources */,
+				270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */,
+				270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */,
+				270A031F23FBC34C00FD4431 /* UserMobileLoginViewController.m in Sources */,
+				270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */,
+				270A032223FBC35E00FD4431 /* UserPageRouter.m in Sources */,
+				277F91E123FA83A50055C773 /* UserLoginTypeView.m in Sources */,
+				270A032B23FBD21300FD4431 /* CommonBaseBussiness.m in Sources */,
+				277F91DD23FA752D0055C773 /* WechatUtil.m in Sources */,
+				277F91B923FA30CF0055C773 /* UIImage+VHExt.m in Sources */,
+				270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */,
+				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
+				277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */,
+				277F918123FA274B0055C773 /* AppDelegate.m in Sources */,
+				277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */,
+				270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */,
+				270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */,
+				277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */,
+				270A031C23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m in Sources */,
+				277F91CE23FA3F980055C773 /* UserLoginStartViewController.m in Sources */,
+				270A032E23FBD3F100FD4431 /* VHCountDownUtil.m in Sources */,
+				277F91D723FA6BA30055C773 /* VHBaseViewController.m in Sources */,
+				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
+				277F91C623FA3B720055C773 /* UserInfoModel.m in Sources */,
+				277F919223FA274C0055C773 /* main.m in Sources */,
+				270A030C23FB895500FD4431 /* UserLoginWithWechatFunction.m in Sources */,
+				270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */,
+				277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */,
+				277F91C023FA32410055C773 /* UIColor+VHStandExt.m in Sources */,
+				277F91B223FA2D8F0055C773 /* VHPageRouter.m in Sources */,
+				277F91C923FA3C350055C773 /* UserModuleUtil.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		277F918D23FA274C0055C773 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				277F918E23FA274C0055C773 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		277F919323FA274C0055C773 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		277F919423FA274C0055C773 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		277F919623FA274C0055C773 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11A6F1D89A2F2FE05B147EEA /* Pods-VeehuiVideoSchool.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GPXB7K325C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialUI",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialSDK",
+				);
+				GCC_PREFIX_HEADER = SupportFiles/PrefixHeader.pch;
+				INFOPLIST_FILE = VeehuiVideoSchool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat/WechatSDK",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialSDKPlugin",
+				);
+				MARKETING_VERSION = 6.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
+				PRODUCT_NAME = "微医汇学习";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		277F919723FA274C0055C773 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB649F237B87A9872CF9CF0A /* Pods-VeehuiVideoSchool.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GPXB7K325C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialUI",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialSDK",
+				);
+				GCC_PREFIX_HEADER = SupportFiles/PrefixHeader.pch;
+				INFOPLIST_FILE = VeehuiVideoSchool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat/WechatSDK",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialSDKPlugin",
+				);
+				MARKETING_VERSION = 6.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
+				PRODUCT_NAME = "微医汇学习";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		277F917723FA274B0055C773 /* Build configuration list for PBXProject "VeehuiVideoSchool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				277F919323FA274C0055C773 /* Debug */,
+				277F919423FA274C0055C773 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		277F919523FA274C0055C773 /* Build configuration list for PBXNativeTarget "VeehuiVideoSchool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				277F919623FA274C0055C773 /* Debug */,
+				277F919723FA274C0055C773 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 277F917423FA274B0055C773 /* Project object */;
+}
