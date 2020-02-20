@@ -88,7 +88,7 @@
 
 @property (nonatomic, strong) UIView* indicateView;
 
-
+@property (nonatomic, copy) SegmentViewSelectedIndexChanged changeHandler;
 @end
 
 @implementation SegmentView
@@ -118,6 +118,10 @@
         make.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(@3);
     }];
+}
+
+- (void) onSelectedIndexChanged:(SegmentViewSelectedIndexChanged) action{
+    _changeHandler = action;
 }
 
 - (void) setSegmentTitles:(NSArray<NSString*>*) titles{
@@ -240,6 +244,9 @@
     }];
     
     [self moveIndicateView];
+    if (self.changeHandler) {
+        self.changeHandler(index);
+    }
 }
 
 #pragma mark - 指示器变化

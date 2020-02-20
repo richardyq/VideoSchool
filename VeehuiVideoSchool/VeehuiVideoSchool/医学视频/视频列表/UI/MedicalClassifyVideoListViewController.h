@@ -6,12 +6,12 @@
 //  Copyright © 2020 殷全. All rights reserved.
 //
 
-#import "VHBaseViewController.h"
+#import "VHBaseListViewController.h"
 #import "MedicalVideoClassifyEntryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MedicalClassifyVideoListViewController : VHBaseViewController
+@interface MedicalClassifyVideoListViewController : VHBaseListViewController
 
 - (id) initWithClassifyModel:(MedicalVideoClassifyEntryModel*) classifyEntryModel;
 @end

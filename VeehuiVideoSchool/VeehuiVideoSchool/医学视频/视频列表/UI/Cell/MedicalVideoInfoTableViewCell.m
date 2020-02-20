@@ -139,4 +139,10 @@
     self.watchedNumberLabel.text = watchedNumberString;
 }
 
+- (void) setEntryModel:(EntryModel *)model{
+    if ([model isKindOfClass:[MedicalVideoGroupInfoEntryModel class]] || [model.class isSubclassOfClass:[MedicalVideoGroupInfoEntryModel class]]) {
+        [self setVideoGroupInfo:(MedicalVideoGroupInfoEntryModel*)model];
+    }
+}
+
 @end

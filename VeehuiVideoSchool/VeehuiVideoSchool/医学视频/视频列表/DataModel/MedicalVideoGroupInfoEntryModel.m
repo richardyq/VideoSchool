@@ -13,3 +13,11 @@
 
 
 @end
+
+@implementation MedicalVideoGroupInfoListModel
+
++ (NSDictionary*) mj_objectClassInArray{
+    return @{@"content": [MedicalVideoGroupInfoEntryModel class]};
+}
+
+@end

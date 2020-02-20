@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MedicalVideoGroupInfoEntryModel : NSObject
+@interface MedicalVideoGroupInfoEntryModel : EntryModel
 
-@property (nonatomic) NSInteger id;
+//@property (nonatomic) NSInteger id;
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSString* pictureUrl;
 
@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSInteger isPrice;
 @property (nonatomic) NSInteger isVip;
+
+@end
+
+@interface MedicalVideoGroupInfoListModel : ListModel
 
 @end
 

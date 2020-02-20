@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VHBaseViewController.h"
+#import "VHBaseListViewController.h"
 #import "VHBaseNavigationViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN

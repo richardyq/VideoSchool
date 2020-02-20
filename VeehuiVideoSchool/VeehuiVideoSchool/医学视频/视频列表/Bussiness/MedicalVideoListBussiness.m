@@ -8,6 +8,8 @@
 
 #import "MedicalVideoListBussiness.h"
 #import "MedicalVideoClassifyListFunction.h"
+#import "MedicalVideoSecondaryClassifyListFunction.h"
+#import "ClassifiedMedicalVideosFunction.h"
 
 @implementation MedicalVideoListBussiness
 
@@ -19,5 +21,25 @@
             result(resp);
         }
     } complete:complete];
+}
+
++ (void) startLoadMedicalVideoSecondaryClassify:(NSString*) code
+                                         result:(VHRequestResultHandler) result
+                                       complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[MedicalVideoSecondaryClassifyListFunction alloc] initWithCode:code];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id resp) {
+        if (result) {
+            result(resp);
+        }
+    } complete:complete];
+}
+
++ (void) startLoadClassifiedMedicalVideos:(NSString*) code
+                                   pageNo:(NSInteger) pageNo
+                                 pageSize:(NSInteger) pageSize
+                                   result:(VHRequestResultHandler) result
+                                 complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[ClassifiedMedicalVideosFunction alloc] initWithCode:code pageNo:pageNo pageSize:pageSize];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

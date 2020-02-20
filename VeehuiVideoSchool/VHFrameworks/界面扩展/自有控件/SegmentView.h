@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^SegmentViewSelectedIndexChanged)(NSInteger index);
+
 @interface SegmentView : UIScrollView
 
 @property (nonatomic) CGFloat minSegmentCellWidth;
@@ -21,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) setSegmentTitles:(NSArray<NSString*>*) titles;
 
-
+- (void) onSelectedIndexChanged:(SegmentViewSelectedIndexChanged) action;
 
 @end
 

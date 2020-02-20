@@ -24,4 +24,7 @@
     return NSStringFromClass([self class]);
 }
 
+- (void) setEntryModel:(EntryModel*) model{
+    
+}
 @end

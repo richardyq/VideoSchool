@@ -79,6 +79,12 @@
         [self.view addSubview:_segmentView];
         _segmentView.minSegmentCellWidth = (kScreenWidth / 4.5);
         _segmentView.indicateWidth = 27.5;
+        
+        WS(weakSelf)
+        [_segmentView onSelectedIndexChanged:^(NSInteger index) {
+            SAFE_WEAKSELF(weakSelf)
+            [weakSelf segmentViewSelectedIndexChanged:index];
+        }];
     }
     return _segmentView;
 }
@@ -158,7 +164,7 @@
 
 - (UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView* footerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 5)];
-    footerview.backgroundColor = [UIColor commonBackgroundColor];
+    footerview.backgroundColor = [UIColor clearColor];
     return footerview;
 }
 
@@ -170,7 +176,10 @@
     }
     
     NSInteger section = moreButton.tag - 0x300;
-    if (section < 0 || section >= self.videoClassifies.count) {
+    if (section == 0) {
+        //推荐视频，单独跳转
+    }
+    if (section <= 0 || section >= self.videoClassifies.count) {
         return;
     }
     
@@ -179,6 +188,12 @@
     
     //跳转到分类视频列表
     [MedicalVideoPageRouter entryClassifiedMedicalVideListPage:classifyModel];
+}
+
+#pragma mark - 分类学科选择 event
+- (void) segmentViewSelectedIndexChanged:(NSInteger) index{
+    //CGRect headerRect = [self.listTableView rectForHeaderInSection:index];
+    [self.listTableView scrollToRow:0 inSection:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 @end

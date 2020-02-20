@@ -51,9 +51,21 @@
     return self;
 }
 
+- (NSString *)generateUrl:(NSString *)url{
+/**     第一个参数:NULL     第二个参数:C语言的字符串     第三个参数:NULL     第四个参数:要转义的字符串,不要乱转     第五个参数:编码     */
+    NSString *encodedString = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(
+NULL,(__bridge CFStringRef)url,NULL,CFSTR("+"),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+
+   return encodedString;
+}
+
 - (void) requestResult:(VHRequestResultHandler) resultHandler
               complete:(VHRequestCompleteHandler) completeHandler{
     NSString* requestUrl = [self requestUrl];
+    requestUrl = [self generateUrl:requestUrl];
+    //requestUrl = [requestUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!$&'()*+,-./:;=?@_~%#[]"]];
+    //requestUrl = [requestUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
     NSDictionary* requestDictionary = [self reqeustDictionary];
     
     BOOL isReachable = [[AFNetworkReachabilityManager sharedManager] isReachable];

@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EntryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VHTableViewCell : UITableViewCell
 
-
-
 + (NSString*) cellReuseIdentifier;
+
+- (void) setEntryModel:(EntryModel*) model;
 @end
 
 NS_ASSUME_NONNULL_END
