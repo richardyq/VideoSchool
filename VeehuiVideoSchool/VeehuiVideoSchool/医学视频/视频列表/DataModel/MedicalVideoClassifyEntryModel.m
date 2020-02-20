@@ -10,4 +10,7 @@
 
 @implementation MedicalVideoClassifyEntryModel
 
++ (NSDictionary*) mj_objectClassInArray{
+    return @{@"medicalVideos": [MedicalVideoGroupInfoEntryModel class]};
+}
 @end

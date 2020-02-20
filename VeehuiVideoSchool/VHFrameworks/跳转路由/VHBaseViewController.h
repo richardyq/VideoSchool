@@ -16,6 +16,8 @@ typedef void(^dismissControllerHandler)(id ret);
 
 @property (nonatomic, readonly) NSString* controllerId;
 
+@property (nonatomic, readonly) NSMutableDictionary* paramDictionary;
+
 @property (nonatomic, copy) dismissControllerHandler dismissHandler;
 
 - (void) dismissController:(_Nullable id) ret;

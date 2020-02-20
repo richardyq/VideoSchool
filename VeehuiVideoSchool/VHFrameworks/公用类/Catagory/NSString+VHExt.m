@@ -39,4 +39,26 @@
     
     return isMobile;
 }
+
++ (NSString*) formatWithInteger:(NSInteger) number
+                         remain:(NSInteger) remain
+                           unit:(NSString*) unit{
+    NSString* numberString = [NSString stringWithFormat:@"%ld", number];
+    if (number < 10000) {
+        return numberString;
+    }
+    
+    CGFloat smallNumber = number/10000.;
+    
+    NSNumber *ftnumber = @(smallNumber);
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.roundingMode = NSNumberFormatterRoundFloor;
+    formatter.maximumFractionDigits = remain;
+    numberString = [formatter stringFromNumber:ftnumber];
+    numberString = [numberString stringByAppendingString:unit];
+    //NSString* formatString = [NSString stringWithFormat:@"%%.%ldf%@",remain, unit];
+    //numberString = [NSString stringWithFormat:formatString, smallNumber];
+    
+    return numberString;
+}
 @end

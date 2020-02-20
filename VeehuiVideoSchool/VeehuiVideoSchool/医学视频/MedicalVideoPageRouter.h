@@ -8,15 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+@class MedicalVideoClassifyEntryModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MedicalVideoPageRouter : NSObject
 
 /**
- entryMedicalStartListPage
+ entryMedicalVideoStartListPage
  跳转到医学视频首页
  */
-+ (void) entryMedicalStartListPage;
++ (void) entryMedicalVideoStartListPage;
+
+/**
+ entryClassifiedMedicalVideListPage
+ 跳转到分类医学视频列表界面
+ @param  classifyModel  分类对象
+ */
++ (void) entryClassifiedMedicalVideListPage:(MedicalVideoClassifyEntryModel*) classifyModel;
 
 @end
 

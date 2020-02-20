@@ -129,7 +129,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
         }
         case StartGird_MedicalVideo:{
             //医学视频
-            [MedicalVideoPageRouter entryMedicalStartListPage];
+            [MedicalVideoPageRouter entryMedicalVideoStartListPage];
             break;
         }
         default:

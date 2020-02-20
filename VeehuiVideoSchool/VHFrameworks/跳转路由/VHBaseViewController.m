@@ -11,11 +11,13 @@
 @interface VHBaseViewController ()
 
 @property (nonatomic, strong) NSMutableDictionary* controllerDictionary;
-@property (nonatomic, strong) NSMutableDictionary* paramDictionary;
+
 
 @end
 
 @implementation VHBaseViewController
+
+@synthesize paramDictionary = _paramDictionary;
 
 @synthesize controllerId = _controllerId;
 
@@ -34,6 +36,7 @@
 
 - (void) makeParamDictionary{
     //TODO:构建特定参数
+    
 }
 
 #pragma mark - settingAndGetting
@@ -53,6 +56,7 @@
 - (NSMutableDictionary*) paramDictionary{
     if (!_paramDictionary) {
         _paramDictionary = [NSMutableDictionary dictionary];
+        [self makeParamDictionary];
     }
     return _paramDictionary;
 }

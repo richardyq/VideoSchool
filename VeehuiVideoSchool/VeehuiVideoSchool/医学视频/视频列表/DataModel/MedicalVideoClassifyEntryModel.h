@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MedicalVideoGroupInfoEntryModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MedicalVideoClassifyEntryModel : NSObject
 
 @property (nonatomic, copy) NSString* code;
 @property (nonatomic, copy) NSString* name;
+
+@property (nonatomic, strong) NSArray<MedicalVideoGroupInfoEntryModel*>* medicalVideos;
  
 @end
 

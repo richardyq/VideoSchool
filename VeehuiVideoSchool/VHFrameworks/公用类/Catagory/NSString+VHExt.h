@@ -20,6 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
  判断是否是手机号
  */
 - (BOOL) isMobileNumber;
+
++ (NSString*) formatWithInteger:(NSInteger) number
+                         remain:(NSInteger) remain
+                           unit:(NSString*) unit;
+
 @end
 
 NS_ASSUME_NONNULL_END
