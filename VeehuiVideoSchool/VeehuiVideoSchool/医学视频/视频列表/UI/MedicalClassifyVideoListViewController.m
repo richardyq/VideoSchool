@@ -87,6 +87,7 @@
     if ([mainCode isEqualToString:@"00"]) {
         return;
     }
+    [MessageHubUtil showWait];
     WS(weakSelf)
     [MedicalVideoListBussiness startLoadMedicalVideoSecondaryClassify:mainCode result:^(id result) {
         SAFE_WEAKSELF(weakSelf)
@@ -95,6 +96,10 @@
         }
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
+        [MessageHubUtil hideMessage];
+        if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
+        }
     }];
 }
 
@@ -105,6 +110,7 @@
     [self.segmentView setSegmentTitles:titles];
     
     NSString* subjectCode = self.selectedSubjectModel.code;
+    [MessageHubUtil showWait];
     [self startLoadMedicalVideoList:subjectCode];
 }
 
@@ -128,9 +134,11 @@
         }
         
     } complete:^(NSInteger code, NSString *message) {
+        [MessageHubUtil hideMessage];
         SAFE_WEAKSELF(weakSelf)
         [weakSelf refreshCommandEnd:self.pageNo totalPage:self.totalPages];
         if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
             return ;
         }
     }];
@@ -172,7 +180,8 @@
 
 #pragma mark
 - (void) segmentViewSelectedIndexChanged:(NSInteger) index{
-    NSString* subjectCode = self.selectedSubjectModel.code;
-    [self startLoadMedicalVideoList:subjectCode];
+//    NSString* subjectCode = self.selectedSubjectModel.code;
+//    [self startLoadMedicalVideoList:subjectCode];
+    [self beginRefreshData];
 }
 @end

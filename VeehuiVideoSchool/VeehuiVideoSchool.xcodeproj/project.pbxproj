@@ -34,6 +34,7 @@
 		27206DCB23FD2BE8004A9C85 /* MedicalVideoListBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DCA23FD2BE8004A9C85 /* MedicalVideoListBussiness.m */; };
 		27206DCE23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DCD23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m */; };
 		27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DD023FD2E86004A9C85 /* SegmentView.m */; };
+		2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */; };
 		277F918123FA274B0055C773 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F918023FA274B0055C773 /* AppDelegate.m */; };
 		277F918C23FA274C0055C773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277F918B23FA274C0055C773 /* Assets.xcassets */; };
 		277F918F23FA274C0055C773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277F918D23FA274C0055C773 /* LaunchScreen.storyboard */; };
@@ -133,6 +134,8 @@
 		27206DCD23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoClassifyEntryModel.m; sourceTree = "<group>"; };
 		27206DCF23FD2E86004A9C85 /* SegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		27206DD023FD2E86004A9C85 /* SegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		2771A2D523FF7F2E00FCAF7A /* MessageHubUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageHubUtil.h; sourceTree = "<group>"; };
+		2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageHubUtil.m; sourceTree = "<group>"; };
 		277F917C23FA274B0055C773 /* 微医汇学习.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微医汇学习.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277F917F23FA274B0055C773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		277F918023FA274B0055C773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -566,6 +569,8 @@
 				277F91AE23FA2D160055C773 /* VHCommonFunc.h */,
 				270A032C23FBD3F100FD4431 /* VHCountDownUtil.h */,
 				270A032D23FBD3F100FD4431 /* VHCountDownUtil.m */,
+				2771A2D523FF7F2E00FCAF7A /* MessageHubUtil.h */,
+				2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */,
 			);
 			path = "公用类";
 			sourceTree = "<group>";
@@ -914,6 +919,7 @@
 				277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */,
 				277F918123FA274B0055C773 /* AppDelegate.m in Sources */,
 				27848FD623FE56A9004729B2 /* MedicalVideoSecondaryClassifyListFunction.m in Sources */,
+				2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */,
 				277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */,
 				270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */,
 				270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */,

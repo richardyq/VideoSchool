@@ -13,4 +13,5 @@
 #import "NSString+VHExt.h"
 
 #import "VHCountDownUtil.h"
+#import "MessageHubUtil.h"
 #endif /* VHCommonFunc_h */

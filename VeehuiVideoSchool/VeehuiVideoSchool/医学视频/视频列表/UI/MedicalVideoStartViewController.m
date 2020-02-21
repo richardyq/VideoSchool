@@ -50,6 +50,7 @@
 
 //获取医学视频分类
 - (void) startLoadClassify{
+    [MessageHubUtil showWait];
     WS(weakSelf)
     [MedicalVideoListBussiness startLoadMediaclVideoClassify:^(id result) {
         SAFE_WEAKSELF(weakSelf)
@@ -57,8 +58,10 @@
             [weakSelf videoClassifiesLoaded:result];
         }
     } complete:^(NSInteger code, NSString *message) {
+        [MessageHubUtil hideMessage];
         SAFE_WEAKSELF(weakSelf)
         if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
             return ;
         }
         [weakSelf.listTableView reloadData];
