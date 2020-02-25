@@ -12,7 +12,7 @@ NSInteger const topLineTag = 0x3950;
 NSInteger const leftLineTag = topLineTag + 1;
 NSInteger const bottomLineTag = leftLineTag + 1;
 NSInteger const rightLineTag = bottomLineTag + 1;
-NSInteger const WatermarkImageViewTag = 0x89B5;
+//NSInteger const WatermarkImageViewTag = 0x89B5;
 
 
 @implementation UIView (VHBoarderExt)

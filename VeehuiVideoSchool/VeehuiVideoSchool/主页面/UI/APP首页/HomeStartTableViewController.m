@@ -9,6 +9,7 @@
 #import "HomeStartTableViewController.h"
 #import "HomeStartGirdTableViewCell.h"
 #import "MedicalVideoPageRouter.h"
+#import "MeetingPageRouter.h"
 
 typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     Gird_Section,
@@ -124,7 +125,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 - (void) startGridItemAction:(NSInteger) index{
     switch (index) {
         case StartGird_Meeting:{
-                
+            [MeetingPageRouter entryMeetingStartPage];
             break;
         }
         case StartGird_MedicalVideo:{

@@ -72,6 +72,14 @@
 		27848FE023FE6B34004729B2 /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FDF23FE6B34004729B2 /* ListModel.m */; };
 		27848FE323FE6BAE004729B2 /* EntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FE223FE6BAE004729B2 /* EntryModel.m */; };
 		27848FE623FE7DC4004729B2 /* VHRefeshStatusHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FE523FE7DC4004729B2 /* VHRefeshStatusHeader.m */; };
+		278A754324036D03005A8994 /* MeetingStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A754224036D03005A8994 /* MeetingStartViewController.m */; };
+		278A754624036D29005A8994 /* MeetingPageRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A754524036D29005A8994 /* MeetingPageRouter.m */; };
+		278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A754924036F8C005A8994 /* MeetingGatherFunction.m */; };
+		278A754D2403703C005A8994 /* MeetingGatherEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A754C2403703C005A8994 /* MeetingGatherEntryModel.m */; };
+		278A7550240370E1005A8994 /* MeetingBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A754F240370E1005A8994 /* MeetingBussiness.m */; };
+		278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755424037ABE005A8994 /* LiveMeetingListFunction.m */; };
+		278A755924038019005A8994 /* MeetingEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755824038019005A8994 /* MeetingEntryModel.m */; };
+		278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */; };
 		4349556A26761D4D3C13D144 /* Pods_VeehuiVideoSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +217,22 @@
 		27848FE223FE6BAE004729B2 /* EntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryModel.m; sourceTree = "<group>"; };
 		27848FE423FE7DC4004729B2 /* VHRefeshStatusHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHRefeshStatusHeader.h; sourceTree = "<group>"; };
 		27848FE523FE7DC4004729B2 /* VHRefeshStatusHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHRefeshStatusHeader.m; sourceTree = "<group>"; };
+		278A754124036D03005A8994 /* MeetingStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingStartViewController.h; sourceTree = "<group>"; };
+		278A754224036D03005A8994 /* MeetingStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingStartViewController.m; sourceTree = "<group>"; };
+		278A754424036D29005A8994 /* MeetingPageRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPageRouter.h; sourceTree = "<group>"; };
+		278A754524036D29005A8994 /* MeetingPageRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPageRouter.m; sourceTree = "<group>"; };
+		278A754824036F8C005A8994 /* MeetingGatherFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingGatherFunction.h; sourceTree = "<group>"; };
+		278A754924036F8C005A8994 /* MeetingGatherFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingGatherFunction.m; sourceTree = "<group>"; };
+		278A754B2403703C005A8994 /* MeetingGatherEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingGatherEntryModel.h; sourceTree = "<group>"; };
+		278A754C2403703C005A8994 /* MeetingGatherEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingGatherEntryModel.m; sourceTree = "<group>"; };
+		278A754E240370E1005A8994 /* MeetingBussiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingBussiness.h; sourceTree = "<group>"; };
+		278A754F240370E1005A8994 /* MeetingBussiness.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingBussiness.m; sourceTree = "<group>"; };
+		278A755424037ABE005A8994 /* LiveMeetingListFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveMeetingListFunction.m; sourceTree = "<group>"; };
+		278A755524037ABE005A8994 /* LiveMeetingListFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveMeetingListFunction.h; sourceTree = "<group>"; };
+		278A755724038019005A8994 /* MeetingEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingEntryModel.h; sourceTree = "<group>"; };
+		278A755824038019005A8994 /* MeetingEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingEntryModel.m; sourceTree = "<group>"; };
+		278A755B2403A6A6005A8994 /* MeetingInfoListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingInfoListTableViewCell.h; sourceTree = "<group>"; };
+		278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingInfoListTableViewCell.m; sourceTree = "<group>"; };
 		780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeehuiVideoSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB649F237B87A9872CF9CF0A /* Pods-VeehuiVideoSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeehuiVideoSchool.release.xcconfig"; path = "Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,6 +496,7 @@
 		277F917E23FA274B0055C773 /* VeehuiVideoSchool */ = {
 			isa = PBXGroup;
 			children = (
+				278A753B24036C8E005A8994 /* 学术会议 */,
 				27206DBA23FD25B5004A9C85 /* 医学视频 */,
 				27206D9523FCD61D004A9C85 /* 主页面 */,
 				277F91C223FA396B0055C773 /* 用户模块 */,
@@ -771,6 +796,85 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		278A753B24036C8E005A8994 /* 学术会议 */ = {
+			isa = PBXGroup;
+			children = (
+				278A753C24036C8E005A8994 /* UI */,
+				278A753E24036C8E005A8994 /* Bussiness */,
+				278A754024036C8E005A8994 /* DataModel */,
+			);
+			path = "学术会议";
+			sourceTree = "<group>";
+		};
+		278A753C24036C8E005A8994 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				278A754724036F2D005A8994 /* Views */,
+				278A753D24036C8E005A8994 /* 会议列表 */,
+				278A754124036D03005A8994 /* MeetingStartViewController.h */,
+				278A754224036D03005A8994 /* MeetingStartViewController.m */,
+				278A754424036D29005A8994 /* MeetingPageRouter.h */,
+				278A754524036D29005A8994 /* MeetingPageRouter.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		278A753D24036C8E005A8994 /* 会议列表 */ = {
+			isa = PBXGroup;
+			children = (
+				278A755A2403A5E5005A8994 /* Cells */,
+			);
+			path = "会议列表";
+			sourceTree = "<group>";
+		};
+		278A753E24036C8E005A8994 /* Bussiness */ = {
+			isa = PBXGroup;
+			children = (
+				278A753F24036C8E005A8994 /* Function */,
+				278A754E240370E1005A8994 /* MeetingBussiness.h */,
+				278A754F240370E1005A8994 /* MeetingBussiness.m */,
+			);
+			path = Bussiness;
+			sourceTree = "<group>";
+		};
+		278A753F24036C8E005A8994 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				278A755524037ABE005A8994 /* LiveMeetingListFunction.h */,
+				278A755424037ABE005A8994 /* LiveMeetingListFunction.m */,
+				278A754824036F8C005A8994 /* MeetingGatherFunction.h */,
+				278A754924036F8C005A8994 /* MeetingGatherFunction.m */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
+		278A754024036C8E005A8994 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				278A754B2403703C005A8994 /* MeetingGatherEntryModel.h */,
+				278A754C2403703C005A8994 /* MeetingGatherEntryModel.m */,
+				278A755724038019005A8994 /* MeetingEntryModel.h */,
+				278A755824038019005A8994 /* MeetingEntryModel.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		278A754724036F2D005A8994 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		278A755A2403A5E5005A8994 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				278A755B2403A6A6005A8994 /* MeetingInfoListTableViewCell.h */,
+				278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9D009C4286473EC2B54EF355 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -901,11 +1005,13 @@
 				270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */,
 				270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */,
 				270A031F23FBC34C00FD4431 /* UserMobileLoginViewController.m in Sources */,
+				278A754624036D29005A8994 /* MeetingPageRouter.m in Sources */,
 				27206DA923FCDFE6004A9C85 /* HomeStartNavigationView.m in Sources */,
 				270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */,
 				270A032223FBC35E00FD4431 /* UserPageRouter.m in Sources */,
 				277F91E123FA83A50055C773 /* UserLoginTypeView.m in Sources */,
 				270A032B23FBD21300FD4431 /* CommonBaseBussiness.m in Sources */,
+				278A754D2403703C005A8994 /* MeetingGatherEntryModel.m in Sources */,
 				277F91DD23FA752D0055C773 /* WechatUtil.m in Sources */,
 				27848FDC23FE6426004729B2 /* VHBaseListViewController.m in Sources */,
 				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
@@ -922,26 +1028,32 @@
 				2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */,
 				277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */,
 				270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */,
+				278A754324036D03005A8994 /* MeetingStartViewController.m in Sources */,
 				270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */,
 				27848FE323FE6BAE004729B2 /* EntryModel.m in Sources */,
 				277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */,
 				27206DB423FD0C93004A9C85 /* VHTableViewCell.m in Sources */,
+				278A755924038019005A8994 /* MeetingEntryModel.m in Sources */,
 				27206DCE23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m in Sources */,
 				270A031C23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m in Sources */,
+				278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */,
 				277F91CE23FA3F980055C773 /* UserLoginStartViewController.m in Sources */,
 				270A032E23FBD3F100FD4431 /* VHCountDownUtil.m in Sources */,
 				277F91D723FA6BA30055C773 /* VHBaseViewController.m in Sources */,
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
 				27848FD923FE6032004729B2 /* ClassifiedMedicalVideosFunction.m in Sources */,
+				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,
 				27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */,
 				27848FE623FE7DC4004729B2 /* VHRefeshStatusHeader.m in Sources */,
 				277F91C623FA3B720055C773 /* UserInfoModel.m in Sources */,
 				27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */,
 				27206DC823FD2B6C004A9C85 /* MedicalVideoClassifyListFunction.m in Sources */,
+				278A7550240370E1005A8994 /* MeetingBussiness.m in Sources */,
 				27848FD323FE3583004729B2 /* MedicalClassifyVideoListViewController.m in Sources */,
 				27206DC223FD25CB004A9C85 /* MedicalVideoPageRouter.m in Sources */,
 				27848FD023FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m in Sources */,
 				277F919223FA274C0055C773 /* main.m in Sources */,
+				278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */,
 				270A030C23FB895500FD4431 /* UserLoginWithWechatFunction.m in Sources */,
 				270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */,
 				277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */,

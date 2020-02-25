@@ -10,6 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, WatermarPosition) {
+    WatermarPosition_TL,
+    WatermarPosition_TR,
+    WatermarPosition_BL,
+    WatermarPosition_BR,
+};
+
 @interface UIView (VHSubviewExt)
 
 #pragma mark - 添加subview
@@ -58,6 +65,11 @@ textSize:(CGFloat) textSize;
 
 - (UIView*) addView:(Class) class;
 - (UIView*) addView:(Class) class frame:(CGRect) frame;
+
+#pragma mark - 添加水印
+- (void) addWatermark:(NSString*) imagename positon:(WatermarPosition) position;
+- (void) addWatermark:(NSString*) imagename positon:(WatermarPosition) position  offset:(CGFloat) offset;
+- (void) removeWatermark;
 @end
 
 NS_ASSUME_NONNULL_END

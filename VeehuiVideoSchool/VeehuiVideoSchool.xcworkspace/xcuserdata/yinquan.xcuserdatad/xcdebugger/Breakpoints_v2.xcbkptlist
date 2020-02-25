@@ -3,22 +3,4 @@
    uuid = "4B559C72-FF12-40DE-A416-02593EFE35AD"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A512F661-7DF9-4AC8-8B59-AF9076AADE96"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VeehuiVideoSchool/&#x7528;&#x6237;&#x6a21;&#x5757;/Bussiness/Functions/UserLoginWithMobileFunction.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-paraserResponse:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

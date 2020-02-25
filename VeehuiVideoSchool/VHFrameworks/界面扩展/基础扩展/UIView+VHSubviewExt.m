@@ -8,6 +8,8 @@
 
 #import "UIView+VHSubviewExt.h"
 
+NSInteger const WatermarkImageViewTag = 0x89B5;
+
 @implementation UIView (VHSubviewExt)
 
 #pragma mark - 添加subview
@@ -129,6 +131,61 @@
     UIView* view = [[class alloc] initWithFrame:frame];
     [self addSubview:view];
     return view;
+}
+
+#pragma mark - 添加水印
+- (void) addWatermark:(NSString*) imagename positon:(WatermarPosition) position{
+    [self addWatermark:imagename positon:position offset:0];
+}
+
+- (void) addWatermark:(NSString*) imagename positon:(WatermarPosition) position  offset:(CGFloat) offset{
+    //删除原有水印
+    UIImageView* watermarkImageView = [self viewWithTag:WatermarkImageViewTag];
+    if (watermarkImageView) {
+        [watermarkImageView removeFromSuperview];
+    }
+    
+    //添加水印
+    watermarkImageView = [self addImageView:imagename];
+    watermarkImageView.tag = WatermarkImageViewTag;
+    //水印布局
+    switch (position) {
+        case WatermarPosition_TL:{
+            [watermarkImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.top.equalTo(self).offset(offset);
+            }];
+            break;
+        }
+        case WatermarPosition_TR:{
+            [watermarkImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self).offset(offset);
+                make.right.equalTo(self).offset(-offset);
+            }];
+            break;
+        }
+        case WatermarPosition_BL:{
+            [watermarkImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self).offset(offset);
+                make.bottom.equalTo(self).offset(-offset);
+            }];
+            break;
+        }
+        case WatermarPosition_BR:{
+            [watermarkImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.right.equalTo(self).offset(-offset);
+            }];
+            break;
+        }
+            
+    }
+    
+}
+
+- (void) removeWatermark{
+    UIImageView* watermarkImageView = [self viewWithTag:WatermarkImageViewTag];
+    if (watermarkImageView) {
+        [watermarkImageView removeFromSuperview];
+    }
 }
 
 @end
