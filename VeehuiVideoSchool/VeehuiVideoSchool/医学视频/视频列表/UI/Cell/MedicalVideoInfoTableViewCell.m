@@ -135,6 +135,12 @@
     self.composerLabel.text = entryModel.medicalVideoComposer;
     
     [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:entryModel.pictureUrl] placeholderImage:[UIImage imageNamed:@"img_default_video_in_table"]];
+    
+    [self.pictureImageView removeWatermark];
+    if (entryModel.isPrice || entryModel.price > 0) {
+        //精品课程
+        [self.pictureImageView addWatermark:@"ic_video_course" positon:WatermarPosition_TL];
+    }
     NSString* watchedNumberString = [NSString formatWithInteger:entryModel.watchingNumber remain:2 unit:@"万"];
     self.watchedNumberLabel.text = watchedNumberString;
 }
