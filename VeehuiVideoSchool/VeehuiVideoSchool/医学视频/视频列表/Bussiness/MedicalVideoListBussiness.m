@@ -10,6 +10,7 @@
 #import "MedicalVideoClassifyListFunction.h"
 #import "MedicalVideoSecondaryClassifyListFunction.h"
 #import "ClassifiedMedicalVideosFunction.h"
+#import "MedicalCourseListFunction.h"
 
 @implementation MedicalVideoListBussiness
 
@@ -40,6 +41,14 @@
                                    result:(VHRequestResultHandler) result
                                  complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[ClassifiedMedicalVideosFunction alloc] initWithCode:code pageNo:pageNo pageSize:pageSize];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadMedicalCourseList:(NSInteger) pageNo
+                           pageSize:(NSInteger) pageSize
+                             result:(VHRequestResultHandler) result
+                           complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[MedicalCourseListFunction alloc] initWithPageNo:pageNo pageSize:pageSize];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

@@ -9,6 +9,7 @@
 #import "MedicalVideoPageRouter.h"
 #import "MedicalVideoStartViewController.h"
 #import "MedicalClassifyVideoListViewController.h"
+#import "MedicalCourseListViewController.h"
 
 @implementation MedicalVideoPageRouter
 
@@ -19,6 +20,11 @@
 
 + (void) entryClassifiedMedicalVideListPage:(MedicalVideoClassifyEntryModel*) classifyModel{
     MedicalClassifyVideoListViewController* controller = [[MedicalClassifyVideoListViewController alloc] initWithClassifyModel:classifyModel];
+    [VHPageRouter entryPageController:controller];
+}
+
++ (void) entryMedicalCourseListPage{
+    VHBaseViewController* controller = [[MedicalCourseListViewController alloc] initWithNibName:nil bundle:nil];
     [VHPageRouter entryPageController:controller];
 }
 

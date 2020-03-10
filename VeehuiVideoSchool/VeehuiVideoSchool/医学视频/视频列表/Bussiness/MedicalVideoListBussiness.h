@@ -36,8 +36,8 @@ startLoadMedicalVideoSecondaryClassify
 startLoadClassifiedMedicalVideos
 按照分类获取视频列表
  @parma code           学科code
- @parma pageNo          学科code
- @parma pageSize        学科页码
+ @parma pageNo          页码
+ @parma pageSize        页大小
  @param result          result 请求数据结果返回回调方法
  @param complete        complete 请求结束回调方法
 */
@@ -46,6 +46,18 @@ startLoadClassifiedMedicalVideos
                                  pageSize:(NSInteger) pageSize
                                    result:(VHRequestResultHandler) result
                                  complete:(VHRequestCompleteHandler) complete;
+/**
+ startLoadMedicalCourseList
+ 精品课程首页获取课程列表
+ @parma pageNo          页码
+ @parma pageSize        页大小
+ @param result          result 请求数据结果返回回调方法
+ @param complete        complete 请求结束回调方法
+ */
++ (void) startLoadMedicalCourseList:(NSInteger) pageNo
+                           pageSize:(NSInteger) pageSize
+                             result:(VHRequestResultHandler) result
+                           complete:(VHRequestCompleteHandler) complete;
 
 @end
 

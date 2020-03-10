@@ -27,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void) entryClassifiedMedicalVideListPage:(MedicalVideoClassifyEntryModel*) classifyModel;
 
+/**
+entryMedicalCourseListPage
+跳转到精品课程首页
+*/
++ (void) entryMedicalCourseListPage;
+
 @end
 
 NS_ASSUME_NONNULL_END

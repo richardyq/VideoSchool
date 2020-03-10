@@ -133,6 +133,11 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             [MedicalVideoPageRouter entryMedicalVideoStartListPage];
             break;
         }
+        case StartGird_Course:{
+            //精品课程
+            [MedicalVideoPageRouter entryMedicalCourseListPage];
+            break;
+        }
         default:
             break;
     }
