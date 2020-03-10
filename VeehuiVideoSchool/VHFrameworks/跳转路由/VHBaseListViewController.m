@@ -37,7 +37,14 @@
     [super updateViewConstraints];
     
     [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.top.bottom.equalTo(self.view);
+        make.centerX.equalTo(self.view);
+        if ([UIDevice currentDevice].isPad) {
+            make.width.equalTo(self.view).multipliedBy(0.7);
+        }
+        else{
+            make.width.equalTo(self.view);
+        }
     }];
 }
 
@@ -125,6 +132,34 @@
     else{
         [self.tableview.mj_footer endRefreshingWithNoMoreData];
     }
+}
+
+#pragma mark
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    CGPoint contentOffset = scrollView.contentOffset;
+    //CGFloat offsetY = scrollView.contentOffset.y;
+    if (!self.tableview.dataSource || ![self.tableview.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        return;
+    }
+    NSInteger topmostSection = NSNotFound;
+    NSInteger sectionCount = [self.tableview.dataSource numberOfSectionsInTableView:self.tableview];
+    for (NSInteger section = 0; section < sectionCount; ++section) {
+        CGRect sectionRect = [self.tableview rectForSection:section];
+        if (CGRectContainsPoint(sectionRect, contentOffset)) {
+            topmostSection = section;
+            break;
+        }
+    }
+    
+    if (topmostSection != NSNotFound) {
+        [self tableviewDidScrollToSection:topmostSection];
+    }
+}
+
+- (void) tableviewDidScrollToSection:(NSInteger) section{
+    
 }
 
 @end

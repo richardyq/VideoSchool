@@ -14,6 +14,7 @@
 #import "UIView+VHBoarderExt.h"
 #import "UIColor+VHStandExt.h"
 #import "UIBarButtonItem+VHKitExt.h"
+#import "UITableView+VHExt.h"
 
 #pragma mark 通用继承类
 #import "VHTableViewCell.h"

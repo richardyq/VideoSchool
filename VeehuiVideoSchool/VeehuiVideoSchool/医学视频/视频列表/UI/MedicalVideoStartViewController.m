@@ -38,13 +38,27 @@
     [super updateViewConstraints];
     
     [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(self.view);
+        make.top.equalTo(self.view);
         make.height.mas_equalTo(@45);
+        make.centerX.equalTo(self.view);
+        if ([UIDevice currentDevice].isPad) {
+            make.width.equalTo(self.view).multipliedBy(0.7);
+        }
+        else{
+            make.width.equalTo(self.view);
+        }
     }];
     
     [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view);
         make.top.equalTo(self.segmentView.mas_bottom);
+        make.centerX.equalTo(self.view);
+        if ([UIDevice currentDevice].isPad) {
+            make.width.equalTo(self.view).multipliedBy(0.7);
+        }
+        else{
+            make.width.equalTo(self.view);
+        }
     }];
 }
 
@@ -81,6 +95,9 @@
         _segmentView = [[SegmentView alloc] initWithNormalFont:[UIFont systemFontOfSize:13] normalColor:[UIColor commonGrayTextColor] highFont:[UIFont systemFontOfSize:15 weight:UIFontWeightMedium] highColor:[UIColor mainThemeColor]];
         [self.view addSubview:_segmentView];
         _segmentView.minSegmentCellWidth = (kScreenWidth / 4.5);
+        if ([UIDevice currentDevice].isPad) {
+            _segmentView.minSegmentCellWidth = (kScreenWidth / 4.5 * 0.7);
+        }
         _segmentView.indicateWidth = 27.5;
         
         WS(weakSelf)
@@ -199,4 +216,29 @@
     [self.listTableView scrollToRow:0 inSection:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    CGPoint contentOffset = scrollView.contentOffset;
+    //CGFloat offsetY = scrollView.contentOffset.y;
+    if (!self.listTableView.dataSource || ![self.listTableView.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        return;
+    }
+    NSInteger topmostSection = NSNotFound;
+    NSInteger sectionCount = [self.listTableView.dataSource numberOfSectionsInTableView:self.listTableView];
+    for (NSInteger section = 0; section < sectionCount; ++section) {
+        CGRect sectionRect = [self.listTableView rectForSection:section];
+        if (CGRectContainsPoint(sectionRect, contentOffset)) {
+            topmostSection = section;
+            break;
+        }
+    }
+    
+    if (topmostSection != NSNotFound) {
+        [self tableviewDidScrollToSection:topmostSection];
+    }
+}
+
+- (void) tableviewDidScrollToSection:(NSInteger) section{
+    [self.segmentView setSelectedIndex:section];
+}
 @end

@@ -54,13 +54,27 @@
     [super updateViewConstraints];
     
     [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(self.view);
+        make.top.equalTo(self.view);
         make.height.mas_equalTo(@45);
+        make.centerX.equalTo(self.view);
+        if ([UIDevice currentDevice].isPad) {
+            make.width.equalTo(self.view).multipliedBy(0.7);
+        }
+        else{
+            make.width.equalTo(self.view);
+        }
     }];
     
     [self.tableview mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view);
         make.top.equalTo(self.segmentView.mas_bottom);
+        make.centerX.equalTo(self.view);
+        if ([UIDevice currentDevice].isPad) {
+            make.width.equalTo(self.view).multipliedBy(0.7);
+        }
+        else{
+            make.width.equalTo(self.view);
+        }
     }];
 }
 
@@ -158,6 +172,9 @@
         _segmentView = [[SegmentView alloc] initWithNormalFont:[UIFont systemFontOfSize:13] normalColor:[UIColor commonGrayTextColor] highFont:[UIFont systemFontOfSize:15 weight:UIFontWeightMedium] highColor:[UIColor mainThemeColor]];
         [self.view addSubview:_segmentView];
         _segmentView.minSegmentCellWidth = (kScreenWidth / 4.5);
+        if ([UIDevice currentDevice].isPad) {
+            _segmentView.minSegmentCellWidth = (kScreenWidth / 4.5 * 0.7);
+        }
         _segmentView.indicateWidth = 27.5;
         WS(weakSelf)
         [_segmentView onSelectedIndexChanged:^(NSInteger index) {
@@ -183,5 +200,9 @@
 //    NSString* subjectCode = self.selectedSubjectModel.code;
 //    [self startLoadMedicalVideoList:subjectCode];
     [self beginRefreshData];
+}
+
+- (void) tableviewDidScrollToSection:(NSInteger) section{
+    //[self.segmentView setSelectedIndex:section];
 }
 @end

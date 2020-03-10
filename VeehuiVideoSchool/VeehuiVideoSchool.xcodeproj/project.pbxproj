@@ -35,6 +35,7 @@
 		27206DCE23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DCD23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m */; };
 		27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DD023FD2E86004A9C85 /* SegmentView.m */; };
 		2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */; };
+		27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 27765B1024172E7100D6A0A5 /* UITableView+VHExt.m */; };
 		277F918123FA274B0055C773 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F918023FA274B0055C773 /* AppDelegate.m */; };
 		277F918C23FA274C0055C773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277F918B23FA274C0055C773 /* Assets.xcassets */; };
 		277F918F23FA274C0055C773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277F918D23FA274C0055C773 /* LaunchScreen.storyboard */; };
@@ -144,6 +145,8 @@
 		27206DD023FD2E86004A9C85 /* SegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		2771A2D523FF7F2E00FCAF7A /* MessageHubUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageHubUtil.h; sourceTree = "<group>"; };
 		2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageHubUtil.m; sourceTree = "<group>"; };
+		27765B0F24172E7100D6A0A5 /* UITableView+VHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+VHExt.h"; sourceTree = "<group>"; };
+		27765B1024172E7100D6A0A5 /* UITableView+VHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+VHExt.m"; sourceTree = "<group>"; };
 		277F917C23FA274B0055C773 /* 微医汇学习.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微医汇学习.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277F917F23FA274B0055C773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		277F918023FA274B0055C773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				277F91BC23FA31A80055C773 /* UIView+VHBoarderExt.m */,
 				277F91BE23FA32410055C773 /* UIColor+VHStandExt.h */,
 				277F91BF23FA32410055C773 /* UIColor+VHStandExt.m */,
+				27765B0F24172E7100D6A0A5 /* UITableView+VHExt.h */,
+				27765B1024172E7100D6A0A5 /* UITableView+VHExt.m */,
 				270A031A23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.h */,
 				270A031B23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m */,
 			);
@@ -1033,6 +1038,7 @@
 				27848FE323FE6BAE004729B2 /* EntryModel.m in Sources */,
 				277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */,
 				27206DB423FD0C93004A9C85 /* VHTableViewCell.m in Sources */,
+				27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */,
 				278A755924038019005A8994 /* MeetingEntryModel.m in Sources */,
 				27206DCE23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m in Sources */,
 				270A031C23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m in Sources */,
@@ -1217,7 +1223,7 @@
 				MARKETING_VERSION = 6.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
 				PRODUCT_NAME = "微医汇学习";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1249,7 +1255,7 @@
 				MARKETING_VERSION = 6.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
 				PRODUCT_NAME = "微医汇学习";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
