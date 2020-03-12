@@ -69,6 +69,17 @@ startLoadMedicalVideoGroupDetail
                                    result:(VHRequestResultHandler) result
                                  complete:(VHRequestCompleteHandler) complete;
 
+/**
+startLoadMedicalGroupOthersVideos
+获取看了本视频的人也在学
+@param groupId         groupId
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadMedicalGroupOthersVideos:(NSInteger) groupId
+                                   sresult:(VHRequestResultHandler) result
+                                  complete:(VHRequestCompleteHandler) complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

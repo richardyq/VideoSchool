@@ -92,7 +92,7 @@
         make.left.equalTo(self.contentView).offset(15);
         make.right.equalTo(self.contentView).offset(-15);
         make.top.equalTo(self.titleLabel.mas_bottom).offset(15.);
-        make.bottom.equalTo(self.contentView).offset(16.);
+        make.bottom.equalTo(self.contentView).offset(-16.);
         make.height.mas_equalTo(@75);
     }];
     

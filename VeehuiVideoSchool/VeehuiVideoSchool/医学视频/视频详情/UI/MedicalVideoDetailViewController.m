@@ -11,11 +11,15 @@
 #import "MedicalVideoGroupDetailEntryModel.h"
 #import "MedicalVideoDetailTitleTableViewCell.h"
 #import "MedicalVideoDetailDirectoryTableViewCell.h"
+#import "MedicalVideoDetailCircleTableViewCell.h"
+#import "MedicalVideoGroupOtherVideoTableViewCell.h"
 #import "VHRefeshStatusHeader.h"
 
 typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
     GroupTitleSection,
     GroupDirectorySection,
+    GroupCircleSection,
+    GroupOthersSection,         //看了本视频的人也在学
     SectionCount,
 };
 
@@ -25,6 +29,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
 @property (nonatomic, strong) VHNavigationBarView* navigationBarView;
 
 @property (nonatomic, strong) MedicalVideoGroupDetailEntryModel* groupDetail;
+@property (nonatomic, strong) NSArray<MedicalVideoEntryModel*>* otherVideoModels;   //其他人也在看
 
 @property (nonatomic, strong) UIView* tableHeaderView;
 @end
@@ -55,10 +60,13 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
     
     self.tableview.mj_header = nil;
     [self startLoadVideoGroupDetal];
+    [self startLoadGroupOtherVideos];
     
     self.tableview.tableHeaderView = self.tableHeaderView;
     [self.tableview registerClass:[MedicalVideoDetailTitleTableViewCell class] forCellReuseIdentifier:[MedicalVideoDetailTitleTableViewCell cellReuseIdentifier]];
     [self.tableview registerClass:[MedicalVideoDetailDirectoryTableViewCell class] forCellReuseIdentifier:[MedicalVideoDetailDirectoryTableViewCell cellReuseIdentifier]];
+    [self.tableview registerClass:[MedicalVideoDetailCircleTableViewCell class] forCellReuseIdentifier:[MedicalVideoDetailCircleTableViewCell cellReuseIdentifier]];
+    [self.tableview registerClass:[MedicalVideoGroupOtherVideoTableViewCell class] forCellReuseIdentifier:[MedicalVideoGroupOtherVideoTableViewCell cellReuseIdentifier]];
 }
 
 - (void) updateViewConstraints{
@@ -111,6 +119,24 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
     }];
 }
 
+- (void) startLoadGroupOtherVideos{
+    WS(weakSelf)
+    [MedicalVideoListBussiness startLoadMedicalGroupOthersVideos:self.groupId sresult:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+            MedicalVideoGroupInfoListModel* listModel = (MedicalVideoGroupInfoListModel*) result;
+            weakSelf.otherVideoModels = listModel.content;
+            [weakSelf.tableview reloadData];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        [MessageHubUtil hideMessage];
+        SAFE_WEAKSELF(weakSelf)
+        if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
+        }
+    }];  
+}
+
 #pragma mark table view data source
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return SectionCount;
@@ -130,6 +156,18 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
             }
             break;
         }
+        case GroupCircleSection:{
+            if (self.groupDetail) {
+                return 1;
+            }
+            break;
+        }
+        case GroupOthersSection:{
+            if (self.otherVideoModels) {
+                return self.otherVideoModels.count;
+            }
+            break;
+        }
         default:
             break;
     }
@@ -144,6 +182,14 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
         }
         case GroupDirectorySection:{
             return [MedicalVideoDetailDirectoryTableViewCell class];
+            break;
+        }
+        case GroupCircleSection:{
+            return [MedicalVideoDetailCircleTableViewCell class];
+            break;
+        }
+        case GroupOthersSection:{
+            return [MedicalVideoGroupOtherVideoTableViewCell class];
             break;
         }
         default:
@@ -165,6 +211,16 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
             [directoryeCell setEntryModel:self.groupDetail];
             break;
         }
+        case GroupCircleSection:{
+            MedicalVideoDetailCircleTableViewCell* circleCell = (MedicalVideoDetailCircleTableViewCell*) cell;
+            [circleCell setEntryModel:self.groupDetail.circleInfo];
+            break;
+        }
+        case GroupOthersSection:{
+            MedicalVideoGroupOtherVideoTableViewCell* videoCell = (MedicalVideoGroupOtherVideoTableViewCell*) cell;
+            [videoCell setEntryModel:self.otherVideoModels[indexPath.row]];
+            break;
+        }
         default:
             break;
     }
@@ -173,19 +229,55 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
 }
 
 #pragma mark - table view delegate
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat) headerViewHeight:(NSInteger) section {
     switch (section) {
-        
+        case GroupOthersSection:{
+            return 60.;
+            break;
+        }
         default:
             break;
     }
     return 0;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return [self headerViewHeight:section];
+}
+
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    CGFloat tableWidth = kScreenWidth;
+    if ([UIDevice currentDevice].isPad) {
+        tableWidth = kScreenWidth * 0.7;
+    }
+    CGFloat headerHeight = [self headerViewHeight:section];
+    if (headerHeight == 0) {
+        return nil;
+    }
+    UIView* headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableWidth, [self headerViewHeight:section])];
+    headerview.backgroundColor = [UIColor whiteColor];
+    switch (section) {
+        case GroupOthersSection:{
+            UILabel* titleLabel = [headerview addLabel:[UIColor commonTextColor] textSize:16];
+            titleLabel.text = @"看了本视频的人也在学";
+            titleLabel.font = [UIFont boldSystemFontOfSize:16];
+            [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(headerview);
+                make.left.equalTo(headerview).offset(15.);
+            }];
+            break;
+        }
+        default:
+            break;
+    }
+    return headerview;
+}
+
 #pragma mark table view footer view
 - (CGFloat) footerViewHeight:(NSInteger) section{
     switch (section) {
         case GroupDirectorySection:
+        case GroupCircleSection:
             if (self.groupDetail && self.groupDetail.medicalVideoItems.count > 1) {
                 return 5.;
             }

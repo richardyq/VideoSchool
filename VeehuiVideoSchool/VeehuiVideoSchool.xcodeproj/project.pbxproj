@@ -91,6 +91,10 @@
 		27AA910C2419C56F004D93F2 /* MedicalVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA910B2419C56E004D93F2 /* MedicalVideoDetailViewController.m */; };
 		27AA91102419C819004D93F2 /* MedicalVideoDetailTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA910F2419C819004D93F2 /* MedicalVideoDetailTitleTableViewCell.m */; };
 		27AA91132419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA91122419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m */; };
+		27AA9118241A0629004D93F2 /* CircleInfoEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA9117241A0629004D93F2 /* CircleInfoEntryModel.m */; };
+		27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA911A241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m */; };
+		27AA911E241A1778004D93F2 /* MedicalGroupOthersFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA911D241A1777004D93F2 /* MedicalGroupOthersFunction.m */; };
+		27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */; };
 		4349556A26761D4D3C13D144 /* Pods_VeehuiVideoSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */; };
 /* End PBXBuildFile section */
 
@@ -266,6 +270,14 @@
 		27AA910F2419C819004D93F2 /* MedicalVideoDetailTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoDetailTitleTableViewCell.m; sourceTree = "<group>"; };
 		27AA91112419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoDetailDirectoryTableViewCell.h; sourceTree = "<group>"; };
 		27AA91122419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoDetailDirectoryTableViewCell.m; sourceTree = "<group>"; };
+		27AA9116241A0629004D93F2 /* CircleInfoEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleInfoEntryModel.h; sourceTree = "<group>"; };
+		27AA9117241A0629004D93F2 /* CircleInfoEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleInfoEntryModel.m; sourceTree = "<group>"; };
+		27AA9119241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoDetailCircleTableViewCell.h; sourceTree = "<group>"; };
+		27AA911A241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoDetailCircleTableViewCell.m; sourceTree = "<group>"; };
+		27AA911C241A1777004D93F2 /* MedicalGroupOthersFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalGroupOthersFunction.h; sourceTree = "<group>"; };
+		27AA911D241A1777004D93F2 /* MedicalGroupOthersFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalGroupOthersFunction.m; sourceTree = "<group>"; };
+		27AA911F241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoGroupOtherVideoTableViewCell.h; sourceTree = "<group>"; };
+		27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoGroupOtherVideoTableViewCell.m; sourceTree = "<group>"; };
 		780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeehuiVideoSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB649F237B87A9872CF9CF0A /* Pods-VeehuiVideoSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeehuiVideoSchool.release.xcconfig"; path = "Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -500,6 +512,8 @@
 				27765B1624173EB800D6A0A5 /* MedicalCourseListFunction.m */,
 				27AA259E2418BE7000D31AA4 /* MedicalGroupDetailFunction.h */,
 				27AA259F2418BE7000D31AA4 /* MedicalGroupDetailFunction.m */,
+				27AA911C241A1777004D93F2 /* MedicalGroupOthersFunction.h */,
+				27AA911D241A1777004D93F2 /* MedicalGroupOthersFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -545,6 +559,7 @@
 				278A753B24036C8E005A8994 /* 学术会议 */,
 				27206DBA23FD25B5004A9C85 /* 医学视频 */,
 				27206D9523FCD61D004A9C85 /* 主页面 */,
+				27AA9114241A060E004D93F2 /* 圈子 */,
 				277F91C223FA396B0055C773 /* 用户模块 */,
 				277F919B23FA2B750055C773 /* 初始化 */,
 				277F917F23FA274B0055C773 /* AppDelegate.h */,
@@ -950,8 +965,29 @@
 				27AA910F2419C819004D93F2 /* MedicalVideoDetailTitleTableViewCell.m */,
 				27AA91112419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.h */,
 				27AA91122419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m */,
+				27AA9119241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.h */,
+				27AA911A241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m */,
+				27AA911F241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.h */,
+				27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		27AA9114241A060E004D93F2 /* 圈子 */ = {
+			isa = PBXGroup;
+			children = (
+				27AA9115241A060E004D93F2 /* DataModel */,
+			);
+			path = "圈子";
+			sourceTree = "<group>";
+		};
+		27AA9115241A060E004D93F2 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				27AA9116241A0629004D93F2 /* CircleInfoEntryModel.h */,
+				27AA9117241A0629004D93F2 /* CircleInfoEntryModel.m */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		9D009C4286473EC2B54EF355 /* Pods */ = {
@@ -1093,6 +1129,7 @@
 				278A754D2403703C005A8994 /* MeetingGatherEntryModel.m in Sources */,
 				277F91DD23FA752D0055C773 /* WechatUtil.m in Sources */,
 				27848FDC23FE6426004729B2 /* VHBaseListViewController.m in Sources */,
+				27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */,
 				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
 				27AA25A92418CE0100D31AA4 /* MedicalVideoEntryModel.m in Sources */,
 				27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */,
@@ -1103,6 +1140,7 @@
 				27206DCB23FD2BE8004A9C85 /* MedicalVideoListBussiness.m in Sources */,
 				270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */,
 				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
+				27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */,
 				27206DA623FCDF76004A9C85 /* HomeStartViewController.m in Sources */,
 				277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */,
 				277F918123FA274B0055C773 /* AppDelegate.m in Sources */,
@@ -1128,6 +1166,7 @@
 				277F91D723FA6BA30055C773 /* VHBaseViewController.m in Sources */,
 				27AA25A32418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m in Sources */,
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
+				27AA911E241A1778004D93F2 /* MedicalGroupOthersFunction.m in Sources */,
 				27848FD923FE6032004729B2 /* ClassifiedMedicalVideosFunction.m in Sources */,
 				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,
 				27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */,
@@ -1137,6 +1176,7 @@
 				27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */,
 				27206DC823FD2B6C004A9C85 /* MedicalVideoClassifyListFunction.m in Sources */,
 				278A7550240370E1005A8994 /* MeetingBussiness.m in Sources */,
+				27AA9118241A0629004D93F2 /* CircleInfoEntryModel.m in Sources */,
 				27848FD323FE3583004729B2 /* MedicalClassifyVideoListViewController.m in Sources */,
 				27206DC223FD25CB004A9C85 /* MedicalVideoPageRouter.m in Sources */,
 				27848FD023FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m in Sources */,

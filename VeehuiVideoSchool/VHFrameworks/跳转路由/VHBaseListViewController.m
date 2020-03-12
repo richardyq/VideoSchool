@@ -100,7 +100,7 @@
 }
 
 - (EntryModel*) entryModel:(NSIndexPath*) indexPath{
-    if (self.models.count > 0 && self.models.count < indexPath.row) {
+    if (self.models.count > 0 && self.models.count > indexPath.row) {
         return self.models[indexPath.row];
     }
     return nil;

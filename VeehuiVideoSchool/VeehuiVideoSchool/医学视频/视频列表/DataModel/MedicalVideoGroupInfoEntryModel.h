@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CircleInfoEntryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* circleName;
 @property (nonatomic) NSInteger circleId;
+@property (nonatomic, strong) CircleInfoEntryModel*  circleInfo;        //圈子信息
 
 @property (nonatomic) NSInteger watchingNumber;
 @property (nonatomic) NSInteger vdCount;

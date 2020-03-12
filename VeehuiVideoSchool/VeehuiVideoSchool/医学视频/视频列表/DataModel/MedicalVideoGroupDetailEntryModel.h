@@ -8,6 +8,7 @@
 
 #import "MedicalVideoGroupInfoEntryModel.h"
 #import "MedicalVideoEntryModel.h"
+#import "CircleInfoEntryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* desc;
 @property (nonatomic, strong) NSString* noteToBuy;      //购买须知
-
+@property (nonatomic, strong) CircleInfoEntryModel*  circleInfo;        //圈子信息
 @property (nonatomic, strong) NSArray<MedicalVideoEntryModel*>* medicalVideoItems;
 
 @end

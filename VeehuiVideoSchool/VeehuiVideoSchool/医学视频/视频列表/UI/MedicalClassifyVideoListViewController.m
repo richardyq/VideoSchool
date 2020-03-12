@@ -79,7 +79,7 @@
     }];
 }
 
-- (Class) tableViewCellClass{
+- (Class) tableViewCellClass:(NSIndexPath *)indexPath{
     return [MedicalVideoInfoTableViewCell class];
 }
 
