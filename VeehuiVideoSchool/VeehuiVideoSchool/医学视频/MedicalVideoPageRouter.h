@@ -33,6 +33,13 @@ entryMedicalCourseListPage
 */
 + (void) entryMedicalCourseListPage;
 
+/**
+ entryMedicalVideoDetailPage
+ 跳转到医学视频详情页面
+ @param  groupId   视频组id
+ */
++ (void) entryMedicalVideoDetailPage:(NSInteger) groupId;
+
 @end
 
 NS_ASSUME_NONNULL_END

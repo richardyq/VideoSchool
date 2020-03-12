@@ -11,6 +11,7 @@
 #import "MedicalVideoSecondaryClassifyListFunction.h"
 #import "ClassifiedMedicalVideosFunction.h"
 #import "MedicalCourseListFunction.h"
+#import "MedicalGroupDetailFunction.h"
 
 @implementation MedicalVideoListBussiness
 
@@ -49,6 +50,13 @@
                              result:(VHRequestResultHandler) result
                            complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[MedicalCourseListFunction alloc] initWithPageNo:pageNo pageSize:pageSize];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadMedicalVideoGroupDetail:(NSInteger) groupId
+                                   result:(VHRequestResultHandler) result
+                       complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[MedicalGroupDetailFunction alloc] initWithGroupId:groupId];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

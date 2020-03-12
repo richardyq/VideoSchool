@@ -70,6 +70,8 @@ textSize:(CGFloat) textSize;
 - (void) addWatermark:(NSString*) imagename positon:(WatermarPosition) position;
 - (void) addWatermark:(NSString*) imagename positon:(WatermarPosition) position  offset:(CGFloat) offset;
 - (void) removeWatermark;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

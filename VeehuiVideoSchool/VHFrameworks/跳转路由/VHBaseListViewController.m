@@ -78,12 +78,12 @@
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell = [self tableViewCell:[self tableViewCellClass] indexPath:indexPath];
+    UITableViewCell* cell = [self tableViewCell:[self tableViewCellClass:indexPath] indexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
-- (Class) tableViewCellClass{
+- (Class) tableViewCellClass:(NSIndexPath *)indexPath{
     return [VHTableViewCell class];
 }
 
@@ -93,10 +93,17 @@
         [class isKindOfClass:[VHTableViewCell class]]) {
         NSString* cellReuseIdentifier = [class cellReuseIdentifier];
         cell = [self.tableview dequeueReusableCellWithIdentifier:cellReuseIdentifier];
-        [cell setEntryModel:self.models[indexPath.row]];
+        [cell setEntryModel:[self entryModel:indexPath]];
     }
     
     return cell;
+}
+
+- (EntryModel*) entryModel:(NSIndexPath*) indexPath{
+    if (self.models.count > 0 && self.models.count < indexPath.row) {
+        return self.models[indexPath.row];
+    }
+    return nil;
 }
 
 #pragma mark - 分页刷新

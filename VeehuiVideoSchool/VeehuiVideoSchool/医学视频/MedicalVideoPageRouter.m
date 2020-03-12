@@ -10,6 +10,7 @@
 #import "MedicalVideoStartViewController.h"
 #import "MedicalClassifyVideoListViewController.h"
 #import "MedicalCourseListViewController.h"
+#import "MedicalVideoDetailViewController.h"
 
 @implementation MedicalVideoPageRouter
 
@@ -28,4 +29,8 @@
     [VHPageRouter entryPageController:controller];
 }
 
++ (void) entryMedicalVideoDetailPage:(NSInteger) groupId{
+    VHBaseViewController* controller = [[MedicalVideoDetailViewController alloc] initWithVideoGroupId:groupId];
+    [VHPageRouter entryPageController:controller];
+}
 @end

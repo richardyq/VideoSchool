@@ -9,9 +9,10 @@
 #import "MedicalClassifyVideoListViewController.h"
 #import "MedicalVideoListBussiness.h"
 #import "MedicalVideoInfoTableViewCell.h"
+#import "MedicalVideoPageRouter.h"
 
 @interface MedicalClassifyVideoListViewController ()
-
+<UITableViewDelegate>
 @property (nonatomic, readonly) MedicalVideoClassifyEntryModel* classifyModel;
 //二级学科分类
 @property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* secondClassifies;
@@ -204,5 +205,13 @@
 
 - (void) tableviewDidScrollToSection:(NSInteger) section{
     //[self.segmentView setSelectedIndex:section];
+}
+
+#pragma mark - table view delegate
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MedicalVideoGroupInfoEntryModel* groupEntry = (MedicalVideoGroupInfoEntryModel*)self.models[indexPath.row];
+    //跳转到视频详情页面
+    [MedicalVideoPageRouter entryMedicalVideoDetailPage:groupEntry.id];
+    
 }
 @end

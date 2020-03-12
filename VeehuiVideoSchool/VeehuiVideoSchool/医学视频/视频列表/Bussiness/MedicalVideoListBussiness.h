@@ -58,6 +58,16 @@ startLoadClassifiedMedicalVideos
                            pageSize:(NSInteger) pageSize
                              result:(VHRequestResultHandler) result
                            complete:(VHRequestCompleteHandler) complete;
+/**
+startLoadMedicalVideoGroupDetail
+获取医学视频详情
+@param groupId         groupId
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadMedicalVideoGroupDetail:(NSInteger) groupId
+                                   result:(VHRequestResultHandler) result
+                                 complete:(VHRequestCompleteHandler) complete;
 
 @end
 

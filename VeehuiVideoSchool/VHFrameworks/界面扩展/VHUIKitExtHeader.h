@@ -15,6 +15,7 @@
 #import "UIColor+VHStandExt.h"
 #import "UIBarButtonItem+VHKitExt.h"
 #import "UITableView+VHExt.h"
+#import "UILabel+VHExt.h"
 
 #pragma mark 通用继承类
 #import "VHTableViewCell.h"
@@ -22,5 +23,6 @@
 #pragma mark 自定义控件
 #import "VHGridItemControl.h"
 #import "SegmentView.h"
+#import "VHNavigationBarView.h"
 
 #endif /* VHUIKitExtHeader_h */

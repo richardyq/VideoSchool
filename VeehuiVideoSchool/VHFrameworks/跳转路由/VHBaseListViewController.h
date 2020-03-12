@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) refreshCommandEnd:(NSInteger) pageNo totalPage:(NSInteger) totalPage;
 
+- (VHTableViewCell*) tableViewCell:(Class) class indexPath:(NSIndexPath*) indexPath;
 @end
 
 NS_ASSUME_NONNULL_END

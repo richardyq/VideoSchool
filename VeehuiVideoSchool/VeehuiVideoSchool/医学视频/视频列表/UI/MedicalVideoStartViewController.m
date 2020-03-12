@@ -188,6 +188,12 @@
     return footerview;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MedicalVideoClassifyEntryModel* classifyModel = self.videoClassifies[indexPath.section];
+    MedicalVideoGroupInfoEntryModel* groupModel = classifyModel.medicalVideos[indexPath.row];
+    [MedicalVideoPageRouter entryMedicalVideoDetailPage:groupModel.id];
+}
+
 #pragma mark - more button event
 - (void) classifyMoreButtonClicked:(id) sender{
     UIButton* moreButton = (UIButton*) sender;

@@ -31,6 +31,15 @@
     return [NSString stringWithFormat:@"%@/v3/umv/mvgRecommended/%ld/%ld", kURL_BASE_NEWDOMAIN, self.pageNo, self.pageSize];
 }
 
+- (NSDictionary*) reqeustDictionary{
+    NSMutableDictionary *dict=[NSMutableDictionary dictionary];
+    
+    [dict setValue:@(self.pageNo) forKey:@"pageNo"];
+    [dict setValue:@(self.pageSize) forKey:@"pageSize"];
+    
+    return dict;
+}
+
 - (id) paraserResponse:(id) response{
     if (response && [response isKindOfClass:[NSDictionary class]]) {
         return [MedicalVideoGroupInfoListModel mj_objectWithKeyValues:response];
