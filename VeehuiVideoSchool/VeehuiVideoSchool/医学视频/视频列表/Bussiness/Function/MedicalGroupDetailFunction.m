@@ -51,6 +51,19 @@
         }];
         groupDetailModel.medicalVideoItems = videoModels;
         
+        //currentMedicalVideoItem 当前播放视频
+        NSDictionary* currentdict = [groupDict valueForKey:@"currentMedicalVideoItem"];
+        if (!currentdict) {
+            groupDetailModel.currentMedicalVideoItem = [videoModels firstObject];
+        }
+        else{
+            
+            NSMutableDictionary* videoDict = [NSMutableDictionary dictionaryWithDictionary:currentdict];
+            NSDictionary* videoInfoDict = [currentdict valueForKey:@"videoInfo"];
+            [videoDict addEntriesFromDictionary:videoInfoDict];
+            groupDetailModel.currentMedicalVideoItem = [MedicalVideoEntryModel mj_objectWithKeyValues:videoDict];
+        }
+        
         return groupDetailModel;
     }
     return nil;

@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
 };
 
 @interface MedicalVideoDetailViewController ()
-<UITableViewDelegate>
+<UITableViewDelegate, MedicalVideoDirectoryDelegate>
 @property (nonatomic, readonly) NSInteger groupId;
 @property (nonatomic, strong) VHNavigationBarView* navigationBarView;
 
@@ -32,11 +32,11 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
 @property (nonatomic, strong) NSArray<MedicalVideoEntryModel*>* otherVideoModels;   //其他人也在看
 
 @property (nonatomic, strong) UIView* tableHeaderView;
+
 @end
 
-
-
 @implementation MedicalVideoDetailViewController
+@synthesize playerModel = _playerModel;
 
 - (id) initWithVideoGroupId:(NSInteger) groupId{
     self = [super init];
@@ -109,6 +109,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
         if ([result isKindOfClass:[MedicalVideoGroupDetailEntryModel class]]) {
             weakSelf.groupDetail = result;
             [weakSelf.tableview reloadData];
+            [weakSelf videoGroupDetailLoaded];
         }
     } complete:^(NSInteger code, NSString *message) {
         [MessageHubUtil hideMessage];
@@ -117,6 +118,25 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
             [MessageHubUtil showErrorMessage:message];
         }
     }];
+}
+
+- (void) videoGroupDetailLoaded{
+    if (!self.groupDetail.currentMedicalVideoItem) {
+        return;
+    }
+    _playerModel = [[VideoPlayerModel alloc] init];
+
+    self.playerModel.title = self.groupDetail.currentMedicalVideoItem.title;
+    self.playerModel.startPosition = self.groupDetail.currentMedicalVideoItem.currentTime;
+    //默认播放地址
+    self.playerModel.playerUrl = self.groupDetail.currentMedicalVideoItem.hdUrl;
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    
+    if (manager.networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWWAN) { //非wifi
+        self.playerModel.playerUrl = self.groupDetail.currentMedicalVideoItem.hdUrl;
+    }
+    //初始化播放器
+    [[VideoPlayerUtil shareInstance] setupPlayerModel:self.playerModel];
 }
 
 - (void) startLoadGroupOtherVideos{
@@ -209,6 +229,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
         case GroupDirectorySection:{
             MedicalVideoDetailDirectoryTableViewCell* directoryeCell = (MedicalVideoDetailDirectoryTableViewCell*) cell;
             [directoryeCell setEntryModel:self.groupDetail];
+            directoryeCell.delegate = self;
             break;
         }
         case GroupCircleSection:{
@@ -305,6 +326,35 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
     UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableWidth, [self footerViewHeight:section])];
     footerView.backgroundColor = [UIColor commonBackgroundColor];
     return footerView;
+}
+
+#pragma mark  MedicalVideoDirectoryDelegate
+- (void) medicalVideoDirectoryChanged:(NSInteger) index{
+    if (index == self.groupDetail.currentPlayIndex) {
+        return;
+    }
+    
+    self.groupDetail.medicalVideoItems[self.groupDetail.currentPlayIndex].currentTime = self.playerModel.startPosition;
+    
+    self.groupDetail.currentPlayIndex = index;
+    self.groupDetail.currentMedicalVideoItem = self.groupDetail.medicalVideoItems[index];
+    
+    //重新初始化播放器
+    
+    _playerModel = [[VideoPlayerModel alloc] init];
+
+    self.playerModel.title = self.groupDetail.currentMedicalVideoItem.title;
+    self.playerModel.startPosition = self.groupDetail.currentMedicalVideoItem.currentTime;
+    //默认播放地址
+    self.playerModel.playerUrl = self.groupDetail.currentMedicalVideoItem.hdUrl;
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    
+    if (manager.networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWWAN) { //非wifi
+        self.playerModel.playerUrl = self.groupDetail.currentMedicalVideoItem.hdUrl;
+    }
+    //初始化播放器
+    
+    [[VideoPlayerUtil shareInstance] setupPlayerModel:self.playerModel];
 }
 
 @end

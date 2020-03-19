@@ -18,4 +18,5 @@
 
 #import "VHRequestHeader.h"
 
+#import "AliPlayerHeader.h"
 #endif /* VHFramework_h */

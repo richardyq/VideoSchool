@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
                          remain:(NSInteger) remain
                            unit:(NSString*) unit;
 
++ (NSString*) stringWithDuration:(NSInteger) duration;
+
 @end
 
 NS_ASSUME_NONNULL_END

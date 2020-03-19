@@ -67,6 +67,16 @@
     return _speakerLabel;
 }
 
+- (void) setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    UIColor* textColor = [UIColor commonTextColor];
+    if (selected) {
+        textColor = [UIColor mainThemeColor];
+    }
+    self.titleLabel.textColor = textColor;
+    self.speakerLabel.textColor = textColor;
+}
+
 @end
 
 @interface MedicalVideoDetailDirectoryTableViewCell ()
@@ -137,10 +147,30 @@
         [self.scrollview addSubview:directoryCell];
         directoryCell.frame = CGRectMake((168 * idx), 0, 160, 75);
         [self.directoryCells addObject:directoryCell];
+        
+        directoryCell.selected = (groupDetal.currentPlayIndex == idx);
+        
+        [directoryCell addTarget:self action:@selector(directoryCellClicked:) forControlEvents:UIControlEventTouchUpInside];
     }];
     
     CGFloat lastCellRight = self.directoryCells.lastObject.right;
     [self.scrollview setContentSize:CGSizeMake(lastCellRight, 75)];
 }
 
+#pragma mark - clicked event
+- (void) directoryCellClicked:(MedicalVideoDetailDirectoryCell*) directoryCell{
+    __block NSInteger index = NSNotFound;
+    [self.directoryCells enumerateObjectsUsingBlock:^(MedicalVideoDetailDirectoryCell * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
+        cell.selected = (cell == directoryCell);
+        if (cell == directoryCell) {
+            index = idx;
+        }
+    }];
+    
+    if (index != NSNotFound) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(medicalVideoDirectoryChanged:)]) {
+            [self.delegate medicalVideoDirectoryChanged:index];
+        }
+    }
+}
 @end

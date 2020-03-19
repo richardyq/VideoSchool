@@ -20,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSInteger currentTime;
 @property (nonatomic) NSInteger duration;
+
+//视频播放地址
+@property (nonatomic, strong) NSString* ldUrl;
+@property (nonatomic, strong) NSString* sdUrl;
+@property (nonatomic, strong) NSString* hdUrl;
+@property (nonatomic, strong) NSString* fhdUrl;         //1080P
 @end
 
 NS_ASSUME_NONNULL_END

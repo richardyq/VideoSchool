@@ -6,11 +6,12 @@
 //  Copyright © 2020 殷全. All rights reserved.
 //
 
-#import "VHBaseListViewController.h"
+#import "MedicalVideoPlayerViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MedicalVideoDetailViewController : VHBaseListViewController
+
+@interface MedicalVideoDetailViewController : MedicalVideoPlayerViewController
 
 - (id) initWithVideoGroupId:(NSInteger) groupId;
 

@@ -61,4 +61,16 @@
     
     return numberString;
 }
+
++ (NSString*) stringWithDuration:(NSInteger) duration{
+    NSInteger second = duration % 60;
+    NSInteger minute = (duration / 60) % 60;
+    NSInteger hour = (duration / 3600) % 60;
+    
+    NSString* durationString = [NSString stringWithFormat:@"%02zd:%02zd", minute, second];
+    if (hour > 0) {
+        durationString = [NSString stringWithFormat:@"%02zd:%02zd:%02zd", hour, minute, second];
+    }
+    return durationString;
+}
 @end

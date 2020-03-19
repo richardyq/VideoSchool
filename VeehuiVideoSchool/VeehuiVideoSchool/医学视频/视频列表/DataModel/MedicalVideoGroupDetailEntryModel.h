@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString* noteToBuy;      //购买须知
 @property (nonatomic, strong) CircleInfoEntryModel*  circleInfo;        //圈子信息
 @property (nonatomic, strong) NSArray<MedicalVideoEntryModel*>* medicalVideoItems;
+//currentMedicalVideoItem 当前正在播放的视频Item
+@property (nonatomic, strong) MedicalVideoEntryModel* currentMedicalVideoItem;
+
+@property (nonatomic) NSInteger currentPlayIndex;       //当前播放item 的index
 
 @end
 

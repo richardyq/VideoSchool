@@ -7,10 +7,13 @@
 //
 
 #import "VHTableViewCell.h"
+#import "MedicalVideoDirectoryDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MedicalVideoDetailDirectoryTableViewCell : VHTableViewCell
+
+@property (nonatomic, weak) id<MedicalVideoDirectoryDelegate> delegate;
 
 @end
 

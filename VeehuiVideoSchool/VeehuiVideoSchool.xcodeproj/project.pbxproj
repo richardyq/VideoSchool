@@ -62,9 +62,6 @@
 		277F91F923FA9BA70055C773 /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91E823FA9BA70055C773 /* UMSocialNetwork.framework */; };
 		277F91FA23FA9BA70055C773 /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 277F91E923FA9BA70055C773 /* UMSocialSDKPromptResources.bundle */; };
 		277F91FB23FA9BA70055C773 /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91EA23FA9BA70055C773 /* UMSocialCore.framework */; };
-		277F91FC23FA9BA70055C773 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91ED23FA9BA70055C773 /* libSocialWeChat.a */; };
-		277F91FD23FA9BA70055C773 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 277F91F223FA9BA70055C773 /* README.txt */; };
-		277F91FE23FA9BA70055C773 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91F423FA9BA70055C773 /* libWeChatSDK.a */; };
 		277F91FF23FA9BA70055C773 /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277F91F623FA9BA70055C773 /* libUMSocialLog.a */; };
 		27848FCD23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FCC23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m */; };
 		27848FD023FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FCF23FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m */; };
@@ -95,7 +92,15 @@
 		27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA911A241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m */; };
 		27AA911E241A1778004D93F2 /* MedicalGroupOthersFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA911D241A1777004D93F2 /* MedicalGroupOthersFunction.m */; };
 		27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */; };
-		4349556A26761D4D3C13D144 /* Pods_VeehuiVideoSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */; };
+		27AC9F7A2420CD39008B2698 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC9F722420CD39008B2698 /* libSocialWeChat.a */; };
+		27AC9F7B2420CD39008B2698 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27AC9F772420CD39008B2698 /* README.txt */; };
+		27AC9F7C2420CD39008B2698 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC9F792420CD39008B2698 /* libWeChatSDK.a */; };
+		27AC9F812421EC6D008B2698 /* VideoPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AC9F802421EC6D008B2698 /* VideoPlayerModel.m */; };
+		27AC9F852421F321008B2698 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AC9F842421F321008B2698 /* VideoPlayerView.m */; };
+		27AC9F892421F5D6008B2698 /* MedicalVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AC9F882421F5D6008B2698 /* MedicalVideoPlayerViewController.m */; };
+		27AC9F8C2421FDAD008B2698 /* VideoPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AC9F8B2421FDAD008B2698 /* VideoPlayerUtil.m */; };
+		27AC9F9024221DDD008B2698 /* VideoPlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AC9F8F24221DDD008B2698 /* VideoPlayerControl.m */; };
+		9E3F936E556E699CD7815883 /* libPods-VeehuiVideoSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB413094AB34F044A5CD3E68 /* libPods-VeehuiVideoSchool.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,13 +217,6 @@
 		277F91E823FA9BA70055C773 /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
 		277F91E923FA9BA70055C773 /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
 		277F91EA23FA9BA70055C773 /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialCore.framework; sourceTree = "<group>"; };
-		277F91ED23FA9BA70055C773 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
-		277F91EE23FA9BA70055C773 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
-		277F91F023FA9BA70055C773 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		277F91F123FA9BA70055C773 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		277F91F223FA9BA70055C773 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		277F91F323FA9BA70055C773 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		277F91F423FA9BA70055C773 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		277F91F623FA9BA70055C773 /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
 		27848FCB23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoInfoTableViewCell.h; sourceTree = "<group>"; };
 		27848FCC23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoInfoTableViewCell.m; sourceTree = "<group>"; };
@@ -278,8 +276,27 @@
 		27AA911D241A1777004D93F2 /* MedicalGroupOthersFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalGroupOthersFunction.m; sourceTree = "<group>"; };
 		27AA911F241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoGroupOtherVideoTableViewCell.h; sourceTree = "<group>"; };
 		27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoGroupOtherVideoTableViewCell.m; sourceTree = "<group>"; };
-		780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeehuiVideoSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27AC9F722420CD39008B2698 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
+		27AC9F732420CD39008B2698 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		27AC9F752420CD39008B2698 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		27AC9F762420CD39008B2698 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		27AC9F772420CD39008B2698 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		27AC9F782420CD39008B2698 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		27AC9F792420CD39008B2698 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		27AC9F7F2421EC6D008B2698 /* VideoPlayerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerModel.h; sourceTree = "<group>"; };
+		27AC9F802421EC6D008B2698 /* VideoPlayerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerModel.m; sourceTree = "<group>"; };
+		27AC9F832421F321008B2698 /* VideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerView.h; sourceTree = "<group>"; };
+		27AC9F842421F321008B2698 /* VideoPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerView.m; sourceTree = "<group>"; };
+		27AC9F862421F339008B2698 /* AliPlayerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AliPlayerHeader.h; sourceTree = "<group>"; };
+		27AC9F872421F5D6008B2698 /* MedicalVideoPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoPlayerViewController.h; sourceTree = "<group>"; };
+		27AC9F882421F5D6008B2698 /* MedicalVideoPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoPlayerViewController.m; sourceTree = "<group>"; };
+		27AC9F8A2421FDAD008B2698 /* VideoPlayerUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerUtil.h; sourceTree = "<group>"; };
+		27AC9F8B2421FDAD008B2698 /* VideoPlayerUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerUtil.m; sourceTree = "<group>"; };
+		27AC9F8D2422151D008B2698 /* MedicalVideoDirectoryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoDirectoryDelegate.h; sourceTree = "<group>"; };
+		27AC9F8E24221DDD008B2698 /* VideoPlayerControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerControl.h; sourceTree = "<group>"; };
+		27AC9F8F24221DDD008B2698 /* VideoPlayerControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerControl.m; sourceTree = "<group>"; };
 		AB649F237B87A9872CF9CF0A /* Pods-VeehuiVideoSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeehuiVideoSchool.release.xcconfig"; path = "Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool.release.xcconfig"; sourceTree = "<group>"; };
+		FB413094AB34F044A5CD3E68 /* libPods-VeehuiVideoSchool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VeehuiVideoSchool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,13 +304,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27AC9F7C2420CD39008B2698 /* libWeChatSDK.a in Frameworks */,
 				277F91FB23FA9BA70055C773 /* UMSocialCore.framework in Frameworks */,
-				277F91FC23FA9BA70055C773 /* libSocialWeChat.a in Frameworks */,
-				277F91FE23FA9BA70055C773 /* libWeChatSDK.a in Frameworks */,
 				277F91F823FA9BA70055C773 /* UShareUI.framework in Frameworks */,
 				277F91FF23FA9BA70055C773 /* libUMSocialLog.a in Frameworks */,
-				4349556A26761D4D3C13D144 /* Pods_VeehuiVideoSchool.framework in Frameworks */,
+				27AC9F7A2420CD39008B2698 /* libSocialWeChat.a in Frameworks */,
 				277F91F923FA9BA70055C773 /* UMSocialNetwork.framework in Frameworks */,
+				9E3F936E556E699CD7815883 /* libPods-VeehuiVideoSchool.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +320,7 @@
 		0AD3F9F39658FF2A3D1DC417 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				780AF1A8D362A7EBEDB63EAB /* Pods_VeehuiVideoSchool.framework */,
+				FB413094AB34F044A5CD3E68 /* libPods-VeehuiVideoSchool.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -556,6 +573,7 @@
 		277F917E23FA274B0055C773 /* VeehuiVideoSchool */ = {
 			isa = PBXGroup;
 			children = (
+				27AC9F7D2421EC42008B2698 /* 播放器 */,
 				278A753B24036C8E005A8994 /* 学术会议 */,
 				27206DBA23FD25B5004A9C85 /* 医学视频 */,
 				27206D9523FCD61D004A9C85 /* 主页面 */,
@@ -806,31 +824,11 @@
 		277F91EB23FA9BA70055C773 /* SocialLibraries */ = {
 			isa = PBXGroup;
 			children = (
-				277F91EC23FA9BA70055C773 /* WeChat */,
+				27AC9F722420CD39008B2698 /* libSocialWeChat.a */,
+				27AC9F732420CD39008B2698 /* UMSocialWechatHandler.h */,
+				27AC9F742420CD39008B2698 /* WechatSDK */,
 			);
 			path = SocialLibraries;
-			sourceTree = "<group>";
-		};
-		277F91EC23FA9BA70055C773 /* WeChat */ = {
-			isa = PBXGroup;
-			children = (
-				277F91ED23FA9BA70055C773 /* libSocialWeChat.a */,
-				277F91EE23FA9BA70055C773 /* UMSocialWechatHandler.h */,
-				277F91EF23FA9BA70055C773 /* WechatSDK */,
-			);
-			path = WeChat;
-			sourceTree = "<group>";
-		};
-		277F91EF23FA9BA70055C773 /* WechatSDK */ = {
-			isa = PBXGroup;
-			children = (
-				277F91F023FA9BA70055C773 /* WXApi.h */,
-				277F91F123FA9BA70055C773 /* WXApiObject.h */,
-				277F91F223FA9BA70055C773 /* README.txt */,
-				277F91F323FA9BA70055C773 /* WechatAuthSDK.h */,
-				277F91F423FA9BA70055C773 /* libWeChatSDK.a */,
-			);
-			path = WechatSDK;
 			sourceTree = "<group>";
 		};
 		277F91F523FA9BA70055C773 /* UMSocialSDKPlugin */ = {
@@ -952,8 +950,11 @@
 			isa = PBXGroup;
 			children = (
 				27AA910D2419C819004D93F2 /* Cells */,
+				27AC9F872421F5D6008B2698 /* MedicalVideoPlayerViewController.h */,
+				27AC9F882421F5D6008B2698 /* MedicalVideoPlayerViewController.m */,
 				27AA910A2419C56E004D93F2 /* MedicalVideoDetailViewController.h */,
 				27AA910B2419C56E004D93F2 /* MedicalVideoDetailViewController.m */,
+				27AC9F8D2422151D008B2698 /* MedicalVideoDirectoryDelegate.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -990,6 +991,50 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		27AC9F742420CD39008B2698 /* WechatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				27AC9F752420CD39008B2698 /* WXApi.h */,
+				27AC9F762420CD39008B2698 /* WXApiObject.h */,
+				27AC9F772420CD39008B2698 /* README.txt */,
+				27AC9F782420CD39008B2698 /* WechatAuthSDK.h */,
+				27AC9F792420CD39008B2698 /* libWeChatSDK.a */,
+			);
+			path = WechatSDK;
+			sourceTree = "<group>";
+		};
+		27AC9F7D2421EC42008B2698 /* 播放器 */ = {
+			isa = PBXGroup;
+			children = (
+				27AC9F822421F307008B2698 /* UI */,
+				27AC9F7E2421EC42008B2698 /* DataModel */,
+				27AC9F862421F339008B2698 /* AliPlayerHeader.h */,
+				27AC9F8A2421FDAD008B2698 /* VideoPlayerUtil.h */,
+				27AC9F8B2421FDAD008B2698 /* VideoPlayerUtil.m */,
+			);
+			path = "播放器";
+			sourceTree = "<group>";
+		};
+		27AC9F7E2421EC42008B2698 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				27AC9F7F2421EC6D008B2698 /* VideoPlayerModel.h */,
+				27AC9F802421EC6D008B2698 /* VideoPlayerModel.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		27AC9F822421F307008B2698 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				27AC9F832421F321008B2698 /* VideoPlayerView.h */,
+				27AC9F842421F321008B2698 /* VideoPlayerView.m */,
+				27AC9F8E24221DDD008B2698 /* VideoPlayerControl.h */,
+				27AC9F8F24221DDD008B2698 /* VideoPlayerControl.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		9D009C4286473EC2B54EF355 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1010,7 +1055,8 @@
 				277F917823FA274B0055C773 /* Sources */,
 				277F917923FA274B0055C773 /* Frameworks */,
 				277F917A23FA274B0055C773 /* Resources */,
-				3C6E77D93915F14EB474BBBC /* [CP] Embed Pods Frameworks */,
+				67D8DF511F52AF7C18C54B22 /* [CP] Copy Pods Resources */,
+				661D23FE1B646CC5BB6CEA12 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1062,14 +1108,14 @@
 				277F918C23FA274C0055C773 /* Assets.xcassets in Resources */,
 				277F91F723FA9BA70055C773 /* UMSocialSDKResources.bundle in Resources */,
 				277F91FA23FA9BA70055C773 /* UMSocialSDKPromptResources.bundle in Resources */,
-				277F91FD23FA9BA70055C773 /* README.txt in Resources */,
+				27AC9F7B2420CD39008B2698 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3C6E77D93915F14EB474BBBC /* [CP] Embed Pods Frameworks */ = {
+		661D23FE1B646CC5BB6CEA12 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1084,6 +1130,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67D8DF511F52AF7C18C54B22 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B67CDE730F0C1B63539FD04C /* [CP] Check Pods Manifest.lock */ = {
@@ -1127,6 +1190,7 @@
 				277F91E123FA83A50055C773 /* UserLoginTypeView.m in Sources */,
 				270A032B23FBD21300FD4431 /* CommonBaseBussiness.m in Sources */,
 				278A754D2403703C005A8994 /* MeetingGatherEntryModel.m in Sources */,
+				27AC9F9024221DDD008B2698 /* VideoPlayerControl.m in Sources */,
 				277F91DD23FA752D0055C773 /* WechatUtil.m in Sources */,
 				27848FDC23FE6426004729B2 /* VHBaseListViewController.m in Sources */,
 				27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */,
@@ -1156,6 +1220,7 @@
 				27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */,
 				278A755924038019005A8994 /* MeetingEntryModel.m in Sources */,
 				27206DCE23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m in Sources */,
+				27AC9F8C2421FDAD008B2698 /* VideoPlayerUtil.m in Sources */,
 				27765B1724173EB800D6A0A5 /* MedicalCourseListFunction.m in Sources */,
 				270A031C23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m in Sources */,
 				27AA91102419C819004D93F2 /* MedicalVideoDetailTitleTableViewCell.m in Sources */,
@@ -1182,12 +1247,15 @@
 				27848FD023FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m in Sources */,
 				277F919223FA274C0055C773 /* main.m in Sources */,
 				278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */,
+				27AC9F852421F321008B2698 /* VideoPlayerView.m in Sources */,
 				270A030C23FB895500FD4431 /* UserLoginWithWechatFunction.m in Sources */,
+				27AC9F812421EC6D008B2698 /* VideoPlayerModel.m in Sources */,
 				27AA91132419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m in Sources */,
 				270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */,
 				27AA910C2419C56F004D93F2 /* MedicalVideoDetailViewController.m in Sources */,
 				277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */,
 				277F91C023FA32410055C773 /* UIColor+VHStandExt.m in Sources */,
+				27AC9F892421F5D6008B2698 /* MedicalVideoPlayerViewController.m in Sources */,
 				277F91B223FA2D8F0055C773 /* VHPageRouter.m in Sources */,
 				27206DC523FD25EE004A9C85 /* MedicalVideoStartViewController.m in Sources */,
 				27206DB823FD0D81004A9C85 /* VHGridItemControl.m in Sources */,
@@ -1343,8 +1411,11 @@
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WechatSDK",
 				);
 				MARKETING_VERSION = 6.0.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
 				PRODUCT_NAME = "微医汇学习";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1375,8 +1446,11 @@
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries",
+					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WechatSDK",
 				);
 				MARKETING_VERSION = 6.0.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
 				PRODUCT_NAME = "微医汇学习";
 				TARGETED_DEVICE_FAMILY = "1,2";

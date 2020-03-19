@@ -14,4 +14,18 @@
     return @{@"desc":@"description"};
 }
 
+- (NSInteger) currentPlayIndex{
+    if (!self.currentMedicalVideoItem) {
+        return NSNotFound;
+    }
+    
+    __block NSInteger playIndex = 0;
+    [self.medicalVideoItems enumerateObjectsUsingBlock:^(MedicalVideoEntryModel * _Nonnull videoItem, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (videoItem.id == self.currentMedicalVideoItem.id) {
+            playIndex = idx;
+            *stop = YES;
+        }
+    }];
+    return playIndex;
+}
 @end
