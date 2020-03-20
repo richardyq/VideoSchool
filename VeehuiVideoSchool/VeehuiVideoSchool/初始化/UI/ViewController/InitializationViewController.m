@@ -24,13 +24,13 @@
     // Do any additional setup after loading the view.
     
     [self.view setNeedsUpdateConstraints];
-    
+    [InitializeUtil shareInstance];
     //[[InitializeUtil shareInstance] startInitialize];
-    [self performSelector:@selector(startInitialize) afterDelay:1.2];
+    //[self performSelector:@selector(startInitialize) afterDelay:1.2];
 }
 
 - (void) startInitialize{
-    [[InitializeUtil shareInstance] startInitialize];
+    //[[InitializeUtil shareInstance] startInitialize];
 }
 
 - (void) updateViewConstraints{

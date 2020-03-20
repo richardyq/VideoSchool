@@ -10,11 +10,16 @@
 #import "UserModuleUtil.h"
 #import "IQKeyboardManager.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import "APPVersionFunction.h"
+#import "APPVersionInfo.h"
 
 #define kUMENG_APPKEY @"589c350904e205b6b4002031"
 #define kUMENG_APPCHANNELID @"App Store"
 #define kUSHARE_APPKEY kUMENG_APPKEY
 
+//APP升级地址
+#define  kAPPSTORE_APPURL @"https://itunes.apple.com/cn/app/wei-yi-hui-shi-pin/id1203185372?mt=8"
+NSString* kLastCheckUpdateVersionKey = @"LastCheckUpdateVersion";
 
 @interface InitializeUtil ()
 
@@ -99,18 +104,18 @@
     _networkChecked = YES;
     
     if (reachable) {
-        //[self startInitialize];
+        [self startInitialize];
     }
 }
 
 - (void) startInitialize{
     //检查版本更新
     //TODO: 检查版本更新
+    [self startCheckVersion];
+//    [VHPageRouter entryMainPage];
+//    return;
     
-    [VHPageRouter entryMainPage];
-    return;
-    
-    [self startUserLogin];
+   // [self startUserLogin];
 }
 
 #pragma mark - 第三方库初始化
@@ -125,6 +130,80 @@
                                      redirectURL:KWECHAT_REDIRECTURL];
     
     [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+}
+
+#pragma mark - 获取版本更新信息
+- (void) startCheckVersion{
+    //判断是否需要检查升级
+    NSString* lastCheckVersion = [[NSUserDefaults standardUserDefaults] valueForKey:kLastCheckUpdateVersionKey];
+    NSString* appVersion = [NSObject appVersion];
+    if (lastCheckVersion && ![lastCheckVersion isEmpty] && [lastCheckVersion isEqualToString:appVersion]) {
+        //不需要再检查更新
+        [self startUserLogin];
+        return;
+    }
+    
+    VHHTTPFunction* function = [[APPVersionFunction alloc] init];
+    [MessageHubUtil showWait];
+    __block APPVersionInfo* versionInfo = nil;
+    WS(weakSelf)
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[APPVersionInfo class]]) {
+            versionInfo = result;
+        }
+        versionInfo = result;
+    } complete:^(NSInteger code, NSString *message) {
+        [MessageHubUtil hideMessage];
+        SAFE_WEAKSELF(weakSelf)
+        if (code != 0) {
+            [MessageHubUtil showMessage:message];
+            return;
+        }
+        [weakSelf appVersionInfoChecked:versionInfo];
+    }];
+}
+
+- (void) appVersionInfoChecked:(APPVersionInfo*) versionInfo{
+    
+    if (!versionInfo) {
+        return;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setValue:[NSObject appVersion] forKey:kLastCheckUpdateVersionKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSString* needUpdate = versionInfo.update;
+    if (!needUpdate || [needUpdate isEmpty] || [needUpdate isEqualToString:@"0"]) {
+        //不需要升级, 下一步，用户登录
+        [self startUserLogin];
+        return;
+    }
+    
+    NSString* isForce = versionInfo.isForce;
+    WS(weakSelf)
+    if (isForce && ![isForce isEmpty] && [isForce isEqualToString:@"1"]) {
+        //需要强制升级
+        [AlertUtil showAlertWithTitle:versionInfo.title message:versionInfo.desc confirmTitle:@"立即升级" confirmHandler:^(UIAlertAction *action) {
+            SAFE_WEAKSELF(weakSelf)
+            [weakSelf entryToUpdateAPP];
+        }];
+    }
+    else{
+        //不需要强制升级
+        [AlertUtil showAlertWithTitle:versionInfo.title message:versionInfo.desc confirmTitle:@"立即升级" confirmHandler:^(UIAlertAction *action) {
+            SAFE_WEAKSELF(weakSelf)
+            [weakSelf entryToUpdateAPP];
+        } cancelTitle:@"以后再说" cancelHandler:^(UIAlertAction *action) {
+            SAFE_WEAKSELF(weakSelf)
+            [weakSelf startUserLogin];
+        }];
+    }
+}
+
+- (void) entryToUpdateAPP{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kAPPSTORE_APPURL]];
+    exit(0);
 }
 
 #pragma mark 用户登录

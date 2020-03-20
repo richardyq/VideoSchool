@@ -14,4 +14,5 @@
 
 #import "VHCountDownUtil.h"
 #import "MessageHubUtil.h"
+#import "AlertUtil.h"
 #endif /* VHCommonFunc_h */
