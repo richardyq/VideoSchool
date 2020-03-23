@@ -7,38 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9C6D7184-68AD-4BC8-AD93-955C7016E35C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VHFrameworks/&#x754c;&#x9762;&#x6269;&#x5c55;/&#x57fa;&#x7840;&#x6269;&#x5c55;/UITableView+VHExt.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-scrollViewDidScroll:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3ACF04AD-A517-430A-A896-B3652ECDF576"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VHFrameworks/&#x754c;&#x9762;&#x6269;&#x5c55;/&#x57fa;&#x7840;&#x6269;&#x5c55;/UITableView+VHExt.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "-scrollViewDidScroll:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1B3B8D4D-ACC3-455C-A829-B5E2EE7961BE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -49,6 +17,22 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "-startLoadVideoGroupDetal"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4EBBF68-EA7D-4B44-ACF1-789E06B2F52E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeehuiVideoSchool/&#x7528;&#x6237;&#x6a21;&#x5757;/Bussiness/Functions/UserInfoFunction.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-paraserResponse:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

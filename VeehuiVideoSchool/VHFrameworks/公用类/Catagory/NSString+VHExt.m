@@ -40,6 +40,15 @@
     return isMobile;
 }
 
+- (NSString *)URLEncodedString{
+    NSString *encodedString = (NSString *) CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                                     (CFStringRef)self,
+                                                                                                     NULL,
+                                                                                                     (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]",
+                                                                                                     kCFStringEncodingUTF8));
+    return encodedString;
+}
+
 + (NSString*) formatWithInteger:(NSInteger) number
                          remain:(NSInteger) remain
                            unit:(NSString*) unit{

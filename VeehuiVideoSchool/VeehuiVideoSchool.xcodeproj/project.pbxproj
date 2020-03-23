@@ -37,6 +37,8 @@
 		2759AD6F2424A21D006E4B72 /* APPVersionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD6E2424A21D006E4B72 /* APPVersionFunction.m */; };
 		2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD722424A644006E4B72 /* APPVersionInfo.m */; };
 		2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD752424AA28006E4B72 /* AlertUtil.m */; };
+		2759AD792424B774006E4B72 /* UserAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD782424B774006E4B72 /* UserAccountModel.m */; };
+		2759AD7C2424C098006E4B72 /* UserValidateTokenFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD7B2424C098006E4B72 /* UserValidateTokenFunction.m */; };
 		2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */; };
 		27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 27765B1024172E7100D6A0A5 /* UITableView+VHExt.m */; };
 		27765B142417394000D6A0A5 /* MedicalCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27765B132417394000D6A0A5 /* MedicalCourseListViewController.m */; };
@@ -83,6 +85,7 @@
 		278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755424037ABE005A8994 /* LiveMeetingListFunction.m */; };
 		278A755924038019005A8994 /* MeetingEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755824038019005A8994 /* MeetingEntryModel.m */; };
 		278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */; };
+		279A1F5A242851AA008AAA5F /* UserInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F59242851AA008AAA5F /* UserInfoFunction.m */; };
 		27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA259C2418B32E00D31AA4 /* VHNavigationBarView.m */; };
 		27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA259F2418BE7000D31AA4 /* MedicalGroupDetailFunction.m */; };
 		27AA25A32418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA25A22418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m */; };
@@ -171,6 +174,10 @@
 		2759AD722424A644006E4B72 /* APPVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPVersionInfo.m; sourceTree = "<group>"; };
 		2759AD742424AA28006E4B72 /* AlertUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertUtil.h; sourceTree = "<group>"; };
 		2759AD752424AA28006E4B72 /* AlertUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertUtil.m; sourceTree = "<group>"; };
+		2759AD772424B774006E4B72 /* UserAccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAccountModel.h; sourceTree = "<group>"; };
+		2759AD782424B774006E4B72 /* UserAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccountModel.m; sourceTree = "<group>"; };
+		2759AD7A2424C098006E4B72 /* UserValidateTokenFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserValidateTokenFunction.h; sourceTree = "<group>"; };
+		2759AD7B2424C098006E4B72 /* UserValidateTokenFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserValidateTokenFunction.m; sourceTree = "<group>"; };
 		2771A2D523FF7F2E00FCAF7A /* MessageHubUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageHubUtil.h; sourceTree = "<group>"; };
 		2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageHubUtil.m; sourceTree = "<group>"; };
 		27765B0F24172E7100D6A0A5 /* UITableView+VHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+VHExt.h"; sourceTree = "<group>"; };
@@ -261,6 +268,8 @@
 		278A755824038019005A8994 /* MeetingEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingEntryModel.m; sourceTree = "<group>"; };
 		278A755B2403A6A6005A8994 /* MeetingInfoListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingInfoListTableViewCell.h; sourceTree = "<group>"; };
 		278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingInfoListTableViewCell.m; sourceTree = "<group>"; };
+		279A1F58242851AA008AAA5F /* UserInfoFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoFunction.h; sourceTree = "<group>"; };
+		279A1F59242851AA008AAA5F /* UserInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoFunction.m; sourceTree = "<group>"; };
 		27AA259B2418B32E00D31AA4 /* VHNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHNavigationBarView.h; sourceTree = "<group>"; };
 		27AA259C2418B32E00D31AA4 /* VHNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHNavigationBarView.m; sourceTree = "<group>"; };
 		27AA259E2418BE7000D31AA4 /* MedicalGroupDetailFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalGroupDetailFunction.h; sourceTree = "<group>"; };
@@ -375,6 +384,10 @@
 				270A030B23FB895500FD4431 /* UserLoginWithWechatFunction.m */,
 				270A032F23FBE96C00FD4431 /* UserLoginWithMobileFunction.h */,
 				270A033023FBE96C00FD4431 /* UserLoginWithMobileFunction.m */,
+				2759AD7A2424C098006E4B72 /* UserValidateTokenFunction.h */,
+				2759AD7B2424C098006E4B72 /* UserValidateTokenFunction.m */,
+				279A1F58242851AA008AAA5F /* UserInfoFunction.h */,
+				279A1F59242851AA008AAA5F /* UserInfoFunction.m */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -767,6 +780,8 @@
 			children = (
 				277F91C423FA3B720055C773 /* UserInfoModel.h */,
 				277F91C523FA3B720055C773 /* UserInfoModel.m */,
+				2759AD772424B774006E4B72 /* UserAccountModel.h */,
+				2759AD782424B774006E4B72 /* UserAccountModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1223,6 +1238,7 @@
 				270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */,
 				270A031F23FBC34C00FD4431 /* UserMobileLoginViewController.m in Sources */,
 				278A754624036D29005A8994 /* MeetingPageRouter.m in Sources */,
+				2759AD792424B774006E4B72 /* UserAccountModel.m in Sources */,
 				27206DA923FCDFE6004A9C85 /* HomeStartNavigationView.m in Sources */,
 				270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */,
 				270A032223FBC35E00FD4431 /* UserPageRouter.m in Sources */,
@@ -1234,6 +1250,7 @@
 				27848FDC23FE6426004729B2 /* VHBaseListViewController.m in Sources */,
 				27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */,
 				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
+				2759AD7C2424C098006E4B72 /* UserValidateTokenFunction.m in Sources */,
 				27AA25A92418CE0100D31AA4 /* MedicalVideoEntryModel.m in Sources */,
 				27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */,
 				27AA25B22418DB8200D31AA4 /* UILabel+VHExt.m in Sources */,
@@ -1253,6 +1270,7 @@
 				270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */,
 				278A754324036D03005A8994 /* MeetingStartViewController.m in Sources */,
 				270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */,
+				279A1F5A242851AA008AAA5F /* UserInfoFunction.m in Sources */,
 				27848FE323FE6BAE004729B2 /* EntryModel.m in Sources */,
 				277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */,
 				27206DB423FD0C93004A9C85 /* VHTableViewCell.m in Sources */,

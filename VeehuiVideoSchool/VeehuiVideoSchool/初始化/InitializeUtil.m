@@ -12,6 +12,7 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import "APPVersionFunction.h"
 #import "APPVersionInfo.h"
+#import "UserInfoBusiness.h"
 
 #define kUMENG_APPKEY @"589c350904e205b6b4002031"
 #define kUMENG_APPCHANNELID @"App Store"
@@ -134,14 +135,6 @@ NSString* kLastCheckUpdateVersionKey = @"LastCheckUpdateVersion";
 
 #pragma mark - 获取版本更新信息
 - (void) startCheckVersion{
-    //判断是否需要检查升级
-    NSString* lastCheckVersion = [[NSUserDefaults standardUserDefaults] valueForKey:kLastCheckUpdateVersionKey];
-    NSString* appVersion = [NSObject appVersion];
-    if (lastCheckVersion && ![lastCheckVersion isEmpty] && [lastCheckVersion isEqualToString:appVersion]) {
-        //不需要再检查更新
-        [self startUserLogin];
-        return;
-    }
     
     VHHTTPFunction* function = [[APPVersionFunction alloc] init];
     [MessageHubUtil showWait];
@@ -170,9 +163,6 @@ NSString* kLastCheckUpdateVersionKey = @"LastCheckUpdateVersion";
         return;
     }
     
-    [[NSUserDefaults standardUserDefaults] setValue:[NSObject appVersion] forKey:kLastCheckUpdateVersionKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     NSString* needUpdate = versionInfo.update;
     if (!needUpdate || [needUpdate isEmpty] || [needUpdate isEqualToString:@"0"]) {
         //不需要升级, 下一步，用户登录
@@ -190,7 +180,17 @@ NSString* kLastCheckUpdateVersionKey = @"LastCheckUpdateVersion";
         }];
     }
     else{
+        NSString* lastCheckVersion = [[NSUserDefaults standardUserDefaults] valueForKey:kLastCheckUpdateVersionKey];
+        NSString* appVersion = [NSObject appVersion];
+        if (lastCheckVersion && ![lastCheckVersion isEmpty] && [lastCheckVersion isEqualToString:appVersion]) {
+            //已经检查过改版本，不弹出提示
+            [self startUserLogin];
+            return;
+        }
         //不需要强制升级
+        [[NSUserDefaults standardUserDefaults] setValue:[NSObject appVersion] forKey:kLastCheckUpdateVersionKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         [AlertUtil showAlertWithTitle:versionInfo.title message:versionInfo.desc confirmTitle:@"立即升级" confirmHandler:^(UIAlertAction *action) {
             SAFE_WEAKSELF(weakSelf)
             [weakSelf entryToUpdateAPP];
@@ -215,20 +215,43 @@ NSString* kLastCheckUpdateVersionKey = @"LastCheckUpdateVersion";
     }
     
     if (needUserLoginWithPage) {
+    //if (YES) {
         //跳转到登录界面进行登录
-        WS(weakSelf)
-        [VHPageRouter entryIntoUserLoginPage:^(id  _Nonnull ret) {
-            SAFE_WEAKSELF(weakSelf)
-            
-            NSNumber* loginedNumber = (NSNumber*) ret;
-            if (loginedNumber && [loginedNumber isKindOfClass:[NSNumber class]]) {
-                BOOL logined = loginedNumber.boolValue;
-                [weakSelf userLoginAction:logined];
-            }
-        }];
+        [self entryLoginPage];
         return;
     }
-    
+    else{
+        //验证userToken
+        [MessageHubUtil showWait];
+        WS(weakSelf)
+        [UserInfoBusiness startValidateUserToken:^(id result) {
+            SAFE_WEAKSELF(weakSelf)
+        } complete:^(NSInteger code, NSString *message) {
+            [MessageHubUtil hideMessage];
+            SAFE_WEAKSELF(weakSelf)
+            if (code != 0) {
+                //[MessageHubUtil showErrorMessage:message];
+                //验证token失败，进入登录界面t进行登录
+                [weakSelf entryLoginPage];
+            }
+            else{
+                [weakSelf userLoginAction:YES];
+            }
+        }];
+    }
+}
+
+- (void) entryLoginPage{
+    WS(weakSelf)
+    [VHPageRouter entryIntoUserLoginPage:^(id  _Nonnull ret) {
+        SAFE_WEAKSELF(weakSelf)
+        
+        NSNumber* loginedNumber = (NSNumber*) ret;
+        if (loginedNumber && [loginedNumber isKindOfClass:[NSNumber class]]) {
+            BOOL logined = loginedNumber.boolValue;
+            [weakSelf userLoginAction:logined];
+        }
+    }];
 }
 
 - (void) userLoginAction:(BOOL) logined{
@@ -236,6 +259,31 @@ NSString* kLastCheckUpdateVersionKey = @"LastCheckUpdateVersion";
         return;
     }
     
-    //用户已经登录
+    //用户已经登录，获取用户基本信息
+    [self startLoadUserBaseInfo];
+}
+
+#pragma mark - 获取用户基本信息
+- (void) startLoadUserBaseInfo{
+    [MessageHubUtil showWait];
+    WS(weakSelf)
+    [UserInfoBusiness startLoadUserInfo:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[UserInfoModel class]]) {
+            //保存用户信息
+            UserInfoModel* userModel = (UserInfoModel*) result;
+            [[UserModuleUtil shareInstance] saveLoginedUser:userModel];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        [MessageHubUtil hideMessage];
+        SAFE_WEAKSELF(weakSelf)
+        if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
+        }
+        else{
+            //获取用户信息成功
+        }
+        
+    }];
 }
 @end

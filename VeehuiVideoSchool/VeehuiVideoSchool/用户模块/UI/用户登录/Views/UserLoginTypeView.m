@@ -158,17 +158,13 @@
 - (NSArray<UserLoginTypeCell*>*) cells{
     if (!_cells) {
         NSMutableArray<UserLoginTypeCell*>* cells = [NSMutableArray<UserLoginTypeCell*> array];
-        BOOL wechatInstalled = [[WechatUtil shareInstance] isWXAppInstalled];
-         
+        //BOOL wechatInstalled = [[WechatUtil shareInstance] isWXAppInstalled];
+        BOOL wechatInstalled = YES;
         if (wechatInstalled) {
             UserLoginTypeCell* wechatLoginCell = [[UserLoginTypeCell alloc] initWithLoginType:Login_Wechat];
             [self addSubview:wechatLoginCell];
             [cells addObject:wechatLoginCell];
         }
-        
-        UserLoginTypeCell* mobileLoginCell = [[UserLoginTypeCell alloc] initWithLoginType:Login_Mobile];
-        [self addSubview:mobileLoginCell];
-        [cells addObject:mobileLoginCell];
         
         _cells = cells;
         

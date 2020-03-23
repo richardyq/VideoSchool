@@ -10,6 +10,7 @@
 
 NSString* const kLoginedUserModelKey = @"LoginedUserModel";
 NSString* const kLoginedUserTokenKey = @"LoginedUserToken";
+NSString* const kLoginedUserIdKey = @"LoginedUserId";
 
 @implementation UserModuleUtil
 
@@ -37,11 +38,35 @@ NSString* const kLoginedUserTokenKey = @"LoginedUserToken";
 
 - (void) userLogout{
     [self saveLoginedUser:nil];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLoginedUserTokenKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLoginedUserIdKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - settingAndGetting
 - (NSString*) userToken{
     NSString* userToken = [[NSUserDefaults standardUserDefaults] stringForKey:kLoginedUserTokenKey];
     return userToken;
+}
+
+- (void) saveUserToken:(NSString*) userToken{
+    if (!userToken || [userToken isEmpty]) {
+        return;
+    }
+    [[NSUserDefaults standardUserDefaults] setValue:userToken forKey:kLoginedUserTokenKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSInteger) loginedUserId{
+    NSInteger userId = [[NSUserDefaults standardUserDefaults] integerForKey:kLoginedUserIdKey];
+    return userId;
+}
+
+- (void) saveLoginedUserId:(NSInteger) userId{
+    if (userId == 0) {
+        return;
+    }
+    [[NSUserDefaults standardUserDefaults] setInteger:userId forKey:kLoginedUserIdKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 @end

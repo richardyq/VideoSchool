@@ -7,6 +7,7 @@
 //
 
 #import "VHHTTPRequest.h"
+#import "UserModuleUtil.h"
 
 @interface VHHTTPRequest ()
 
@@ -74,6 +75,7 @@
                      success:(VHHttpReqeustSuccssHandler)success
                      failure:(VHHttpReqeustFailedHandler)failure{
     self.operationManager.requestSerializer.timeoutInterval = 20.f;
+    [self setUserTokenToHeaderField];
     /*
     if(parameters!=nil&&[parameters count]>0){ //请求参数需要替换
         for (NSString *key in [parameters allKeys]) {
@@ -116,6 +118,7 @@
                     parameters:(NSDictionary*)parameters
                        success:(VHHttpReqeustSuccssHandler)success
                        failure:(VHHttpReqeustFailedHandler)failure{
+    [self setUserTokenToHeaderField];
     WS(weakSelf)
     NSURLSessionDataTask *dataTask=[self.operationManager POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -144,7 +147,7 @@
                    parameters:(NSDictionary*)parameters
                       success:(VHHttpReqeustSuccssHandler)success
                       failure:(VHHttpReqeustFailedHandler)failure{
-    
+    [self setUserTokenToHeaderField];
     self.operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",@"text/javascript",@"text/json",@"text/plain", nil];
     
     // 设置请求头
@@ -163,5 +166,14 @@
         }
     }];
     return dataTask;
+}
+
+- (void)setUserTokenToHeaderField{
+    NSString *userToken= [UserModuleUtil shareInstance].userToken;
+    if (userToken!=nil&&[userToken length]>0) {
+        [self.operationManager.requestSerializer setValue:userToken forHTTPHeaderField:@"Authorization"];
+    }else{
+        [self.operationManager.requestSerializer setValue:nil forHTTPHeaderField:@"Authorization"];
+    }
 }
 @end

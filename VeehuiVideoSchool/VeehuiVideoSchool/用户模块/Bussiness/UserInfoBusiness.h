@@ -40,6 +40,24 @@ startMobileLogin
                    result:(VHRequestResultHandler) result
                  complete:(VHRequestCompleteHandler) complete;
 
+/**
+startValidateUserToken
+验证用户登录token
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startValidateUserToken:(VHRequestResultHandler) result
+                       complete:(VHRequestCompleteHandler) complete;
+
+/**
+ 获取当前登录用户的用户信息
+ startLoadUserInfo
+ @param result          result 请求数据结果返回回调方法
+ @param complete        complete 请求结束回调方法
+ */
++ (void) startLoadUserInfo:(VHRequestResultHandler) result
+                  complete:(VHRequestCompleteHandler) complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

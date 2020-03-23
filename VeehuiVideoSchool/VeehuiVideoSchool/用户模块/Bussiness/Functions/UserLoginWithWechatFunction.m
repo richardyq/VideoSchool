@@ -7,6 +7,7 @@
 //
 
 #import "UserLoginWithWechatFunction.h"
+#import "UserAccountModel.h"
 
 @interface UserLoginWithWechatFunction ()
 
@@ -57,7 +58,8 @@
 
 - (id) paraserResponse:(id) response{
     if (response && [response isKindOfClass:[NSDictionary class]]) {
-        
+        UserAccountModel* accountModel = [UserAccountModel mj_objectWithKeyValues:response];
+        return accountModel;
     }
     return nil;
 }

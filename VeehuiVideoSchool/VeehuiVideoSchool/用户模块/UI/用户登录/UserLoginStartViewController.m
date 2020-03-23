@@ -14,7 +14,7 @@
 @interface UserLoginStartViewController ()
 
 @property (nonatomic, strong) UIImageView* logoImageView;
-@property (nonatomic, strong) UIButton* closeButton;
+//@property (nonatomic, strong) UIButton* closeButton;
 @property (nonatomic, strong) UserLoginTypeView* loginTypeView;
 
 
@@ -39,15 +39,9 @@
         make.centerY.equalTo(self.view).offset(-213);
     }];
     
-    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(30, 30));
-        make.left.equalTo(self.view).offset(15);
-        make.top.equalTo(self.view).offset(Status_Height + 11);
-    }];
-    
     [self.loginTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-(41 + PhoneXBottom));
+        make.top.equalTo(self.logoImageView.mas_bottom).offset(45);
     }];
 }
 
@@ -59,13 +53,7 @@
     return _logoImageView;
 }
 
-- (UIButton*) closeButton{
-    if (!_closeButton) {
-        _closeButton = [self.view addButtonWithImageName:@"ic_close_btn"];
-        [_closeButton addTarget:self action:@selector(closeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _closeButton;
-}
+
 
 - (UserLoginTypeView*) loginTypeView{
     if (!_loginTypeView) {
@@ -80,9 +68,6 @@
 }
 
 #pragma mark - control events
-- (void) closeButtonClicked:(id) sender{
-    [self dismissController:nil];
-}
 
 - (void) loginTypeSelected:(EUserLoginType) loginType{
     switch (loginType) {
@@ -112,6 +97,16 @@
         
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
+        if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
+            return;
+        }
+        [weakSelf userLogined];
     }];
+}
+
+#pragma mark - 登录完成
+- (void) userLogined{
+    [self dismissController:[NSNumber numberWithBool:YES]];
 }
 @end

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) isEmpty;
 
+- (NSString *)URLEncodedString;
 /**
  isMobileNumber
  判断是否是手机号

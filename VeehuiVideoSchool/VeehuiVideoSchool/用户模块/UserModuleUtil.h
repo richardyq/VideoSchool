@@ -20,13 +20,14 @@ typedef NS_ENUM(NSUInteger, EUserLoginType) {
 
 @property (nonatomic, readonly) UserInfoModel* loginedUserModel;
 @property (nonatomic, readonly) NSString* userToken;
+@property (nonatomic, readonly) NSInteger loginedUserId;
 
 + (instancetype)shareInstance;
 
 - (void) saveLoginedUser:(UserInfoModel* _Nullable) userModel;
 - (void) userLogout;
-
-
+- (void) saveUserToken:(NSString*) userToken;
+- (void) saveLoginedUserId:(NSInteger) userId;
 
 @end
 
