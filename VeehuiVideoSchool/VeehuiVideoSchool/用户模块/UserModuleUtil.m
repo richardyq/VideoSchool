@@ -69,4 +69,20 @@ NSString* const kLoginedUserIdKey = @"LoginedUserId";
     [[NSUserDefaults standardUserDefaults] setInteger:userId forKey:kLoginedUserIdKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+- (BOOL) mobileBind{
+    BOOL mobileBind = NO;
+    UserInfoModel* userModel = self.loginedUserModel;
+    if (!userModel) {
+        return mobileBind;
+    }
+    
+    NSString* isBindMobile = userModel.isBindMobile;
+    if (!isBindMobile || [isBindMobile isEmpty]) {
+        return mobileBind;
+    }
+    
+    mobileBind = [isBindMobile isEqualToString:@"1"];
+    return mobileBind;
+}
 @end

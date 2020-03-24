@@ -22,6 +22,30 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) obtainMobileVerifyCode:(NSString*) mobile
                          result:(VHRequestResultHandler) result
                        complete:(VHRequestCompleteHandler) complete;
+
+/**
+checkMobileVerifyCode
+验证手机验证码
+@param mobile           手机号
+@param verifyCode       手机验证码
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) checkMobileVerifyCode:(NSString*) mobile
+                    verifyCode:(NSString*) verifyCode
+                        result:(VHRequestResultHandler) result
+                      complete:(VHRequestCompleteHandler) complete;
+
+/**
+startbindMobile
+绑定手机号
+@param mobile  手机号
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startbindMobile:(NSString*) mobile
+                  result:(VHRequestResultHandler) result
+                complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

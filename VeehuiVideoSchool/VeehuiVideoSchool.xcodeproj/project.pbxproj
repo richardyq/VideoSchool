@@ -34,6 +34,8 @@
 		27206DCB23FD2BE8004A9C85 /* MedicalVideoListBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DCA23FD2BE8004A9C85 /* MedicalVideoListBussiness.m */; };
 		27206DCE23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DCD23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m */; };
 		27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DD023FD2E86004A9C85 /* SegmentView.m */; };
+		274CF5F4242995FE0026CEDA /* VHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 274CF5F3242995FE0026CEDA /* VHPopView.m */; };
+		274CF5F7242998450026CEDA /* RootLicensementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 274CF5F6242998450026CEDA /* RootLicensementView.m */; };
 		2759AD6F2424A21D006E4B72 /* APPVersionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD6E2424A21D006E4B72 /* APPVersionFunction.m */; };
 		2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD722424A644006E4B72 /* APPVersionInfo.m */; };
 		2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD752424AA28006E4B72 /* AlertUtil.m */; };
@@ -86,6 +88,9 @@
 		278A755924038019005A8994 /* MeetingEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755824038019005A8994 /* MeetingEntryModel.m */; };
 		278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */; };
 		279A1F5A242851AA008AAA5F /* UserInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F59242851AA008AAA5F /* UserInfoFunction.m */; };
+		279A1F60242864AE008AAA5F /* BindMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F5F242864AE008AAA5F /* BindMobileViewController.m */; };
+		279A1F6324288941008AAA5F /* CheckMobileVerifyCodeFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */; };
+		279A1F66242891BD008AAA5F /* BindMobileFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F65242891BD008AAA5F /* BindMobileFunction.m */; };
 		27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA259C2418B32E00D31AA4 /* VHNavigationBarView.m */; };
 		27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA259F2418BE7000D31AA4 /* MedicalGroupDetailFunction.m */; };
 		27AA25A32418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA25A22418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m */; };
@@ -168,6 +173,10 @@
 		27206DCD23FD2D84004A9C85 /* MedicalVideoClassifyEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoClassifyEntryModel.m; sourceTree = "<group>"; };
 		27206DCF23FD2E86004A9C85 /* SegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		27206DD023FD2E86004A9C85 /* SegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		274CF5F2242995FE0026CEDA /* VHPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHPopView.h; sourceTree = "<group>"; };
+		274CF5F3242995FE0026CEDA /* VHPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHPopView.m; sourceTree = "<group>"; };
+		274CF5F5242998450026CEDA /* RootLicensementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootLicensementView.h; sourceTree = "<group>"; };
+		274CF5F6242998450026CEDA /* RootLicensementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootLicensementView.m; sourceTree = "<group>"; };
 		2759AD6D2424A21D006E4B72 /* APPVersionFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPVersionFunction.h; sourceTree = "<group>"; };
 		2759AD6E2424A21D006E4B72 /* APPVersionFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPVersionFunction.m; sourceTree = "<group>"; };
 		2759AD712424A644006E4B72 /* APPVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPVersionInfo.h; sourceTree = "<group>"; };
@@ -270,6 +279,12 @@
 		278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingInfoListTableViewCell.m; sourceTree = "<group>"; };
 		279A1F58242851AA008AAA5F /* UserInfoFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoFunction.h; sourceTree = "<group>"; };
 		279A1F59242851AA008AAA5F /* UserInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoFunction.m; sourceTree = "<group>"; };
+		279A1F5E242864AE008AAA5F /* BindMobileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindMobileViewController.h; sourceTree = "<group>"; };
+		279A1F5F242864AE008AAA5F /* BindMobileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindMobileViewController.m; sourceTree = "<group>"; };
+		279A1F6124288941008AAA5F /* CheckMobileVerifyCodeFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMobileVerifyCodeFunction.h; sourceTree = "<group>"; };
+		279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckMobileVerifyCodeFunction.m; sourceTree = "<group>"; };
+		279A1F64242891BD008AAA5F /* BindMobileFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindMobileFunction.h; sourceTree = "<group>"; };
+		279A1F65242891BD008AAA5F /* BindMobileFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindMobileFunction.m; sourceTree = "<group>"; };
 		27AA259B2418B32E00D31AA4 /* VHNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHNavigationBarView.h; sourceTree = "<group>"; };
 		27AA259C2418B32E00D31AA4 /* VHNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHNavigationBarView.m; sourceTree = "<group>"; };
 		27AA259E2418BE7000D31AA4 /* MedicalGroupDetailFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalGroupDetailFunction.h; sourceTree = "<group>"; };
@@ -424,6 +439,10 @@
 			children = (
 				270A032623FBD10B00FD4431 /* MobileVerifyCodeFunction.h */,
 				270A032723FBD10B00FD4431 /* MobileVerifyCodeFunction.m */,
+				279A1F6124288941008AAA5F /* CheckMobileVerifyCodeFunction.h */,
+				279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */,
+				279A1F64242891BD008AAA5F /* BindMobileFunction.h */,
+				279A1F65242891BD008AAA5F /* BindMobileFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -677,6 +696,8 @@
 			isa = PBXGroup;
 			children = (
 				277F919D23FA2B750055C773 /* ViewController */,
+				274CF5F5242998450026CEDA /* RootLicensementView.h */,
+				274CF5F6242998450026CEDA /* RootLicensementView.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -686,6 +707,8 @@
 			children = (
 				277F919E23FA2B900055C773 /* InitializationViewController.h */,
 				277F919F23FA2B900055C773 /* InitializationViewController.m */,
+				279A1F5E242864AE008AAA5F /* BindMobileViewController.h */,
+				279A1F5F242864AE008AAA5F /* BindMobileViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -712,6 +735,8 @@
 				27848FDB23FE6426004729B2 /* VHBaseListViewController.m */,
 				270A031723FBC20700FD4431 /* VHBaseNavigationViewController.h */,
 				270A031823FBC20700FD4431 /* VHBaseNavigationViewController.m */,
+				274CF5F2242995FE0026CEDA /* VHPopView.h */,
+				274CF5F3242995FE0026CEDA /* VHPopView.m */,
 			);
 			path = "跳转路由";
 			sourceTree = "<group>";
@@ -1273,6 +1298,7 @@
 				279A1F5A242851AA008AAA5F /* UserInfoFunction.m in Sources */,
 				27848FE323FE6BAE004729B2 /* EntryModel.m in Sources */,
 				277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */,
+				274CF5F7242998450026CEDA /* RootLicensementView.m in Sources */,
 				27206DB423FD0C93004A9C85 /* VHTableViewCell.m in Sources */,
 				27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */,
 				278A755924038019005A8994 /* MeetingEntryModel.m in Sources */,
@@ -1284,7 +1310,9 @@
 				27765B142417394000D6A0A5 /* MedicalCourseListViewController.m in Sources */,
 				278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */,
 				277F91CE23FA3F980055C773 /* UserLoginStartViewController.m in Sources */,
+				279A1F66242891BD008AAA5F /* BindMobileFunction.m in Sources */,
 				270A032E23FBD3F100FD4431 /* VHCountDownUtil.m in Sources */,
+				279A1F6324288941008AAA5F /* CheckMobileVerifyCodeFunction.m in Sources */,
 				277F91D723FA6BA30055C773 /* VHBaseViewController.m in Sources */,
 				27AA25A32418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m in Sources */,
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
@@ -1297,6 +1325,7 @@
 				27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */,
 				27848FE623FE7DC4004729B2 /* VHRefeshStatusHeader.m in Sources */,
 				277F91C623FA3B720055C773 /* UserInfoModel.m in Sources */,
+				279A1F60242864AE008AAA5F /* BindMobileViewController.m in Sources */,
 				27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */,
 				27206DC823FD2B6C004A9C85 /* MedicalVideoClassifyListFunction.m in Sources */,
 				278A7550240370E1005A8994 /* MeetingBussiness.m in Sources */,
@@ -1315,6 +1344,7 @@
 				27AA910C2419C56F004D93F2 /* MedicalVideoDetailViewController.m in Sources */,
 				277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */,
 				277F91C023FA32410055C773 /* UIColor+VHStandExt.m in Sources */,
+				274CF5F4242995FE0026CEDA /* VHPopView.m in Sources */,
 				27AC9F892421F5D6008B2698 /* MedicalVideoPlayerViewController.m in Sources */,
 				277F91B223FA2D8F0055C773 /* VHPageRouter.m in Sources */,
 				27206DC523FD25EE004A9C85 /* MedicalVideoStartViewController.m in Sources */,

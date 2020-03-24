@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor*) commonBoarderColor;
 + (UIColor*) mainThemeColor;
 
+//半透明遮盖色
++ (UIColor*) commonTransColor;
+
 #pragma mark - 文本颜色
 + (UIColor*) commonTextColor;
 + (UIColor*) commonGrayTextColor;

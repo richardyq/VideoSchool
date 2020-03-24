@@ -9,6 +9,8 @@
 #import "CommonBaseBussiness.h"
 
 #import "MobileVerifyCodeFunction.h"
+#import "CheckMobileVerifyCodeFunction.h"
+#import "BindMobileFunction.h"
 
 @implementation CommonBaseBussiness
 
@@ -18,4 +20,20 @@
     VHHTTPFunction* function = [[MobileVerifyCodeFunction alloc] initWithMobile:mobile];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
+
++ (void) checkMobileVerifyCode:(NSString*) mobile
+                    verifyCode:(NSString*) verifyCode
+                        result:(VHRequestResultHandler) result
+                      complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[CheckMobileVerifyCodeFunction alloc] initWithMobile:mobile verifyCode:verifyCode];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startbindMobile:(NSString*) mobile
+                  result:(VHRequestResultHandler) result
+                       complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[BindMobileFunction alloc] initWithMobile:mobile];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
 @end

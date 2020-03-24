@@ -22,6 +22,8 @@ typedef NS_ENUM(NSUInteger, EUserLoginType) {
 @property (nonatomic, readonly) NSString* userToken;
 @property (nonatomic, readonly) NSInteger loginedUserId;
 
+@property (nonatomic, readonly) BOOL mobileBind;    //手机号是否已经绑定
+
 + (instancetype)shareInstance;
 
 - (void) saveLoginedUser:(UserInfoModel* _Nullable) userModel;

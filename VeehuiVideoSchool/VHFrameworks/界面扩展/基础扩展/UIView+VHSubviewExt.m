@@ -45,7 +45,7 @@ NSInteger const WatermarkImageViewTag = 0x89B5;
     UITextField* textfield = [[UITextField alloc] init];
     [self addSubview:textfield];
     textfield.placeholder = placeholder;
-    
+    textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
     return textfield;
 }
 
@@ -55,6 +55,7 @@ NSInteger const WatermarkImageViewTag = 0x89B5;
     [self addSubview:textfield];
     textfield.placeholder = placeholder;
     
+    textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
     return textfield;
 }
 

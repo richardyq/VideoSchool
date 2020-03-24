@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString* verifyCode;        //认证状态(01-未认证，02-已认证，03-已重置)4
 
 
-
+ 
 @end
 
 NS_ASSUME_NONNULL_END

@@ -25,6 +25,11 @@
     return [UIColor colorWithHexString:@"FF6A00"];
 }
 
+//半透明遮盖色
++ (UIColor*) commonTransColor{
+    return [UIColor colorWithHexString:@"00000062"];
+}
+
 #pragma mark - 文本颜色
 + (UIColor*) commonTextColor{
     return [UIColor colorWithHexString:@"333333"];

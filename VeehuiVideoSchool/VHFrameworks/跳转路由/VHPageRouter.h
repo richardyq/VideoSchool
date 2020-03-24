@@ -10,6 +10,7 @@
 #import "VHBaseViewController.h"
 #import "VHBaseListViewController.h"
 #import "VHBaseNavigationViewController.h"
+#import "VHPopView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,9 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
 entryIntoUserLoginPage
-跳转到App登录页面，选择登录方式
+跳转到App登录页面
 */
 + (void) entryIntoUserLoginPage:(dismissControllerHandler) handler;
+
+/**
+entryBindMobilePage
+跳转绑定手机号界面
+*/
++ (void) entryBindMobilePage:(dismissControllerHandler) handler;
 
 /**
 entryMainPage

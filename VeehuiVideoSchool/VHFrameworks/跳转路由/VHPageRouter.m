@@ -11,6 +11,7 @@
 #import "InitializationViewController.h"
 #import "UserLoginStartViewController.h"
 #import "MainStartTabbarViewController.h"
+#import "BindMobileViewController.h"
 
 @implementation VHPageRouter
 
@@ -24,6 +25,12 @@
     UserLoginStartViewController* loginController = [[UserLoginStartViewController alloc] init];
     [loginController onDismissControllerHandler:handler];
     [self presentViewController:loginController];
+}
+
++ (void) entryBindMobilePage:(dismissControllerHandler) handler{
+    BindMobileViewController* controller = [[BindMobileViewController alloc] initWithNibName:nil bundle:nil];
+    [controller onDismissControllerHandler:handler];
+    [self presentViewController:controller];
 }
 
 + (void) entryMainPage{

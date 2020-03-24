@@ -62,4 +62,10 @@
     VHHTTPFunction* function = [[UserInfoFunction alloc] init];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
+
++ (void) startGetMobileAuthCode:(NSString*) mobile
+                         result:(VHRequestResultHandler) result
+                       complete:(VHRequestCompleteHandler) complete{
+    
+}
 @end
