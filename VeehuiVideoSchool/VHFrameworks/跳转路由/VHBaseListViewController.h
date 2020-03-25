@@ -7,6 +7,7 @@
 //
 
 #import "VHBaseViewController.h"
+#import "MJRefreshStateHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger totalPages;
 
 @property (nonatomic, strong) NSMutableArray<EntryModel*>* models;
+
+@property (nonatomic, strong) NSString* errorMessage;
 
 @property (nonatomic, readonly) UITableView* tableview;
 

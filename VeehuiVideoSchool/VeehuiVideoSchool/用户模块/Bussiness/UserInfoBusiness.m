@@ -37,11 +37,16 @@
 }
 
 + (void) startMobileLogin:(NSString*) mobile
-               verifyCode:(NSString*) verifyCode
+                 password:(NSString*) password
                    result:(VHRequestResultHandler) result
                  complete:(VHRequestCompleteHandler) complete{
-    VHHTTPFunction* function = [[UserLoginWithMobileFunction alloc] initWithMobile:mobile verifyCode:verifyCode];
-    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+    VHHTTPFunction* function = [[UserLoginWithMobileFunction alloc] initWithMobile:mobile password:password];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
+        UserAccountModel* userAccount = result;
+        NSString* token = userAccount.token;
+        [[UserModuleUtil shareInstance] saveUserToken:token];
+        [[UserModuleUtil shareInstance] saveLoginedUserId:userAccount.userId];
+    } complete:complete];
 }
 
 //验证用户登录Token
@@ -60,12 +65,14 @@
 + (void) startLoadUserInfo:(VHRequestResultHandler) result
                   complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[UserInfoFunction alloc] init];
-    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
+        if ([result isKindOfClass:[UserInfoModel class]]) {
+            UserInfoModel* user = result;
+            [[UserModuleUtil shareInstance] saveLoginedUser:user];
+            [[UserModuleUtil shareInstance] saveLoginedUserId:user.id];
+        }
+    } complete:complete];
 }
 
-+ (void) startGetMobileAuthCode:(NSString*) mobile
-                         result:(VHRequestResultHandler) result
-                       complete:(VHRequestCompleteHandler) complete{
-    
-}
+
 @end

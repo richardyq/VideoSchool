@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  entryMobileLogin
  跳转到手机号登录界面
  */
-+ (void) entryMobileLogin;
++ (void) entryMobileLogin:(dismissControllerHandler) handler;
 
 @end
 

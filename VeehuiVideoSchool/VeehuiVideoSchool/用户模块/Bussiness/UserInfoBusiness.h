@@ -31,12 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 startMobileLogin
 通过手机号登录，获取到微信授权后，调用接口，获取用户token
 @param mobile          手机号
-@param verifyCode      验证码
+@param password        登录密码
 @param result          result 请求数据结果返回回调方法
 @param complete        complete 请求结束回调方法
 */
 + (void) startMobileLogin:(NSString*) mobile
-               verifyCode:(NSString*) verifyCode
+               password:(NSString*) password
                    result:(VHRequestResultHandler) result
                  complete:(VHRequestCompleteHandler) complete;
 

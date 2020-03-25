@@ -8,6 +8,7 @@
 
 #import "MeetingStartViewController.h"
 #import "MeetingGatherEntryModel.h"
+
 #import "MeetingBussiness.h"
 #import "MeetingEntryModel.h"
 #import "MeetingInfoListTableViewCell.h"
@@ -35,13 +36,23 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     self.navigationItem.title = @"学术会议";
     [self.tableview registerClass:[MeetingInfoListTableViewCell class] forCellReuseIdentifier:[MeetingInfoListTableViewCell cellReuseIdentifier]];
     [self startLoadMeetingGather];
-    [self startLoadLiveMeetings];
+    //[self startLoadLiveMeetings];
+    MJRefreshStateHeader* stateHeader = (MJRefreshStateHeader*)self.tableview.mj_header ;
+    [stateHeader setTitle:@"下拉获取新的数据" forState:MJRefreshStateIdle];
+    [stateHeader setTitle:@"松开即可获取新的数据" forState:MJRefreshStatePulling];
+    [stateHeader setTitle:@"请稍等，新数据已经上路" forState:MJRefreshStateRefreshing];
+    [self beginRefreshData];
 }
 
 #pragma mark - 加载数据
+
+- (void) refreshDataCommand{
+    [self startLoadLiveMeetings];
+}
+
 //获取会议总览信息
 - (void) startLoadMeetingGather{
-    [MessageHubUtil showWait];
+    //[MessageHubUtil showWait];
     WS(weakSelf)
     [MeetingBussiness startLoadMeetingGather:^(id result) {
         SAFE_WEAKSELF(weakSelf)
@@ -49,7 +60,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             [weakSelf gatherModelLoaded:result];
         }
     } complete:^(NSInteger code, NSString *message) {
-        [MessageHubUtil hideMessage];
+        //[MessageHubUtil hideMessage];
         if (code != 0) {
             [MessageHubUtil showErrorMessage:message];
         }
@@ -71,17 +82,19 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             [weakSelf liveMeetingsLoaded:result];
         }
     } complete:^(NSInteger code, NSString *message) {
+        self.errorMessage = nil;
         if (code != 0) {
-            [MessageHubUtil showErrorMessage:message];
+            //[MessageHubUtil showErrorMessage:message];
+            self.errorMessage = message;
+            
         }
+        [self refreshCommandEnd:self.pageNo totalPage:self.totalPages];
     }];
 }
 
 - (void) liveMeetingsLoaded:(MeetingListModel*) listModel{
     [self.liveMeetings removeAllObjects];
     [self.liveMeetings addObjectsFromArray:listModel.content];
-    
-    [self.tableview reloadData];
 }
 
 #pragma mark - settingAndGetting
@@ -131,5 +144,9 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (NSString*) emptyTableText{
+    return @"暂无会议数据";
 }
 @end

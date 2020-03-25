@@ -11,9 +11,10 @@
 
 @implementation UserPageRouter
 
-+ (void) entryMobileLogin{
-    UserMobileLoginViewController* loginViewController = [[UserMobileLoginViewController alloc] init];
-    [VHPageRouter entryPageController:loginViewController];
++ (void) entryMobileLogin:(dismissControllerHandler) handler{
+    UserMobileLoginViewController* controller = [[UserMobileLoginViewController alloc] init];
+    [controller onDismissControllerHandler:handler];
+    [VHPageRouter presentViewController:controller];
 }
 
 @end

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserLoginWithMobileFunction : VHHTTPFunction
 
-- (id) initWithMobile:(NSString*) mobile verifyCode:(NSString*) verifyCode;
+- (id) initWithMobile:(NSString*) mobile password:(NSString*) password;
 
 @end
 

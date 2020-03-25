@@ -17,6 +17,7 @@ PODS:
   - AliPlayerSDK_iOS (5.1.0):
     - AliPlayerSDK_iOS/AliPlayerSDK (= 5.1.0)
   - AliPlayerSDK_iOS/AliPlayerSDK (5.1.0)
+  - DZNEmptyDataSet (1.8.1)
   - FDFullscreenPopGesture (1.1)
   - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
@@ -34,6 +35,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.2.1)
   - AliPlayerSDK_iOS
+  - DZNEmptyDataSet
   - FDFullscreenPopGesture
   - IQKeyboardManager
   - Masonry
@@ -48,6 +50,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - AliPlayerSDK_iOS
+    - DZNEmptyDataSet
     - FDFullscreenPopGesture
     - IQKeyboardManager
     - Masonry
@@ -61,6 +64,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AliPlayerSDK_iOS: 7377cfbe36b97629e4f4a19884ed9c28636d08fd
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -71,6 +75,6 @@ SPEC CHECKSUMS:
   WeChat_SDK_iOS: 7a9e224f68c41f456787aeb3ed77f10bb4447d12
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 51cbcb14e752a150945951dba3ff8f57f58174a9
+PODFILE CHECKSUM: 97112ffe2da2171793773231a7ecfd9904fb12df
 
 COCOAPODS: 1.7.5

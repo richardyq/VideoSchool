@@ -7,53 +7,50 @@
 //
 
 #import "UserLoginWithMobileFunction.h"
+#import "UserAccountModel.h"
 
 @interface UserLoginWithMobileFunction ()
 
 @property (nonatomic, strong) NSString* mobile;
-@property (nonatomic, strong) NSString* verifyCode;
+@property (nonatomic, strong) NSString* password;
 
 @end
 
 @implementation UserLoginWithMobileFunction
 
-- (id) initWithMobile:(NSString*) mobile verifyCode:(NSString*) verifyCode{
+- (id) initWithMobile:(NSString*) mobile password:(NSString*) password{
     self = [super init];
     if (self) {
         _mobile = mobile;
-        _verifyCode = verifyCode;
+        _password = password;
     }
     return self;
 }
 
 - (NSString*) requestUrl{
-    return [NSString stringWithFormat:@"%@/v2/a/mobileLogin", kURL_BASE_NEWDOMAIN];
+    return [NSString stringWithFormat:@"%@/v2/app/login/%@/%@", kURL_BASE_NEWDOMAIN,self.mobile, self.password];
 }
 
-- (EHTTPRequestMethod) requestMethod{
-    return Request_POST;
-}
+
 
 - (NSDictionary*) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     if (self.mobile && ![self.mobile isEmpty]) {
         [dict setValue:self.mobile forKey:@"mobile"];
     }
-    if (self.verifyCode && ![self.verifyCode isEmpty]) {
-        [dict setValue:self.verifyCode forKey:@"verifyCode"];
+    if (self.password && ![self.password isEmpty]) {
+        [dict setValue:self.password forKey:@"password"];
     }
-    [dict setValue:@"01" forKey:@"msgType"];
     
-    NSString* systemName = [NSObject systemName];
-    if (systemName && ![systemName isEmpty]) {
-        [dict setValue:systemName forKey:@"systemName"];
-    }
     return dict;
 }
 
 - (id) paraserResponse:(id) response{
-    if (response && [response isKindOfClass:[NSDictionary class]]) {
-        
+    if (response && [response isKindOfClass:[NSString class]]) {
+        UserAccountModel* accountModel = [UserAccountModel new];
+        accountModel.token = response;
+        //UserAccountModel* accountModel = [UserAccountModel mj_objectWithKeyValues:response];
+        return accountModel;
     }
     return nil;
 }

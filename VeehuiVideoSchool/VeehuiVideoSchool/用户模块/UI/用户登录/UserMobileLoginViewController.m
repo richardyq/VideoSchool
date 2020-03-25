@@ -18,8 +18,8 @@
 
 @property (nonatomic, strong) UIView* confirmView;
 @property (nonatomic, strong) UIImageView* mobileConfirmIconImageView;
-@property (nonatomic, strong) UIButton* mobileConfirmCodeButton;        //获取验证码按钮
-@property (nonatomic, strong) UITextField* mobileConfirmTextField;
+//@property (nonatomic, strong) UIButton* mobileConfirmCodeButton;        //获取验证码按钮
+@property (nonatomic, strong) UITextField* passwordTextField;
 
 @property (nonatomic, strong) UIButton* loginButton;
 
@@ -38,8 +38,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"手机号登录";
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(countDownAction:) name:kCountDownNotifitionName object:nil];
 }
 
 
@@ -80,17 +78,13 @@
         make.left.equalTo(self.confirmView).offset(12.5);
     }];
     
-    [self.mobileConfirmCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(92, 34));
-        make.centerY.equalTo(self.confirmView);
-        make.right.equalTo(self.confirmView).offset(-14);
-    }];
     
-    [self.mobileConfirmTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    [self.passwordTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(@31);
         make.centerY.equalTo(self.confirmView);
         make.left.equalTo(self.mobileIconImageView.mas_right).offset(23.5);
-        make.right.equalTo(self.mobileConfirmCodeButton.mas_left).offset(-7.5);
+        make.right.equalTo(self.mobileTextField);
     }];
     
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -142,20 +136,14 @@
     return _mobileConfirmIconImageView;
 }
 
-- (UIButton*) mobileConfirmCodeButton{
-    if (!_mobileConfirmCodeButton) {
-        _mobileConfirmCodeButton = [self.confirmView addSolidButton:[UIColor mainThemeColor] size:CGSizeMake(92, 34) title:@"获取验证码" titleSize:12];
-        [_mobileConfirmCodeButton addTarget:self action:@selector(mobileConfirmCodeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+- (UITextField*) passwordTextField{
+    if (!_passwordTextField) {
+        _passwordTextField = [self.confirmView addTextField:@"登录密码" textColor:[UIColor commonTextColor] textSize:15];
+        _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _passwordTextField.secureTextEntry = YES;
     }
-    return _mobileConfirmCodeButton;
-}
-- (UITextField*) mobileConfirmTextField{
-    if (!_mobileConfirmTextField) {
-        _mobileConfirmTextField = [self.confirmView addTextField:@"手机验证码" textColor:[UIColor commonTextColor] textSize:15];
-        _mobileConfirmTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _mobileConfirmTextField.keyboardType = UIKeyboardTypePhonePad;
-    }
-    return _mobileConfirmTextField;
+    return _passwordTextField;
 }
 
 - (UIButton*) loginButton{
@@ -192,7 +180,7 @@
 
 - (void) loginButtonClicked:(id) sender{
     NSString* mobileNumber = self.mobileTextField.text;
-    NSString* verifyCode = self.mobileConfirmTextField.text;
+    NSString* password = self.passwordTextField.text;
     if (!mobileNumber || [mobileNumber isEmpty]) {
         return;
     }
@@ -203,34 +191,31 @@
         return;
     }
     
-    if (!verifyCode || [verifyCode isEmpty]) {
+    if (!password || [password isEmpty]) {
         return;
     }
     
-    [self startMobileLogin:mobileNumber verifyCode:verifyCode];
+    [self startMobileLogin:mobileNumber password:password];
 }
 
-#pragma mark - 倒计时广播事件
-- (void) countDownAction:(NSNotification*) notifition{
-    
-    if (--self.countDown > 0) {
-        
-        [self.mobileConfirmCodeButton setTitle:[NSString stringWithFormat:@"%lds后重发", self.countDown] forState:UIControlStateDisabled];
-    }
-    else{
-        [[VHCountDownUtil shareInstance] stopCountDown:self];
-        
-    }
-    self.mobileConfirmCodeButton.enabled = (self.countDown <= 0);
-}
 
-- (void) startMobileLogin:(NSString*) mobile verifyCode:(NSString*) verifyCode{
+- (void) startMobileLogin:(NSString*) mobile password:(NSString*) password{
     WS(weakSelf)
-    [UserInfoBusiness startMobileLogin:mobile verifyCode:verifyCode result:^(id result) {
+    [UserInfoBusiness startMobileLogin:mobile password:password result:^(id result) {
         SAFE_WEAKSELF(weakSelf)
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
+        if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
+            return;
+        }
+        [weakSelf userLogined];
     }];
+}
+
+#pragma mark - 登录完成
+- (void) userLogined{
+    [self dismissController:[NSNumber numberWithBool:YES]];
 }
 
 @end

@@ -81,7 +81,7 @@
         }
         case Login_Mobile:{
             //跳转到手机号登录界面
-            [UserPageRouter entryMobileLogin];
+            //[UserPageRouter entryMobileLogin];
             break;
         }
         default:

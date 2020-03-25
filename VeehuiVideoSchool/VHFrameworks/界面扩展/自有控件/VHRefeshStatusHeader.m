@@ -22,7 +22,7 @@
         // 隐藏时间
         self.lastUpdatedTimeLabel.hidden = YES;
         // 隐藏状态
-        self.stateLabel.hidden = YES;
+        //self.stateLabel.hidden = YES;
     }
     return self;
 }

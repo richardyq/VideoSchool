@@ -10,7 +10,8 @@
 #import "VHRefeshStatusHeader.h"
 
 @interface VHBaseListViewController ()
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate,
+DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic, readonly) UITableViewStyle tableViewStyle;
 
@@ -19,6 +20,12 @@
 @implementation VHBaseListViewController
 
 @synthesize tableview = _tableview;
+
+- (void) dealloc{
+    if (self.tableview.mj_header) {
+        [self.tableview.mj_header removeObserver:self forKeyPath:@"state"];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +38,8 @@
         SAFE_WEAKSELF(weakSelf)
         [weakSelf refreshDataCommand];
     }];
+    
+    [self.tableview.mj_header addObserver:self forKeyPath:@"state" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
 }
 
 - (void) updateViewConstraints{
@@ -58,6 +67,9 @@
         [_tableview registerClass:[VHTableViewCell class] forCellReuseIdentifier:[VHTableViewCell cellReuseIdentifier]];
         _tableview.delegate = self;
         _tableview.dataSource = self;
+        
+        _tableview.emptyDataSetSource = self;
+        _tableview.emptyDataSetDelegate = self;
     }
     return _tableview;
 }
@@ -169,4 +181,130 @@
     
 }
 
+#pragma mark - observice
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if (object == self.tableview.mj_header) {
+        if ([keyPath isEqualToString:@"state"]) {
+            MJRefreshState refreshState = self.tableview.mj_header.state;
+            [self headerRefreshStateChanged:refreshState];
+        }
+    }
+    
+    if (object == self.tableview.mj_footer) {
+        if ([keyPath isEqualToString:@"state"]) {
+            MJRefreshState refreshState = self.tableview.mj_header.state;
+            [self footerRefreshStateChanged:refreshState];
+        }
+    }
+}
+
+- (void) headerRefreshStateChanged:(MJRefreshState) state{
+    NSLog(@"headerRefreshStateChanged : %ld", state);
+    [self.tableview reloadData];
+}
+
+- (void) footerRefreshStateChanged:(MJRefreshState) state{
+    NSLog(@"footerRefreshStateChanged : %ld", state);
+    [self.tableview reloadData];
+}
+
+#pragma mark - DZNEmptyDataSetDelegate
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView{
+    return self.models.count == 0;
+}
+
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView{
+    return YES;
+}
+
+#pragma mark - DZNEmptyDataSetSource
+- (nullable UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView{
+    UIView* emptyview = [UIView new];
+    
+    if (self.tableview.mj_header.state == MJRefreshStateRefreshing) {
+        emptyview = [self loadingEmptyView];
+    }
+    else{
+        emptyview = [self normalEmptyView];
+        if (self.errorMessage || [self.errorMessage isEmpty]) {
+            emptyview = [self normalErrorEmptyView];
+        }
+    }
+    return emptyview;
+}
+
+- (UIView*) loadingEmptyView{
+    UIView* emptyview = [UIView new];
+    
+    UIImageView* waitingImageView = [emptyview addImageView:@"img_waiting"];
+    UILabel* waitingLabel = [emptyview addLabel:[UIColor commonDarkGrayTextColor] textSize:13];
+    waitingLabel.text = @"稍等片刻，马上就好";
+    
+    [waitingImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(63, 63));
+        make.top.equalTo(emptyview);
+        make.centerX.equalTo(emptyview);
+    }];
+    
+    [waitingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.lessThanOrEqualTo(emptyview);
+        make.bottom.equalTo(emptyview);
+        make.centerX.equalTo(emptyview);
+        make.top.equalTo(waitingImageView.mas_bottom).offset(15);
+    }];
+                                
+    return emptyview;
+}
+
+- (UIView*) normalEmptyView{
+    UIView* emptyview = [UIView new];
+    
+    UIImageView* emptyImageView = [emptyview addImageView:@"img_empty"];
+    UILabel* emptyLabel = [emptyview addLabel:[UIColor commonDarkGrayTextColor] textSize:13];
+    
+    emptyLabel.text = [self emptyTableText];
+    
+    [emptyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(145, 100));
+        make.top.equalTo(emptyview);
+        make.centerX.equalTo(emptyview);
+    }];
+    
+    [emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.lessThanOrEqualTo(emptyview);
+        make.bottom.equalTo(emptyview);
+        make.centerX.equalTo(emptyview);
+        make.top.equalTo(emptyImageView.mas_bottom).offset(15);
+    }];
+                                
+    return emptyview;
+}
+
+- (UIView*) normalErrorEmptyView{
+    UIView* emptyview = [UIView new];
+    
+    UIImageView* emptyImageView = [emptyview addImageView:@"img_empty"];
+    UILabel* emptyLabel = [emptyview addLabel:[UIColor commonDarkGrayTextColor] textSize:13];
+    
+    emptyLabel.text = self.errorMessage;
+    
+    [emptyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(145, 100));
+        make.top.equalTo(emptyview);
+        make.centerX.equalTo(emptyview);
+    }];
+    
+    [emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.lessThanOrEqualTo(emptyview);
+        make.bottom.equalTo(emptyview);
+        make.centerX.equalTo(emptyview);
+        make.top.equalTo(emptyImageView.mas_bottom).offset(15);
+    }];
+                                
+    return emptyview;
+}
+
+- (NSString*) emptyTableText{
+    return @"无数据提示";
+}
 @end

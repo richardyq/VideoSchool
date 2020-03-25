@@ -14,6 +14,7 @@
 #import "APPVersionInfo.h"
 #import "UserInfoBusiness.h"
 #import "RootLicensementView.h"
+#import "UserPageRouter.h"
 
 #define kUMENG_APPKEY @"589c350904e205b6b4002031"
 #define kUMENG_APPCHANNELID @"App Store"
@@ -252,6 +253,7 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
     if (needUserLoginWithPage) {
     //if (YES) {
         //跳转到登录界面进行登录
+        
         [self entryLoginPage];
         return;
     }
@@ -277,6 +279,23 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
 }
 
 - (void) entryLoginPage{
+    BOOL needMobileLogin = NO;
+    needMobileLogin = ![WXApi isWXAppInstalled];
+    if (needMobileLogin) {
+        //手机号登录
+        WS(weakSelf)
+        [UserPageRouter entryMobileLogin:^(id  _Nonnull ret) {
+            SAFE_WEAKSELF(weakSelf)
+            NSNumber* loginedNumber = (NSNumber*) ret;
+            if (loginedNumber && [loginedNumber isKindOfClass:[NSNumber class]]) {
+                BOOL logined = loginedNumber.boolValue;
+                [weakSelf userLoginAction:logined];
+            }
+        }];
+        return;
+    }
+    
+    
     WS(weakSelf)
     [VHPageRouter entryIntoUserLoginPage:^(id  _Nonnull ret) {
         SAFE_WEAKSELF(weakSelf)
