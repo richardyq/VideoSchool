@@ -10,8 +10,6 @@
 
 @interface HomeStartNavigationView ()
 
-@property (nonatomic, strong) UIButton* historyButton;
-@property (nonatomic, strong) UIButton* qrCodeButton;
 
 @property (nonatomic, strong) UIControl* searchControl;
 @property (nonatomic, strong) UIImageView* searchIconIamgeView;
@@ -24,23 +22,13 @@
 - (void) updateConstraints{
     [super updateConstraints];
     
-    [self.qrCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(31, 31));
-        make.centerY.equalTo(self);
-        make.right.equalTo(self).offset(-12);
-    }];
     
-    [self.historyButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(31, 31));
-        make.centerY.equalTo(self);
-        make.right.equalTo(self.qrCodeButton.mas_left).offset(-11);
-    }];
     
     [self.searchControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(12);
         make.centerY.equalTo(self);
         make.height.mas_equalTo(@36.);
-        make.right.equalTo(self.historyButton.mas_left).offset(-11.5);
+        make.right.equalTo(self).offset(-12);
     }];
     
     [self.searchIconIamgeView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,19 +45,7 @@
 }
 
 #pragma mark - settingAndGetting
-- (UIButton*) historyButton{
-    if (!_historyButton) {
-        _historyButton = [self addButtonWithImageName:@"ic_navi_history"];
-    }
-    return _historyButton;
-}
 
-- (UIButton*) qrCodeButton{
-    if (!_qrCodeButton) {
-        _qrCodeButton = [self addButtonWithImageName:@"ic_navi_qrcode"];
-    }
-    return _qrCodeButton;
-}
 
 - (UIControl*) searchControl{
     if (!_searchControl) {

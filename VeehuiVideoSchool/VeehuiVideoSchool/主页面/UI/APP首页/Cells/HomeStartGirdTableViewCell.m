@@ -48,6 +48,15 @@
 
 @implementation HomeStartGirdTableViewCell
 
+- (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.contentView.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+}
+
 - (void) updateConstraints{
     [super updateConstraints];
     

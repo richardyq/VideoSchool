@@ -9,6 +9,7 @@
 #import "HomeStartViewController.h"
 #import "HomeStartNavigationView.h"
 #import "HomeStartTableViewController.h"
+#import "HomeStartMeetingInfoTableViewCell.h"
 
 @interface HomeStartViewController ()
 
@@ -62,5 +63,7 @@
     }
     return _tableViewController;
 }
+
+
 
 @end

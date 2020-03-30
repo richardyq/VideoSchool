@@ -10,6 +10,9 @@
 #import "HomeStartGirdTableViewCell.h"
 #import "MedicalVideoPageRouter.h"
 #import "MeetingPageRouter.h"
+#import "MeetingBussiness.h"
+#import "HomeStartMeetingInfoTableViewCell.h"
+#import "HomeMeetingInfo.h"
 
 typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     Gird_Section,
@@ -20,6 +23,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 @interface HomeStartTableViewController ()
 
 @property (nonatomic, strong) UIView* tableHeaderView;
+@property (nonatomic, strong) HomeMeetingInfo* homeMeetingInfo;
 
 @end
 
@@ -30,10 +34,14 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     [self setFd_interactivePopDisabled:YES];
     self.tableView.estimatedRowHeight = 44.;
 
+    self.tableView.backgroundColor = [UIColor commonBackgroundColor];
     self.tableView.tableHeaderView = self.tableHeaderView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[VHTableViewCell class] forCellReuseIdentifier:[VHTableViewCell cellReuseIdentifier]];
     [self.tableView registerClass:[HomeStartGirdTableViewCell class] forCellReuseIdentifier:[HomeStartGirdTableViewCell cellReuseIdentifier]];
+    [self.tableView registerClass:[HomeStartMeetingInfoTableViewCell class] forCellReuseIdentifier:[HomeStartMeetingInfoTableViewCell cellReuseIdentifier]];
+    
+    [self getData];
 }
 
 #pragma mark - settingAndGetting
@@ -64,13 +72,16 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             return 1;
             break;
         }
+        case Meeting_Section:{
+            if (self.homeMeetingInfo && self.homeMeetingInfo.meetingInfos.count > 0) {
+                return 1;
+            }
+        }
         default:
             break;
     }
     return 0;
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VHTableViewCell cellReuseIdentifier]];
@@ -85,6 +96,12 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
                 SAFE_WEAKSELF(weakSelf)
                 [weakSelf startGridItemAction:index];
             }];
+            break;
+        }
+        case Meeting_Section:{
+            cell = [tableView dequeueReusableCellWithIdentifier:[HomeStartMeetingInfoTableViewCell cellReuseIdentifier]];
+            HomeStartMeetingInfoTableViewCell* meetingCell = (HomeStartMeetingInfoTableViewCell*) cell;
+            [meetingCell setEntryModel:self.homeMeetingInfo];
             break;
         }
         default:
@@ -141,5 +158,27 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
         default:
             break;
     }
+}
+
+#pragma mark - 获取网络数据
+- (void) getData{
+    //获取会议轮播
+    [self startLoadMeetingInfo];
+}
+
+#pragma mark - 首页会议轮播
+- (void) startLoadMeetingInfo{
+    WS(weakSelf)
+    [MeetingBussiness startLoadHomeMeetings:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[HomeMeetingInfo class]]) {
+            weakSelf.homeMeetingInfo = result;
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        if (code == 0) {
+            [weakSelf.tableView reloadData];
+        }
+    }];
 }
 @end

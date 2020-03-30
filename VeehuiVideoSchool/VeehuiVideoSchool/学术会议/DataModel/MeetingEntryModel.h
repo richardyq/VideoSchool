@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger watchingNumber;         //观看人数
 @property (nonatomic, strong) NSString* watchingNumberInfo;
 
-@property (nonatomic) NSInteger appointmentNumberInfo;
+@property (nonatomic) NSString* appointmentNumberInfo;
 @property (nonatomic) NSInteger liveCount;
 @end
 

@@ -87,6 +87,9 @@
 		278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755424037ABE005A8994 /* LiveMeetingListFunction.m */; };
 		278A755924038019005A8994 /* MeetingEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755824038019005A8994 /* MeetingEntryModel.m */; };
 		278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */; };
+		278F3FF9242DE9E100D0B4AC /* HomeMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FF8242DE9E100D0B4AC /* HomeMeetingListFunction.m */; };
+		278F3FFC242DED7D00D0B4AC /* HomeMeetingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FFB242DED7D00D0B4AC /* HomeMeetingInfo.m */; };
+		278F3FFF242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FFE242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m */; };
 		279A1F5A242851AA008AAA5F /* UserInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F59242851AA008AAA5F /* UserInfoFunction.m */; };
 		279A1F60242864AE008AAA5F /* BindMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F5F242864AE008AAA5F /* BindMobileViewController.m */; };
 		279A1F6324288941008AAA5F /* CheckMobileVerifyCodeFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */; };
@@ -277,6 +280,12 @@
 		278A755824038019005A8994 /* MeetingEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingEntryModel.m; sourceTree = "<group>"; };
 		278A755B2403A6A6005A8994 /* MeetingInfoListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingInfoListTableViewCell.h; sourceTree = "<group>"; };
 		278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingInfoListTableViewCell.m; sourceTree = "<group>"; };
+		278F3FF7242DE9E100D0B4AC /* HomeMeetingListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMeetingListFunction.h; sourceTree = "<group>"; };
+		278F3FF8242DE9E100D0B4AC /* HomeMeetingListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMeetingListFunction.m; sourceTree = "<group>"; };
+		278F3FFA242DED7D00D0B4AC /* HomeMeetingInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMeetingInfo.h; sourceTree = "<group>"; };
+		278F3FFB242DED7D00D0B4AC /* HomeMeetingInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMeetingInfo.m; sourceTree = "<group>"; };
+		278F3FFD242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStartMeetingInfoTableViewCell.h; sourceTree = "<group>"; };
+		278F3FFE242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStartMeetingInfoTableViewCell.m; sourceTree = "<group>"; };
 		279A1F58242851AA008AAA5F /* UserInfoFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoFunction.h; sourceTree = "<group>"; };
 		279A1F59242851AA008AAA5F /* UserInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoFunction.m; sourceTree = "<group>"; };
 		279A1F5E242864AE008AAA5F /* BindMobileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindMobileViewController.h; sourceTree = "<group>"; };
@@ -484,6 +493,8 @@
 			children = (
 				27206DAE23FD0C07004A9C85 /* HomeStartGirdTableViewCell.h */,
 				27206DAF23FD0C07004A9C85 /* HomeStartGirdTableViewCell.m */,
+				278F3FFD242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.h */,
+				278F3FFE242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -986,6 +997,8 @@
 				278A755424037ABE005A8994 /* LiveMeetingListFunction.m */,
 				278A754824036F8C005A8994 /* MeetingGatherFunction.h */,
 				278A754924036F8C005A8994 /* MeetingGatherFunction.m */,
+				278F3FF7242DE9E100D0B4AC /* HomeMeetingListFunction.h */,
+				278F3FF8242DE9E100D0B4AC /* HomeMeetingListFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -997,6 +1010,8 @@
 				278A754C2403703C005A8994 /* MeetingGatherEntryModel.m */,
 				278A755724038019005A8994 /* MeetingEntryModel.h */,
 				278A755824038019005A8994 /* MeetingEntryModel.m */,
+				278F3FFA242DED7D00D0B4AC /* HomeMeetingInfo.h */,
+				278F3FFB242DED7D00D0B4AC /* HomeMeetingInfo.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1278,6 +1293,7 @@
 				2759AD7C2424C098006E4B72 /* UserValidateTokenFunction.m in Sources */,
 				27AA25A92418CE0100D31AA4 /* MedicalVideoEntryModel.m in Sources */,
 				27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */,
+				278F3FFF242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m in Sources */,
 				27AA25B22418DB8200D31AA4 /* UILabel+VHExt.m in Sources */,
 				277F91B923FA30CF0055C773 /* UIImage+VHExt.m in Sources */,
 				27848FCD23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m in Sources */,
@@ -1287,6 +1303,7 @@
 				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
 				27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */,
 				27206DA623FCDF76004A9C85 /* HomeStartViewController.m in Sources */,
+				278F3FF9242DE9E100D0B4AC /* HomeMeetingListFunction.m in Sources */,
 				277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */,
 				277F918123FA274B0055C773 /* AppDelegate.m in Sources */,
 				27848FD623FE56A9004729B2 /* MedicalVideoSecondaryClassifyListFunction.m in Sources */,
@@ -1317,6 +1334,7 @@
 				27AA25A32418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m in Sources */,
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
 				27AA911E241A1778004D93F2 /* MedicalGroupOthersFunction.m in Sources */,
+				278F3FFC242DED7D00D0B4AC /* HomeMeetingInfo.m in Sources */,
 				2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */,
 				27848FD923FE6032004729B2 /* ClassifiedMedicalVideosFunction.m in Sources */,
 				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,

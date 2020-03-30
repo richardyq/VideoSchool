@@ -34,6 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
                            result:(VHRequestResultHandler) result
                          complete:(VHRequestCompleteHandler) complete;
 
+/**
+ startLoadHomeMeetings
+ 获取首页会议轮播信息
+ @param result          result 请求数据结果返回回调方法
+ @param complete        complete 请求结束回调方法
+ */
++ (void) startLoadHomeMeetings:(VHRequestResultHandler) result
+                      complete:(VHRequestCompleteHandler) complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

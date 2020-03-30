@@ -9,6 +9,7 @@
 #import "MeetingBussiness.h"
 #import "MeetingGatherFunction.h"
 #import "LiveMeetingListFunction.h"
+#import "HomeMeetingListFunction.h"
 
 @implementation MeetingBussiness
 
@@ -29,6 +30,13 @@
                            result:(VHRequestResultHandler) result
                          complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[LiveMeetingListFunction alloc] initWithPageNo:pageNo pageSize:pageSize];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取首页会议轮播数据
++ (void) startLoadHomeMeetings:(VHRequestResultHandler) result
+                      complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[HomeMeetingListFunction alloc] init];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

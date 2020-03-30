@@ -49,7 +49,8 @@
         make.top.equalTo(self.view).offset(74);
         make.centerX.equalTo(self.view);
         make.height.mas_equalTo(@47);
-        make.width.equalTo(self.view).offset(-45.);
+        //make.width.equalTo(self.view).offset(-45.);
+        make.width.equalTo(@275.);
     }];
     
     [self.mobileIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,9 +70,9 @@
         make.top.equalTo(self.mobileView.mas_bottom).offset(24.5);
         make.centerX.equalTo(self.view);
         make.height.mas_equalTo(@47);
-        make.width.equalTo(self.view).offset(-45.);
+        make.width.equalTo(self.mobileView);
     }];
-    
+     
     [self.mobileConfirmIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(12, 16));
         make.centerY.equalTo(self.confirmView);
@@ -89,7 +90,7 @@
     
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.width.equalTo(self.view).offset(-45);
+        make.width.equalTo(self.mobileView);
         make.height.mas_equalTo(@45.);
         make.top.equalTo(self.confirmView.mas_bottom).offset(32.);
     }];
