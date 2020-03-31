@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 基本信息
 //@property (nonatomic,assign) NSInteger id;
+@property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *nickname;
 @property (nonatomic,copy) NSString *portraitUrl; //
 @property (nonatomic,copy) NSString *introduction;  //用户简介

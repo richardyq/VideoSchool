@@ -10,7 +10,7 @@
 #import "EntryModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ListModel : NSObject
+@interface ListModel : EntryModel
 
 @property (nonatomic) NSInteger pageNo;
 @property (nonatomic) NSInteger pageSize;

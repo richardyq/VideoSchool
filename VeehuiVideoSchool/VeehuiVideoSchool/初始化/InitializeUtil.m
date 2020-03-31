@@ -15,6 +15,8 @@
 #import "UserInfoBusiness.h"
 #import "RootLicensementView.h"
 #import "UserPageRouter.h"
+#import "CircleBussiness.h"
+#import "CommonDataModel.h"
 
 #define kUMENG_APPKEY @"589c350904e205b6b4002031"
 #define kUMENG_APPCHANNELID @"App Store"
@@ -364,6 +366,50 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
 }
 
 - (void) mobileBindDone{
-    [VHPageRouter entryMainPage];
+    //[VHPageRouter entryMainPage];
+    [self startLoadJoinedCircles];
+}
+
+#pragma mark - 获取加入的圈子
+- (void) startLoadJoinedCircles{
+    [MessageHubUtil showWait];
+    WS(weakSelf)
+    [CircleBussiness startLoadUserJoinedCircles:^(id result) {
+        if ([result isKindOfClass:[NSArray class]]) {
+            [CommonDataModel shareInstance].joinedCircles = result;
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        [MessageHubUtil hideMessage];
+        if (code != 0) {
+            [MessageHubUtil showMessage:message];
+            return;
+        }
+        if ([CommonDataModel shareInstance].joinedCircles &&
+            [CommonDataModel shareInstance].joinedCircles.count > 0) {
+            NSInteger circleId = [CommonDataModel shareInstance].joinedCircles.firstObject.circleId;
+            [weakSelf startLoadJoinedCircleInfo:circleId];
+        }
+        else
+            [VHPageRouter entryMainPage];
+    }];
+}
+
+- (void) startLoadJoinedCircleInfo:(NSInteger) circleId{
+    [MessageHubUtil showWait];
+    WS(weakSelf)
+    [CircleBussiness startLoadUserJoinedCircleInfo:circleId result:^(id result) {
+        if ([result isKindOfClass:[JoinedCircleEntryModel class]]) {
+            [CommonDataModel shareInstance].joinedCircleInfo = result;
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        [MessageHubUtil hideMessage];
+        if (code != 0) {
+            [MessageHubUtil showMessage:message];
+            return;
+        }
+        [VHPageRouter entryMainPage];
+    }];
 }
 @end

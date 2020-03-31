@@ -12,11 +12,23 @@
 #import "MeetingPageRouter.h"
 #import "MeetingBussiness.h"
 #import "HomeStartMeetingInfoTableViewCell.h"
+#import "HomeJoinedCircleTableViewCell.h"
+#import "HomeRecommandCourseTableViewCell.h"
+#import "HomeUserRecommandTableViewCell.h"
 #import "HomeMeetingInfo.h"
+#import "CommonDataModel.h"
+#import "MedicalVideoListBussiness.h"
+#import "MedicalVideoGroupInfoEntryModel.h"
+#import "MedicalVideoInfoTableViewCell.h"
 
 typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     Gird_Section,
     Meeting_Section,
+    Circle_Section,
+    Course_Section,
+    User_Section,
+    
+    Video_Section,
     SectionCount,
 };
 
@@ -24,6 +36,10 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 @property (nonatomic, strong) UIView* tableHeaderView;
 @property (nonatomic, strong) HomeMeetingInfo* homeMeetingInfo;
+@property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandCourseList;
+@property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandVideosList;
+
+@property (nonatomic) NSInteger tick;
 
 @end
 
@@ -40,6 +56,10 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     [self.tableView registerClass:[VHTableViewCell class] forCellReuseIdentifier:[VHTableViewCell cellReuseIdentifier]];
     [self.tableView registerClass:[HomeStartGirdTableViewCell class] forCellReuseIdentifier:[HomeStartGirdTableViewCell cellReuseIdentifier]];
     [self.tableView registerClass:[HomeStartMeetingInfoTableViewCell class] forCellReuseIdentifier:[HomeStartMeetingInfoTableViewCell cellReuseIdentifier]];
+    [self.tableView registerClass:[HomeJoinedCircleTableViewCell class] forCellReuseIdentifier:[HomeJoinedCircleTableViewCell cellReuseIdentifier]];
+    [self.tableView registerClass:[HomeRecommandCourseTableViewCell class] forCellReuseIdentifier:[HomeRecommandCourseTableViewCell cellReuseIdentifier]];
+    [self.tableView registerClass:[HomeUserRecommandTableViewCell class] forCellReuseIdentifier:[HomeUserRecommandTableViewCell cellReuseIdentifier]];
+    [self.tableView registerClass:[MedicalVideoInfoTableViewCell class] forCellReuseIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
     
     [self getData];
 }
@@ -72,10 +92,33 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             return 1;
             break;
         }
+            
         case Meeting_Section:{
             if (self.homeMeetingInfo && self.homeMeetingInfo.meetingInfos.count > 0) {
                 return 1;
             }
+            break;
+        }
+        case Circle_Section:{
+            if ([CommonDataModel shareInstance].joinedCircleInfo) {
+                return 1;
+            }
+            break;
+        }
+        case Course_Section:{
+            if (self.recommandCourseList) {
+                return 1;
+            }
+            break;
+        }
+        case User_Section:{
+            return 1;
+        }
+        case Video_Section:{
+            if (self.recommandVideosList) {
+                return self.recommandVideosList.content.count;
+            }
+            break;
         }
         default:
             break;
@@ -84,7 +127,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VHTableViewCell cellReuseIdentifier]];
+    VHTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VHTableViewCell cellReuseIdentifier]];
     
     // Configure the cell...
     switch (indexPath.section) {
@@ -103,6 +146,25 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             HomeStartMeetingInfoTableViewCell* meetingCell = (HomeStartMeetingInfoTableViewCell*) cell;
             [meetingCell setEntryModel:self.homeMeetingInfo];
             break;
+        }
+        case Circle_Section:{
+            cell = [[HomeJoinedCircleTableViewCell alloc] initWithJoinedCircle:[CommonDataModel shareInstance].joinedCircleInfo];
+            
+            break;
+        }
+        case Course_Section:{
+            cell = [[HomeRecommandCourseTableViewCell alloc] initWithCourseList:self.recommandCourseList];
+            
+            break;
+        }
+        case User_Section:{
+            cell = [tableView dequeueReusableCellWithIdentifier:[HomeUserRecommandTableViewCell cellReuseIdentifier]];
+            break;
+        }
+        case Video_Section:{
+            cell = [tableView dequeueReusableCellWithIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
+            MedicalVideoGroupInfoListModel* videoGroup = self.recommandVideosList.content[indexPath.row];
+            [cell setEntryModel:videoGroup];
         }
         default:
             break;
@@ -125,7 +187,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
         case Gird_Section:
             headerHeight = 5.;
             break;
-            
+         
         default:
             break;
     }
@@ -162,13 +224,19 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 #pragma mark - 获取网络数据
 - (void) getData{
+    self.tick = 0;
     //获取会议轮播
     [self startLoadMeetingInfo];
+    //获取推荐课程
+    [self startLoadRecommandCourses];
+    //获取推荐视频
+    [self startLoadRecommandVideos];
 }
 
 #pragma mark - 首页会议轮播
 - (void) startLoadMeetingInfo{
     WS(weakSelf)
+    ++self.tick;
     [MeetingBussiness startLoadHomeMeetings:^(id result) {
         SAFE_WEAKSELF(weakSelf)
         if ([result isKindOfClass:[HomeMeetingInfo class]]) {
@@ -176,9 +244,56 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
         }
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
+        [weakSelf tickdown];
         if (code == 0) {
-            [weakSelf.tableView reloadData];
+            //[weakSelf.tableView reloadData];
+            //获取推荐课程
+            
         }
     }];
+}
+
+#pragma mark - 获取首页推荐课程
+- (void) startLoadRecommandCourses{
+    ++self.tick;
+    WS(weakSelf)
+    [MedicalVideoListBussiness startLoadHomeRecommandCoursesVideos:^(id result) {
+        WS(weakSelf)
+        if (!result || ![result isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+            return ;
+        }
+        weakSelf.recommandCourseList = result;
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        [weakSelf tickdown];
+        if (code == 0) {
+            
+        }
+    }];
+}
+
+#pragma mark - 获取首页推荐课程
+- (void) startLoadRecommandVideos{
+    ++self.tick;
+    WS(weakSelf)
+    [MedicalVideoListBussiness startLoadHomeRecommandVideos:^(id result) {
+        WS(weakSelf)
+        if (!result || ![result isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+            return ;
+        }
+        weakSelf.recommandVideosList = result;
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        [weakSelf tickdown];
+        if (code == 0) {
+            
+        }
+    }];
+}
+
+- (void) tickdown{
+    if (--self.tick <= 0) {
+        [self.tableView reloadData];
+    }
 }
 @end

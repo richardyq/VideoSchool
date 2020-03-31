@@ -13,6 +13,8 @@
 #import "MedicalCourseListFunction.h"
 #import "MedicalGroupDetailFunction.h"
 #import "MedicalGroupOthersFunction.h"
+#import "HomeRecommandCourseListFunction.h"
+#import "HomeRecommandVideosFunction.h"
 
 @implementation MedicalVideoListBussiness
 
@@ -65,6 +67,18 @@
                                    sresult:(VHRequestResultHandler) result
                                   complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[MedicalGroupOthersFunction alloc] initWithGroupId:groupId];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadHomeRecommandCoursesVideos:(VHRequestResultHandler) result
+                                    complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[HomeRecommandCourseListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadHomeRecommandVideos:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[HomeRecommandVideosFunction alloc] init];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end
