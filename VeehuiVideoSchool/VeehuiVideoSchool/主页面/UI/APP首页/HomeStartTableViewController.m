@@ -20,7 +20,10 @@
 #import "MedicalVideoListBussiness.h"
 #import "MedicalVideoGroupInfoEntryModel.h"
 #import "MedicalVideoInfoTableViewCell.h"
-
+#import "HomeSubjectHeaderTableViewCell.h"
+#import "HomeSubjectMeetingTableViewCell.h"
+#import "HomeFooterTableViewCell.h"
+#import "HomeSubjectEntry.h"
 typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     Gird_Section,
     Meeting_Section,
@@ -29,6 +32,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     User_Section,
     
     Video_Section,
+    //Subject_Section,
     SectionCount,
 };
 
@@ -38,6 +42,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 @property (nonatomic, strong) HomeMeetingInfo* homeMeetingInfo;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandCourseList;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandVideosList;
+@property (nonatomic, strong) HomeSubjectListModel* homeSubjects;
 
 @property (nonatomic) NSInteger tick;
 
@@ -60,6 +65,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     [self.tableView registerClass:[HomeRecommandCourseTableViewCell class] forCellReuseIdentifier:[HomeRecommandCourseTableViewCell cellReuseIdentifier]];
     [self.tableView registerClass:[HomeUserRecommandTableViewCell class] forCellReuseIdentifier:[HomeUserRecommandTableViewCell cellReuseIdentifier]];
     [self.tableView registerClass:[MedicalVideoInfoTableViewCell class] forCellReuseIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
+    [self.tableView registerClass:[HomeFooterTableViewCell class] forCellReuseIdentifier:[HomeFooterTableViewCell cellReuseIdentifier]];
     
     [self getData];
 }
@@ -82,7 +88,11 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
-    return SectionCount;
+    NSInteger sectionCount = SectionCount + 1;
+    if (self.homeSubjects) {
+        sectionCount += self.homeSubjects.content.count;
+    }
+    return sectionCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -120,8 +130,19 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             }
             break;
         }
+        
         default:
             break;
+    }
+    
+    if (section > Video_Section) {
+        if (self.homeSubjects && section < (SectionCount + self.homeSubjects.content.count)) {
+            HomeSubjectEntry* subjectEntry = (HomeSubjectEntry*)self.homeSubjects.content[section - Video_Section - 1];
+            return 1 + subjectEntry.meetingInfos.count + subjectEntry.lengthwaysMedicalVideos.count;
+        }
+        else{
+            return 1;
+        }
     }
     return 0;
 }
@@ -165,9 +186,31 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             cell = [tableView dequeueReusableCellWithIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
             MedicalVideoGroupInfoListModel* videoGroup = self.recommandVideosList.content[indexPath.row];
             [cell setEntryModel:videoGroup];
-        }
-        default:
             break;
+        }
+    }
+    NSInteger section = indexPath.section;
+    if (section > Video_Section  ) {
+        if (self.homeSubjects && section <= (Video_Section + self.homeSubjects.content.count)) {
+            HomeSubjectEntry* subject =  self.homeSubjects.content[section - Video_Section - 1];
+            NSInteger row = indexPath.row;
+            if (row == 0) {
+                cell = [[HomeSubjectHeaderTableViewCell alloc] initWithSubjectEntry:subject];
+            }
+            else if (row <= subject.meetingInfos.count){
+                MeetingEntryModel* meeting = subject.meetingInfos[row - 1];
+                cell = [[HomeSubjectMeetingTableViewCell alloc] initWithMeetingEntry:meeting];
+            }
+            else{
+                cell = [tableView dequeueReusableCellWithIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
+                MedicalVideoGroupInfoListModel* videoGroup = subject.lengthwaysMedicalVideos[row - subject.meetingInfos.count - 1];
+                [cell setEntryModel:videoGroup];
+            }
+        }
+        else{
+            cell = [tableView dequeueReusableCellWithIdentifier:[HomeFooterTableViewCell cellReuseIdentifier]];
+        }
+        
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -195,6 +238,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, [self tableHeaderViewHeight:section])];
     
     return headerView;
@@ -231,6 +275,8 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     [self startLoadRecommandCourses];
     //获取推荐视频
     [self startLoadRecommandVideos];
+    
+    [self startLoadSubjectContents];
 }
 
 #pragma mark - 首页会议轮播
@@ -282,6 +328,25 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             return ;
         }
         weakSelf.recommandVideosList = result;
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        [weakSelf tickdown];
+        if (code == 0) {
+            
+        }
+    }];
+}
+
+#pragma mark - 分类展示内容。
+- (void) startLoadSubjectContents{
+    ++self.tick;
+    WS(weakSelf)
+    [MedicalVideoListBussiness startLoadHomeSubjectContent:^(id result) {
+        WS(weakSelf)
+       if (!result || ![result isKindOfClass:[HomeSubjectListModel class]]) {
+            return ;
+        }
+        weakSelf.homeSubjects = result;
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
         [weakSelf tickdown];

@@ -271,6 +271,7 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
             if (code != 0) {
                 //[MessageHubUtil showErrorMessage:message];
                 //验证token失败，进入登录界面t进行登录
+                [[UserModuleUtil shareInstance] userLogout];
                 [weakSelf entryLoginPage];
             }
             else{

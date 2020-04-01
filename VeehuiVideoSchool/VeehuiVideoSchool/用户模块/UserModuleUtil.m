@@ -41,6 +41,8 @@ NSString* const kLoginedUserIdKey = @"LoginedUserId";
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLoginedUserTokenKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLoginedUserIdKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    //[[VHHTTPRequest shareInstance] setHTTPHeader:nil headerField:@"Authorization"];
 }
 
 #pragma mark - settingAndGetting

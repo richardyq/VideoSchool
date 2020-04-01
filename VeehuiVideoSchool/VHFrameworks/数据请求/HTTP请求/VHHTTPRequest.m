@@ -60,7 +60,13 @@
 }
 
 - (void) setHTTPHeader:(NSString*) value headerField:(NSString*) headerField{
-    [self.operationManager.requestSerializer setValue:value forHTTPHeaderField:headerField];
+    if (value && ![value isEmpty]) {
+        [self.operationManager.requestSerializer setValue:value forHTTPHeaderField:headerField];
+    }
+    else{
+        [self.operationManager.requestSerializer setValue:@"" forHTTPHeaderField:headerField];
+    }
+    
 }
 
 #pragma mark GET请求 block回调
@@ -173,7 +179,9 @@
     if (userToken!=nil&&[userToken length]>0) {
         [self.operationManager.requestSerializer setValue:userToken forHTTPHeaderField:@"Authorization"];
     }else{
-        [self.operationManager.requestSerializer setValue:nil forHTTPHeaderField:@"Authorization"];
+        [self.operationManager.requestSerializer clearAuthorizationHeader];
+        //[self.operationManager.requestSerializer setValue:@"" forHTTPHeaderField:@"Authorization"];
+        //[self.operationManager.requestSerializer setValue:nil forHTTPHeaderField:@"Authorization"];
     }
 }
 @end

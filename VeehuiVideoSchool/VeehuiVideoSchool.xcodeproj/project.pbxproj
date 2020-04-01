@@ -126,6 +126,13 @@
 		27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD082431BE4B0050CC88 /* HomeCircleUnTreadedView.m */; };
 		27ACCD0C2431C9010050CC88 /* UserJoinedCircleInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */; };
 		27ACCD0F2431C9D40050CC88 /* JoinedCircleEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */; };
+		27FF316624342445008457BD /* HomeSubjectListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316524342445008457BD /* HomeSubjectListFunction.m */; };
+		27FF316D24342588008457BD /* SubjectEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316C24342588008457BD /* SubjectEntryModel.m */; };
+		27FF317024342A4A008457BD /* HomeSubjectEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316F24342A4A008457BD /* HomeSubjectEntry.m */; };
+		27FF317324342AEB008457BD /* HomeSubjectHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF317224342AEB008457BD /* HomeSubjectHeaderView.m */; };
+		27FF31762434389E008457BD /* HomeSubjectHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF31752434389E008457BD /* HomeSubjectHeaderTableViewCell.m */; };
+		27FF317924343FC8008457BD /* HomeSubjectMeetingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF317824343FC8008457BD /* HomeSubjectMeetingTableViewCell.m */; };
+		27FF317C2434706D008457BD /* HomeFooterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF317B2434706D008457BD /* HomeFooterTableViewCell.m */; };
 		9E3F936E556E699CD7815883 /* libPods-VeehuiVideoSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB413094AB34F044A5CD3E68 /* libPods-VeehuiVideoSchool.a */; };
 /* End PBXBuildFile section */
 
@@ -373,6 +380,20 @@
 		27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserJoinedCircleInfoFunction.m; sourceTree = "<group>"; };
 		27ACCD0D2431C9D40050CC88 /* JoinedCircleEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoinedCircleEntryModel.h; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.h"; sourceTree = SOURCE_ROOT; };
 		27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoinedCircleEntryModel.m; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.m"; sourceTree = SOURCE_ROOT; };
+		27FF316424342445008457BD /* HomeSubjectListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSubjectListFunction.h; sourceTree = "<group>"; };
+		27FF316524342445008457BD /* HomeSubjectListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSubjectListFunction.m; sourceTree = "<group>"; };
+		27FF316B24342588008457BD /* SubjectEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectEntryModel.h; sourceTree = "<group>"; };
+		27FF316C24342588008457BD /* SubjectEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectEntryModel.m; sourceTree = "<group>"; };
+		27FF316E24342A4A008457BD /* HomeSubjectEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSubjectEntry.h; sourceTree = "<group>"; };
+		27FF316F24342A4A008457BD /* HomeSubjectEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSubjectEntry.m; sourceTree = "<group>"; };
+		27FF317124342AEB008457BD /* HomeSubjectHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSubjectHeaderView.h; sourceTree = "<group>"; };
+		27FF317224342AEB008457BD /* HomeSubjectHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSubjectHeaderView.m; sourceTree = "<group>"; };
+		27FF31742434389E008457BD /* HomeSubjectHeaderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSubjectHeaderTableViewCell.h; sourceTree = "<group>"; };
+		27FF31752434389E008457BD /* HomeSubjectHeaderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSubjectHeaderTableViewCell.m; sourceTree = "<group>"; };
+		27FF317724343FC8008457BD /* HomeSubjectMeetingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSubjectMeetingTableViewCell.h; sourceTree = "<group>"; };
+		27FF317824343FC8008457BD /* HomeSubjectMeetingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSubjectMeetingTableViewCell.m; sourceTree = "<group>"; };
+		27FF317A2434706D008457BD /* HomeFooterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFooterTableViewCell.h; sourceTree = "<group>"; };
+		27FF317B2434706D008457BD /* HomeFooterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFooterTableViewCell.m; sourceTree = "<group>"; };
 		AB649F237B87A9872CF9CF0A /* Pods-VeehuiVideoSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeehuiVideoSchool.release.xcconfig"; path = "Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool.release.xcconfig"; sourceTree = "<group>"; };
 		FB413094AB34F044A5CD3E68 /* libPods-VeehuiVideoSchool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VeehuiVideoSchool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -464,6 +485,7 @@
 		270A032323FBD0C000FD4431 /* 公用基础 */ = {
 			isa = PBXGroup;
 			children = (
+				27FF316A24342577008457BD /* DataModel */,
 				270A032423FBD0C000FD4431 /* Business */,
 				27ACCD0024319BE90050CC88 /* CommonDataModel.h */,
 				27ACCD0124319BE90050CC88 /* CommonDataModel.m */,
@@ -540,6 +562,12 @@
 				277FDA072432DA9900C5CCBF /* HomeRecommandCourseTableViewCell.m */,
 				270B6B2224332D33000A5554 /* HomeUserRecommandTableViewCell.h */,
 				270B6B2324332D33000A5554 /* HomeUserRecommandTableViewCell.m */,
+				27FF31742434389E008457BD /* HomeSubjectHeaderTableViewCell.h */,
+				27FF31752434389E008457BD /* HomeSubjectHeaderTableViewCell.m */,
+				27FF317724343FC8008457BD /* HomeSubjectMeetingTableViewCell.h */,
+				27FF317824343FC8008457BD /* HomeSubjectMeetingTableViewCell.m */,
+				27FF317A2434706D008457BD /* HomeFooterTableViewCell.h */,
+				27FF317B2434706D008457BD /* HomeFooterTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -633,6 +661,8 @@
 				277FDA042432D57B00C5CCBF /* HomeRecommandCourseListFunction.m */,
 				270B6B2524333B5B000A5554 /* HomeRecommandVideosFunction.h */,
 				270B6B2624333B5B000A5554 /* HomeRecommandVideosFunction.m */,
+				27FF316424342445008457BD /* HomeSubjectListFunction.h */,
+				27FF316524342445008457BD /* HomeSubjectListFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1217,8 +1247,21 @@
 			children = (
 				27ACCD072431BE4B0050CC88 /* HomeCircleUnTreadedView.h */,
 				27ACCD082431BE4B0050CC88 /* HomeCircleUnTreadedView.m */,
+				27FF317124342AEB008457BD /* HomeSubjectHeaderView.h */,
+				27FF317224342AEB008457BD /* HomeSubjectHeaderView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		27FF316A24342577008457BD /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				27FF316B24342588008457BD /* SubjectEntryModel.h */,
+				27FF316C24342588008457BD /* SubjectEntryModel.m */,
+				27FF316E24342A4A008457BD /* HomeSubjectEntry.h */,
+				27FF316F24342A4A008457BD /* HomeSubjectEntry.m */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		9D009C4286473EC2B54EF355 /* Pods */ = {
@@ -1365,6 +1408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27206DAC23FD08F1004A9C85 /* HomeStartTableViewController.m in Sources */,
+				27FF316624342445008457BD /* HomeSubjectListFunction.m in Sources */,
 				277F91B623FA30710055C773 /* UIView+VHSubviewExt.m in Sources */,
 				270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */,
 				270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */,
@@ -1384,6 +1428,7 @@
 				27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */,
 				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
 				2759AD7C2424C098006E4B72 /* UserValidateTokenFunction.m in Sources */,
+				27FF317924343FC8008457BD /* HomeSubjectMeetingTableViewCell.m in Sources */,
 				27AA25A92418CE0100D31AA4 /* MedicalVideoEntryModel.m in Sources */,
 				27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */,
 				278F3FFF242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m in Sources */,
@@ -1394,6 +1439,7 @@
 				27848FE023FE6B34004729B2 /* ListModel.m in Sources */,
 				27206DCB23FD2BE8004A9C85 /* MedicalVideoListBussiness.m in Sources */,
 				270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */,
+				27FF317324342AEB008457BD /* HomeSubjectHeaderView.m in Sources */,
 				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
 				27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */,
 				27ACCD0224319BE90050CC88 /* CommonDataModel.m in Sources */,
@@ -1445,9 +1491,11 @@
 				279A1F60242864AE008AAA5F /* BindMobileViewController.m in Sources */,
 				27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */,
 				27206DC823FD2B6C004A9C85 /* MedicalVideoClassifyListFunction.m in Sources */,
+				27FF31762434389E008457BD /* HomeSubjectHeaderTableViewCell.m in Sources */,
 				278A7550240370E1005A8994 /* MeetingBussiness.m in Sources */,
 				2759AD6F2424A21D006E4B72 /* APPVersionFunction.m in Sources */,
 				27AA9118241A0629004D93F2 /* CircleInfoEntryModel.m in Sources */,
+				27FF317024342A4A008457BD /* HomeSubjectEntry.m in Sources */,
 				277FDA052432D57B00C5CCBF /* HomeRecommandCourseListFunction.m in Sources */,
 				27848FD323FE3583004729B2 /* MedicalClassifyVideoListViewController.m in Sources */,
 				27206DC223FD25CB004A9C85 /* MedicalVideoPageRouter.m in Sources */,
@@ -1467,9 +1515,11 @@
 				274CF5F4242995FE0026CEDA /* VHPopView.m in Sources */,
 				27AC9F892421F5D6008B2698 /* MedicalVideoPlayerViewController.m in Sources */,
 				277F91B223FA2D8F0055C773 /* VHPageRouter.m in Sources */,
+				27FF316D24342588008457BD /* SubjectEntryModel.m in Sources */,
 				27206DC523FD25EE004A9C85 /* MedicalVideoStartViewController.m in Sources */,
 				27206DB823FD0D81004A9C85 /* VHGridItemControl.m in Sources */,
 				277F91C923FA3C350055C773 /* UserModuleUtil.m in Sources */,
+				27FF317C2434706D008457BD /* HomeFooterTableViewCell.m in Sources */,
 				27ACCCFF243194D70050CC88 /* CircleBussiness.m in Sources */,
 				270B6B2424332D33000A5554 /* HomeUserRecommandTableViewCell.m in Sources */,
 			);

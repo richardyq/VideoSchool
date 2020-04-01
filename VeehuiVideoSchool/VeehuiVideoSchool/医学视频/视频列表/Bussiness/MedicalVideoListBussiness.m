@@ -15,6 +15,7 @@
 #import "MedicalGroupOthersFunction.h"
 #import "HomeRecommandCourseListFunction.h"
 #import "HomeRecommandVideosFunction.h"
+#import "HomeSubjectListFunction.h"
 
 @implementation MedicalVideoListBussiness
 
@@ -79,6 +80,12 @@
 + (void) startLoadHomeRecommandVideos:(VHRequestResultHandler) result
                              complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[HomeRecommandVideosFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadHomeSubjectContent:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[HomeSubjectListFunction alloc] init];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end
