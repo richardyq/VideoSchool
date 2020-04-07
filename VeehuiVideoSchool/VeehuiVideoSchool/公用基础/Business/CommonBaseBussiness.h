@@ -55,6 +55,15 @@ startSeniorSubjects
 */
 + (void) startSeniorSubjects:(VHRequestResultHandler) result
                     complete:(VHRequestCompleteHandler) complete;
+
+/**
+loadHomeAdvertises
+获取首页广告列表数据
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) loadHomeAdvertises:(VHRequestResultHandler) result
+                   complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

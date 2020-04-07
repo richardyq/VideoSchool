@@ -133,6 +133,8 @@
 		27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD082431BE4B0050CC88 /* HomeCircleUnTreadedView.m */; };
 		27ACCD0C2431C9010050CC88 /* UserJoinedCircleInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */; };
 		27ACCD0F2431C9D40050CC88 /* JoinedCircleEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */; };
+		27DB7701243C0B51000FB2EE /* HomeAdvertisesFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */; };
+		27DB7704243C0BA5000FB2EE /* AdvertiseEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB7703243C0BA5000FB2EE /* AdvertiseEntryModel.m */; };
 		27FF316624342445008457BD /* HomeSubjectListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316524342445008457BD /* HomeSubjectListFunction.m */; };
 		27FF316D24342588008457BD /* SubjectEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316C24342588008457BD /* SubjectEntryModel.m */; };
 		27FF317024342A4A008457BD /* HomeSubjectEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316F24342A4A008457BD /* HomeSubjectEntry.m */; };
@@ -401,6 +403,10 @@
 		27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserJoinedCircleInfoFunction.m; sourceTree = "<group>"; };
 		27ACCD0D2431C9D40050CC88 /* JoinedCircleEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoinedCircleEntryModel.h; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.h"; sourceTree = SOURCE_ROOT; };
 		27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoinedCircleEntryModel.m; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.m"; sourceTree = SOURCE_ROOT; };
+		27DB76FF243C0B51000FB2EE /* HomeAdvertisesFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeAdvertisesFunction.h; sourceTree = "<group>"; };
+		27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeAdvertisesFunction.m; sourceTree = "<group>"; };
+		27DB7702243C0BA5000FB2EE /* AdvertiseEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvertiseEntryModel.h; sourceTree = "<group>"; };
+		27DB7703243C0BA5000FB2EE /* AdvertiseEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvertiseEntryModel.m; sourceTree = "<group>"; };
 		27FF316424342445008457BD /* HomeSubjectListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSubjectListFunction.h; sourceTree = "<group>"; };
 		27FF316524342445008457BD /* HomeSubjectListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSubjectListFunction.m; sourceTree = "<group>"; };
 		27FF316B24342588008457BD /* SubjectEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectEntryModel.h; sourceTree = "<group>"; };
@@ -537,6 +543,8 @@
 				279A1F65242891BD008AAA5F /* BindMobileFunction.m */,
 				279D129F243719C600A12FFA /* SeniorSubjectListFunction.h */,
 				279D12A0243719C600A12FFA /* SeniorSubjectListFunction.m */,
+				27DB76FF243C0B51000FB2EE /* HomeAdvertisesFunction.h */,
+				27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1319,6 +1327,8 @@
 				27FF316C24342588008457BD /* SubjectEntryModel.m */,
 				27FF316E24342A4A008457BD /* HomeSubjectEntry.h */,
 				27FF316F24342A4A008457BD /* HomeSubjectEntry.m */,
+				27DB7702243C0BA5000FB2EE /* AdvertiseEntryModel.h */,
+				27DB7703243C0BA5000FB2EE /* AdvertiseEntryModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1476,6 +1486,7 @@
 				2759AD792424B774006E4B72 /* UserAccountModel.m in Sources */,
 				279D12A1243719C600A12FFA /* SeniorSubjectListFunction.m in Sources */,
 				27206DA923FCDFE6004A9C85 /* HomeStartNavigationView.m in Sources */,
+				27DB7704243C0BA5000FB2EE /* AdvertiseEntryModel.m in Sources */,
 				270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */,
 				27ACCD0C2431C9010050CC88 /* UserJoinedCircleInfoFunction.m in Sources */,
 				270A032223FBC35E00FD4431 /* UserPageRouter.m in Sources */,
@@ -1541,6 +1552,7 @@
 				27AA25A32418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m in Sources */,
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
 				27AA911E241A1778004D93F2 /* MedicalGroupOthersFunction.m in Sources */,
+				27DB7701243C0B51000FB2EE /* HomeAdvertisesFunction.m in Sources */,
 				278F3FFC242DED7D00D0B4AC /* HomeMeetingInfo.m in Sources */,
 				2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */,
 				27848FD923FE6032004729B2 /* ClassifiedMedicalVideosFunction.m in Sources */,

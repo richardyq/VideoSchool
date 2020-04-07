@@ -25,6 +25,8 @@
 #import "HomeFooterTableViewCell.h"
 #import "HomeSubjectEntry.h"
 #import "CirclePageRouter.h"
+#import "AdvertiseEntryModel.h"
+#import "CommonBaseBussiness.h"
 
 typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     Gird_Section,
@@ -39,12 +41,17 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 };
 
 @interface HomeStartTableViewController ()
+<SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong) UIView* tableHeaderView;
+@property (nonatomic, strong) SDCycleScrollView* advertiseView;
+
 @property (nonatomic, strong) HomeMeetingInfo* homeMeetingInfo;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandCourseList;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandVideosList;
 @property (nonatomic, strong) HomeSubjectListModel* homeSubjects;
+
+@property (nonatomic, strong) NSArray<AdvertiseEntryModel*>* advertiseModels;
 
 @end
 
@@ -67,6 +74,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     [self.tableView registerClass:[MedicalVideoInfoTableViewCell class] forCellReuseIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
     [self.tableView registerClass:[HomeFooterTableViewCell class] forCellReuseIdentifier:[HomeFooterTableViewCell cellReuseIdentifier]];
     
+    [self startLoadHomeAdvertiseList];
     [self getData];
 }
 
@@ -75,13 +83,36 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 - (UIView*) tableHeaderView{
     if (!_tableHeaderView) {
         _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 18. + 148. * ScreenSizeRate)];
-        UIImageView* bannerImageView = [_tableHeaderView addImageView:@"img_home_start_banner"];
+        UIImageView* bannerImageView = [_tableHeaderView addImageView:@"img_default_main"];
         [bannerImageView setCornerRadius:8];
         [bannerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(_tableHeaderView).insets(UIEdgeInsetsMake(9, 13, 9, 13));
         }];
     }
     return _tableHeaderView;
+}
+
+- (SDCycleScrollView*) advertiseView{
+    if (!_advertiseView) {
+        CGFloat width = kScreenWidth;
+        if ([UIDevice currentDevice].isPad) {
+            width = kScreenWidth * 0.7;
+        }
+        CGFloat rate = width/128.;
+        width -= 26.;
+        CGFloat height = 128. * rate;
+        _advertiseView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, width, height) delegate:self placeholderImage:[UIImage imageNamed:@"img_default_main"]];
+        [_tableHeaderView addSubview:_advertiseView];
+        [_advertiseView setCornerRadius:8];
+        [_advertiseView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(_tableHeaderView).insets(UIEdgeInsetsMake(9, 13, 9, 13));
+        }];
+        _advertiseView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+        _advertiseView.currentPageDotColor = [UIColor grayColor];
+        _advertiseView.autoScrollTimeInterval = 5;
+        _advertiseView.currentPageDotColor = [UIColor whiteColor];
+    }
+    return _advertiseView;
 }
 
 #pragma mark - Table view data source
@@ -237,6 +268,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     return headerHeight;
 }
 
+
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, [self tableHeaderViewHeight:section])];
@@ -276,6 +308,25 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     [self startLoadRecommandVideos];
     
     [self startLoadSubjectContents];
+}
+
+//获取广告列表数据
+- (void) startLoadHomeAdvertiseList{
+    WS(weakSelf)
+    [CommonBaseBussiness loadHomeAdvertises:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[NSArray class]]) {
+            [weakSelf homeAdvertiseListLoaded:result];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        
+    }];
+}
+
+- (void) homeAdvertiseListLoaded:(NSArray<AdvertiseEntryModel*>*) advertises{
+    self.advertiseModels = advertises;
+    NSArray<NSString*>* imageUrls = [advertises valueForKey:@"pictureUrl"];
+    [self.advertiseView setImageURLStringsGroup:imageUrls];
 }
 
 #pragma mark - 首页会议轮播
@@ -357,5 +408,14 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 - (void) reloadTable{
     [self.tableView reloadData];
+}
+
+#pragma mark - SDCycleScrollViewDelegate
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    AdvertiseEntryModel* advertise = self.advertiseModels[index];
+    NSString* typeCode = advertise.typeCode;
+    if (!typeCode || [typeCode isEmpty]) {
+        return;
+    }
 }
 @end

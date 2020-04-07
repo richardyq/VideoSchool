@@ -23,6 +23,8 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.1.0)
   - MJRefresh (3.2.0)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
@@ -41,6 +43,7 @@ DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
+  - SDCycleScrollView
   - SDWebImage
   - SVProgressHUD
   - WeChat_SDK_iOS
@@ -56,6 +59,7 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - MJRefresh
+    - SDCycleScrollView
     - SDWebImage
     - SVProgressHUD
     - WeChat_SDK_iOS
@@ -70,11 +74,12 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 6b69b3bef2864fd550ce1a184eda219e321209d2
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WeChat_SDK_iOS: 7a9e224f68c41f456787aeb3ed77f10bb4447d12
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 97112ffe2da2171793773231a7ecfd9904fb12df
+PODFILE CHECKSUM: 2d5ac2df25b27753e75a1e742bfdb7c5c7a444e9
 
 COCOAPODS: 1.7.5

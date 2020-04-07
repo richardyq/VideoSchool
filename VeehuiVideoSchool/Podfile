@@ -11,6 +11,7 @@ pod 'WeChat_SDK_iOS'
 pod 'MJExtension'
 pod 'SDWebImage'
 pod 'FDFullscreenPopGesture'
+pod 'SDCycleScrollView'
 
 #pod 'WechatOpenSDK'
 #pod 'AliPlayerSDK_iOS'
