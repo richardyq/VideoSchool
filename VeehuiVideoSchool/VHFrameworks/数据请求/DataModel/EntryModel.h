@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EntryModel : NSObject
+@interface EntryModel : NSObject<NSCoding>
 
 @property (nonatomic) NSInteger id;
 

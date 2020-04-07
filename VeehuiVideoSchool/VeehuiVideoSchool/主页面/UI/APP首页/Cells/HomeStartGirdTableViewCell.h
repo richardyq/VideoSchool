@@ -11,7 +11,7 @@
 typedef NS_ENUM(NSUInteger, EHomeStartGirdIndex) {
     StartGird_Meeting,
     StartGird_MedicalVideo,
-    StartGird_Course,
+    StartGird_Professor,
     StartGird_Score,
     StartGird_Subjects,
 };

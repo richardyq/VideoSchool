@@ -11,6 +11,7 @@
 #import "MobileVerifyCodeFunction.h"
 #import "CheckMobileVerifyCodeFunction.h"
 #import "BindMobileFunction.h"
+#import "SeniorSubjectListFunction.h"
 
 @implementation CommonBaseBussiness
 
@@ -33,6 +34,12 @@
                   result:(VHRequestResultHandler) result
                        complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[BindMobileFunction alloc] initWithMobile:mobile];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startSeniorSubjects:(VHRequestResultHandler) result
+                    complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[SeniorSubjectListFunction alloc] init];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 

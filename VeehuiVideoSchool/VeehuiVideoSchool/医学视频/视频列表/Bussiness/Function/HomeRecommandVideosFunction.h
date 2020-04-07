@@ -7,6 +7,7 @@
 //
 
 #import "VHHTTPFunction.h"
+#import "MedicalVideoGroupInfoEntryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -34,9 +34,22 @@
 }
 
 //获取首页会议轮播数据
-+ (void) startLoadHomeMeetings:(VHRequestResultHandler) result
++ (void) startLoadHomeMeetings:(VHRequestResultHandler) resultHandler
                       complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[HomeMeetingListFunction alloc] init];
-    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+    NSString* cachePath = [kCachePrefixPath stringByAppendingString:@"homeMeetingInfo"];
+    //获取缓存数据
+    HomeMeetingInfo* cachedValue = [VHCache loadFromeCache:cachePath];
+    if (cachedValue && [cachedValue isKindOfClass:[HomeMeetingInfo class]]) {
+        if (resultHandler) {
+            resultHandler(cachedValue);
+        }
+    }
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
+        if ([result isKindOfClass:[HomeMeetingInfo class]]) {
+            //保存数据到缓存
+            [VHCache saveToCache:result cachePath:cachePath];
+        }
+    } complete:complete];
 }
 @end

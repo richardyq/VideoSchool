@@ -7,7 +7,7 @@
 //
 
 #import "HomeRecommandVideosFunction.h"
-#import "MedicalVideoGroupInfoEntryModel.h"
+
 
 @implementation HomeRecommandVideosFunction
 

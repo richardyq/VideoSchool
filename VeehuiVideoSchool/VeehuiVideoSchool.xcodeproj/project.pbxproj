@@ -75,6 +75,7 @@
 		277FDA052432D57B00C5CCBF /* HomeRecommandCourseListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 277FDA042432D57B00C5CCBF /* HomeRecommandCourseListFunction.m */; };
 		277FDA082432DA9900C5CCBF /* HomeRecommandCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 277FDA072432DA9900C5CCBF /* HomeRecommandCourseTableViewCell.m */; };
 		277FDA0C2432E22500C5CCBF /* MedicalVideoGridControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 277FDA0B2432E22500C5CCBF /* MedicalVideoGridControl.m */; };
+		2783A4662435B6800058E10A /* VHCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2783A4652435B6800058E10A /* VHCache.m */; };
 		27848FCD23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FCC23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m */; };
 		27848FD023FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FCF23FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m */; };
 		27848FD323FE3583004729B2 /* MedicalClassifyVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848FD223FE3583004729B2 /* MedicalClassifyVideoListViewController.m */; };
@@ -99,6 +100,12 @@
 		279A1F60242864AE008AAA5F /* BindMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F5F242864AE008AAA5F /* BindMobileViewController.m */; };
 		279A1F6324288941008AAA5F /* CheckMobileVerifyCodeFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */; };
 		279A1F66242891BD008AAA5F /* BindMobileFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F65242891BD008AAA5F /* BindMobileFunction.m */; };
+		279D129B243710B200A12FFA /* ProfessorStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D129A243710B200A12FFA /* ProfessorStartViewController.m */; };
+		279D129E2437110F00A12FFA /* CirclePageRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D129D2437110F00A12FFA /* CirclePageRouter.m */; };
+		279D12A1243719C600A12FFA /* SeniorSubjectListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D12A0243719C600A12FFA /* SeniorSubjectListFunction.m */; };
+		279D12A4243720FD00A12FFA /* ProfessorSubjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D12A3243720FD00A12FFA /* ProfessorSubjectCollectionViewController.m */; };
+		279D12A72437247800A12FFA /* VHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D12A62437247800A12FFA /* VHCollectionViewCell.m */; };
+		279D12AB2437250400A12FFA /* ProfessorSubjectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 279D12AA2437250400A12FFA /* ProfessorSubjectCollectionViewCell.m */; };
 		27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA259C2418B32E00D31AA4 /* VHNavigationBarView.m */; };
 		27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA259F2418BE7000D31AA4 /* MedicalGroupDetailFunction.m */; };
 		27AA25A32418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA25A22418C4B700D31AA4 /* MedicalVideoGroupDetailEntryModel.m */; };
@@ -275,6 +282,8 @@
 		277FDA072432DA9900C5CCBF /* HomeRecommandCourseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommandCourseTableViewCell.m; sourceTree = "<group>"; };
 		277FDA0A2432E22500C5CCBF /* MedicalVideoGridControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoGridControl.h; sourceTree = "<group>"; };
 		277FDA0B2432E22500C5CCBF /* MedicalVideoGridControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoGridControl.m; sourceTree = "<group>"; };
+		2783A4642435B6800058E10A /* VHCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHCache.h; sourceTree = "<group>"; };
+		2783A4652435B6800058E10A /* VHCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHCache.m; sourceTree = "<group>"; };
 		27848FCB23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoInfoTableViewCell.h; sourceTree = "<group>"; };
 		27848FCC23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoInfoTableViewCell.m; sourceTree = "<group>"; };
 		27848FCE23FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoGroupInfoEntryModel.h; sourceTree = "<group>"; };
@@ -323,6 +332,18 @@
 		279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckMobileVerifyCodeFunction.m; sourceTree = "<group>"; };
 		279A1F64242891BD008AAA5F /* BindMobileFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindMobileFunction.h; sourceTree = "<group>"; };
 		279A1F65242891BD008AAA5F /* BindMobileFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindMobileFunction.m; sourceTree = "<group>"; };
+		279D1299243710B200A12FFA /* ProfessorStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfessorStartViewController.h; sourceTree = "<group>"; };
+		279D129A243710B200A12FFA /* ProfessorStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfessorStartViewController.m; sourceTree = "<group>"; };
+		279D129C2437110F00A12FFA /* CirclePageRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CirclePageRouter.h; sourceTree = "<group>"; };
+		279D129D2437110F00A12FFA /* CirclePageRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CirclePageRouter.m; sourceTree = "<group>"; };
+		279D129F243719C600A12FFA /* SeniorSubjectListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeniorSubjectListFunction.h; sourceTree = "<group>"; };
+		279D12A0243719C600A12FFA /* SeniorSubjectListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeniorSubjectListFunction.m; sourceTree = "<group>"; };
+		279D12A2243720FD00A12FFA /* ProfessorSubjectCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfessorSubjectCollectionViewController.h; sourceTree = "<group>"; };
+		279D12A3243720FD00A12FFA /* ProfessorSubjectCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfessorSubjectCollectionViewController.m; sourceTree = "<group>"; };
+		279D12A52437247800A12FFA /* VHCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHCollectionViewCell.h; sourceTree = "<group>"; };
+		279D12A62437247800A12FFA /* VHCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHCollectionViewCell.m; sourceTree = "<group>"; };
+		279D12A92437250400A12FFA /* ProfessorSubjectCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfessorSubjectCollectionViewCell.h; sourceTree = "<group>"; };
+		279D12AA2437250400A12FFA /* ProfessorSubjectCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfessorSubjectCollectionViewCell.m; sourceTree = "<group>"; };
 		27AA259B2418B32E00D31AA4 /* VHNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHNavigationBarView.h; sourceTree = "<group>"; };
 		27AA259C2418B32E00D31AA4 /* VHNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHNavigationBarView.m; sourceTree = "<group>"; };
 		27AA259E2418BE7000D31AA4 /* MedicalGroupDetailFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalGroupDetailFunction.h; sourceTree = "<group>"; };
@@ -431,6 +452,8 @@
 				270A02FC23FB7B5500FD4431 /* HTTP请求 */,
 				270A02FD23FB7BCE00FD4431 /* VHRequestDefine.h */,
 				270A030423FB7E5F00FD4431 /* VHRequestHeader.h */,
+				2783A4642435B6800058E10A /* VHCache.h */,
+				2783A4652435B6800058E10A /* VHCache.m */,
 			);
 			path = "数据请求";
 			sourceTree = "<group>";
@@ -512,6 +535,8 @@
 				279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */,
 				279A1F64242891BD008AAA5F /* BindMobileFunction.h */,
 				279A1F65242891BD008AAA5F /* BindMobileFunction.m */,
+				279D129F243719C600A12FFA /* SeniorSubjectListFunction.h */,
+				279D12A0243719C600A12FFA /* SeniorSubjectListFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -577,6 +602,8 @@
 			children = (
 				27206DB223FD0C93004A9C85 /* VHTableViewCell.h */,
 				27206DB323FD0C93004A9C85 /* VHTableViewCell.m */,
+				279D12A52437247800A12FFA /* VHCollectionViewCell.h */,
+				279D12A62437247800A12FFA /* VHCollectionViewCell.m */,
 			);
 			path = "继承类";
 			sourceTree = "<group>";
@@ -1121,6 +1148,37 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		279D12972437106300A12FFA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				279D12982437106300A12FFA /* 医学专家 */,
+				279D129C2437110F00A12FFA /* CirclePageRouter.h */,
+				279D129D2437110F00A12FFA /* CirclePageRouter.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		279D12982437106300A12FFA /* 医学专家 */ = {
+			isa = PBXGroup;
+			children = (
+				279D12A8243724EC00A12FFA /* Cells */,
+				279D1299243710B200A12FFA /* ProfessorStartViewController.h */,
+				279D129A243710B200A12FFA /* ProfessorStartViewController.m */,
+				279D12A2243720FD00A12FFA /* ProfessorSubjectCollectionViewController.h */,
+				279D12A3243720FD00A12FFA /* ProfessorSubjectCollectionViewController.m */,
+			);
+			path = "医学专家";
+			sourceTree = "<group>";
+		};
+		279D12A8243724EC00A12FFA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				279D12A92437250400A12FFA /* ProfessorSubjectCollectionViewCell.h */,
+				279D12AA2437250400A12FFA /* ProfessorSubjectCollectionViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		27AA91082419C56E004D93F2 /* 视频详情 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1160,6 +1218,7 @@
 		27AA9114241A060E004D93F2 /* 圈子 */ = {
 			isa = PBXGroup;
 			children = (
+				279D12972437106300A12FFA /* UI */,
 				27ACCCF82431946B0050CC88 /* Bussiness */,
 				27AA9115241A060E004D93F2 /* DataModel */,
 			);
@@ -1415,6 +1474,7 @@
 				270A031F23FBC34C00FD4431 /* UserMobileLoginViewController.m in Sources */,
 				278A754624036D29005A8994 /* MeetingPageRouter.m in Sources */,
 				2759AD792424B774006E4B72 /* UserAccountModel.m in Sources */,
+				279D12A1243719C600A12FFA /* SeniorSubjectListFunction.m in Sources */,
 				27206DA923FCDFE6004A9C85 /* HomeStartNavigationView.m in Sources */,
 				270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */,
 				27ACCD0C2431C9010050CC88 /* UserJoinedCircleInfoFunction.m in Sources */,
@@ -1431,11 +1491,13 @@
 				27FF317924343FC8008457BD /* HomeSubjectMeetingTableViewCell.m in Sources */,
 				27AA25A92418CE0100D31AA4 /* MedicalVideoEntryModel.m in Sources */,
 				27AA25A02418BE7000D31AA4 /* MedicalGroupDetailFunction.m in Sources */,
+				279D12A72437247800A12FFA /* VHCollectionViewCell.m in Sources */,
 				278F3FFF242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m in Sources */,
 				277FDA0C2432E22500C5CCBF /* MedicalVideoGridControl.m in Sources */,
 				27AA25B22418DB8200D31AA4 /* UILabel+VHExt.m in Sources */,
 				277F91B923FA30CF0055C773 /* UIImage+VHExt.m in Sources */,
 				27848FCD23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m in Sources */,
+				279D129E2437110F00A12FFA /* CirclePageRouter.m in Sources */,
 				27848FE023FE6B34004729B2 /* ListModel.m in Sources */,
 				27206DCB23FD2BE8004A9C85 /* MedicalVideoListBussiness.m in Sources */,
 				270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */,
@@ -1455,6 +1517,7 @@
 				278A754324036D03005A8994 /* MeetingStartViewController.m in Sources */,
 				27ACCD0524319FFA0050CC88 /* HomeJoinedCircleTableViewCell.m in Sources */,
 				270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */,
+				279D12AB2437250400A12FFA /* ProfessorSubjectCollectionViewCell.m in Sources */,
 				279A1F5A242851AA008AAA5F /* UserInfoFunction.m in Sources */,
 				27848FE323FE6BAE004729B2 /* EntryModel.m in Sources */,
 				277F91A023FA2B900055C773 /* InitializationViewController.m in Sources */,
@@ -1482,6 +1545,7 @@
 				2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */,
 				27848FD923FE6032004729B2 /* ClassifiedMedicalVideosFunction.m in Sources */,
 				270B6B2724333B5B000A5554 /* HomeRecommandVideosFunction.m in Sources */,
+				279D129B243710B200A12FFA /* ProfessorStartViewController.m in Sources */,
 				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,
 				27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */,
 				2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */,
@@ -1501,6 +1565,7 @@
 				27206DC223FD25CB004A9C85 /* MedicalVideoPageRouter.m in Sources */,
 				27848FD023FE1D4C004729B2 /* MedicalVideoGroupInfoEntryModel.m in Sources */,
 				277F919223FA274C0055C773 /* main.m in Sources */,
+				2783A4662435B6800058E10A /* VHCache.m in Sources */,
 				277FDA082432DA9900C5CCBF /* HomeRecommandCourseTableViewCell.m in Sources */,
 				278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */,
 				27AC9F852421F321008B2698 /* VideoPlayerView.m in Sources */,
@@ -1510,6 +1575,7 @@
 				270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */,
 				27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */,
 				27AA910C2419C56F004D93F2 /* MedicalVideoDetailViewController.m in Sources */,
+				279D12A4243720FD00A12FFA /* ProfessorSubjectCollectionViewController.m in Sources */,
 				277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */,
 				277F91C023FA32410055C773 /* UIColor+VHStandExt.m in Sources */,
 				274CF5F4242995FE0026CEDA /* VHPopView.m in Sources */,

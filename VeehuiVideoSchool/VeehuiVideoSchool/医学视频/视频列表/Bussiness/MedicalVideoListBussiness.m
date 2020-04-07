@@ -71,21 +71,73 @@
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 
-+ (void) startLoadHomeRecommandCoursesVideos:(VHRequestResultHandler) result
++ (void) startLoadHomeRecommandCoursesVideos:(VHRequestResultHandler) resultHandler
                                     complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[HomeRecommandCourseListFunction alloc] init];
-    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+    //读取缓存
+    NSString* cachePath = [kCachePrefixPath stringByAppendingString:@"homeRecommandCourses"];
+    MedicalVideoGroupInfoListModel* courseListModel = [VHCache loadFromeCache:cachePath];
+    if (courseListModel && [courseListModel isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+        if (resultHandler) {
+            resultHandler(courseListModel);
+        }
+    }
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
+        if (result && [result isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+            //缓存数据
+            [VHCache saveToCache:result cachePath:cachePath];
+        }
+        
+        if (resultHandler) {
+            resultHandler(result);
+        }
+    } complete:complete];
 }
 
-+ (void) startLoadHomeRecommandVideos:(VHRequestResultHandler) result
++ (void) startLoadHomeRecommandVideos:(VHRequestResultHandler) resultHandler
                              complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[HomeRecommandVideosFunction alloc] init];
-    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+    //读取缓存
+    NSString* cachePath = [kCachePrefixPath stringByAppendingString:@"homeRecommandVideos"];
+    MedicalVideoGroupInfoListModel* videoListModel = [VHCache loadFromeCache:cachePath];
+    if (videoListModel && [videoListModel isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+        if (resultHandler) {
+            resultHandler(videoListModel);
+        }
+    }
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
+        if (result && [result isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+            //缓存数据
+            [VHCache saveToCache:result cachePath:cachePath];
+        }
+        
+        if (resultHandler) {
+            resultHandler(result);
+        }
+    } complete:complete];
+   
 }
 
-+ (void) startLoadHomeSubjectContent:(VHRequestResultHandler) result
++ (void) startLoadHomeSubjectContent:(VHRequestResultHandler) resultHandler
                              complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[HomeSubjectListFunction alloc] init];
-    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+    //读取缓存
+    NSString* cachePath = [kCachePrefixPath stringByAppendingString:@"homeSubjectsVideos"];
+    HomeSubjectEntry* videoListModel = [VHCache loadFromeCache:cachePath];
+    if (videoListModel && [videoListModel isKindOfClass:[HomeSubjectEntry class]]) {
+        if (resultHandler) {
+            resultHandler(videoListModel);
+        }
+    }
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
+        if (result && [result isKindOfClass:[HomeSubjectEntry class]]) {
+            //缓存数据
+            [VHCache saveToCache:result cachePath:cachePath];
+        }
+        
+        if (resultHandler) {
+            resultHandler(result);
+        }
+    } complete:complete];
 }
 @end

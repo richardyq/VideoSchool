@@ -10,4 +10,6 @@
 
 @implementation EntryModel
 
+MJExtensionCodingImplementation
+
 @end

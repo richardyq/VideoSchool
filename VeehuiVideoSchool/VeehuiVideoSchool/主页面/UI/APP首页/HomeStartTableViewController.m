@@ -24,6 +24,8 @@
 #import "HomeSubjectMeetingTableViewCell.h"
 #import "HomeFooterTableViewCell.h"
 #import "HomeSubjectEntry.h"
+#import "CirclePageRouter.h"
+
 typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     Gird_Section,
     Meeting_Section,
@@ -43,8 +45,6 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandCourseList;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandVideosList;
 @property (nonatomic, strong) HomeSubjectListModel* homeSubjects;
-
-@property (nonatomic) NSInteger tick;
 
 @end
 
@@ -256,9 +256,9 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             [MedicalVideoPageRouter entryMedicalVideoStartListPage];
             break;
         }
-        case StartGird_Course:{
-            //精品课程
-            [MedicalVideoPageRouter entryMedicalCourseListPage];
+        case StartGird_Professor:{
+            //医学专家
+            [CirclePageRouter entryProfessorStartPage];
             break;
         }
         default:
@@ -268,7 +268,6 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 #pragma mark - 获取网络数据
 - (void) getData{
-    self.tick = 0;
     //获取会议轮播
     [self startLoadMeetingInfo];
     //获取推荐课程
@@ -282,15 +281,15 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 #pragma mark - 首页会议轮播
 - (void) startLoadMeetingInfo{
     WS(weakSelf)
-    ++self.tick;
     [MeetingBussiness startLoadHomeMeetings:^(id result) {
         SAFE_WEAKSELF(weakSelf)
         if ([result isKindOfClass:[HomeMeetingInfo class]]) {
             weakSelf.homeMeetingInfo = result;
         }
+        [weakSelf reloadTable];
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
-        [weakSelf tickdown];
+        
         if (code == 0) {
             //[weakSelf.tableView reloadData];
             //获取推荐课程
@@ -301,7 +300,6 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 #pragma mark - 获取首页推荐课程
 - (void) startLoadRecommandCourses{
-    ++self.tick;
     WS(weakSelf)
     [MedicalVideoListBussiness startLoadHomeRecommandCoursesVideos:^(id result) {
         WS(weakSelf)
@@ -309,9 +307,10 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             return ;
         }
         weakSelf.recommandCourseList = result;
+        [weakSelf reloadTable];
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
-        [weakSelf tickdown];
+        
         if (code == 0) {
             
         }
@@ -320,7 +319,6 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 #pragma mark - 获取首页推荐课程
 - (void) startLoadRecommandVideos{
-    ++self.tick;
     WS(weakSelf)
     [MedicalVideoListBussiness startLoadHomeRecommandVideos:^(id result) {
         WS(weakSelf)
@@ -328,9 +326,10 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             return ;
         }
         weakSelf.recommandVideosList = result;
+        [weakSelf reloadTable];
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
-        [weakSelf tickdown];
+        
         if (code == 0) {
             
         }
@@ -339,7 +338,6 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 #pragma mark - 分类展示内容。
 - (void) startLoadSubjectContents{
-    ++self.tick;
     WS(weakSelf)
     [MedicalVideoListBussiness startLoadHomeSubjectContent:^(id result) {
         WS(weakSelf)
@@ -347,18 +345,17 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             return ;
         }
         weakSelf.homeSubjects = result;
+        [weakSelf reloadTable];
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
-        [weakSelf tickdown];
+        
         if (code == 0) {
             
         }
     }];
 }
 
-- (void) tickdown{
-    if (--self.tick <= 0) {
-        [self.tableView reloadData];
-    }
+- (void) reloadTable{
+    [self.tableView reloadData];
 }
 @end

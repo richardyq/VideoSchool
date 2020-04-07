@@ -7,7 +7,7 @@
 //
 
 #import "HomeMeetingListFunction.h"
-#import "HomeMeetingInfo.h"
+
 @implementation HomeMeetingListFunction
 
 - (NSString*) requestUrl{

@@ -10,7 +10,7 @@
 #import "MedicalVideoGroupInfoEntryModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MedicalVideoClassifyEntryModel : NSObject
+@interface MedicalVideoClassifyEntryModel : EntryModel
 
 @property (nonatomic, copy) NSString* code;
 @property (nonatomic, copy) NSString* name;

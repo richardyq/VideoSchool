@@ -19,6 +19,7 @@
 
 #pragma mark 通用继承类
 #import "VHTableViewCell.h"
+#import "VHCollectionViewCell.h"
 
 #pragma mark 自定义控件
 #import "VHGridItemControl.h"

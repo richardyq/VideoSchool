@@ -16,5 +16,6 @@
 #import "VHHTTPFunctionManager.h"
 
 #import "ListModel.h"
+#import "VHCache.h"
 
 #endif /* VHRequestHeader_h */

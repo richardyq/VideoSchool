@@ -101,10 +101,10 @@
     if (!_gridItems) {
         NSMutableArray<HomeStartGridItemControl*>* gridItems = [NSMutableArray<HomeStartGridItemControl*> array];
         
-        NSArray<NSString*>* gridNames = @[@"学术会议", @"医学视频", @"精品课程", @"学分专区", @"医学学科"];
+        NSArray<NSString*>* gridNames = @[@"学术会议", @"医学视频", @"医学专家", @"学分专区", @"医学学科"];
         NSArray<NSString*>* gridIconNames = @[@"img_home_gird_meeting",
                                              @"img_home_gird_video",
-                                             @"img_home_gird_course",
+                                             @"img_home_gird_professor",
                                              @"img_home_gird_score",
                                              @"img_home_gird_subjects"];
         
