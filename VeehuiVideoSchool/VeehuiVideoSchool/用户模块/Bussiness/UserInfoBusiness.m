@@ -11,6 +11,7 @@
 #import "UserLoginWithMobileFunction.h"
 #import "UserValidateTokenFunction.h"
 #import "UserInfoFunction.h"
+#import "UserFavoriteFunction.h"
 
 #import "UserAccountModel.h"
 #import "UserModuleUtil.h"
@@ -74,5 +75,10 @@
     } complete:complete];
 }
 
-
+//获取当前用户的兴趣设置
++ (void) startLoadUserFavorite:(VHRequestResultHandler) result
+                      complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[UserFavoriteFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
 @end

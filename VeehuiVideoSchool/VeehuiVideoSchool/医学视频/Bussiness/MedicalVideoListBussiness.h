@@ -105,6 +105,15 @@ startLoadHomeSubjectContent
 */
 + (void) startLoadHomeSubjectContent:(VHRequestResultHandler) result
                             complete:(VHRequestCompleteHandler) complete;
+
+/**
+loadMedicalVideoAdvertiseList
+获取医学视频首页顶部广告列表
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) loadMedicalVideoAdvertiseList:(VHRequestResultHandler) resultHandler
+                              complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

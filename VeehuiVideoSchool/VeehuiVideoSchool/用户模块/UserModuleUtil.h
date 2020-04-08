@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "UserInfoModel.h"
+#import "SubjectEntryModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, EUserLoginType) {
@@ -23,6 +25,7 @@ typedef NS_ENUM(NSUInteger, EUserLoginType) {
 @property (nonatomic, readonly) NSInteger loginedUserId;
 
 @property (nonatomic, readonly) BOOL mobileBind;    //手机号是否已经绑定
+@property (nonatomic, strong) NSArray<SubjectEntryModel*>* favoriteSubject;
 
 + (instancetype)shareInstance;
 

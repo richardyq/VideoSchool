@@ -11,14 +11,32 @@
 #import "MedicalVideoClassifyEntryModel.h"
 #import "MedicalVideoInfoTableViewCell.h"
 #import "MedicalVideoPageRouter.h"
+#import "AdvertiseEntryModel.h"
+#import "MedicalStartGridTableViewCell.h"
+#import "CommonBaseBussiness.h"
+#import "MedicalVideoClassifyEntryModel.h"
+#import "MedicalStartVideoSegmentTableViewCell.h"
+#import "MedicalVideoStartRecommadCourseTableViewCell.h"
+
+typedef NS_ENUM(NSUInteger, MedicalVideoStartTableSection) {
+    Grid_Section,
+    Subjects_Section,
+    Course_Section,
+    SectionCount,
+};
 
 @interface MedicalVideoStartViewController ()
-<UITableViewDelegate, UITableViewDataSource>
+<UITableViewDelegate, UITableViewDataSource,
+SDCycleScrollViewDelegate>
 
-@property (nonatomic, strong) SegmentView* segmentView;
+@property (nonatomic, strong) UIView* tableviewHeaderView;
+@property (nonatomic, strong) SDCycleScrollView* advertiseView;
 
-@property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* videoClassifies;
-@property (nonatomic, strong) UITableView* listTableView;
+@property (nonatomic, strong) NSArray<AdvertiseEntryModel*>* advertiseModels;
+@property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* seniorSubjects;
+
+@property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandCourseList;
+
 @end
 
 
@@ -28,43 +46,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"医学视频";
+    [self.tableview setTableHeaderView:self.tableviewHeaderView];
+    self.tableview.backgroundColor = [UIColor commonBackgroundColor];
     
+    [self.tableview registerClass:[MedicalStartGridTableViewCell class] forCellReuseIdentifier:[MedicalStartGridTableViewCell cellReuseIdentifier]];
+    [self.tableview registerClass:[MedicalStartVideoSegmentTableViewCell class] forCellReuseIdentifier:[MedicalStartVideoSegmentTableViewCell cellReuseIdentifier]];
+    
+    [self.tableview registerClass:[MedicalVideoInfoTableViewCell class] forCellReuseIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
+    [self.tableview registerClass:[MedicalVideoStartRecommadCourseTableViewCell class] forCellReuseIdentifier:[MedicalVideoStartRecommadCourseTableViewCell cellReuseIdentifier]];
+    [self startLoadAdvertiseList];
     [self startLoadClassify];
-    
-    [self.listTableView registerClass:[MedicalVideoInfoTableViewCell class] forCellReuseIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
+    //获取推荐精品课程
+    [self startLoadRecommandCourses];
 }
 
 - (void) updateViewConstraints{
     [super updateViewConstraints];
     
-    [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view);
-        make.height.mas_equalTo(@45);
-        make.centerX.equalTo(self.view);
-        if ([UIDevice currentDevice].isPad) {
-            make.width.equalTo(self.view).multipliedBy(0.7);
-        }
-        else{
-            make.width.equalTo(self.view);
-        }
-    }];
     
-    [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view);
-        make.top.equalTo(self.segmentView.mas_bottom);
-        make.centerX.equalTo(self.view);
-        if ([UIDevice currentDevice].isPad) {
-            make.width.equalTo(self.view).multipliedBy(0.7);
-        }
-        else{
-            make.width.equalTo(self.view);
-        }
-    }];
 }
 
 //获取医学视频分类
 - (void) startLoadClassify{
-    [MessageHubUtil showWait];
+    //[MessageHubUtil showWait];
     WS(weakSelf)
     [MedicalVideoListBussiness startLoadMediaclVideoClassify:^(id result) {
         SAFE_WEAKSELF(weakSelf)
@@ -72,179 +76,175 @@
             [weakSelf videoClassifiesLoaded:result];
         }
     } complete:^(NSInteger code, NSString *message) {
-        [MessageHubUtil hideMessage];
+        //[MessageHubUtil hideMessage];
         SAFE_WEAKSELF(weakSelf)
         if (code != 0) {
             [MessageHubUtil showErrorMessage:message];
             return ;
         }
-        [weakSelf.listTableView reloadData];
+        //[weakSelf.listTableView reloadData];
     }];
 }
 
 - (void) videoClassifiesLoaded:(NSArray<MedicalVideoClassifyEntryModel*>*) classifies{
-    _videoClassifies = classifies;
-    
-    NSArray<NSString*>* titles = [classifies valueForKey:@"name"];
-    [self.segmentView setSegmentTitles:titles];
+    self.seniorSubjects = classifies;
+    [self.tableview reloadData];
 }
 
 #pragma mark - settingAndGetting
-- (SegmentView*) segmentView{
-    if (!_segmentView) {
-        _segmentView = [[SegmentView alloc] initWithNormalFont:[UIFont systemFontOfSize:13] normalColor:[UIColor commonGrayTextColor] highFont:[UIFont systemFontOfSize:15 weight:UIFontWeightMedium] highColor:[UIColor mainThemeColor]];
-        [self.view addSubview:_segmentView];
-        _segmentView.minSegmentCellWidth = (kScreenWidth / 4.5);
+- (UIView*) tableviewHeaderView{
+    if (!_tableviewHeaderView) {
+        CGFloat width = kScreenWidth;
         if ([UIDevice currentDevice].isPad) {
-            _segmentView.minSegmentCellWidth = (kScreenWidth / 4.5 * 0.7);
+            width = kScreenWidth * 0.7;
         }
-        _segmentView.indicateWidth = 27.5;
-        
-        WS(weakSelf)
-        [_segmentView onSelectedIndexChanged:^(NSInteger index) {
-            SAFE_WEAKSELF(weakSelf)
-            [weakSelf segmentViewSelectedIndexChanged:index];
-        }];
+        CGFloat rate = width / 375;
+        CGFloat height = 128. * rate + 20.;
+        _tableviewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     }
-    return _segmentView;
+    return _tableviewHeaderView;
 }
 
-- (UITableView*) listTableView{
-    if (!_listTableView) {
-        _listTableView = [[UITableView alloc] init];
-        [self.view addSubview:_listTableView];
-        _listTableView.delegate = self;
-        _listTableView.dataSource = self;
-        _listTableView.backgroundColor = [UIColor commonBackgroundColor];
-        _listTableView.estimatedRowHeight = 45.;
-        _listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+- (SDCycleScrollView*) advertiseView{
+    if (!_advertiseView) {
+        CGFloat width = kScreenWidth;
+        if ([UIDevice currentDevice].isPad) {
+            width = kScreenWidth * 0.7;
+        }
+        CGFloat rate = width/375.;
+        width -= 26.;
+        CGFloat height = 128. * rate;
+        _advertiseView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, width, height) delegate:self placeholderImage:[UIImage imageNamed:@"img_default_main"]];
+        [self.tableviewHeaderView addSubview:_advertiseView];
+        [_advertiseView setCornerRadius:8];
+        [_advertiseView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.tableviewHeaderView).insets(UIEdgeInsetsMake(9, 13, 9, 13));
+        }];
+        _advertiseView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+        _advertiseView.currentPageDotColor = [UIColor grayColor];
+        _advertiseView.autoScrollTimeInterval = 5;
+        _advertiseView.currentPageDotColor = [UIColor whiteColor];
     }
-    return _listTableView;
+    return _advertiseView;
 }
 
 #pragma mark - table view data source
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    if (self.videoClassifies) {
-        return self.videoClassifies.count;
+    return SectionCount;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    switch (section) {
+        case Grid_Section:
+            return 1;
+            break;
+        case Subjects_Section:{
+            if (self.seniorSubjects && self.seniorSubjects.count > 0) {
+                return 1;
+            }
+            break;
+        }
+        case Course_Section:{
+            if (self.recommandCourseList && self.recommandCourseList.content.count > 0) {
+                return 1;
+            }
+            break;
+        }
+        default:
+            break;
     }
     return 0;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    MedicalVideoClassifyEntryModel* classifyModel = self.videoClassifies[section];
-    return classifyModel.medicalVideos.count;
-}
-
-- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MedicalVideoInfoTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    MedicalVideoClassifyEntryModel* classifyModel = self.videoClassifies[indexPath.section];
-    MedicalVideoGroupInfoEntryModel* groupModel = classifyModel.medicalVideos[indexPath.row];
-    [cell setVideoGroupInfo:groupModel];
+- (VHTableViewCell*) tableViewCell:(Class) class indexPath:(NSIndexPath*) indexPath{
+    VHTableViewCell* cell = [self.tableview dequeueReusableCellWithIdentifier:[VHTableViewCell cellReuseIdentifier]];
+    switch (indexPath.section) {
+        case Grid_Section:{
+            cell = [self.tableview dequeueReusableCellWithIdentifier:[MedicalStartGridTableViewCell cellReuseIdentifier]];
+            break;
+        }
+        case Subjects_Section:{
+            MedicalStartVideoSegmentTableViewCell* subjectcell = [self.tableview dequeueReusableCellWithIdentifier:[MedicalStartVideoSegmentTableViewCell cellReuseIdentifier]];
+            NSArray<NSString*>* names = [self.seniorSubjects valueForKey:@"name"];
+            [subjectcell setSubjectNames:names];
+            cell = subjectcell;
+            break;
+        }
+        case Course_Section:{
+            cell = [[MedicalVideoStartRecommadCourseTableViewCell alloc] initWithCourseList:self.recommandCourseList];
+            break;
+        }
+        default:
+            break;
+    }
     
     return cell;
 }
 
 #pragma mark - table view delegate
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 45.;
+    return 0.01;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 5;
+    return 0.01;
 }
 
-- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 45)];
-    headerView.backgroundColor = [UIColor commonBackgroundColor];
-    MedicalVideoClassifyEntryModel* classifyModel = self.videoClassifies[section];
-    UILabel* classifyNameLabel = [headerView addLabel:[UIColor commonTextColor] textSize:18];
-    classifyNameLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
-    classifyNameLabel.text = classifyModel.name;
-    
-    UIButton* moreButton = [headerView addButton:UIButtonTypeCustom];
-    [moreButton setTitle:@"更多 >>" forState:UIControlStateNormal];
-    [moreButton setTitleColor:[UIColor commonGrayTextColor] forState:UIControlStateNormal];
-    moreButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    
-    moreButton.tag = 0x300 + section;
-    [moreButton addTarget:self action:@selector(classifyMoreButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [classifyNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(headerView);
-        make.left.equalTo(headerView).offset(14);
-    }];
-    
-    [moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(headerView);
-        make.right.equalTo(headerView).offset(-9);
-    }];
-    return headerView;
-}
-
-- (UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView* footerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 5)];
-    footerview.backgroundColor = [UIColor clearColor];
-    return footerview;
-}
-
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    MedicalVideoClassifyEntryModel* classifyModel = self.videoClassifies[indexPath.section];
-    MedicalVideoGroupInfoEntryModel* groupModel = classifyModel.medicalVideos[indexPath.row];
-    [MedicalVideoPageRouter entryMedicalVideoDetailPage:groupModel.id];
-}
-
-#pragma mark - more button event
-- (void) classifyMoreButtonClicked:(id) sender{
-    UIButton* moreButton = (UIButton*) sender;
-    if (![moreButton isKindOfClass:[UIButton class]]) {
-        return;
-    }
-    
-    NSInteger section = moreButton.tag - 0x300;
-    if (section == 0) {
-        //推荐视频，单独跳转
-    }
-    if (section <= 0 || section >= self.videoClassifies.count) {
-        return;
-    }
-    
-    MedicalVideoClassifyEntryModel* classifyModel = self.videoClassifies[section];
-    //NSString* code = classifyModel.code;
-    
-    //跳转到分类视频列表
-    [MedicalVideoPageRouter entryClassifiedMedicalVideListPage:classifyModel];
-}
-
-#pragma mark - 分类学科选择 event
-- (void) segmentViewSelectedIndexChanged:(NSInteger) index{
-    //CGRect headerRect = [self.listTableView rectForHeaderInSection:index];
-    [self.listTableView scrollToRow:0 inSection:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
-}
-
-- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
-
-    CGPoint contentOffset = scrollView.contentOffset;
-    //CGFloat offsetY = scrollView.contentOffset.y;
-    if (!self.listTableView.dataSource || ![self.listTableView.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
-        return;
-    }
-    NSInteger topmostSection = NSNotFound;
-    NSInteger sectionCount = [self.listTableView.dataSource numberOfSectionsInTableView:self.listTableView];
-    for (NSInteger section = 0; section < sectionCount; ++section) {
-        CGRect sectionRect = [self.listTableView rectForSection:section];
-        if (CGRectContainsPoint(sectionRect, contentOffset)) {
-            topmostSection = section;
-            break;
+#pragma mark - 获取广告里表
+- (void) startLoadAdvertiseList{
+    WS(weakSelf)
+    [MedicalVideoListBussiness loadMedicalVideoAdvertiseList:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[NSArray class]]) {
+            [weakSelf advertiseListLoaded:result];
         }
-    }
-    
-    if (topmostSection != NSNotFound) {
-        [self tableviewDidScrollToSection:topmostSection];
-    }
+    } complete:^(NSInteger code, NSString *message) {
+        
+    }];
 }
 
-- (void) tableviewDidScrollToSection:(NSInteger) section{
-    [self.segmentView setSelectedIndex:section];
+- (void) advertiseListLoaded:(NSArray<AdvertiseEntryModel*>*) advertises{
+    self.advertiseModels = advertises;
+    NSArray<NSString*>* imageUrls = [advertises valueForKey:@"pictureUrl"];
+    [self.advertiseView setImageURLStringsGroup:imageUrls];
 }
+
+#pragma mark - 获取学科列表
+- (void) startLoadSeniorSubjects{
+    WS(weakSelf)
+    [CommonBaseBussiness startSeniorSubjects:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[NSArray class]]) {
+            [weakSelf seniorSubjectLoaded:result];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        
+    }];
+}
+
+- (void) seniorSubjectLoaded:(NSArray<MedicalVideoClassifyEntryModel*>*) subjects{
+    self.seniorSubjects = subjects;
+    [self.tableview reloadData];
+}
+
+#pragma mark - 获取首页推荐课程
+- (void) startLoadRecommandCourses{
+    WS(weakSelf)
+    [MedicalVideoListBussiness startLoadHomeRecommandCoursesVideos:^(id result) {
+        WS(weakSelf)
+        if (!result || ![result isKindOfClass:[MedicalVideoGroupInfoListModel class]]) {
+            return ;
+        }
+        weakSelf.recommandCourseList = result;
+        [weakSelf.tableview reloadData];
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        
+        if (code == 0) {
+            
+        }
+    }];
+}
+
+
 @end

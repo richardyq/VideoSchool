@@ -392,7 +392,7 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
             [weakSelf startLoadJoinedCircleInfo:circleId];
         }
         else
-            [VHPageRouter entryMainPage];
+            [self startLoadUserFavorite];
     }];
 }
 
@@ -402,6 +402,25 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
     [CircleBussiness startLoadUserJoinedCircleInfo:circleId result:^(id result) {
         if ([result isKindOfClass:[JoinedCircleEntryModel class]]) {
             [CommonDataModel shareInstance].joinedCircleInfo = result;
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        [MessageHubUtil hideMessage];
+        if (code != 0) {
+            [MessageHubUtil showMessage:message];
+            return;
+        }
+        [self startLoadUserFavorite];
+    }];
+}
+
+#pragma mark - 获取用户的兴趣设置
+- (void) startLoadUserFavorite{
+    [MessageHubUtil showWait];
+    WS(weakSelf)
+    [UserInfoBusiness startLoadUserFavorite:^(id result) {
+        if (result && [result isKindOfClass:[NSArray class]]) {
+            [[UserModuleUtil shareInstance] setFavoriteSubject:result];
         }
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)

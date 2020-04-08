@@ -1,19 +1,18 @@
 //
-//  SeniorSubjectListFunction.m
+//  UserFavoriteFunction.m
 //  VeehuiVideoSchool
 //
-//  Created by 殷全 on 2020/4/3.
+//  Created by 殷全 on 2020/4/7.
 //  Copyright © 2020 殷全. All rights reserved.
 //
 
-#import "SeniorSubjectListFunction.h"
+#import "UserFavoriteFunction.h"
 #import "MedicalVideoClassifyEntryModel.h"
 
-
-@implementation SeniorSubjectListFunction
+@implementation UserFavoriteFunction
 
 - (NSString*) requestUrl{
-    return [NSString stringWithFormat:@"%@/v2/o/seniorSubjects", kURL_BASE_NEWDOMAIN];
+    return [NSString stringWithFormat:@"%@/v2/u/favorite", kURL_BASE_NEWDOMAIN];
 }
 
 - (id) paraserResponse:(id) response{

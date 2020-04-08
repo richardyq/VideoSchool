@@ -82,7 +82,13 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 - (UIView*) tableHeaderView{
     if (!_tableHeaderView) {
-        _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 18. + 148. * ScreenSizeRate)];
+        CGFloat width = kScreenWidth;
+        if ([UIDevice currentDevice].isPad) {
+            width = kScreenWidth * 0.7;
+        }
+        CGFloat rate = width / 375;
+        CGFloat height = 128. * rate + 20.;
+        _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         UIImageView* bannerImageView = [_tableHeaderView addImageView:@"img_default_main"];
         [bannerImageView setCornerRadius:8];
         [bannerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,7 +104,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
         if ([UIDevice currentDevice].isPad) {
             width = kScreenWidth * 0.7;
         }
-        CGFloat rate = width/128.;
+        CGFloat rate = width/375.;
         width -= 26.;
         CGFloat height = 128. * rate;
         _advertiseView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, width, height) delegate:self placeholderImage:[UIImage imageNamed:@"img_default_main"]];

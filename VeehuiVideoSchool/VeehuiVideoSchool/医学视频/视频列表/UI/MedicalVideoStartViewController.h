@@ -6,11 +6,11 @@
 //  Copyright © 2020 殷全. All rights reserved.
 //
 
-#import "VHBaseViewController.h"
+#import "VHBaseListViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MedicalVideoStartViewController : VHBaseViewController
+@interface MedicalVideoStartViewController : VHBaseListViewController
 
 @end
 

@@ -42,6 +42,7 @@ NSString* const kLoginedUserIdKey = @"LoginedUserId";
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLoginedUserIdKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    self.favoriteSubject = nil;
     //[[VHHTTPRequest shareInstance] setHTTPHeader:nil headerField:@"Authorization"];
 }
 

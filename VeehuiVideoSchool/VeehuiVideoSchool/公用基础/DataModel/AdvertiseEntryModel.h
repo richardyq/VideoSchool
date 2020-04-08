@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString* backgroundColor;
 @property (nonatomic, strong) NSString* pictureUrl;
 @property (nonatomic) NSInteger productId;          //商品id
-@property (nonatomic, strong) NSString typeCode;           //商品类型[01-会员，02-课程，03-会议，04-医学视频，05-圈子]
+@property (nonatomic, strong) NSString* typeCode;           //商品类型[01-会员，02-课程，03-会议，04-医学视频，05-圈子]
 
 @end
 

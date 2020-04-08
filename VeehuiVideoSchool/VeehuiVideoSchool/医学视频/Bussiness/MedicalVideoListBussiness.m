@@ -16,6 +16,7 @@
 #import "HomeRecommandCourseListFunction.h"
 #import "HomeRecommandVideosFunction.h"
 #import "HomeSubjectListFunction.h"
+#import "MedicalVideoAdvertiseListFunction.h"
 
 @implementation MedicalVideoListBussiness
 
@@ -139,5 +140,11 @@
             resultHandler(result);
         }
     } complete:complete];
+}
+
++ (void) loadMedicalVideoAdvertiseList:(VHRequestResultHandler) resultHandler
+                              complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[MedicalVideoAdvertiseListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:resultHandler complete:complete];
 }
 @end

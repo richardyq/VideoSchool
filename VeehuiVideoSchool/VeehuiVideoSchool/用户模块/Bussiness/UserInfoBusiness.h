@@ -58,6 +58,15 @@ startValidateUserToken
 + (void) startLoadUserInfo:(VHRequestResultHandler) result
                   complete:(VHRequestCompleteHandler) complete;
 
+/**
+获取当前用户的兴趣设置
+startLoadUserFavorite
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadUserFavorite:(VHRequestResultHandler) result
+                      complete:(VHRequestCompleteHandler) complete;
+
 @end
 
 NS_ASSUME_NONNULL_END
