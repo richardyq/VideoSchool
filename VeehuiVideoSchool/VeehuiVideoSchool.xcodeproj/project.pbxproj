@@ -84,8 +84,7 @@
 		278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755424037ABE005A8994 /* LiveMeetingListFunction.m */; };
 		278A755924038019005A8994 /* MeetingEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755824038019005A8994 /* MeetingEntryModel.m */; };
 		278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */; };
-		278F3FF9242DE9E100D0B4AC /* HomeMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FF8242DE9E100D0B4AC /* HomeMeetingListFunction.m */; };
-		278F3FFC242DED7D00D0B4AC /* HomeMeetingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FFB242DED7D00D0B4AC /* HomeMeetingInfo.m */; };
+		278F3FF9242DE9E100D0B4AC /* HomeMeetingInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FF8242DE9E100D0B4AC /* HomeMeetingInfoFunction.m */; };
 		278F3FFF242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FFE242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m */; };
 		2794BFCB243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794BFCA243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.m */; };
 		2794BFCF243D62AE0077E153 /* CirclePersonControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794BFCE243D62AE0077E153 /* CirclePersonControl.m */; };
@@ -111,6 +110,7 @@
 		27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA911A241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m */; };
 		27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */; };
 		27AAC018243EAE7300E5A05B /* PorfessorSubjectedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AAC017243EAE7300E5A05B /* PorfessorSubjectedListViewController.m */; };
+		27AAC023243EFA8600E5A05B /* HomeMeetingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AAC022243EFA8600E5A05B /* HomeMeetingInfoModel.m */; };
 		27AC9F7A2420CD39008B2698 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC9F722420CD39008B2698 /* libSocialWeChat.a */; };
 		27AC9F7B2420CD39008B2698 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27AC9F772420CD39008B2698 /* README.txt */; };
 		27AC9F7C2420CD39008B2698 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC9F792420CD39008B2698 /* libWeChatSDK.a */; };
@@ -312,10 +312,8 @@
 		278A755824038019005A8994 /* MeetingEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingEntryModel.m; sourceTree = "<group>"; };
 		278A755B2403A6A6005A8994 /* MeetingInfoListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingInfoListTableViewCell.h; sourceTree = "<group>"; };
 		278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingInfoListTableViewCell.m; sourceTree = "<group>"; };
-		278F3FF7242DE9E100D0B4AC /* HomeMeetingListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMeetingListFunction.h; sourceTree = "<group>"; };
-		278F3FF8242DE9E100D0B4AC /* HomeMeetingListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMeetingListFunction.m; sourceTree = "<group>"; };
-		278F3FFA242DED7D00D0B4AC /* HomeMeetingInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMeetingInfo.h; sourceTree = "<group>"; };
-		278F3FFB242DED7D00D0B4AC /* HomeMeetingInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMeetingInfo.m; sourceTree = "<group>"; };
+		278F3FF7242DE9E100D0B4AC /* HomeMeetingInfoFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMeetingInfoFunction.h; sourceTree = "<group>"; };
+		278F3FF8242DE9E100D0B4AC /* HomeMeetingInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMeetingInfoFunction.m; sourceTree = "<group>"; };
 		278F3FFD242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStartMeetingInfoTableViewCell.h; sourceTree = "<group>"; };
 		278F3FFE242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStartMeetingInfoTableViewCell.m; sourceTree = "<group>"; };
 		2794BFC9243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoStartRecommadCourseTableViewCell.h; sourceTree = "<group>"; };
@@ -366,6 +364,8 @@
 		27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoGroupOtherVideoTableViewCell.m; sourceTree = "<group>"; };
 		27AAC016243EAE7300E5A05B /* PorfessorSubjectedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PorfessorSubjectedListViewController.h; sourceTree = "<group>"; };
 		27AAC017243EAE7300E5A05B /* PorfessorSubjectedListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PorfessorSubjectedListViewController.m; sourceTree = "<group>"; };
+		27AAC021243EFA8600E5A05B /* HomeMeetingInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMeetingInfoModel.h; sourceTree = "<group>"; };
+		27AAC022243EFA8600E5A05B /* HomeMeetingInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMeetingInfoModel.m; sourceTree = "<group>"; };
 		27AC9F722420CD39008B2698 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
 		27AC9F732420CD39008B2698 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		27AC9F752420CD39008B2698 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1109,8 +1109,8 @@
 				278A755424037ABE005A8994 /* LiveMeetingListFunction.m */,
 				278A754824036F8C005A8994 /* MeetingGatherFunction.h */,
 				278A754924036F8C005A8994 /* MeetingGatherFunction.m */,
-				278F3FF7242DE9E100D0B4AC /* HomeMeetingListFunction.h */,
-				278F3FF8242DE9E100D0B4AC /* HomeMeetingListFunction.m */,
+				278F3FF7242DE9E100D0B4AC /* HomeMeetingInfoFunction.h */,
+				278F3FF8242DE9E100D0B4AC /* HomeMeetingInfoFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1122,8 +1122,8 @@
 				278A754C2403703C005A8994 /* MeetingGatherEntryModel.m */,
 				278A755724038019005A8994 /* MeetingEntryModel.h */,
 				278A755824038019005A8994 /* MeetingEntryModel.m */,
-				278F3FFA242DED7D00D0B4AC /* HomeMeetingInfo.h */,
-				278F3FFB242DED7D00D0B4AC /* HomeMeetingInfo.m */,
+				27AAC021243EFA8600E5A05B /* HomeMeetingInfoModel.h */,
+				27AAC022243EFA8600E5A05B /* HomeMeetingInfoModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1577,7 +1577,7 @@
 				2794BFCB243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.m in Sources */,
 				27ACCD0224319BE90050CC88 /* CommonDataModel.m in Sources */,
 				27206DA623FCDF76004A9C85 /* HomeStartViewController.m in Sources */,
-				278F3FF9242DE9E100D0B4AC /* HomeMeetingListFunction.m in Sources */,
+				278F3FF9242DE9E100D0B4AC /* HomeMeetingInfoFunction.m in Sources */,
 				27ACCCFC243194880050CC88 /* UserJoinedCirclesFunction.m in Sources */,
 				277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */,
 				277F918123FA274B0055C773 /* AppDelegate.m in Sources */,
@@ -1616,12 +1616,12 @@
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
 				27DB7724243C1827000FB2EE /* HomeSubjectListFunction.m in Sources */,
 				27DB7701243C0B51000FB2EE /* HomeAdvertisesFunction.m in Sources */,
-				278F3FFC242DED7D00D0B4AC /* HomeMeetingInfo.m in Sources */,
 				2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */,
 				27DB771F243C1827000FB2EE /* MedicalGroupOthersFunction.m in Sources */,
 				279D129B243710B200A12FFA /* ProfessorStartViewController.m in Sources */,
 				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,
 				27DB771D243C1827000FB2EE /* MedicalGroupDetailFunction.m in Sources */,
+				27AAC023243EFA8600E5A05B /* HomeMeetingInfoModel.m in Sources */,
 				27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */,
 				2794BFD2243D69420077E153 /* ProfessorActivityTableViewCell.m in Sources */,
 				2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */,

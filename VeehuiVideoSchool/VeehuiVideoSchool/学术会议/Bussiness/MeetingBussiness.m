@@ -9,7 +9,7 @@
 #import "MeetingBussiness.h"
 #import "MeetingGatherFunction.h"
 #import "LiveMeetingListFunction.h"
-#import "HomeMeetingListFunction.h"
+#import "HomeMeetingInfoFunction.h"
 
 @implementation MeetingBussiness
 
@@ -36,17 +36,17 @@
 //获取首页会议轮播数据
 + (void) startLoadHomeMeetings:(VHRequestResultHandler) resultHandler
                       complete:(VHRequestCompleteHandler) complete{
-    VHHTTPFunction* function = [[HomeMeetingListFunction alloc] init];
-    NSString* cachePath = [kCachePrefixPath stringByAppendingString:@"homeMeetingInfo"];
+    VHHTTPFunction* function = [[HomeMeetingInfoFunction alloc] init];
+    NSString* cachePath = [kCachePrefixPath stringByAppendingString:@"homeMeetingModel"];
     //获取缓存数据
-    HomeMeetingInfo* cachedValue = [VHCache loadFromeCache:cachePath];
-    if (cachedValue && [cachedValue isKindOfClass:[HomeMeetingInfo class]]) {
+    HomeMeetingInfoModel* cachedValue = [VHCache loadFromeCache:cachePath];
+    if (cachedValue && [cachedValue isKindOfClass:[HomeMeetingInfoModel class]]) {
         if (resultHandler) {
             resultHandler(cachedValue);
         }
     }
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:^(id result) {
-        if ([result isKindOfClass:[HomeMeetingInfo class]]) {
+        if ([result isKindOfClass:[HomeMeetingInfoModel class]]) {
             //保存数据到缓存
             [VHCache saveToCache:result cachePath:cachePath];
         }

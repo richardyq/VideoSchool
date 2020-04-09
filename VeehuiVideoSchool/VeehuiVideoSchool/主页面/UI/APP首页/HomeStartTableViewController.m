@@ -15,7 +15,7 @@
 #import "HomeJoinedCircleTableViewCell.h"
 #import "HomeRecommandCourseTableViewCell.h"
 #import "HomeUserRecommandTableViewCell.h"
-#import "HomeMeetingInfo.h"
+#import "HomeMeetingInfoModel.h"
 #import "CommonDataModel.h"
 #import "MedicalVideoListBussiness.h"
 #import "MedicalVideoGroupInfoEntryModel.h"
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 @property (nonatomic, strong) UIView* tableHeaderView;
 @property (nonatomic, strong) SDCycleScrollView* advertiseView;
 
-@property (nonatomic, strong) HomeMeetingInfo* homeMeetingInfo;
+@property (nonatomic, strong) HomeMeetingInfoModel* homeMeetingInfo;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandCourseList;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandVideosList;
 @property (nonatomic, strong) HomeSubjectListModel* homeSubjects;
@@ -141,7 +141,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
         }
             
         case Meeting_Section:{
-            if (self.homeMeetingInfo && self.homeMeetingInfo.meetingInfos.count > 0) {
+            if (self.homeMeetingInfo) {
                 return 1;
             }
             break;
@@ -340,7 +340,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     WS(weakSelf)
     [MeetingBussiness startLoadHomeMeetings:^(id result) {
         SAFE_WEAKSELF(weakSelf)
-        if ([result isKindOfClass:[HomeMeetingInfo class]]) {
+        if ([result isKindOfClass:[HomeMeetingInfoModel class]]) {
             weakSelf.homeMeetingInfo = result;
         }
         [weakSelf reloadTable];

@@ -7,7 +7,7 @@
 //
 
 #import "HomeStartMeetingInfoTableViewCell.h"
-#import "HomeMeetingInfo.h"
+#import "HomeMeetingInfoModel.h"
 
 @interface HomeStartMeetingInfoTableViewCell ()
 
@@ -167,29 +167,27 @@
 }
 
 - (void) setEntryModel:(EntryModel *)model{
-    if (!model || ![model isKindOfClass:[HomeMeetingInfo class]]) {
+    if (!model || ![model isKindOfClass:[HomeMeetingInfoModel class]]) {
         return;
     }
     
-    HomeMeetingInfo* meetingInfo = (HomeMeetingInfo*) model;
-    MeetingEntryModel* shownMeeting = meetingInfo.shownMeetingInfo;
+    HomeMeetingInfoModel* shownMeeting = (HomeMeetingInfoModel*) model;
     
     self.titleLabel.text = shownMeeting.title;
     
-    self.startDateLabel.text = [NSString stringWithFormat:@"会议直播·%@", shownMeeting.startTime];
+    self.startDateLabel.text = [NSString stringWithFormat:@"会议直播·%@", shownMeeting.nextStartTimeInfo];
     
     self.organizationLabel.text = [NSString stringWithFormat:@"主办单位：%@", shownMeeting.organizer];
     self.organizationLabel.hidden = (!shownMeeting.organizer || shownMeeting.organizer.isEmpty);
-    
-    self.watchedNumberLabel.text = [NSString stringWithFormat:@"%@人正在观看直播", shownMeeting.watchingNumberInfo];
-    self.watchedNumberLabel.hidden = (!shownMeeting.watchingNumberInfo || shownMeeting.watchingNumberInfo.isEmpty || [shownMeeting.watchingNumberInfo isEqualToString:@"0"]);
-    if (!meetingInfo.haveLiveMeeting) {
-        self.watchedNumberLabel.text = [NSString stringWithFormat:@"%@人已预约观看直播", shownMeeting.appointmentNumberInfo];
-        self.watchedNumberLabel.hidden = (!shownMeeting.appointmentNumberInfo || shownMeeting.appointmentNumberInfo.isEmpty || [shownMeeting.appointmentNumberInfo isEqualToString:@"0"]);
+    NSString* watchingNumberInfo = [NSString formatWithInteger:shownMeeting.watchingNumber remain:1 unit:@"万"];
+    self.watchedNumberLabel.text = [NSString stringWithFormat:@"%@人正在观看直播", watchingNumberInfo];
+    self.watchedNumberLabel.hidden = (shownMeeting.watchingNumber == 0);
+    if (![shownMeeting.statusCode isEqualToString:@"02"]) {
+        self.watchedNumberLabel.text = [NSString stringWithFormat:@"%@人已预约观看直播", watchingNumberInfo];
     }
     
-    self.moreView.hidden = meetingInfo.meetingInfos.count <= 1;
-    self.moreLabel.text = [NSString stringWithFormat:@"查看其他%ld场会议直播信息 >", meetingInfo.meetingInfos.count - 1];
+    self.moreView.hidden = (shownMeeting.ortherCount == 0);
+    self.moreLabel.text = [NSString stringWithFormat:@"查看其他%ld场会议直播信息 >", shownMeeting.ortherCount];
     [self.contentView setNeedsUpdateConstraints];
 }
 @end

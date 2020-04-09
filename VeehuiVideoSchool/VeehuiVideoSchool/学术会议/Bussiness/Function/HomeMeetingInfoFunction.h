@@ -1,5 +1,5 @@
 //
-//  HomeMeetingListFunction.h
+//  HomeMeetingInfoFunction.h
 //  VeehuiVideoSchool
 //
 //  Created by 殷全 on 2020/3/27.
@@ -7,10 +7,10 @@
 //
 
 #import "VHHTTPFunction.h"
-#import "HomeMeetingInfo.h"
+#import "HomeMeetingInfoModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeMeetingListFunction : VHHTTPFunction
+@interface HomeMeetingInfoFunction : VHHTTPFunction
 
 @end
 
