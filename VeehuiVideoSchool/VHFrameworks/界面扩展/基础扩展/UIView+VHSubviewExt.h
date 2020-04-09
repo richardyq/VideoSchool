@@ -26,6 +26,10 @@ typedef NS_ENUM(NSUInteger, WatermarPosition) {
  */
 - (UILabel*) addLabel;
 - (UILabel*) addLabel:(UIColor*) textColor textSize:(CGFloat) textSize;
+- (UILabel*) addLabel:(UIColor*) textColor
+             textSize:(CGFloat) textSize
+               weight:(UIFontWeight) weight;
+
 - (UIButton*) addButtonWithImageName:(NSString*) imageName;
 /*
  addImageView

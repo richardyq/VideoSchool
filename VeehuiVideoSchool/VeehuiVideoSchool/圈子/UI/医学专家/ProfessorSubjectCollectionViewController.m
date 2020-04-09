@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* seniorSubjects;
 
 @property (nonatomic, strong) NSMutableArray<NSMutableArray<MedicalVideoClassifyEntryModel*>*>* sections;
+
 @end
 
 @implementation ProfessorSubjectCollectionViewController
@@ -27,6 +28,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.pagingEnabled = YES;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[ProfessorSubjectCollectionViewCell class] forCellWithReuseIdentifier:[ProfessorSubjectCollectionViewCell cellReuseIdentifier]];
+    
     _sections = [NSMutableArray<NSArray<MedicalVideoClassifyEntryModel*>*> array];
     // Do any additional setup after loading the view.
     [self startLoadSeniorSubjects];

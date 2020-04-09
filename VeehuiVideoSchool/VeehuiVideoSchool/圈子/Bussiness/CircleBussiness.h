@@ -32,6 +32,14 @@ startLoadUserJoinedCircleInfo
                                 result:(VHRequestResultHandler) result
                               complete:(VHRequestCompleteHandler) complete;
 
+/**
+startLoadRecommandCircleList
+获取推荐的圈子列表
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadRecommandCircleList:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

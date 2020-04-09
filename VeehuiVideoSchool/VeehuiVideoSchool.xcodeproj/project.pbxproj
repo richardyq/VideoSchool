@@ -88,6 +88,10 @@
 		278F3FFC242DED7D00D0B4AC /* HomeMeetingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FFB242DED7D00D0B4AC /* HomeMeetingInfo.m */; };
 		278F3FFF242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F3FFE242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m */; };
 		2794BFCB243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794BFCA243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.m */; };
+		2794BFCF243D62AE0077E153 /* CirclePersonControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794BFCE243D62AE0077E153 /* CirclePersonControl.m */; };
+		2794BFD2243D69420077E153 /* ProfessorActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794BFD1243D69420077E153 /* ProfessorActivityTableViewCell.m */; };
+		2794BFD5243DAEA60077E153 /* RecommandProfessorListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794BFD4243DAEA60077E153 /* RecommandProfessorListFunction.m */; };
+		2794BFD8243DB4100077E153 /* ProfessorCircleInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794BFD7243DB4100077E153 /* ProfessorCircleInfoTableViewCell.m */; };
 		279A1F5A242851AA008AAA5F /* UserInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F59242851AA008AAA5F /* UserInfoFunction.m */; };
 		279A1F60242864AE008AAA5F /* BindMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F5F242864AE008AAA5F /* BindMobileViewController.m */; };
 		279A1F6324288941008AAA5F /* CheckMobileVerifyCodeFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 279A1F6224288941008AAA5F /* CheckMobileVerifyCodeFunction.m */; };
@@ -106,6 +110,7 @@
 		27AA9118241A0629004D93F2 /* CircleInfoEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA9117241A0629004D93F2 /* CircleInfoEntryModel.m */; };
 		27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA911A241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m */; };
 		27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */; };
+		27AAC018243EAE7300E5A05B /* PorfessorSubjectedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AAC017243EAE7300E5A05B /* PorfessorSubjectedListViewController.m */; };
 		27AC9F7A2420CD39008B2698 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC9F722420CD39008B2698 /* libSocialWeChat.a */; };
 		27AC9F7B2420CD39008B2698 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27AC9F772420CD39008B2698 /* README.txt */; };
 		27AC9F7C2420CD39008B2698 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC9F792420CD39008B2698 /* libWeChatSDK.a */; };
@@ -315,6 +320,14 @@
 		278F3FFE242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStartMeetingInfoTableViewCell.m; sourceTree = "<group>"; };
 		2794BFC9243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoStartRecommadCourseTableViewCell.h; sourceTree = "<group>"; };
 		2794BFCA243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoStartRecommadCourseTableViewCell.m; sourceTree = "<group>"; };
+		2794BFCD243D62AE0077E153 /* CirclePersonControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CirclePersonControl.h; sourceTree = "<group>"; };
+		2794BFCE243D62AE0077E153 /* CirclePersonControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CirclePersonControl.m; sourceTree = "<group>"; };
+		2794BFD0243D69420077E153 /* ProfessorActivityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfessorActivityTableViewCell.h; sourceTree = "<group>"; };
+		2794BFD1243D69420077E153 /* ProfessorActivityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfessorActivityTableViewCell.m; sourceTree = "<group>"; };
+		2794BFD3243DAEA60077E153 /* RecommandProfessorListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommandProfessorListFunction.h; sourceTree = "<group>"; };
+		2794BFD4243DAEA60077E153 /* RecommandProfessorListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommandProfessorListFunction.m; sourceTree = "<group>"; };
+		2794BFD6243DB4100077E153 /* ProfessorCircleInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfessorCircleInfoTableViewCell.h; sourceTree = "<group>"; };
+		2794BFD7243DB4100077E153 /* ProfessorCircleInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfessorCircleInfoTableViewCell.m; sourceTree = "<group>"; };
 		279A1F58242851AA008AAA5F /* UserInfoFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoFunction.h; sourceTree = "<group>"; };
 		279A1F59242851AA008AAA5F /* UserInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoFunction.m; sourceTree = "<group>"; };
 		279A1F5E242864AE008AAA5F /* BindMobileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindMobileViewController.h; sourceTree = "<group>"; };
@@ -351,6 +364,8 @@
 		27AA911A241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoDetailCircleTableViewCell.m; sourceTree = "<group>"; };
 		27AA911F241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoGroupOtherVideoTableViewCell.h; sourceTree = "<group>"; };
 		27AA9120241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoGroupOtherVideoTableViewCell.m; sourceTree = "<group>"; };
+		27AAC016243EAE7300E5A05B /* PorfessorSubjectedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PorfessorSubjectedListViewController.h; sourceTree = "<group>"; };
+		27AAC017243EAE7300E5A05B /* PorfessorSubjectedListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PorfessorSubjectedListViewController.m; sourceTree = "<group>"; };
 		27AC9F722420CD39008B2698 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
 		27AC9F732420CD39008B2698 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		27AC9F752420CD39008B2698 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1129,9 +1144,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		2794BFCC243D62940077E153 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2794BFCD243D62AE0077E153 /* CirclePersonControl.h */,
+				2794BFCE243D62AE0077E153 /* CirclePersonControl.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		279D12972437106300A12FFA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2794BFCC243D62940077E153 /* Views */,
 				279D12982437106300A12FFA /* 医学专家 */,
 				279D129C2437110F00A12FFA /* CirclePageRouter.h */,
 				279D129D2437110F00A12FFA /* CirclePageRouter.m */,
@@ -1147,6 +1172,8 @@
 				279D129A243710B200A12FFA /* ProfessorStartViewController.m */,
 				279D12A2243720FD00A12FFA /* ProfessorSubjectCollectionViewController.h */,
 				279D12A3243720FD00A12FFA /* ProfessorSubjectCollectionViewController.m */,
+				27AAC016243EAE7300E5A05B /* PorfessorSubjectedListViewController.h */,
+				27AAC017243EAE7300E5A05B /* PorfessorSubjectedListViewController.m */,
 			);
 			path = "医学专家";
 			sourceTree = "<group>";
@@ -1156,6 +1183,10 @@
 			children = (
 				279D12A92437250400A12FFA /* ProfessorSubjectCollectionViewCell.h */,
 				279D12AA2437250400A12FFA /* ProfessorSubjectCollectionViewCell.m */,
+				2794BFD0243D69420077E153 /* ProfessorActivityTableViewCell.h */,
+				2794BFD1243D69420077E153 /* ProfessorActivityTableViewCell.m */,
+				2794BFD6243DB4100077E153 /* ProfessorCircleInfoTableViewCell.h */,
+				2794BFD7243DB4100077E153 /* ProfessorCircleInfoTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1278,6 +1309,8 @@
 				27ACCCFB243194880050CC88 /* UserJoinedCirclesFunction.m */,
 				27ACCD0A2431C9010050CC88 /* UserJoinedCircleInfoFunction.h */,
 				27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */,
+				2794BFD3243DAEA60077E153 /* RecommandProfessorListFunction.h */,
+				2794BFD4243DAEA60077E153 /* RecommandProfessorListFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1333,14 +1366,14 @@
 		27DB7725243C1831000FB2EE /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				27DB7726243C1831000FB2EE /* MedicalVideoGroupDetailEntryModel.m */,
-				27DB7727243C1831000FB2EE /* MedicalVideoClassifyEntryModel.m */,
-				27DB7728243C1831000FB2EE /* MedicalVideoGroupInfoEntryModel.h */,
-				27DB7729243C1831000FB2EE /* MedicalVideoEntryModel.h */,
-				27DB772A243C1831000FB2EE /* MedicalVideoGroupDetailEntryModel.h */,
-				27DB772B243C1831000FB2EE /* MedicalVideoGroupInfoEntryModel.m */,
 				27DB772C243C1831000FB2EE /* MedicalVideoClassifyEntryModel.h */,
+				27DB7727243C1831000FB2EE /* MedicalVideoClassifyEntryModel.m */,
+				27DB7729243C1831000FB2EE /* MedicalVideoEntryModel.h */,
 				27DB772D243C1831000FB2EE /* MedicalVideoEntryModel.m */,
+				27DB772A243C1831000FB2EE /* MedicalVideoGroupDetailEntryModel.h */,
+				27DB7726243C1831000FB2EE /* MedicalVideoGroupDetailEntryModel.m */,
+				27DB7728243C1831000FB2EE /* MedicalVideoGroupInfoEntryModel.h */,
+				27DB772B243C1831000FB2EE /* MedicalVideoGroupInfoEntryModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1502,6 +1535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27206DAC23FD08F1004A9C85 /* HomeStartTableViewController.m in Sources */,
+				2794BFD8243DB4100077E153 /* ProfessorCircleInfoTableViewCell.m in Sources */,
 				277F91B623FA30710055C773 /* UIView+VHSubviewExt.m in Sources */,
 				270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */,
 				270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */,
@@ -1547,6 +1581,7 @@
 				27ACCCFC243194880050CC88 /* UserJoinedCirclesFunction.m in Sources */,
 				277F91D423FA43340055C773 /* NSString+VHExt.m in Sources */,
 				277F918123FA274B0055C773 /* AppDelegate.m in Sources */,
+				2794BFCF243D62AE0077E153 /* CirclePersonControl.m in Sources */,
 				27DB7721243C1827000FB2EE /* MedicalVideoClassifyListFunction.m in Sources */,
 				2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */,
 				277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */,
@@ -1572,6 +1607,7 @@
 				27765B142417394000D6A0A5 /* MedicalCourseListViewController.m in Sources */,
 				278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */,
 				277F91CE23FA3F980055C773 /* UserLoginStartViewController.m in Sources */,
+				2794BFD5243DAEA60077E153 /* RecommandProfessorListFunction.m in Sources */,
 				279A1F66242891BD008AAA5F /* BindMobileFunction.m in Sources */,
 				270A032E23FBD3F100FD4431 /* VHCountDownUtil.m in Sources */,
 				279A1F6324288941008AAA5F /* CheckMobileVerifyCodeFunction.m in Sources */,
@@ -1587,6 +1623,7 @@
 				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,
 				27DB771D243C1827000FB2EE /* MedicalGroupDetailFunction.m in Sources */,
 				27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */,
+				2794BFD2243D69420077E153 /* ProfessorActivityTableViewCell.m in Sources */,
 				2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */,
 				27DB773D243C56EC000FB2EE /* UserFavoriteFunction.m in Sources */,
 				27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */,
@@ -1597,6 +1634,7 @@
 				27DB7731243C1831000FB2EE /* MedicalVideoEntryModel.m in Sources */,
 				27DB771E243C1827000FB2EE /* MedicalVideoSecondaryClassifyListFunction.m in Sources */,
 				27FF31762434389E008457BD /* HomeSubjectHeaderTableViewCell.m in Sources */,
+				27AAC018243EAE7300E5A05B /* PorfessorSubjectedListViewController.m in Sources */,
 				278A7550240370E1005A8994 /* MeetingBussiness.m in Sources */,
 				2759AD6F2424A21D006E4B72 /* APPVersionFunction.m in Sources */,
 				27AA9118241A0629004D93F2 /* CircleInfoEntryModel.m in Sources */,

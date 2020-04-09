@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSInteger fansCount;              //粉丝数
 @property (nonatomic) NSInteger followCount;            //关注数
+
+@property (nonatomic, strong) NSString* introduction;
 @end
 
+
+@interface CircleInfoEntryList : ListModel
+
+@end
 NS_ASSUME_NONNULL_END

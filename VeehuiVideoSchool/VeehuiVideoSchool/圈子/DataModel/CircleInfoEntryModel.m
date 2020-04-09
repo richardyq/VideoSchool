@@ -11,3 +11,11 @@
 @implementation CircleInfoEntryModel
 
 @end
+
+@implementation CircleInfoEntryList
+
++ (NSDictionary*) mj_objectClassInArray{
+    return @{@"content": [CircleInfoEntryModel class]};
+}
+
+@end

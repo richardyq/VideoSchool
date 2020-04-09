@@ -112,6 +112,7 @@
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self);
+        make.width.greaterThanOrEqualTo(self);
     }];
     
     [self.indicateView mas_makeConstraints:^(MASConstraintMaker *make) {

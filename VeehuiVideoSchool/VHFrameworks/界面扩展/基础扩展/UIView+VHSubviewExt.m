@@ -27,6 +27,16 @@ NSInteger const WatermarkImageViewTag = 0x89B5;
     return label;
 }
 
+- (UILabel*) addLabel:(UIColor*) textColor
+             textSize:(CGFloat) textSize
+               weight:(UIFontWeight) weight {
+    UILabel* label = [self addLabel];
+    label.textColor = textColor;
+    label.font = [UIFont systemFontOfSize:textSize weight:weight];
+    
+    return label;
+}
+
 - (UIImageView*) addImageView{
     UIImageView* imageView = [[UIImageView alloc] init];
     [self addSubview:imageView];
