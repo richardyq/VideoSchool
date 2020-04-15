@@ -14,11 +14,18 @@
 
 #import "CircleInfoEntryModel.h"
 #import "CircleBussiness.h"
+#import "ProfessorInfoEntryModel.h"
 
 typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
     Activity_Section,
     Professor_Section,
     SectionCount,
+};
+
+typedef NS_ENUM(NSUInteger, ProfessorSegmentIndex) {
+    AllProfessor,           //全部专家
+    FollowProfessor,        //关注的专家
+    
 };
 
 @interface ProfessorStartViewController ()
@@ -29,7 +36,10 @@ typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
 @property (nonatomic, strong) CircleInfoEntryList* activitycircleList;
 
 @property (nonatomic, strong) SegmentView* segmentview;
-@property (nonatomic, strong) NSMutableArray<CircleInfoEntryModel*>* recommandCircles;
+
+@property (nonatomic, readonly) ProfessorSegmentIndex segmentIndex;
+@property (nonatomic, strong) ProfessorInfoEntryList* professorCircleList;
+@property (nonatomic, strong) ProfessorInfoEntryList* followedProfessorList;
 
 @end
 
@@ -64,33 +74,76 @@ typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
     _segmentview = [[SegmentView alloc] initWithNormalFont:[UIFont systemFontOfSize:13] normalColor:[UIColor commonGrayTextColor] highFont:[UIFont systemFontOfSize:15 weight:UIFontWeightMedium] highColor:[UIColor mainThemeColor]];
     _segmentview.indicateWidth = 27.5;
     [_segmentview setSegmentTitles:@[@"全部", @"关注"]];
+    
+    WS(weakSelf)
+    [_segmentview onSelectedIndexChanged:^(NSInteger index) {
+        SAFE_WEAKSELF(weakSelf)
+        [weakSelf.tableview reloadData];
+        switch (index) {
+            case 0:{
+                [weakSelf refreshCommandEnd:weakSelf.professorCircleList.pageNo totalPage:weakSelf.professorCircleList.totalPages];
+                break;
+            }
+            case 1:{
+                [weakSelf refreshCommandEnd:weakSelf.followedProfessorList.pageNo totalPage:weakSelf.followedProfessorList.totalPages];
+                break;
+            }
+            default:
+                break;
+        }
+    }];
     return _segmentview;
 }
 
+- (ProfessorSegmentIndex) segmentIndex{
+    ProfessorSegmentIndex segmentIndex = AllProfessor;
+    switch (self.segmentview.selectedIndex) {
+        case 0:{
+            segmentIndex = AllProfessor;
+            break;
+        }
+        case 1:{
+            segmentIndex = FollowProfessor;
+            break;
+        }
+    }
+    return segmentIndex;
+}
 
 #pragma mark - 获取网络数据
 - (void) getData{
-    
-    //测试数据,活跃专家
-    NSArray<NSString*>* names = @[@"刘学林", @"陈果", @"矛雨", @"邵钟", @"宋川", @"周仲瑜"];
-    NSArray<NSString*>* portraits = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586324380203&di=a88de523cc5e541da4b709c373d9d17f&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F7Po3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F267f9e2f07082838685c484ab999a9014c08f11f.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586324380201&di=7f96b09d2ac5f76210875c8604b34aae&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20180802%2F03%2F1533152429-PGfdkeylXK.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586324380199&di=8a12e704e15c8f92df2f22f56241c757&imgtype=0&src=http%3A%2F%2Ftupian.qqw21.com%2Farticle%2FUploadPic%2F2020-3%2F2020352216990408.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586324380199&di=580f87513922ff7df2b19116db1edd4d&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20180918%2F15%2F1537255884-hlBfJcGXkb.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586324380198&di=b525c7d31aa8a68acce0746b518fdddd&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fe61190ef76c6a7efd517f640fbfaaf51f3de66a6.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586324380196&di=bf064daf3d486a45d9f3a71a067205d7&imgtype=0&src=http%3A%2F%2Fimg.psy525.cn%2Fupload%2F2020%2F03%2F25%2Fa615042016464f1cbd7dcebe1403ea94.png%2521200fixed"];
-    NSMutableArray<CircleInfoEntryModel*>* circles = [NSMutableArray<CircleInfoEntryModel*> array];
-    for (NSInteger index = 0; index < 6; ++index) {
-        NSString* name = names[(arc4random() % names.count)];
-        NSString* portrait = portraits[(arc4random() % portraits.count)];
-        CircleInfoEntryModel* circle = [[CircleInfoEntryModel alloc] init];
-        [circles addObject:circle];
-        circle.name = name;
-        circle.portraitUrl = portrait;
-        circle.introduction = @"消化内科主任， 主任医师，教授";
-        circle.id = arc4random() % 20000;
+    [self startLoadActiveProfessorCircleList];
+    [self startLoadRecommandCircleList:self.professorCircleList.pageNo];
+    [self startLoadFollowedProfessorList:self.followedProfessorList.pageNo];
+}
+
+- (ProfessorInfoEntryList*) professorCircleList{
+    if (!_professorCircleList) {
+        _professorCircleList = [[ProfessorInfoEntryList alloc] init];
+        _professorCircleList.pageNo = 1;
     }
-    CircleInfoEntryList* activityList = [[CircleInfoEntryList alloc] init];
-    activityList.content = circles;
-    
-    [self activityCirclesLoaded:activityList];
-    
-    [self startLoadRecommandCircleList];
+    return _professorCircleList;
+}
+
+- (ProfessorInfoEntryList*) followedProfessorList{
+    if (!_followedProfessorList) {
+        _followedProfessorList = [[ProfessorInfoEntryList alloc] init];
+        _followedProfessorList.pageNo = 1;
+    }
+    return _followedProfessorList;
+}
+
+#pragma mark - 获取活跃的专家圈子列表
+- (void) startLoadActiveProfessorCircleList{
+    WS(weakSelf)
+    [CircleBussiness startLoadActiveCircleList:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if (result && [result isKindOfClass:[CircleInfoEntryList class]]) {
+            [weakSelf activityCirclesLoaded:result];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        
+    }];
 }
 
 - (void) activityCirclesLoaded:(CircleInfoEntryList*) circleList{
@@ -98,18 +151,75 @@ typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
     [self.tableview reloadData];
 }
 
+
 #pragma mark - 获取【全部】圈子列表
-- (void) startLoadRecommandCircleList{
+- (void) startLoadRecommandCircleList:(NSInteger) pageNo{
     WS(weakSelf)
-    [CircleBussiness startLoadRecommandCircleList:^(id result) {
+    [CircleBussiness startLoadProfessorCircleList:pageNo result:^(id result) {
         SAFE_WEAKSELF(weakSelf)
-        if (result && [result isKindOfClass:[NSArray class]]) {
-            weakSelf.recommandCircles = result;
+        if (result && [result isKindOfClass:[ProfessorInfoEntryList class]]) {
+            [weakSelf recommandProfessorListLoaded:result];
             [weakSelf.tableview reloadData];
         }
     } complete:^(NSInteger code, NSString *message) {
         SAFE_WEAKSELF(weakSelf)
+        if (code == 0) {
+            if (weakSelf.segmentIndex == AllProfessor) {
+                [weakSelf refreshCommandEnd:weakSelf.professorCircleList.pageNo totalPage:weakSelf.professorCircleList.totalPages];
+            }
+            
+        }
     }];
+}
+
+- (void) recommandProfessorListLoaded:(ProfessorInfoEntryList*) professorList{
+    self.professorCircleList.pageNo = professorList.pageNo;
+    self.professorCircleList.pageSize = professorList.pageSize;
+    self.professorCircleList.totalPages = professorList.totalPages;
+    self.professorCircleList.totalElements = professorList.totalElements;
+    
+    NSMutableArray<ProfessorInfoEntryModel*>* professors = [NSMutableArray<ProfessorInfoEntryModel*> arrayWithArray:self.professorCircleList.content];
+    if (professorList.pageNo == 1) {
+        [professors removeAllObjects];
+    }
+    
+    [professors addObjectsFromArray:professorList.content];
+    self.professorCircleList.content = professors;
+}
+
+#pragma mark - 获取【全部】圈子列表
+- (void) startLoadFollowedProfessorList:(NSInteger) pageNo{
+    WS(weakSelf)
+    [CircleBussiness startLoadFollowedProfessorList:pageNo result:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if (result && [result isKindOfClass:[ProfessorInfoEntryList class]]) {
+            [weakSelf followedProfessorListLoaded:result];
+            [weakSelf.tableview reloadData];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        if (code == 0) {
+            if (weakSelf.segmentIndex == FollowProfessor) {
+                [weakSelf refreshCommandEnd:weakSelf.followedProfessorList.pageNo totalPage:weakSelf.followedProfessorList.totalPages];
+            }
+            
+        }
+    }];
+}
+
+- (void) followedProfessorListLoaded:(ProfessorInfoEntryList*) professorList{
+    self.followedProfessorList.pageNo = professorList.pageNo;
+    self.followedProfessorList.pageSize = professorList.pageSize;
+    self.followedProfessorList.totalPages = professorList.totalPages;
+    self.followedProfessorList.totalElements = professorList.totalElements;
+    
+    NSMutableArray<ProfessorInfoEntryModel*>* professors = [NSMutableArray<ProfessorInfoEntryModel*> arrayWithArray:self.followedProfessorList.content];
+    if (professorList.pageNo == 1) {
+        [professors removeAllObjects];
+    }
+    
+    [professors addObjectsFromArray:professorList.content];
+    self.followedProfessorList.content = professors;
 }
 
 #pragma mark - settingAndGetting
@@ -166,12 +276,21 @@ typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
             break;
         }
         case Professor_Section:{
-            if (YES) {
-                if (self.recommandCircles) {
-                    return self.recommandCircles.count;
+            switch (self.segmentIndex) {
+                case AllProfessor:{
+                    if (self.professorCircleList) {
+                        return self.professorCircleList.content.count;
+                    }
+                    break;
+                }
+                case FollowProfessor:{
+                    if (self.followedProfessorList) {
+                        return self.followedProfessorList.content.count;
+                    }
+                    break;
                 }
             }
-            break;
+            
         }
         default:
             break;
@@ -203,10 +322,12 @@ typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
             break;
         }
         case Professor_Section:{
-            if (YES) {
-                return self.recommandCircles[indexPath.row];
+            if (self.segmentIndex == AllProfessor) {
+                return self.professorCircleList.content[indexPath.row];
             }
-            
+            if (self.segmentIndex == FollowProfessor) {
+                return self.followedProfessorList.content[indexPath.row];
+            }
             break;
         }
         default:
@@ -260,6 +381,21 @@ typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
             break;
     }
     return headerview;
+}
+
+- (void) loadMoreDataCommand{
+    switch (self.segmentIndex) {
+        case AllProfessor:{
+            [self startLoadRecommandCircleList:self.professorCircleList.pageNo + 1];
+            break;
+        }
+        case FollowProfessor:{
+            [self startLoadFollowedProfessorList:self.followedProfessorList.pageNo + 1];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 @end

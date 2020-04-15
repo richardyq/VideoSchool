@@ -10,6 +10,8 @@
 #import "UserJoinedCirclesFunction.h"
 #import "UserJoinedCircleInfoFunction.h"
 #import "RecommandProfessorListFunction.h"
+#import "ActiveProfessorListFunction.h"
+#import "FollowedProfessorListFunction.h"
 
 @implementation CircleBussiness
 
@@ -26,9 +28,23 @@
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 
-+ (void) startLoadRecommandCircleList:(VHRequestResultHandler) result
++ (void) startLoadActiveCircleList:(VHRequestResultHandler) result
+                          complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[ActiveProfessorListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadProfessorCircleList:(NSInteger) pageNo
+                               result:(VHRequestResultHandler) result
                              complete:(VHRequestCompleteHandler) complete{
-    VHHTTPFunction* function = [[RecommandProfessorListFunction alloc] init];
+    VHHTTPFunction* function = [[RecommandProfessorListFunction alloc] initWtithPageNo:pageNo];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadFollowedProfessorList:(NSInteger) pageNo
+                               result:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[FollowedProfessorListFunction alloc] initWtithPageNo:pageNo];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

@@ -57,6 +57,15 @@ startSeniorSubjects
                     complete:(VHRequestCompleteHandler) complete;
 
 /**
+startLoadCircleDeptList
+获取圈子分类的一级学科
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadCircleDeptList:(VHRequestResultHandler) result
+                        complete:(VHRequestCompleteHandler) complete;
+
+/**
 loadHomeAdvertises
 获取首页广告列表数据
 @param result          result 请求数据结果返回回调方法

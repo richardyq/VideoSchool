@@ -7,7 +7,9 @@
 //
 
 #import "ProfessorCircleInfoTableViewCell.h"
-#import "CircleInfoEntryModel.h"
+#import "ProfessorInfoEntryModel.h"
+#import "ProfessorCircleSingleVideoCell.h"
+#import "ProfessorCircleMutiVideoCell.h"
 
 @interface ProfessorCircleInfoTableViewCell ()
 
@@ -180,16 +182,72 @@
 }
 
 - (void) setEntryModel:(EntryModel *)model{
-    if (!model || ![model isKindOfClass:[CircleInfoEntryModel class]]) {
+    if (!model || ![model isKindOfClass:[ProfessorInfoEntryModel class]]) {
         return;
     }
     
-    CircleInfoEntryModel* circle = (CircleInfoEntryModel*) model;
+    ProfessorInfoEntryModel* circle = (ProfessorInfoEntryModel*) model;
     
     [self.portraitImageView sd_setImageWithURL:[NSURL URLWithString:circle.portraitUrl] placeholderImage:[UIImage imageNamed:@"icon_default_circle"]];
     self.nameLabel.text = circle.name;
     self.deptLabel.text = circle.introduction;
     self.fellowNumberLabel.text =  [NSString formatWithInteger:circle.followCount remain:1 unit:@"万"];
+    
+    [self.videoView removeAllSubviews];
+    if (circle.medicalVideos.count >= 3) {
+        NSMutableArray<ProfessorCircleMutiVideoCell*>* videoCells = [NSMutableArray<ProfessorCircleMutiVideoCell*> array];
+        [circle.medicalVideos enumerateObjectsUsingBlock:^(MedicalVideoGroupInfoEntryModel * _Nonnull group, NSUInteger idx, BOOL * _Nonnull stop) {
+            ProfessorCircleMutiVideoCell* cell = [[ProfessorCircleMutiVideoCell alloc] initWithVideoGroup:group];
+            [self.videoView addSubview:cell];
+            [videoCells addObject:cell];
+            if (idx == 2) {
+                *stop = YES;
+            }
+            WS(weakSelf)
+            [cell addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+                SAFE_WEAKSELF(weakSelf)
+                [weakSelf entryVideoGroupDetailPage:group.id];
+            }];
+        }];
+        
+        __block MASViewAttribute* cellWidth = nil;
+        __block MASViewAttribute* cellLeft = self.videoView.mas_left;
+        [videoCells enumerateObjectsUsingBlock:^(ProfessorCircleMutiVideoCell * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
+            [cell mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(cellLeft);
+                make.top.bottom.equalTo(self.videoView);
+                if (cellWidth) {
+                    make.width.equalTo(cellWidth);
+                }
+                if (cell == videoCells.lastObject) {
+                    make.right.equalTo(self.videoView);
+                }
+            }];
+            
+            cellWidth = cell.mas_width;
+            cellLeft = cell.mas_right;
+        }];
+    }
+    else if(circle.medicalVideos.count > 0){
+        MedicalVideoGroupInfoEntryModel* group = circle.medicalVideos.firstObject;
+        ProfessorCircleSingleVideoCell* cell = [[ProfessorCircleSingleVideoCell alloc] initWithVideoGroup:group];
+        [self.videoView addSubview:cell];
+        [cell mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.videoView);
+        }];
+        
+        WS(weakSelf)
+        [cell addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            SAFE_WEAKSELF(weakSelf)
+            [weakSelf entryVideoGroupDetailPage:group.id];
+        }];
+    }
+}
+
+- (void) entryVideoGroupDetailPage:(NSInteger) groupId{
+    MedicalVideoGroupInfoEntryModel* videoEntry = [MedicalVideoGroupInfoEntryModel alloc];
+    videoEntry.id = groupId;
+    //[HSMPUIHelperUtils hs_medicalVideoJumpAction:videoEntry vc:[NSObject topMostController]];
 }
 
 @end

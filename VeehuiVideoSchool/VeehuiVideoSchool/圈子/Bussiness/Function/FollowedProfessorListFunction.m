@@ -1,20 +1,21 @@
 //
-//  RecommandProfessorListFunction.m
+//  FollowedProfessorListFunction.m
 //  VeehuiVideoSchool
 //
-//  Created by 殷全 on 2020/4/8.
+//  Created by 殷全 on 2020/4/15.
 //  Copyright © 2020 殷全. All rights reserved.
 //
 
-#import "RecommandProfessorListFunction.h"
+#import "FollowedProfessorListFunction.h"
+
 #import "ProfessorInfoEntryModel.h"
 
-@interface RecommandProfessorListFunction ()
+@interface FollowedProfessorListFunction ()
 
 @property (nonatomic) NSInteger pageNo;
 @end
 
-@implementation RecommandProfessorListFunction
+@implementation FollowedProfessorListFunction
 
 - (id) initWtithPageNo:(NSInteger) pageNo{
     self = [super init];
@@ -25,7 +26,7 @@
 }
 
 - (NSString*) requestUrl{
-    return [NSString stringWithFormat:@"%@/v2/crc/experts/%ld/10", kURL_BASE_NEWDOMAIN, (long)self.pageNo];
+    return [NSString stringWithFormat:@"%@/v2/ucrc/followExperts/%ld/10", kURL_BASE_NEWDOMAIN, (long)self.pageNo];
     return nil;
 }
 
@@ -35,4 +36,5 @@
     }
     return nil;
 }
+
 @end

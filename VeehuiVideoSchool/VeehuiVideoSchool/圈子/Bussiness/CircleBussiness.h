@@ -33,13 +33,34 @@ startLoadUserJoinedCircleInfo
                               complete:(VHRequestCompleteHandler) complete;
 
 /**
-startLoadRecommandCircleList
-获取推荐的圈子列表
+startLoadActiveCircleList
+获取今日的活跃专家（圈子）列表
 @param result          result 请求数据结果返回回调方法
 @param complete        complete 请求结束回调方法
 */
-+ (void) startLoadRecommandCircleList:(VHRequestResultHandler) result
++ (void) startLoadActiveCircleList:(VHRequestResultHandler) result
+                          complete:(VHRequestCompleteHandler) complete;
+/**
+startLoadProfessorCircleList
+获取医学专家圈子列表
+@param pageNo          页码
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadProfessorCircleList:(NSInteger) pageNo
+                               result:(VHRequestResultHandler) result
                              complete:(VHRequestCompleteHandler) complete;
+
+/**
+startLoadFollowedProfessorList
+获取关注的专家圈子列表
+@param pageNo          页码
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadFollowedProfessorList:(NSInteger) pageNo
+                                 result:(VHRequestResultHandler) result
+                               complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

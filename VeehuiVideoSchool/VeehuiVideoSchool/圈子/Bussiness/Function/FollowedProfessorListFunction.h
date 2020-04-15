@@ -1,8 +1,8 @@
 //
-//  RecommandProfessorListFunction.h
+//  FollowedProfessorListFunction.h
 //  VeehuiVideoSchool
 //
-//  Created by 殷全 on 2020/4/8.
+//  Created by 殷全 on 2020/4/15.
 //  Copyright © 2020 殷全. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RecommandProfessorListFunction : VHHTTPFunction
+@interface FollowedProfessorListFunction : VHHTTPFunction
 
 - (id) initWtithPageNo:(NSInteger) pageNo;
 

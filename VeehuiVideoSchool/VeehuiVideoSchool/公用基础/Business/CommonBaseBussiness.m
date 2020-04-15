@@ -13,6 +13,7 @@
 #import "BindMobileFunction.h"
 #import "SeniorSubjectListFunction.h"
 #import "HomeAdvertisesFunction.h"
+#import "CircleDeptListFunction.h"
 
 @implementation CommonBaseBussiness
 
@@ -43,6 +44,13 @@
     VHHTTPFunction* function = [[SeniorSubjectListFunction alloc] init];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
+
++ (void) startLoadCircleDeptList:(VHRequestResultHandler) result
+                        complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[CircleDeptListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
 
 + (void) loadHomeAdvertises:(VHRequestResultHandler) result
                     complete:(VHRequestCompleteHandler) complete{

@@ -37,7 +37,7 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - 获取学科列表
 - (void) startLoadSeniorSubjects{
     WS(weakSelf)
-    [CommonBaseBussiness startSeniorSubjects:^(id result) {
+    [CommonBaseBussiness startLoadCircleDeptList:^(id result) {
         SAFE_WEAKSELF(weakSelf)
         if ([result isKindOfClass:[NSArray class]]) {
             [weakSelf seniorSubjectLoaded:result];

@@ -25,5 +25,6 @@
 #import "VHGridItemControl.h"
 #import "SegmentView.h"
 #import "VHNavigationBarView.h"
+#import "VHLabelControl.h"
 
 #endif /* VHUIKitExtHeader_h */
