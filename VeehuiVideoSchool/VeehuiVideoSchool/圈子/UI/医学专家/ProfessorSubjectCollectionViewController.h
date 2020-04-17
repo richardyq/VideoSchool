@@ -10,8 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ProfessorDeptsDelegate <NSObject>
+
+- (void) professorDeptPages:(NSInteger) pages;
+- (void) professorDeptPageShown:(NSInteger) page;
+@end
+
 @interface ProfessorSubjectCollectionViewController : UICollectionViewController
 
+@property (nonatomic, weak) id<ProfessorDeptsDelegate> deptDelegate;
 @end
 
 NS_ASSUME_NONNULL_END

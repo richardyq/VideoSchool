@@ -32,6 +32,7 @@ static NSString * const reuseIdentifier = @"Cell";
     _sections = [NSMutableArray<NSArray<MedicalVideoClassifyEntryModel*>*> array];
     // Do any additional setup after loading the view.
     [self startLoadSeniorSubjects];
+    self.collectionView.showsHorizontalScrollIndicator = NO;
 }
 
 #pragma mark - 获取学科列表
@@ -67,6 +68,10 @@ static NSString * const reuseIdentifier = @"Cell";
     }];
     
     [self.collectionView reloadData];
+    
+    if (self.deptDelegate && [self.deptDelegate respondsToSelector:@selector(professorDeptPages:)]) {
+        [self.deptDelegate professorDeptPages:self.sections.count];
+    }
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -98,33 +103,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSInteger page = 0;
+    
+    CGFloat offsetX = self.collectionView.contentOffset.x;
+    page = offsetX / scrollView.width;
+    
+    if (self.deptDelegate && [self.deptDelegate respondsToSelector:@selector(professorDeptPageShown:)]) {
+        [self.deptDelegate professorDeptPageShown:page];
+    }
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

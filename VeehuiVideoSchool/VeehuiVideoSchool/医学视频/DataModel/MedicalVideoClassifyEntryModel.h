@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString* code;
 @property (nonatomic, copy) NSString* name;
-
+@property (nonatomic, copy) NSString* iconUrl;
 @property (nonatomic, strong) NSArray<MedicalVideoGroupInfoEntryModel*>* medicalVideos;
  
 @end

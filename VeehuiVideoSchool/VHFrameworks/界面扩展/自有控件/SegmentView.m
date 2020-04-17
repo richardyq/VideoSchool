@@ -114,11 +114,6 @@
         make.height.equalTo(self);
         make.width.greaterThanOrEqualTo(self);
     }];
-    
-    [self.indicateView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView);
-        make.height.mas_equalTo(@3);
-    }];
 }
 
 - (void) onSelectedIndexChanged:(SegmentViewSelectedIndexChanged) action{
@@ -175,25 +170,19 @@
     self.showsHorizontalScrollIndicator = NO;
     [self performSelector:@selector(resetContentSize) afterDelay:0.08];
     
-    [self.indicateView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView);
-        make.height.mas_equalTo(@3);
-        
-        if (self.indicateWidth == 0) {
-            make.width.equalTo(self.segmentCells.firstObject);
-        }
-        else{
-            make.width.mas_equalTo(@(self.indicateWidth));
-        }
-        
-        if (highCell) {
-            make.centerX.equalTo(highCell);
-        }
-    }];
 }
 
 - (void) resetContentSize{
     self.contentSize = self.contentView.size;
+    
+    CGFloat indicateWidth = self.indicateWidth;
+    if (indicateWidth == 0) {
+        indicateWidth = self.segmentCells.firstObject.width;
+    }
+    
+    [self.indicateView setFrame:CGRectMake(0, 0, indicateWidth, 3)];
+    [self.indicateView setCenterX:self.segmentCells[self.selectedIndex].centerX];
+    [self.indicateView setBottom:self.contentView.height];
 }
 
 #pragma mark - settingAndGetting
@@ -262,8 +251,11 @@
     if (!highCell) {
         return;
     }
+    
+    NSLog(@"indicateView center from %.2f to %.2f", self.indicateView.centerX, highCell.centerX);
     [UIView animateWithDuration:0.2 animations:^{
         self.indicateView.centerX = highCell.centerX;
+        
     }];
 }
 

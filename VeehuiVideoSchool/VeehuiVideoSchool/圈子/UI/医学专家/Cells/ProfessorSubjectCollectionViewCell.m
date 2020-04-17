@@ -60,7 +60,8 @@
     if (!subject.code || [subject.code isEmpty]) {
         return;
     }
-    self.iconImageView.image = [UIImage imageNamed:@"ic_default_subject"];
+    
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:subject.iconUrl] placeholderImage:[UIImage imageNamed:@"ic_default_subject"]];
     self.titleLabel.text = subject.name;
 }
 @end
