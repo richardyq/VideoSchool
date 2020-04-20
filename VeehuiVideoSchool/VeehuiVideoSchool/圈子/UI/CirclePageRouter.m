@@ -8,6 +8,8 @@
 
 #import "CirclePageRouter.h"
 #import "ProfessorStartViewController.h"
+#import "PorfessorSubjectedListViewController.h"
+#import "MedicalVideoClassifyEntryModel.h"
 
 @implementation CirclePageRouter
 
@@ -15,5 +17,11 @@
     ProfessorStartViewController* controller = [[ProfessorStartViewController alloc] initWithNibName:nil bundle:nil];
     [VHPageRouter entryPageController:controller];
 }
+
++ (void) entryProfessorSubjectedListPage:(MedicalVideoClassifyEntryModel*) subject{
+    VHBaseViewController* controller = [[PorfessorSubjectedListViewController alloc] initWithClassifyModel:subject];
+    [VHPageRouter entryPageController:controller];
+}
+
 
 @end

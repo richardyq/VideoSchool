@@ -15,6 +15,7 @@
     return [NSString stringWithFormat:@"%@/v2/crcri/depts/03", kURL_BASE_NEWDOMAIN];
 }
 
+
 - (id) paraserResponse:(id) response{
     if (response && [response isKindOfClass:[NSArray class]]) {
         NSMutableArray<MedicalVideoClassifyEntryModel*>* subjects = [NSMutableArray<MedicalVideoClassifyEntryModel*> array];

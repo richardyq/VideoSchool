@@ -192,6 +192,7 @@
     self.nameLabel.text = circle.name;
     self.deptLabel.text = circle.introduction;
     self.fellowNumberLabel.text =  [NSString formatWithInteger:circle.followCount remain:1 unit:@"万"];
+    self.timeLabel.text = circle.createTimeInfo;
     
     [self.videoView removeAllSubviews];
     if (circle.medicalVideos.count >= 3) {

@@ -133,6 +133,8 @@
 		27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD082431BE4B0050CC88 /* HomeCircleUnTreadedView.m */; };
 		27ACCD0C2431C9010050CC88 /* UserJoinedCircleInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */; };
 		27ACCD0F2431C9D40050CC88 /* JoinedCircleEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */; };
+		27C8C4E3244D329B00608B09 /* CircleSecondaryDeptListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C8C4E2244D329B00608B09 /* CircleSecondaryDeptListFunction.m */; };
+		27C8C4E6244D3F9B00608B09 /* ClassifiedProfessorListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C8C4E5244D3F9B00608B09 /* ClassifiedProfessorListFunction.m */; };
 		27DB7701243C0B51000FB2EE /* HomeAdvertisesFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */; };
 		27DB7704243C0BA5000FB2EE /* AdvertiseEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB7703243C0BA5000FB2EE /* AdvertiseEntryModel.m */; };
 		27DB771B243C1827000FB2EE /* MedicalVideoListBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB7706243C1827000FB2EE /* MedicalVideoListBussiness.m */; };
@@ -420,6 +422,10 @@
 		27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserJoinedCircleInfoFunction.m; sourceTree = "<group>"; };
 		27ACCD0D2431C9D40050CC88 /* JoinedCircleEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoinedCircleEntryModel.h; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.h"; sourceTree = SOURCE_ROOT; };
 		27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoinedCircleEntryModel.m; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.m"; sourceTree = SOURCE_ROOT; };
+		27C8C4E1244D329B00608B09 /* CircleSecondaryDeptListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleSecondaryDeptListFunction.h; sourceTree = "<group>"; };
+		27C8C4E2244D329B00608B09 /* CircleSecondaryDeptListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleSecondaryDeptListFunction.m; sourceTree = "<group>"; };
+		27C8C4E4244D3F9B00608B09 /* ClassifiedProfessorListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifiedProfessorListFunction.h; sourceTree = "<group>"; };
+		27C8C4E5244D3F9B00608B09 /* ClassifiedProfessorListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifiedProfessorListFunction.m; sourceTree = "<group>"; };
 		27DB76FF243C0B51000FB2EE /* HomeAdvertisesFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeAdvertisesFunction.h; sourceTree = "<group>"; };
 		27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeAdvertisesFunction.m; sourceTree = "<group>"; };
 		27DB7702243C0BA5000FB2EE /* AdvertiseEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvertiseEntryModel.h; sourceTree = "<group>"; };
@@ -600,6 +606,8 @@
 				27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */,
 				275A3B6B2445463D00ECE566 /* CircleDeptListFunction.h */,
 				275A3B6C2445463D00ECE566 /* CircleDeptListFunction.m */,
+				27C8C4E1244D329B00608B09 /* CircleSecondaryDeptListFunction.h */,
+				27C8C4E2244D329B00608B09 /* CircleSecondaryDeptListFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1346,6 +1354,8 @@
 				2794BFD4243DAEA60077E153 /* RecommandProfessorListFunction.m */,
 				274FFDDE2446F65A0004252C /* FollowedProfessorListFunction.h */,
 				274FFDDF2446F65A0004252C /* FollowedProfessorListFunction.m */,
+				27C8C4E4244D3F9B00608B09 /* ClassifiedProfessorListFunction.h */,
+				27C8C4E5244D3F9B00608B09 /* ClassifiedProfessorListFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1596,6 +1606,7 @@
 				27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */,
 				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
 				2759AD7C2424C098006E4B72 /* UserValidateTokenFunction.m in Sources */,
+				27C8C4E3244D329B00608B09 /* CircleSecondaryDeptListFunction.m in Sources */,
 				27FF317924343FC8008457BD /* HomeSubjectMeetingTableViewCell.m in Sources */,
 				279D12A72437247800A12FFA /* VHCollectionViewCell.m in Sources */,
 				275A3B6A2445428D00ECE566 /* ActiveProfessorListFunction.m in Sources */,
@@ -1690,6 +1701,7 @@
 				270A030C23FB895500FD4431 /* UserLoginWithWechatFunction.m in Sources */,
 				27AC9F812421EC6D008B2698 /* VideoPlayerModel.m in Sources */,
 				27AA91132419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m in Sources */,
+				27C8C4E6244D3F9B00608B09 /* ClassifiedProfessorListFunction.m in Sources */,
 				270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */,
 				27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */,
 				27AA910C2419C56F004D93F2 /* MedicalVideoDetailViewController.m in Sources */,

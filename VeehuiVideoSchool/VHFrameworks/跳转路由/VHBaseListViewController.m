@@ -134,6 +134,7 @@ DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 }
 
 - (void) refreshCommandEnd:(NSInteger) pageNo totalPage:(NSInteger) totalPage{
+    [self.tableview reloadData];
     [self.tableview.mj_header endRefreshing];
     
     WS(weakSelf)

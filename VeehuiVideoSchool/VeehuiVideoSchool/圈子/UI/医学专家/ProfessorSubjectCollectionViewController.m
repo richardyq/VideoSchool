@@ -10,6 +10,7 @@
 #import "CommonBaseBussiness.h"
 #import "MedicalVideoClassifyEntryModel.h"
 #import "ProfessorSubjectCollectionViewCell.h"
+#import "CirclePageRouter.h"
 
 @interface ProfessorSubjectCollectionViewController ()
 
@@ -114,5 +115,14 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 
-
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray<MedicalVideoClassifyEntryModel*>* section = self.sections[indexPath.section];
+    NSInteger row = indexPath.row / 2;
+    NSInteger col = indexPath.row % 2;
+    
+    NSInteger index = col * 4 + row;
+    MedicalVideoClassifyEntryModel* classifyEntryModel = section[index];
+    [CirclePageRouter entryProfessorSubjectedListPage:classifyEntryModel];
+    
+}
 @end

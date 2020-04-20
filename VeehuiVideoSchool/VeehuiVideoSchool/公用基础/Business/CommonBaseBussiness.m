@@ -14,6 +14,7 @@
 #import "SeniorSubjectListFunction.h"
 #import "HomeAdvertisesFunction.h"
 #import "CircleDeptListFunction.h"
+#import "CircleSecondaryDeptListFunction.h"
 
 @implementation CommonBaseBussiness
 
@@ -48,6 +49,13 @@
 + (void) startLoadCircleDeptList:(VHRequestResultHandler) result
                         complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[CircleDeptListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadCircleSecondardDeptList:(NSString*) code
+                                   result:(VHRequestResultHandler) result
+                                 complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[CircleSecondaryDeptListFunction alloc] initWithCode:code];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 

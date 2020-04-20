@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class MedicalVideoClassifyEntryModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void) entryProfessorStartPage;
 
+/**
+ entryProfessorSubjectedListPage
+ 跳转到分类的专家列表页面
+ */
++ (void) entryProfessorSubjectedListPage:(MedicalVideoClassifyEntryModel*) subject;
 @end
 
 NS_ASSUME_NONNULL_END

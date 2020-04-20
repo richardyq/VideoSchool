@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ProfessorInfoEntryModel : CircleInfoEntryModel
 
 @property (nonatomic) NSInteger likeCount;
+@property (nonatomic, strong) NSString* createTimeInfo;
 @property (nonatomic, strong) NSArray<MedicalVideoGroupInfoEntryModel*>* medicalVideos;
 @end
 

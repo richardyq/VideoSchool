@@ -66,6 +66,17 @@ startLoadCircleDeptList
                         complete:(VHRequestCompleteHandler) complete;
 
 /**
+ startLoadCircleSecondardDeptList
+ 获取圈子的二级分类
+ @param code            一级分类的code
+ @param result          result 请求数据结果返回回调方法
+ @param complete        complete 请求结束回调方法
+ */
++ (void) startLoadCircleSecondardDeptList:(NSString*) code
+                                   result:(VHRequestResultHandler) result
+                                 complete:(VHRequestCompleteHandler) complete;
+
+/**
 loadHomeAdvertises
 获取首页广告列表数据
 @param result          result 请求数据结果返回回调方法

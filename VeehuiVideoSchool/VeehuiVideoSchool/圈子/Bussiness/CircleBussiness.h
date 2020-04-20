@@ -61,6 +61,19 @@ startLoadFollowedProfessorList
 + (void) startLoadFollowedProfessorList:(NSInteger) pageNo
                                  result:(VHRequestResultHandler) result
                                complete:(VHRequestCompleteHandler) complete;
+
+/**
+ startLoadClassifiedProfessorList
+ 按分类获取专家圈子列表
+ @param code            分类code
+ @param pageNo          页码
+ @param result          result 请求数据结果返回回调方法
+ @param complete        complete 请求结束回调方法
+ */
++ (void) startLoadClassifiedProfessorList:(NSString*) code
+                                   pageNo:(NSInteger) pageNo
+                                   result:(VHRequestResultHandler) result
+                                 complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

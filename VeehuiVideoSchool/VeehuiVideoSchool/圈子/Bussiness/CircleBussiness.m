@@ -12,6 +12,7 @@
 #import "RecommandProfessorListFunction.h"
 #import "ActiveProfessorListFunction.h"
 #import "FollowedProfessorListFunction.h"
+#import "ClassifiedProfessorListFunction.h"
 
 @implementation CircleBussiness
 
@@ -45,6 +46,14 @@
                                result:(VHRequestResultHandler) result
                              complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[FollowedProfessorListFunction alloc] initWtithPageNo:pageNo];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
++ (void) startLoadClassifiedProfessorList:(NSString*) code
+                                   pageNo:(NSInteger) pageNo
+                                   result:(VHRequestResultHandler) result
+                                 complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[ClassifiedProfessorListFunction alloc] initWithCode:code pageNo:pageNo];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

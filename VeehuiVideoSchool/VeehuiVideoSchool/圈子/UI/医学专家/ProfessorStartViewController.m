@@ -15,6 +15,7 @@
 #import "CircleInfoEntryModel.h"
 #import "CircleBussiness.h"
 #import "ProfessorInfoEntryModel.h"
+#import "CirclePageRouter.h"
 
 typedef NS_ENUM(NSUInteger, ProfessorStartSection) {
     Activity_Section,
@@ -436,6 +437,35 @@ ProfessorDeptsDelegate>
 }
 - (void) professorDeptPageShown:(NSInteger) page{
     [self.pageControl setCurrentPage:page];
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case Professor_Section:{
+            switch (self.segmentIndex) {
+                case AllProfessor:{
+                    if (self.professorCircleList.content.count == 0) {
+                        return;
+                    }
+                    ProfessorInfoEntryModel* professor = self.professorCircleList.content[indexPath.row];
+                    
+                    break;
+                }
+                case FollowProfessor:{
+                    if (self.followedProfessorList.content.count == 0) {
+                        return;
+                    }
+                    ProfessorInfoEntryModel* professor = self.followedProfessorList.content[indexPath.row];
+                    
+                    break;
+                }
+                default:
+                    break;
+            }
+            break;
+        }
+    }
+    
 }
 
 @end
