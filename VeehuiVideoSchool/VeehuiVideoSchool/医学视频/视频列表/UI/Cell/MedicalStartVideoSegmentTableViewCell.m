@@ -7,10 +7,11 @@
 //
 
 #import "MedicalStartVideoSegmentTableViewCell.h"
-
+#import "MedicalVideoCategoryView.h"
 @interface MedicalStartVideoSegmentTableViewCell ()
 
-@property (nonatomic, strong) SegmentView* segmentview;
+@property (nonatomic, strong) MedicalVideoCategoryView* categoryView;
+//@property (nonatomic, strong) SegmentView* segmentview;
 
 @end
 
@@ -20,7 +21,23 @@
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.contentView.backgroundColor = [UIColor commonBackgroundColor];
+    }
+    return self;
+}
+
+- (id) initWithCategories:(NSArray<MedicalVideoClassifyEntryModel*>*) categories{
+    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MedicalStartVideoSegmentTableViewCell"];
+    if (self) {
+        self.contentView.backgroundColor = [UIColor commonBackgroundColor];
+        
+        WS(weakSelf)
+        _categoryView = [[MedicalVideoCategoryView alloc] initWithCategories:categories selectAction:^(NSInteger index) {
+            SAFE_WEAKSELF(weakSelf)
+            [weakSelf segmentViewSelectedIndexChanged:index];
+        }];
+        [self.contentView addSubview:_categoryView];
+        [self.contentView setNeedsUpdateConstraints];
     }
     return self;
 }
@@ -28,38 +45,18 @@
 - (void) updateConstraints{
     [super updateConstraints];
     
-    [self.segmentview mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.mas_equalTo(@45);
-        make.edges.equalTo(self.contentView);
+    [self.categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(5, 15, 5, 15));
     }];
 }
 
 #pragma mark - settingAndGetting
-- (SegmentView*) segmentview{
-    if (!_segmentview) {
-        _segmentview = [[SegmentView alloc] initWithNormalFont:[UIFont systemFontOfSize:13] normalColor:[UIColor commonGrayTextColor] highFont:[UIFont systemFontOfSize:15 weight:UIFontWeightMedium] highColor:[UIColor mainThemeColor]];
-        [self.contentView addSubview:_segmentview];
-        _segmentview.minSegmentCellWidth = (kScreenWidth / 4.5);
-        if ([UIDevice currentDevice].isPad) {
-            _segmentview.minSegmentCellWidth = (kScreenWidth / 4.5 * 0.7);
-        }
-        _segmentview.indicateWidth = 27.5;
-        WS(weakSelf)
-        [_segmentview onSelectedIndexChanged:^(NSInteger index) {
-            SAFE_WEAKSELF(weakSelf)
-            [weakSelf segmentViewSelectedIndexChanged:index];
-        }];
-    }
-    return _segmentview;
-}
+
 
 - (void) segmentViewSelectedIndexChanged:(NSInteger) index{
     
 }
 
-- (void) setSubjectNames:(NSArray<NSString*>*) names{
-    [self.segmentview setSegmentTitles:names];
-}
+
 
 @end

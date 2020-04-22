@@ -32,6 +32,7 @@
 		27206DC223FD25CB004A9C85 /* MedicalVideoPageRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DC123FD25CB004A9C85 /* MedicalVideoPageRouter.m */; };
 		27206DC523FD25EE004A9C85 /* MedicalVideoStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DC423FD25EE004A9C85 /* MedicalVideoStartViewController.m */; };
 		27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27206DD023FD2E86004A9C85 /* SegmentView.m */; };
+		272FB75124502EBA00B321B4 /* MedicalVideoCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 272FB75024502EBA00B321B4 /* MedicalVideoCategoryView.m */; };
 		274CF5F4242995FE0026CEDA /* VHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 274CF5F3242995FE0026CEDA /* VHPopView.m */; };
 		274CF5F7242998450026CEDA /* RootLicensementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 274CF5F6242998450026CEDA /* RootLicensementView.m */; };
 		274FFDD42446E9C80004252C /* ProfessorInfoEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 274FFDD32446E9C80004252C /* ProfessorInfoEntryModel.m */; };
@@ -219,6 +220,8 @@
 		27206DC423FD25EE004A9C85 /* MedicalVideoStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoStartViewController.m; sourceTree = "<group>"; };
 		27206DCF23FD2E86004A9C85 /* SegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		27206DD023FD2E86004A9C85 /* SegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		272FB74F24502EBA00B321B4 /* MedicalVideoCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalVideoCategoryView.h; sourceTree = "<group>"; };
+		272FB75024502EBA00B321B4 /* MedicalVideoCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalVideoCategoryView.m; sourceTree = "<group>"; };
 		274CF5F2242995FE0026CEDA /* VHPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHPopView.h; sourceTree = "<group>"; };
 		274CF5F3242995FE0026CEDA /* VHPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHPopView.m; sourceTree = "<group>"; };
 		274CF5F5242998450026CEDA /* RootLicensementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootLicensementView.h; sourceTree = "<group>"; };
@@ -1064,6 +1067,8 @@
 			children = (
 				277FDA0A2432E22500C5CCBF /* MedicalVideoGridControl.h */,
 				277FDA0B2432E22500C5CCBF /* MedicalVideoGridControl.m */,
+				272FB74F24502EBA00B321B4 /* MedicalVideoCategoryView.h */,
+				272FB75024502EBA00B321B4 /* MedicalVideoCategoryView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1384,26 +1389,26 @@
 		27DB7707243C1827000FB2EE /* Function */ = {
 			isa = PBXGroup;
 			children = (
+				27DB7710243C1827000FB2EE /* ClassifiedMedicalVideosFunction.h */,
+				27DB7718243C1827000FB2EE /* ClassifiedMedicalVideosFunction.m */,
+				27DB7713243C1827000FB2EE /* HomeRecommandCourseListFunction.h */,
 				27DB7708243C1827000FB2EE /* HomeRecommandCourseListFunction.m */,
 				27DB7709243C1827000FB2EE /* HomeRecommandVideosFunction.h */,
-				27DB770A243C1827000FB2EE /* MedicalGroupDetailFunction.m */,
-				27DB770B243C1827000FB2EE /* MedicalVideoClassifyListFunction.h */,
-				27DB770C243C1827000FB2EE /* MedicalVideoSecondaryClassifyListFunction.m */,
-				27DB770D243C1827000FB2EE /* MedicalGroupOthersFunction.m */,
-				27DB770E243C1827000FB2EE /* MedicalCourseListFunction.h */,
-				27DB770F243C1827000FB2EE /* HomeSubjectListFunction.h */,
-				27DB7710243C1827000FB2EE /* ClassifiedMedicalVideosFunction.h */,
-				27DB7711243C1827000FB2EE /* MedicalGroupDetailFunction.h */,
 				27DB7712243C1827000FB2EE /* HomeRecommandVideosFunction.m */,
-				27DB7713243C1827000FB2EE /* HomeRecommandCourseListFunction.h */,
-				27DB7714243C1827000FB2EE /* MedicalVideoSecondaryClassifyListFunction.h */,
-				27DB7715243C1827000FB2EE /* MedicalVideoClassifyListFunction.m */,
-				27DB7716243C1827000FB2EE /* MedicalCourseListFunction.m */,
-				27DB7717243C1827000FB2EE /* MedicalGroupOthersFunction.h */,
-				27DB7718243C1827000FB2EE /* ClassifiedMedicalVideosFunction.m */,
+				27DB770F243C1827000FB2EE /* HomeSubjectListFunction.h */,
 				27DB7719243C1827000FB2EE /* HomeSubjectListFunction.m */,
+				27DB770E243C1827000FB2EE /* MedicalCourseListFunction.h */,
+				27DB7716243C1827000FB2EE /* MedicalCourseListFunction.m */,
+				27DB7711243C1827000FB2EE /* MedicalGroupDetailFunction.h */,
+				27DB770A243C1827000FB2EE /* MedicalGroupDetailFunction.m */,
+				27DB7717243C1827000FB2EE /* MedicalGroupOthersFunction.h */,
+				27DB770D243C1827000FB2EE /* MedicalGroupOthersFunction.m */,
 				27DB7732243C18ED000FB2EE /* MedicalVideoAdvertiseListFunction.h */,
 				27DB7733243C18ED000FB2EE /* MedicalVideoAdvertiseListFunction.m */,
+				27DB770B243C1827000FB2EE /* MedicalVideoClassifyListFunction.h */,
+				27DB7715243C1827000FB2EE /* MedicalVideoClassifyListFunction.m */,
+				27DB7714243C1827000FB2EE /* MedicalVideoSecondaryClassifyListFunction.h */,
+				27DB770C243C1827000FB2EE /* MedicalVideoSecondaryClassifyListFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1647,6 +1652,7 @@
 				27DB773A243C4DF4000FB2EE /* MedicalStartVideoSegmentTableViewCell.m in Sources */,
 				27ACCD0F2431C9D40050CC88 /* JoinedCircleEntryModel.m in Sources */,
 				274FFDD72446EE200004252C /* ProfessorCircleMutiVideoCell.m in Sources */,
+				272FB75124502EBA00B321B4 /* MedicalVideoCategoryView.m in Sources */,
 				27206DB423FD0C93004A9C85 /* VHTableViewCell.m in Sources */,
 				27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */,
 				278A755924038019005A8994 /* MeetingEntryModel.m in Sources */,

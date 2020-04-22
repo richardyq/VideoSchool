@@ -17,6 +17,7 @@
 #import "MedicalVideoClassifyEntryModel.h"
 #import "MedicalStartVideoSegmentTableViewCell.h"
 #import "MedicalVideoStartRecommadCourseTableViewCell.h"
+#import "MedicalVideoCategoryView.h"
 
 typedef NS_ENUM(NSUInteger, MedicalVideoStartTableSection) {
     Grid_Section,
@@ -35,6 +36,7 @@ SDCycleScrollViewDelegate>
 @property (nonatomic, strong) NSArray<AdvertiseEntryModel*>* advertiseModels;
 @property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* seniorSubjects;
 
+@property (nonatomic, strong) MedicalVideoCategoryView* categoryView;
 @property (nonatomic, strong) MedicalVideoGroupInfoListModel* recommandCourseList;
 
 @end
@@ -130,7 +132,11 @@ SDCycleScrollViewDelegate>
 
 #pragma mark - table view data source
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return SectionCount;
+    NSInteger sectionCount = SectionCount;
+    if (self.seniorSubjects && self.seniorSubjects.count > 0) {
+        sectionCount += self.seniorSubjects.count;
+    }
+    return sectionCount;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -150,8 +156,14 @@ SDCycleScrollViewDelegate>
             }
             break;
         }
-        default:
+        default:{
+            if (section >= SectionCount) {
+                NSInteger index = (section - SectionCount);
+                MedicalVideoClassifyEntryModel* cateModel = self.seniorSubjects[index];
+                return cateModel.medicalVideos.count;
+            }
             break;
+        }
     }
     return 0;
 }
@@ -164,9 +176,7 @@ SDCycleScrollViewDelegate>
             break;
         }
         case Subjects_Section:{
-            MedicalStartVideoSegmentTableViewCell* subjectcell = [self.tableview dequeueReusableCellWithIdentifier:[MedicalStartVideoSegmentTableViewCell cellReuseIdentifier]];
-            NSArray<NSString*>* names = [self.seniorSubjects valueForKey:@"name"];
-            [subjectcell setSubjectNames:names];
+            MedicalStartVideoSegmentTableViewCell* subjectcell = [[MedicalStartVideoSegmentTableViewCell alloc] initWithCategories:self.seniorSubjects];
             cell = subjectcell;
             break;
         }
@@ -174,8 +184,17 @@ SDCycleScrollViewDelegate>
             cell = [[MedicalVideoStartRecommadCourseTableViewCell alloc] initWithCourseList:self.recommandCourseList];
             break;
         }
-        default:
+        default:{
+            NSInteger section = indexPath.section;
+            if (section >= SectionCount) {
+                NSInteger index = (section - SectionCount);
+                MedicalVideoClassifyEntryModel* cateModel = self.seniorSubjects[index];
+                cell = [self.tableview dequeueReusableCellWithIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
+                [cell setEntryModel:cateModel.medicalVideos[indexPath.row]];
+                //return cateModel.medicalVideos.count;
+            }
             break;
+        }
     }
     
     return cell;
@@ -183,7 +202,33 @@ SDCycleScrollViewDelegate>
 
 #pragma mark - table view delegate
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section >= SectionCount){
+        return 49;
+    }
     return 0.01;
+}
+
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section < SectionCount) {
+        return nil;
+    }
+    
+    NSInteger index = (section - SectionCount);
+    MedicalVideoClassifyEntryModel* cateModel = self.seniorSubjects[index];
+    CGFloat width = kScreenWidth;
+    if ([UIDevice currentDevice].isPad) {
+        width = kScreenWidth * 0.7;
+    }
+    UIView* headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 49.)];
+    headerview.backgroundColor = [UIColor whiteColor];
+    UILabel* nameLabel = [headerview addLabel:[UIColor commonTextColor] textSize:17];
+    nameLabel.text = cateModel.name;
+    
+    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(headerview).offset(10);
+        make.centerY.equalTo(headerview);
+    }];
+    return headerview;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

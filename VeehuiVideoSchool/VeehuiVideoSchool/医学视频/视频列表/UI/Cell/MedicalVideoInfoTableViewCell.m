@@ -20,6 +20,9 @@
 @property (nonatomic, strong) UIImageView* watchIconImageView;
 @property (nonatomic, strong) UILabel* watchedNumberLabel;
 
+@property (nonatomic, strong) UIView* categoryView;
+@property (nonatomic, strong) NSMutableArray<VHLabelControl*>* categoryCells;
+
 @end
 
 @implementation MedicalVideoInfoTableViewCell
@@ -71,6 +74,14 @@
     [self.watchedNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.watchedView);
         make.left.equalTo(self.watchIconImageView.mas_right).offset(5);
+    }];
+    
+    [self.categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.videoTitleLabel).offset(-5);
+        //make.top.equalTo(self.videoImageView.mas_bottom).offset(-15);
+        make.right.lessThanOrEqualTo(self).offset(-13);
+        make.bottom.equalTo(self.pictureImageView);
+        make.height.mas_greaterThanOrEqualTo(@20);
     }];
 }
 
@@ -130,6 +141,20 @@
     return _watchedNumberLabel;
 }
 
+- (UIView*) categoryView{
+    if (!_categoryView) {
+        _categoryView = [self addView];
+    }
+    return _categoryView;
+}
+
+- (NSMutableArray<VHLabelControl*>*) categoryCells{
+    if (!_categoryCells) {
+        _categoryCells = [NSMutableArray<VHLabelControl*> array];
+    }
+    return _categoryCells;
+}
+
 - (void) setVideoGroupInfo:(MedicalVideoGroupInfoEntryModel*) entryModel{
     self.videoTitleLabel.text = entryModel.title;
     self.composerLabel.text = entryModel.medicalVideoComposer;
@@ -143,12 +168,63 @@
     }
     NSString* watchedNumberString = [NSString formatWithInteger:entryModel.watchingNumber remain:2 unit:@"万"];
     self.watchedNumberLabel.text = watchedNumberString;
+    
+    if ([self showProductTypes]) {
+        [self.categoryView removeAllSubviews];
+        [self.categoryCells removeAllObjects];
+        
+        [entryModel.productTypeInfo enumerateObjectsUsingBlock:^(NSString * _Nonnull cate, NSUInteger idx, BOOL * _Nonnull stop) {
+            VHLabelControl* control = [[VHLabelControl alloc] initWithText:cate font:[UIFont systemFontOfSize:11] textColor:[UIColor mainThemeColor]];
+            [control setCornerRadius:2 color:[UIColor mainThemeColor] boarderwidth:0.5];
+            [self.categoryView addSubview:control];
+            [self.categoryCells addObject:control];
+        }];
+        
+        [self layoutCategoryControls];
+    }
+}
+
+- (BOOL) showProductTypes{
+    return YES;
 }
 
 - (void) setEntryModel:(EntryModel *)model{
     if ([model isKindOfClass:[MedicalVideoGroupInfoEntryModel class]] || [model.class isSubclassOfClass:[MedicalVideoGroupInfoEntryModel class]]) {
         [self setVideoGroupInfo:(MedicalVideoGroupInfoEntryModel*)model];
     }
+}
+
+- (void) layoutCategoryControls{
+    __block CGFloat maxWidth = kScreenWidth - 124 - 25 - 15;
+    __block CGFloat lastWidth = 0;
+    __block MASViewAttribute* cellLeft = self.categoryView.mas_left;
+    __block MASViewAttribute* cellTop = self.categoryView.mas_top;
+    
+    [self.categoryCells enumerateObjectsUsingBlock:^(VHLabelControl * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGFloat cellWidth = [cell.textLabel.text widthForFont:cell.textLabel.font] + 3;
+        if (cellWidth > maxWidth - 15) {
+            cellWidth = maxWidth - 15;
+        }
+        if (lastWidth + cellWidth + 5 >= maxWidth) {
+            if (idx > 0) {
+                VHLabelControl* precell = self.categoryCells[idx - 1];
+                cellTop = precell.mas_bottom;
+            }
+            cellLeft = self.categoryView.mas_left;
+            lastWidth = 0;
+        }
+        [cell mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(cellLeft).offset(5);
+            make.top.equalTo(cellTop).offset(4);
+            make.size.mas_equalTo(CGSizeMake(cellWidth + 5, 16));
+            if (cell == self.categoryCells.lastObject) {
+                make.bottom.equalTo(self.categoryView);
+            }
+        }];
+        
+        cellLeft = cell.mas_right;
+        lastWidth += (cellWidth + 5);
+    }];
 }
 
 @end

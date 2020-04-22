@@ -8,11 +8,13 @@
 
 #import "VHTableViewCell.h"
 
+@class MedicalVideoClassifyEntryModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MedicalStartVideoSegmentTableViewCell : VHTableViewCell
 
-- (void) setSubjectNames:(NSArray<NSString*>*) names;
+- (id) initWithCategories:(NSArray<MedicalVideoClassifyEntryModel*>*) categories;
 @end
 
 NS_ASSUME_NONNULL_END
