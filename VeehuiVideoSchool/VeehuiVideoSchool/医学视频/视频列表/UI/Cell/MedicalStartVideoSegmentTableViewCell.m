@@ -8,6 +8,7 @@
 
 #import "MedicalStartVideoSegmentTableViewCell.h"
 #import "MedicalVideoCategoryView.h"
+#import "MedicalVideoPageRouter.h"
 @interface MedicalStartVideoSegmentTableViewCell ()
 
 @property (nonatomic, strong) MedicalVideoCategoryView* categoryView;
@@ -34,7 +35,8 @@
         WS(weakSelf)
         _categoryView = [[MedicalVideoCategoryView alloc] initWithCategories:categories selectAction:^(NSInteger index) {
             SAFE_WEAKSELF(weakSelf)
-            [weakSelf segmentViewSelectedIndexChanged:index];
+            MedicalVideoClassifyEntryModel* cateModel = categories[index];
+            [weakSelf segmentViewSelectedIndexChanged:cateModel];
         }];
         [self.contentView addSubview:_categoryView];
         [self.contentView setNeedsUpdateConstraints];
@@ -53,8 +55,9 @@
 #pragma mark - settingAndGetting
 
 
-- (void) segmentViewSelectedIndexChanged:(NSInteger) index{
-    
+- (void) segmentViewSelectedIndexChanged:(MedicalVideoClassifyEntryModel*) category{
+    //跳转到分类视频列表
+    [MedicalVideoPageRouter entryClassifiedMedicalVideListPage:category];
 }
 
 

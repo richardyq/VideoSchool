@@ -74,6 +74,7 @@
     if (self) {
         self.backgroundColor = [UIColor commonBackgroundColor];
         [self setupCategoryCells:categories];
+        _selectAction = action;
     }
     return self;
 }

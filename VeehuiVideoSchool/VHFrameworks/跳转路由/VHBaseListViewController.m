@@ -201,12 +201,12 @@ DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 - (void) headerRefreshStateChanged:(MJRefreshState) state{
     NSLog(@"headerRefreshStateChanged : %ld", state);
-    [self.tableview reloadData];
+    //[self.tableview reloadData];
 }
 
 - (void) footerRefreshStateChanged:(MJRefreshState) state{
     NSLog(@"footerRefreshStateChanged : %ld", state);
-    [self.tableview reloadData];
+    //[self.tableview reloadData];
 }
 
 #pragma mark - DZNEmptyDataSetDelegate

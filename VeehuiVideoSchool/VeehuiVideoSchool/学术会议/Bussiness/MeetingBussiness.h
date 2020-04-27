@@ -35,6 +35,32 @@ NS_ASSUME_NONNULL_BEGIN
                          complete:(VHRequestCompleteHandler) complete;
 
 /**
+startLoadPreviewMeetingList
+获取会议预告列表
+
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadPreviewMeetingList:(VHRequestResultHandler) result
+                            complete:(VHRequestCompleteHandler) complete;
+
+
+/**
+startLoadReplayMeetingList
+获取会议重播列表
+@param subjectCode     subjectCode  编码
+@param pageNo          pageNo  页码
+@param pageSize        pageSize  行数
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadReplayMeetingList:(NSString*) subjectCode
+                             pageNo:(NSInteger) pageNo
+                           pageSize:(NSInteger) pageSize
+                             result:(VHRequestResultHandler) result
+                           complete:(VHRequestCompleteHandler) complete;
+
+/**
  startLoadHomeMeetings
  获取首页会议轮播信息
  @param result          result 请求数据结果返回回调方法
@@ -42,6 +68,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void) startLoadHomeMeetings:(VHRequestResultHandler) result
                       complete:(VHRequestCompleteHandler) complete;
+
+/**
+startLoadHomeMeetings
+获取会议回放兴趣列表
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadReplayFavoriteList:(VHRequestResultHandler) result
+                            complete:(VHRequestCompleteHandler) complete;
 
 @end
 

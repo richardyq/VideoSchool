@@ -12,20 +12,29 @@
 #import "MeetingBussiness.h"
 #import "MeetingEntryModel.h"
 #import "MeetingInfoListTableViewCell.h"
+#import "MeetingPreviewTableViewCell.h"
+#import "MedicalVideoClassifyEntryModel.h"
 
 typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     MeetingLivingSection,
     MeetingPreviewSection,
     MeetingReplaySection,
+    MeetingFavoriteSection,
     SectionCount,
 };
 
 @interface MeetingStartViewController ()
-<UITableViewDataSource>
+<UITableViewDataSource, UITableViewDelegate>
 //会议总览信息
 @property (nonatomic, strong) MeetingGatherEntryModel* gatherEntryModel;
 //直播会议列表
 @property (nonatomic, strong) NSMutableArray<MeetingEntryModel*>* liveMeetings;
+
+@property (nonatomic, strong) MeetingListModel* previewMeetingList;
+
+@property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* favorites;
+@property (nonatomic, strong) SegmentView* favoriteSegmentView;
+
 @end
 
 @implementation MeetingStartViewController
@@ -33,8 +42,10 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"学术会议";
+    self.navigationItem.title = @"会议视频";
     [self.tableview registerClass:[MeetingInfoListTableViewCell class] forCellReuseIdentifier:[MeetingInfoListTableViewCell cellReuseIdentifier]];
+    [self.tableview registerClass:[MeetingPreviewTableViewCell class] forCellReuseIdentifier:[MeetingPreviewTableViewCell cellReuseIdentifier]];
+    
     [self startLoadMeetingGather];
     //[self startLoadLiveMeetings];
     MJRefreshStateHeader* stateHeader = (MJRefreshStateHeader*)self.tableview.mj_header ;
@@ -48,6 +59,13 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 
 - (void) refreshDataCommand{
     [self startLoadLiveMeetings];
+    [self startLoadPreviewMeetings];
+    [self startLoadReplayFavorites];
+}
+
+- (void) loadMoreDataCommand{
+    MedicalVideoClassifyEntryModel* subject = self.favorites[self.favoriteSegmentView.selectedIndex];
+    [self startLoadReplayMeetingList:subject.code pageNo:self.pageNo + 1];
 }
 
 //获取会议总览信息
@@ -76,19 +94,20 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 //获取会议直播列表
 - (void) startLoadLiveMeetings{
     WS(weakSelf)
-    [MeetingBussiness startLoadLiveMeetingList:1 pageSize:5 result:^(id result) {
+    [MeetingBussiness startLoadLiveMeetingList:1 pageSize:10 result:^(id result) {
         SAFE_WEAKSELF(weakSelf)
         if ([result isKindOfClass:[MeetingListModel class]]) {
             [weakSelf liveMeetingsLoaded:result];
         }
     } complete:^(NSInteger code, NSString *message) {
-        self.errorMessage = nil;
+        SAFE_WEAKSELF(weakSelf)
+        weakSelf.errorMessage = nil;
         if (code != 0) {
             //[MessageHubUtil showErrorMessage:message];
-            self.errorMessage = message;
+            weakSelf.errorMessage = message;
             
         }
-        [self refreshCommandEnd:self.pageNo totalPage:self.totalPages];
+        [weakSelf refreshCommandEnd:self.pageNo totalPage:self.totalPages];
     }];
 }
 
@@ -97,12 +116,120 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     [self.liveMeetings addObjectsFromArray:listModel.content];
 }
 
+- (void) refreshCommandEnd:(NSInteger)pageNo totalPage:(NSInteger)totalPage{
+    [super refreshCommandEnd:pageNo totalPage:totalPage];
+    //self.tableview.mj_header = nil;
+}
+
+//获取会议预告列表
+- (void) startLoadPreviewMeetings{
+    WS(weakSelf)
+    [MeetingBussiness startLoadPreviewMeetingList:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[MeetingListModel class]]) {
+            [weakSelf previewMeetingsLoaded:result];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        self.errorMessage = nil;
+        if (weakSelf != 0) {
+            //[MessageHubUtil showErrorMessage:message];
+            weakSelf.errorMessage = message;
+            
+        }
+        [weakSelf refreshCommandEnd:self.pageNo totalPage:self.totalPages];
+    }];
+}
+
+- (void) previewMeetingsLoaded:(MeetingListModel*) listModel{
+    self.previewMeetingList = listModel;
+}
+
+//回放兴趣
+- (void) startLoadReplayFavorites{
+    WS(weakSelf)
+    [MeetingBussiness startLoadReplayFavoriteList:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[NSArray class]]) {
+            [weakSelf replayFavoriatesLoaded:result];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        self.errorMessage = nil;
+        if (weakSelf != 0) {
+            //[MessageHubUtil showErrorMessage:message];
+            weakSelf.errorMessage = message;
+            
+        }
+        [weakSelf refreshCommandEnd:self.pageNo totalPage:self.totalPages];
+    
+        //获取回放列表
+        weakSelf.pageNo = 1;
+        MedicalVideoClassifyEntryModel* subject = weakSelf.favorites[weakSelf.favoriteSegmentView.selectedIndex];
+        
+        [weakSelf startLoadReplayMeetingList:subject.code pageNo:weakSelf.pageNo];
+    }];
+}
+
+- (void) replayFavoriatesLoaded:(NSArray*) favorites{
+    self.favorites = favorites;
+    
+    NSArray<NSString*>* names = [favorites valueForKey:@"name"];
+    [self.favoriteSegmentView setSegmentTitles:names];
+}
+
+//回放列表
+- (void) startLoadReplayMeetingList:(NSString*) subjectCode pageNo:(NSInteger) pageNo{
+    WS(weakSelf)
+    [MeetingBussiness startLoadReplayMeetingList:subjectCode pageNo:pageNo pageSize:10 result:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[MeetingListModel class]]) {
+            [weakSelf replayMeetingsLoaded:result];
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        self.errorMessage = nil;
+        if (weakSelf != 0) {
+            //[MessageHubUtil showErrorMessage:message];
+            weakSelf.errorMessage = message;
+            
+        }
+        [weakSelf refreshCommandEnd:self.pageNo totalPage:self.totalPages];
+    }];
+}
+
+- (void) replayMeetingsLoaded:(MeetingListModel*) meetingList{
+    self.pageNo = meetingList.pageNo;
+    self.totalPages = meetingList.pageSize;
+    if (meetingList.pageNo == 1) {
+        [self.models removeAllObjects];
+    }
+    
+    [self.models addObjectsFromArray:meetingList.content];
+}
+
 #pragma mark - settingAndGetting
 - (NSMutableArray<MeetingEntryModel*>*) liveMeetings{
     if (!_liveMeetings) {
         _liveMeetings = [NSMutableArray<MeetingEntryModel*> array];
     }
     return _liveMeetings;
+}
+
+- (SegmentView*) favoriteSegmentView{
+    if (!_favoriteSegmentView) {
+        _favoriteSegmentView = [[SegmentView alloc] initWithNormalFont:[UIFont systemFontOfSize:13] normalColor:[UIColor commonDarkGrayTextColor] highFont:[UIFont systemFontOfSize:15 weight:UIFontWeightMedium] highColor:[UIColor mainThemeColor]];
+        
+        WS(weakSelf)
+        [_favoriteSegmentView onSelectedIndexChanged:^(NSInteger index) {
+            SAFE_WEAKSELF(weakSelf)
+            weakSelf.pageNo = 1;
+            weakSelf.totalPages = 0;
+            MedicalVideoClassifyEntryModel* subject = self.favorites[index];
+            [weakSelf startLoadReplayMeetingList:subject.code pageNo:weakSelf.pageNo];
+        }];
+    }
+    return _favoriteSegmentView;
 }
 
 #pragma mark - table view data source
@@ -117,11 +244,19 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             break;
         }
         case MeetingPreviewSection:{
+            if (self.previewMeetingList &&
+                self.previewMeetingList.content > 0) {
+                return 1;
+            }
             return 0;
             break;
         }
         case MeetingReplaySection:{
             return 0;
+            break;
+        }
+        case MeetingFavoriteSection:{
+            return self.models.count;
             break;
         }
         default:
@@ -139,11 +274,86 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             [cell setEntryModel:self.liveMeetings[indexPath.row]];
             break;
         }
+        case MeetingPreviewSection:{
+            cell = [[MeetingPreviewTableViewCell alloc] initWithMeetingList:self.previewMeetingList];
+            break;
+        }
+        case MeetingFavoriteSection:{
+            cell = [self.tableview dequeueReusableCellWithIdentifier:[MeetingInfoListTableViewCell cellReuseIdentifier]];
+                [cell setEntryModel:self.models[indexPath.row]];
+            break;
+        }
         default:
             break;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+#pragma mark - table view delegate
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case MeetingLivingSection:{
+            if (self.liveMeetings.count > 0) {
+                return 47.;
+            }
+            break;
+        }
+        case MeetingPreviewSection:{
+            if (self.previewMeetingList &&
+                self.previewMeetingList.content > 0) {
+                return 47.;
+            }
+            break;
+        }
+        case MeetingReplaySection:
+        case MeetingFavoriteSection:{
+            if (self.favorites &&
+                self.favorites > 0) {
+                return 47.;
+            }
+            break;
+        }
+            
+        default:
+            break;
+    }
+    return 0.;
+}
+
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView* headerview= [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableview.width, 47.)];
+    headerview.backgroundColor = [UIColor whiteColor];
+    
+    UILabel* titleLabel = [headerview addLabel:[UIColor commonTextColor] textSize:16 weight:UIFontWeightMedium];
+    switch (section) {
+        case MeetingLivingSection:{
+            titleLabel.text = @"会议直播";
+            break;
+        }
+        case MeetingPreviewSection:{
+            titleLabel.text = @"会议预告";
+            break;
+        }
+        case MeetingReplaySection:{
+            titleLabel.text = @"会议视频";
+            break;
+        }
+        case MeetingFavoriteSection:{
+            [headerview addSubview:self.favoriteSegmentView];
+            [self.favoriteSegmentView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(headerview);
+            }];
+            break;
+        }
+        default:
+            break;
+    }
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(headerview);
+        make.left.equalTo(headerview).offset(15);
+    }];
+    return headerview;
 }
 
 - (NSString*) emptyTableText{

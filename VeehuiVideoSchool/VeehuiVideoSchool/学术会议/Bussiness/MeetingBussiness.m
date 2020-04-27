@@ -10,6 +10,9 @@
 #import "MeetingGatherFunction.h"
 #import "LiveMeetingListFunction.h"
 #import "HomeMeetingInfoFunction.h"
+#import "PreviewMeetingListFunction.h"
+#import "ReplayFavoritesFunction.h"
+#import "ReplayMeetingListFunction.h"
 
 @implementation MeetingBussiness
 
@@ -24,14 +27,7 @@
     } complete:complete];
 }
 
-//获取直播列表
-+ (void) startLoadLiveMeetingList:(NSInteger) pageNo
-                         pageSize:(NSInteger) pageSize
-                           result:(VHRequestResultHandler) result
-                         complete:(VHRequestCompleteHandler) complete{
-    VHHTTPFunction* function = [[LiveMeetingListFunction alloc] initWithPageNo:pageNo pageSize:pageSize];
-    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
-}
+
 
 //获取首页会议轮播数据
 + (void) startLoadHomeMeetings:(VHRequestResultHandler) resultHandler
@@ -51,5 +47,38 @@
             [VHCache saveToCache:result cachePath:cachePath];
         }
     } complete:complete];
+}
+
+//获取直播列表
++ (void) startLoadLiveMeetingList:(NSInteger) pageNo
+                         pageSize:(NSInteger) pageSize
+                           result:(VHRequestResultHandler) result
+                         complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[LiveMeetingListFunction alloc] initWithPageNo:pageNo pageSize:pageSize];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取会议预告列表
++ (void) startLoadPreviewMeetingList:(VHRequestResultHandler) result
+                         complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[PreviewMeetingListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取直播列表
++ (void) startLoadReplayMeetingList:(NSString*) subjectCode
+                             pageNo:(NSInteger) pageNo
+                           pageSize:(NSInteger) pageSize
+                             result:(VHRequestResultHandler) result
+                           complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[ReplayMeetingListFunction alloc] initWithSubjectCode:subjectCode pageNo:pageNo pageSize:pageSize];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取会议回放兴趣列表
++ (void) startLoadReplayFavoriteList:(VHRequestResultHandler) result
+                            complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[ReplayFavoritesFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

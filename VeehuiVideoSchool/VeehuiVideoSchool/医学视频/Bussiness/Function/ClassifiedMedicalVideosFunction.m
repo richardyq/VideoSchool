@@ -31,7 +31,9 @@
 
 - (NSString*) requestUrl{
     NSString* args = [[self reqeustDictionary] mj_JSONString];
-    NSString* requestUrl = [NSString stringWithFormat:@"%@/v2//umv/query?args=%@", kURL_BASE_NEWDOMAIN, args];
+    
+    NSString* requestUrl = [NSString stringWithFormat:@"%@/v2/umv/query?args=%@", kURL_BASE_NEWDOMAIN, [args URLEncodedString]];
+    //requestUrl = [requestUrl URLEncodedString];
     return requestUrl;
 }
 

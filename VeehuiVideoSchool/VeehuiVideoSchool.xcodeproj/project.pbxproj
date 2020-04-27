@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27002B8F2456AF3A00370AEF /* PreviewMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27002B8E2456AF3A00370AEF /* PreviewMeetingListFunction.m */; };
+		27002B922456B3FF00370AEF /* MeetingPreviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27002B912456B3FF00370AEF /* MeetingPreviewTableViewCell.m */; };
+		27002B952456CD5E00370AEF /* ReplayFavoritesFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27002B942456CD5E00370AEF /* ReplayFavoritesFunction.m */; };
+		27002B982456D8C000370AEF /* ReplayMeetingListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27002B972456D8C000370AEF /* ReplayMeetingListFunction.m */; };
 		270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A02FF23FB7C4700FD4431 /* VHHTTPRequest.m */; };
 		270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A030223FB7DCB00FD4431 /* VHHTTPFunction.m */; };
 		270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A030623FB823F00FD4431 /* VHHTTPFunctionManager.m */; };
@@ -167,6 +171,14 @@
 
 /* Begin PBXFileReference section */
 		11A6F1D89A2F2FE05B147EEA /* Pods-VeehuiVideoSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeehuiVideoSchool.debug.xcconfig"; path = "Target Support Files/Pods-VeehuiVideoSchool/Pods-VeehuiVideoSchool.debug.xcconfig"; sourceTree = "<group>"; };
+		27002B8D2456AF3A00370AEF /* PreviewMeetingListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreviewMeetingListFunction.h; sourceTree = "<group>"; };
+		27002B8E2456AF3A00370AEF /* PreviewMeetingListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreviewMeetingListFunction.m; sourceTree = "<group>"; };
+		27002B902456B3FF00370AEF /* MeetingPreviewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewTableViewCell.h; sourceTree = "<group>"; };
+		27002B912456B3FF00370AEF /* MeetingPreviewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewTableViewCell.m; sourceTree = "<group>"; };
+		27002B932456CD5E00370AEF /* ReplayFavoritesFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplayFavoritesFunction.h; sourceTree = "<group>"; };
+		27002B942456CD5E00370AEF /* ReplayFavoritesFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplayFavoritesFunction.m; sourceTree = "<group>"; };
+		27002B962456D8C000370AEF /* ReplayMeetingListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplayMeetingListFunction.h; sourceTree = "<group>"; };
+		27002B972456D8C000370AEF /* ReplayMeetingListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplayMeetingListFunction.m; sourceTree = "<group>"; };
 		270A02FD23FB7BCE00FD4431 /* VHRequestDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHRequestDefine.h; sourceTree = "<group>"; };
 		270A02FE23FB7C4700FD4431 /* VHHTTPRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHHTTPRequest.h; sourceTree = "<group>"; };
 		270A02FF23FB7C4700FD4431 /* VHHTTPRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHHTTPRequest.m; sourceTree = "<group>"; };
@@ -1145,6 +1157,12 @@
 			children = (
 				278A755524037ABE005A8994 /* LiveMeetingListFunction.h */,
 				278A755424037ABE005A8994 /* LiveMeetingListFunction.m */,
+				27002B962456D8C000370AEF /* ReplayMeetingListFunction.h */,
+				27002B972456D8C000370AEF /* ReplayMeetingListFunction.m */,
+				27002B8D2456AF3A00370AEF /* PreviewMeetingListFunction.h */,
+				27002B8E2456AF3A00370AEF /* PreviewMeetingListFunction.m */,
+				27002B932456CD5E00370AEF /* ReplayFavoritesFunction.h */,
+				27002B942456CD5E00370AEF /* ReplayFavoritesFunction.m */,
 				278A754824036F8C005A8994 /* MeetingGatherFunction.h */,
 				278A754924036F8C005A8994 /* MeetingGatherFunction.m */,
 				278F3FF7242DE9E100D0B4AC /* HomeMeetingInfoFunction.h */,
@@ -1178,6 +1196,8 @@
 			children = (
 				278A755B2403A6A6005A8994 /* MeetingInfoListTableViewCell.h */,
 				278A755C2403A6A6005A8994 /* MeetingInfoListTableViewCell.m */,
+				27002B902456B3FF00370AEF /* MeetingPreviewTableViewCell.h */,
+				27002B912456B3FF00370AEF /* MeetingPreviewTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1585,6 +1605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27206DAC23FD08F1004A9C85 /* HomeStartTableViewController.m in Sources */,
+				27002B8F2456AF3A00370AEF /* PreviewMeetingListFunction.m in Sources */,
 				2794BFD8243DB4100077E153 /* ProfessorCircleInfoTableViewCell.m in Sources */,
 				277F91B623FA30710055C773 /* UIView+VHSubviewExt.m in Sources */,
 				270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */,
@@ -1623,7 +1644,9 @@
 				279D129E2437110F00A12FFA /* CirclePageRouter.m in Sources */,
 				27848FE023FE6B34004729B2 /* ListModel.m in Sources */,
 				27DB7737243C21FB000FB2EE /* MedicalStartGridTableViewCell.m in Sources */,
+				27002B952456CD5E00370AEF /* ReplayFavoritesFunction.m in Sources */,
 				270A030723FB823F00FD4431 /* VHHTTPFunctionManager.m in Sources */,
+				27002B982456D8C000370AEF /* ReplayMeetingListFunction.m in Sources */,
 				27FF317324342AEB008457BD /* HomeSubjectHeaderView.m in Sources */,
 				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
 				27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */,
@@ -1705,6 +1728,7 @@
 				27DB771B243C1827000FB2EE /* MedicalVideoListBussiness.m in Sources */,
 				27AC9F852421F321008B2698 /* VideoPlayerView.m in Sources */,
 				270A030C23FB895500FD4431 /* UserLoginWithWechatFunction.m in Sources */,
+				27002B922456B3FF00370AEF /* MeetingPreviewTableViewCell.m in Sources */,
 				27AC9F812421EC6D008B2698 /* VideoPlayerModel.m in Sources */,
 				27AA91132419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m in Sources */,
 				27C8C4E6244D3F9B00608B09 /* ClassifiedProfessorListFunction.m in Sources */,
