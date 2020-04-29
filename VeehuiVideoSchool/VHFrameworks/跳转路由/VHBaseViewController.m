@@ -75,4 +75,8 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (UIStatusBarStyle) preferredStatusBarStyle{
+    return UIStatusBarStyleDefault;
+}
 @end

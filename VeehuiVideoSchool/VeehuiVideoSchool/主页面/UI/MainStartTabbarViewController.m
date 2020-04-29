@@ -38,6 +38,7 @@
     NSMutableArray<VHBaseNavigationViewController*>* navigationControllers = [NSMutableArray<VHBaseNavigationViewController*> array];
     [controllers enumerateObjectsUsingBlock:^(VHBaseViewController * _Nonnull controller, NSUInteger idx, BOOL * _Nonnull stop) {
         VHBaseNavigationViewController* navigationController = [[VHBaseNavigationViewController alloc] initWithRootViewController:controller];
+        navigationController.navigationBar.translucent = NO;
         [navigationControllers addObject:navigationController];
         
         UITabBarItem * item = [[UITabBarItem alloc] initWithTitle:tabbarTitles[idx] image:[[UIImage imageNamed:normalTabbarImageNames[idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:highlightTabbarImageNames[idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

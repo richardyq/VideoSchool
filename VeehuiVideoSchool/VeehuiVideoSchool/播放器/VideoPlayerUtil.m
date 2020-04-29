@@ -48,10 +48,31 @@
     [self.aliPlayer seekToTime:startPos * 1000 seekMode:AVP_SEEKMODE_INACCURATE];
 }
 
-- (void) setupPlayerView:(UIView*) playerView{
+- (void) setupPlayerView:(VideoPlayerView*) playerView{
     self.aliPlayer.playerView = playerView;
+    [playerView setDuration:self.aliPlayer.duration / 1000];
+    [playerView setPlayPosition:self.aliPlayer.currentPosition / 1000];
+    BOOL isPlaying = (self.playerState == PlayerState_Playing);
+    [playerView setVideoIsPlaying:isPlaying];
 }
 
+- (void) setOrientation:(UIDeviceOrientation)orientation{
+    _orientation = orientation;
+    switch (orientation) {
+        case UIDeviceOrientationPortrait:
+            [self.aliPlayer setRotateMode:AVP_ROTATE_0];
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            [self.aliPlayer setRotateMode:AVP_ROTATE_90];
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            [self.aliPlayer setRotateMode:AVP_ROTATE_270];
+            break;
+        default:
+            [self.aliPlayer setRotateMode:AVP_ROTATE_0];
+            break;
+    }
+}
 
 #pragma mark - AVPDelegate
 -(void)onPlayerEvent:(AliPlayer*)player eventType:(AVPEventType)eventType{
@@ -103,6 +124,11 @@
 - (void)onCurrentPositionUpdate:(AliPlayer*)player position:(int64_t)position {
 // 更新进度条
     NSInteger pos = position / 1000;
+    VideoPlayerView* playerView = self.aliPlayer.playerView;
+    if (playerView && [playerView isKindOfClass:[VideoPlayerView class]]) {
+        [playerView setPlayPosition:pos];
+    }
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(playerPositionChanged:)] ) {
         [self.delegate playerPositionChanged:pos];
     }

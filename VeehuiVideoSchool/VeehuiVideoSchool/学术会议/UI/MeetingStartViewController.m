@@ -13,13 +13,15 @@
 #import "MeetingEntryModel.h"
 #import "MeetingInfoListTableViewCell.h"
 #import "MeetingPreviewTableViewCell.h"
+#import "MeetingFavoriteTableViewCell.h"
 #import "MedicalVideoClassifyEntryModel.h"
 
 typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     MeetingLivingSection,
     MeetingPreviewSection,
-    MeetingReplaySection,
+    MeetingReplayHeaderSection,
     MeetingFavoriteSection,
+    MeetingReplaySection,
     SectionCount,
 };
 
@@ -33,7 +35,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 @property (nonatomic, strong) MeetingListModel* previewMeetingList;
 
 @property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* favorites;
-@property (nonatomic, strong) SegmentView* favoriteSegmentView;
+//@property (nonatomic, strong) SegmentView* favoriteSegmentView;
 
 @end
 
@@ -45,14 +47,14 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     self.navigationItem.title = @"会议视频";
     [self.tableview registerClass:[MeetingInfoListTableViewCell class] forCellReuseIdentifier:[MeetingInfoListTableViewCell cellReuseIdentifier]];
     [self.tableview registerClass:[MeetingPreviewTableViewCell class] forCellReuseIdentifier:[MeetingPreviewTableViewCell cellReuseIdentifier]];
+    [self.tableview registerClass:[MeetingFavoriteTableViewCell class] forCellReuseIdentifier:[MeetingFavoriteTableViewCell cellReuseIdentifier]];
     
     [self startLoadMeetingGather];
     //[self startLoadLiveMeetings];
-    MJRefreshStateHeader* stateHeader = (MJRefreshStateHeader*)self.tableview.mj_header ;
-    [stateHeader setTitle:@"下拉获取新的数据" forState:MJRefreshStateIdle];
-    [stateHeader setTitle:@"松开即可获取新的数据" forState:MJRefreshStatePulling];
-    [stateHeader setTitle:@"请稍等，新数据已经上路" forState:MJRefreshStateRefreshing];
-    [self beginRefreshData];
+    
+    [self refreshDataCommand];
+    
+    self.tableview.mj_header = nil;
 }
 
 #pragma mark - 加载数据
@@ -64,7 +66,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 }
 
 - (void) loadMoreDataCommand{
-    MedicalVideoClassifyEntryModel* subject = self.favorites[self.favoriteSegmentView.selectedIndex];
+    MedicalVideoClassifyEntryModel* subject = self.favorites.firstObject;
     [self startLoadReplayMeetingList:subject.code pageNo:self.pageNo + 1];
 }
 
@@ -165,7 +167,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     
         //获取回放列表
         weakSelf.pageNo = 1;
-        MedicalVideoClassifyEntryModel* subject = weakSelf.favorites[weakSelf.favoriteSegmentView.selectedIndex];
+        MedicalVideoClassifyEntryModel* subject = weakSelf.favorites.firstObject;
         
         [weakSelf startLoadReplayMeetingList:subject.code pageNo:weakSelf.pageNo];
     }];
@@ -175,7 +177,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     self.favorites = favorites;
     
     NSArray<NSString*>* names = [favorites valueForKey:@"name"];
-    [self.favoriteSegmentView setSegmentTitles:names];
+    [self.tableview reloadData];
 }
 
 //回放列表
@@ -215,23 +217,6 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     }
     return _liveMeetings;
 }
-
-- (SegmentView*) favoriteSegmentView{
-    if (!_favoriteSegmentView) {
-        _favoriteSegmentView = [[SegmentView alloc] initWithNormalFont:[UIFont systemFontOfSize:13] normalColor:[UIColor commonDarkGrayTextColor] highFont:[UIFont systemFontOfSize:15 weight:UIFontWeightMedium] highColor:[UIColor mainThemeColor]];
-        
-        WS(weakSelf)
-        [_favoriteSegmentView onSelectedIndexChanged:^(NSInteger index) {
-            SAFE_WEAKSELF(weakSelf)
-            weakSelf.pageNo = 1;
-            weakSelf.totalPages = 0;
-            MedicalVideoClassifyEntryModel* subject = self.favorites[index];
-            [weakSelf startLoadReplayMeetingList:subject.code pageNo:weakSelf.pageNo];
-        }];
-    }
-    return _favoriteSegmentView;
-}
-
 #pragma mark - table view data source
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return SectionCount;
@@ -245,17 +230,25 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
         }
         case MeetingPreviewSection:{
             if (self.previewMeetingList &&
-                self.previewMeetingList.content > 0) {
+                self.previewMeetingList.content.count > 0) {
+                return 1;
+            }
+            return 0;
+            break;
+        }
+        case MeetingReplayHeaderSection:{
+            return 0;
+            break;
+        }
+        case MeetingFavoriteSection:{
+            if (self.favorites &&
+                self.favorites.count > 0) {
                 return 1;
             }
             return 0;
             break;
         }
         case MeetingReplaySection:{
-            return 0;
-            break;
-        }
-        case MeetingFavoriteSection:{
             return self.models.count;
             break;
         }
@@ -279,6 +272,10 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             break;
         }
         case MeetingFavoriteSection:{
+            cell = [[MeetingFavoriteTableViewCell alloc] initWithCategories:self.favorites];
+            break;
+        }
+        case MeetingReplaySection:{
             cell = [self.tableview dequeueReusableCellWithIdentifier:[MeetingInfoListTableViewCell cellReuseIdentifier]];
                 [cell setEntryModel:self.models[indexPath.row]];
             break;
@@ -301,13 +298,12 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
         }
         case MeetingPreviewSection:{
             if (self.previewMeetingList &&
-                self.previewMeetingList.content > 0) {
+                self.previewMeetingList.content.count > 0) {
                 return 47.;
             }
             break;
         }
-        case MeetingReplaySection:
-        case MeetingFavoriteSection:{
+        case MeetingReplayHeaderSection:{
             if (self.favorites &&
                 self.favorites > 0) {
                 return 47.;
@@ -335,17 +331,11 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             titleLabel.text = @"会议预告";
             break;
         }
-        case MeetingReplaySection:{
+        case MeetingReplayHeaderSection:{
             titleLabel.text = @"会议视频";
             break;
         }
-        case MeetingFavoriteSection:{
-            [headerview addSubview:self.favoriteSegmentView];
-            [self.favoriteSegmentView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(headerview);
-            }];
-            break;
-        }
+        
         default:
             break;
     }

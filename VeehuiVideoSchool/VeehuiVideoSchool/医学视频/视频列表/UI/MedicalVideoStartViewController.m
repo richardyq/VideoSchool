@@ -60,6 +60,8 @@ SDCycleScrollViewDelegate>
     [self startLoadClassify];
     //获取推荐精品课程
     [self startLoadRecommandCourses];
+    
+    self.tableview.mj_header = nil;
 }
 
 - (void) updateViewConstraints{

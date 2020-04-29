@@ -424,4 +424,37 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
         return;
     }
 }
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case Video_Section:{
+            MedicalVideoGroupInfoListModel* videoGroup = self.recommandVideosList.content[indexPath.row];
+            [MedicalVideoPageRouter entryMedicalVideoDetailPage:videoGroup.id];
+            return;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    if (indexPath.section > Video_Section  ) {
+        if (self.homeSubjects && indexPath.section <= (Video_Section + self.homeSubjects.content.count)) {
+            HomeSubjectEntry* subject =  self.homeSubjects.content[indexPath.section - Video_Section - 1];
+            NSInteger row = indexPath.row;
+            if (row == 0) {
+                //cell = [[HomeSubjectHeaderTableViewCell alloc] initWithSubjectEntry:subject];
+            }
+            else if (row <= subject.meetingInfos.count){
+                //跳转到会议
+            }
+            else{
+                //cell = [tableView dequeueReusableCellWithIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
+                MedicalVideoGroupInfoListModel* videoGroup = subject.lengthwaysMedicalVideos[row - subject.meetingInfos.count - 1];
+                [MedicalVideoPageRouter entryMedicalVideoDetailPage:videoGroup.id];
+            }
+        }
+        
+        
+    }
+}
 @end

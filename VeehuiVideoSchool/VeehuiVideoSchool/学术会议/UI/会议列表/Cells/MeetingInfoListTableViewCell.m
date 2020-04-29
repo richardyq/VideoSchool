@@ -177,14 +177,16 @@
     else if ([meetingModel.statusCode isEqualToString:@"02"] ||
              [meetingModel.statusCode isEqualToString:@"03"]) {
         //直播，休息
-        self.leftNumberLabel.text = [NSString stringWithFormat:@"%@", meetingModel.watchingNumberInfo];
-        self.rightNumberLabel.text = [NSString stringWithFormat:@"%ld个分会场", meetingModel.liveCount];
-        self.detInfoLabel.text = [NSString stringWithFormat:@"会议时间：%@", meetingModel.startTime];
+        self.leftNumberLabel.text = [NSString formatWithInteger:meetingModel.watchingNumberInfo.integerValue remain:1 unit:@"万"];;
+        //self.rightNumberLabel.text = [NSString stringWithFormat:@"%ld个分会场", meetingModel.liveCount];
+        self.rightNumberLabel.text = @"";
+        self.detInfoLabel.text =  [NSString stringWithFormat:@"主讲专家：%@", meetingModel.speaker];
         [self.pictureImageView addWatermark:@"ic_meeting_status_live" positon:WatermarPosition_TR offset:10];
     }
-    if ([meetingModel.statusCode isEqualToString:@"04"]) {
+    else if ([meetingModel.statusCode isEqualToString:@"04"] ||
+        [meetingModel.statusCode isEqualToString:@"05"]) {
         //结束
-        self.leftNumberLabel.text = [NSString stringWithFormat:@"%ld", meetingModel.watchingNumber];
+        self.leftNumberLabel.text = [NSString formatWithInteger:meetingModel.watchingNumberInfo.integerValue remain:1 unit:@"万"];
         self.rightNumberLabel.text = @"";
         self.detInfoLabel.text = [NSString stringWithFormat:@"主讲专家：%@", meetingModel.speaker];
         [self.pictureImageView addWatermark:@"ic_meeting_status_replay" positon:WatermarPosition_TR offset:10];

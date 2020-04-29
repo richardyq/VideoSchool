@@ -17,6 +17,8 @@ typedef NS_ENUM(NSUInteger, VideoPlayerState) {
     PlayerState_PlayEnd,
 };
 
+@class VideoPlayerView;
+
 @protocol VideoPlayerDelegate <NSObject>
 
 - (void) playerEventChanged:(NSInteger) event;
@@ -30,11 +32,13 @@ typedef NS_ENUM(NSUInteger, VideoPlayerState) {
 @property (nonatomic, weak) id<VideoPlayerDelegate> delegate;
 @property (nonatomic, readonly) VideoPlayerState playerState;
 
+@property (nonatomic) UIDeviceOrientation orientation;
+
 + (instancetype)shareInstance;
 
 - (void) setupPlayerModel:(VideoPlayerModel*) playerModel;
 - (void) setPlayerStartPositon:(NSInteger) startPos;
-- (void) setupPlayerView:(UIView*) playerView;
+- (void) setupPlayerView:(VideoPlayerView*) playerView;
 
 
 - (void) startPlay;

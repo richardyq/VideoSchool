@@ -13,6 +13,7 @@
 
 @interface HomeStartViewController ()
 
+@property (nonatomic, strong) UIView* topmostView;
 @property (nonatomic, strong) HomeStartNavigationView* navigationView;
 @property (nonatomic, strong) HomeStartTableViewController* tableViewController;
 
@@ -24,13 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     [self setFd_prefersNavigationBarHidden:YES];
     [self setFd_interactivePopDisabled:YES];
+    //self.view.backgroundColor = [UIColor redColor];
 }
 
 - (void) updateViewConstraints{
     [super updateViewConstraints];
+    
     
     [self.navigationView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
@@ -51,6 +55,7 @@
 - (HomeStartNavigationView*) navigationView{
     if (!_navigationView) {
         _navigationView = (HomeStartNavigationView*)[self.view addView:[HomeStartNavigationView class]];
+        
     }
     return _navigationView;
 }

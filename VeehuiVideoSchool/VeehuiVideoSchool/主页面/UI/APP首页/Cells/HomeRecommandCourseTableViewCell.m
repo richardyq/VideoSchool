@@ -9,6 +9,7 @@
 #import "HomeRecommandCourseTableViewCell.h"
 #import "MedicalVideoGridControl.h"
 #import "MedicalVideoGroupInfoEntryModel.h"
+#import "MedicalVideoPageRouter.h"
 
 @interface HomeRecommandCourseTableViewCell ()
 
@@ -125,6 +126,11 @@
         [_moreButton setTitle:@"更多" forState:UIControlStateNormal];
         [_moreButton setTitleColor:[UIColor mainThemeColor] forState:UIControlStateNormal];
         _moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        
+        [_moreButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            //跳转到【精品课程】列表
+            [MedicalVideoPageRouter entryMedicalCourseListPage];
+        }];
     }
     return _moreButton;
 }

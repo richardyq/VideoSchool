@@ -30,6 +30,17 @@
     return self;
 }
 
+- (id) initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor blackColor];
+        
+        _tapGesturRecognizer =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+        [self addGestureRecognizer:self.tapGesturRecognizer];
+    }
+    return self;
+}
+
 - (Class) controlClass{
     return [VideoPlayerControl class];
 }
@@ -42,19 +53,31 @@
         }];
         _playerControl.hidden = YES;
         [self.playerControl addTarget:self action:@selector(closeControl) forControlEvents:UIControlEventAllTouchEvents];
-        
+        _playerControl.controlDelegate = self.controlDelegate;
     }
     return _playerControl;
 }
 
+- (BOOL) showPlayerControl{
+    return YES;
+}
+
+- (void) setControlDelegate:(id<VideoPlayerViewControlDelegate>)controlDelegate{
+    _controlDelegate = controlDelegate;
+    self.playerControl.controlDelegate = controlDelegate;
+}
+
 #pragma mark -
 -(void)tapAction:(id)tap{
+    if (![self showPlayerControl]) {
+        return;
+    }
+    [self bringSubviewToFront:self.playerControl];
     //显示控制器
     if (self.playerControl.hidden) {
         self.playerControl.hidden = NO;
         [self removeGestureRecognizer:self.tapGesturRecognizer];
     }
-    
 }
 
 - (void) closeControl{

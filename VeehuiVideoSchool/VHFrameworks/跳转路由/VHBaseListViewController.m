@@ -39,6 +39,11 @@ DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
         [weakSelf refreshDataCommand];
     }];
     
+    MJRefreshStateHeader* stateHeader = (MJRefreshStateHeader*)self.tableview.mj_header ;
+    [stateHeader setTitle:@"下拉获取新的数据" forState:MJRefreshStateIdle];
+    [stateHeader setTitle:@"松开即可获取新的数据" forState:MJRefreshStatePulling];
+    [stateHeader setTitle:@"请稍等，新数据已经上路" forState:MJRefreshStateRefreshing];
+    
     [self.tableview.mj_header addObserver:self forKeyPath:@"state" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
 }
 

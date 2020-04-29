@@ -10,6 +10,12 @@
 #import "VideoPlayerControl.h"
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol VideoPlayerViewControlDelegate <NSObject>
+
+- (void) fullScreenButtonAction;
+
+@end
+
 @interface VideoPlayerControl : UIControl
 
 @property (nonatomic, strong) UIButton* playAndPauseButton;
@@ -21,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSInteger duration;
 @property (nonatomic) NSInteger playPosition;
+
+@property (nonatomic, weak) id<VideoPlayerViewControlDelegate> controlDelegate;
 
 - (void) setVideoIsPlaying:(BOOL) isPlaying;
 

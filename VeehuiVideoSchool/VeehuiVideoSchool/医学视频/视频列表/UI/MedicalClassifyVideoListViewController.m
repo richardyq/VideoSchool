@@ -43,9 +43,11 @@
 }
 
 - (void)viewDidLoad {
+    self.segmentView.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = self.classifyModel.name;
+    
     self.tableview.backgroundColor = [UIColor commonBackgroundColor];
     [self.tableview registerClass:[MedicalVideoInfoTableViewCell class] forCellReuseIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
     [self startLoadSecondaryClassifies];
@@ -123,6 +125,15 @@
     
     NSArray<NSString*>* titles = [classifies valueForKey:@"name"];
     [self.segmentView setSegmentTitles:titles];
+    if (self.secondClassifies && self.secondClassifies.count > 1) {
+        NSArray* names = [self.secondClassifies valueForKey:@"name"];
+        [self.segmentView setSegmentTitles:names];
+    }
+    else{
+        [self.tableview mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+    }
     
     NSString* subjectCode = self.selectedSubjectModel.code;
     [MessageHubUtil showWait];

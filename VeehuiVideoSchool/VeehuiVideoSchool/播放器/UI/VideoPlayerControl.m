@@ -162,7 +162,9 @@
 }
 
 - (void) fullScreenButtonClicked:(id) sender{
-    
+    if (self.controlDelegate && [self.controlDelegate respondsToSelector:@selector(fullScreenButtonAction)]) {
+        [self.controlDelegate fullScreenButtonAction];
+    }
 }
 
 - (void) sliderValueChanged:(id) sender{

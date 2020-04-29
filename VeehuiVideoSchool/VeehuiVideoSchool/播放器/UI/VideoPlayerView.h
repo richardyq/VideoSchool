@@ -10,9 +10,12 @@
 #import "VideoPlayerControl.h"
 NS_ASSUME_NONNULL_BEGIN
 
+
+
 @interface VideoPlayerView : UIView
 
 @property (nonatomic, readonly) VideoPlayerControl* playerControl;      //控制器
+@property (nonatomic, weak) id<VideoPlayerViewControlDelegate> controlDelegate;
 
 - (void) setPlayPosition:(NSInteger)playPosition;
 - (void) setDuration:(NSInteger)duration;

@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setFd_prefersNavigationBarHidden:YES];
-    [self setFd_interactivePopDisabled:YES];
+   // [self setFd_interactivePopDisabled:YES];
     
     self.tableview.mj_header = nil;
     [self startLoadVideoGroupDetal];
@@ -94,6 +94,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
         if ([[UIDevice currentDevice] isPad]) {
             headerHeight = kScreenWidth * 0.7 * (275. / 375.);
         }
+        //headerHeight -= Status_Height;
         _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, headerHeight)];
         _tableHeaderView.backgroundColor = [UIColor whiteColor];
     }
