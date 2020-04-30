@@ -151,6 +151,11 @@
     [listModel.content enumerateObjectsUsingBlock:^(EntryModel * _Nonnull group, NSUInteger idx, BOOL * _Nonnull stop) {
         MedicalVideoGroupInfoEntryModel* videoGroup = (MedicalVideoGroupInfoEntryModel*) group;
         MedicalVideoGridControl* control = [[MedicalVideoGridControl alloc] initWithVideoGroup:videoGroup];
+        
+        [control addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            [MedicalVideoPageRouter entryMedicalVideoDetailPage:group.id];
+        }];
+        
         [self.groupGridControls addObject:control];
         [self.detview addSubview:control];
         *stop = (idx >= 5);

@@ -13,6 +13,8 @@
 #import "PreviewMeetingListFunction.h"
 #import "ReplayFavoritesFunction.h"
 #import "ReplayMeetingListFunction.h"
+#import "MeetingDetailFunction.h"
+#import "MeetingReplayDetailFunction.h"
 
 @implementation MeetingBussiness
 
@@ -79,6 +81,22 @@
 + (void) startLoadReplayFavoriteList:(VHRequestResultHandler) result
                             complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[ReplayFavoritesFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取会议详情
++ (void) startLoadMeetingDetail:(NSInteger) meetingId
+                         result:(VHRequestResultHandler) result
+                           complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[MeetingDetailFunction alloc] initWithMeetingId:meetingId];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取会议视频详情
++ (void) startLoadMeetingReplayDetail:(NSInteger) meetingId
+                               result:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[MeetingReplayDetailFunction alloc] initWithMeetingId:meetingId];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

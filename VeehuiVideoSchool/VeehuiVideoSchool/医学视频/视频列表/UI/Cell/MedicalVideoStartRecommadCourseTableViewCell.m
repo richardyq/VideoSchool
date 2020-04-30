@@ -9,6 +9,7 @@
 #import "MedicalVideoStartRecommadCourseTableViewCell.h"
 #import "MedicalVideoGroupInfoEntryModel.h"
 #import "MedicalVideoGridControl.h"
+#import "MedicalVideoPageRouter.h"
 
 @interface MedicalVideoStartRecommadCourseTableViewCell ()
 
@@ -140,6 +141,9 @@
         MedicalVideoGridControl* control = [[MedicalVideoGridControl alloc] initWithVideoGroup:videoGroup];
         [self.groupGridControls addObject:control];
         [self.detview addSubview:control];
+        [control addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            [MedicalVideoPageRouter entryMedicalVideoDetailPage:videoGroup.id];
+        }];
         *stop = (idx >= 2);
     }];
     [self.contentView setNeedsUpdateConstraints];

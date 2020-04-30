@@ -15,6 +15,7 @@
 #import "MeetingPreviewTableViewCell.h"
 #import "MeetingFavoriteTableViewCell.h"
 #import "MedicalVideoClassifyEntryModel.h"
+#import "MeetingPageRouter.h"
 
 typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     MeetingLivingSection,
@@ -344,6 +345,23 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
         make.left.equalTo(headerview).offset(15);
     }];
     return headerview;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case MeetingLivingSection:{
+            MeetingEntryModel* meeting = self.liveMeetings[indexPath.row];
+            [MeetingPageRouter entryMeetingDatailPage:meeting.id];
+            break;
+        }
+        case MeetingReplaySection:{
+            MeetingEntryModel* meeting = self.models[indexPath.row];
+            [MeetingPageRouter entryMeetingDatailPage:meeting.id];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (NSString*) emptyTableText{

@@ -9,6 +9,9 @@
 #import "HomeSubjectHeaderTableViewCell.h"
 #import "HomeSubjectEntry.h"
 #import "MedicalVideoGridControl.h"
+#import "MedicalVideoPageRouter.h"
+#import "MedicalVideoGroupInfoEntryModel.h"
+#import "MedicalVideoClassifyEntryModel.h"
 
 @interface HomeSubjectHeaderTableViewCell ()
 
@@ -107,6 +110,8 @@
         [_moreButton setTitle:@"更多" forState:UIControlStateNormal];
         [_moreButton setTitleColor:[UIColor mainThemeColor] forState:UIControlStateNormal];
         _moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        
+        
     }
     return _moreButton;
 }
@@ -126,11 +131,21 @@
     HomeSubjectEntry* subjectModel = (HomeSubjectEntry*) model;
     self.titleLabel.text = subjectModel.subject.name;
     
+    [self.moreButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        MedicalVideoClassifyEntryModel* classifyModel = [MedicalVideoClassifyEntryModel new];
+        classifyModel.code = subjectModel.subject.subjectCode;
+        classifyModel.name = subjectModel.subject.name;
+        [MedicalVideoPageRouter entryClassifiedMedicalVideListPage:classifyModel];
+    }];
+    
     [subjectModel.transverseMedicalVideos enumerateObjectsUsingBlock:^(EntryModel * _Nonnull group, NSUInteger idx, BOOL * _Nonnull stop) {
         MedicalVideoGroupInfoEntryModel* videoGroup = (MedicalVideoGroupInfoEntryModel*) group;
         MedicalVideoGridControl* control = [[MedicalVideoGridControl alloc] initWithVideoGroup:videoGroup];
         [self.groupGridControls addObject:control];
         [self.detview addSubview:control];
+        [control addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            [MedicalVideoPageRouter entryMedicalVideoDetailPage:group.id];
+        }];
         *stop = (idx >= 2);
     }];
     [self.contentView setNeedsUpdateConstraints];

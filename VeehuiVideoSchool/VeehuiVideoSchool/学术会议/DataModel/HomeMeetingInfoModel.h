@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString* statusCode;     //会议状态编码 ['01':'预告','02':'直播中','03':'休息中','04':'结束']
 @property (nonatomic, strong) NSString* organizer;      //主办单位
 
+
 @end
 
 NS_ASSUME_NONNULL_END

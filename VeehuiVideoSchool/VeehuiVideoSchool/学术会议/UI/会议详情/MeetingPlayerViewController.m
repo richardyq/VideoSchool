@@ -1,47 +1,72 @@
 //
-//  MedicalVideoPlayerViewController.m
+//  MeetingPlayerViewController.m
 //  VeehuiVideoSchool
 //
-//  Created by 殷全 on 2020/3/18.
+//  Created by 殷全 on 2020/4/30.
 //  Copyright © 2020 殷全. All rights reserved.
 //
 
-#import "MedicalVideoPlayerViewController.h"
+#import "MeetingPlayerViewController.h"
 
-@interface MedicalVideoPlayerViewController ()
+@interface MeetingPlayerViewController ()
 <VideoPlayerDelegate, VideoPlayerViewControlDelegate>
 @property (nonatomic, strong) UIView* topmostView;
-@property (nonatomic) BOOL isOrientationLocked;
 
+@property (nonatomic, strong) VHNavigationBarView* navigationBarView;
+@property (nonatomic, strong) UIView* tableHeaderView;
+
+@property (nonatomic) BOOL isOrientationLocked;
 @end
 
-@implementation MedicalVideoPlayerViewController
+@implementation MeetingPlayerViewController
+
+- (id) initWithMeetingDetail:(MeetingDetailModel*) detail{
+    self = [super init];
+    if (self) {
+        _meetingDetail = detail;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     self.topmostView.backgroundColor = [UIColor blackColor];
-    //self.view.backgroundColor = [UIColor blackColor];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setFd_interactivePopDisabled:YES];
+    [self setFd_prefersNavigationBarHidden:YES];
     
-    [[VideoPlayerUtil shareInstance] setupPlayerView:self.playerView];
+    [self.tableview setTableHeaderView:self.tableHeaderView];
+    self.tableview.mj_header = nil;
     
     [self registerScreenRotateNotification];
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [VideoPlayerUtil shareInstance].delegate = self;
+    [[VideoPlayerUtil shareInstance] setupPlayerView:self.playerView];
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [VideoPlayerUtil shareInstance].delegate = nil;
+    [[VideoPlayerUtil shareInstance] reset];
+}
+
 - (void) updateViewConstraints{
     [super updateViewConstraints];
-    
+
     __block CGFloat tableWidth = kScreenWidth;
     if ([UIDevice currentDevice].isPad) {
         tableWidth = kScreenWidth * 0.7;
     }
-    __block CGFloat playerHeight = tableWidth * (275./375.);
-    
+    __block CGFloat playerHeight = tableWidth * (225./375.);
+
     [self.topmostView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.view);
         make.height.mas_equalTo(@(Status_Height));
     }];
-    
+
     [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(Status_Height);
         make.centerX.equalTo(self.view);
@@ -60,24 +85,18 @@
             make.width.equalTo(self.view);
         }
     }];
-}
-
-- (void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [VideoPlayerUtil shareInstance].delegate = self;
-}
-
-- (void) viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [VideoPlayerUtil shareInstance].delegate = nil;
-    [[VideoPlayerUtil shareInstance] reset];
+    
+    [self.navigationBarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.mas_equalTo(@(Navi_height));
+    }];
 }
 
 #pragma mark - settingAndGetting
 - (UIView*) topmostView{
     if (!_topmostView) {
         _topmostView = [self.view addView];
-        _topmostView.backgroundColor;
+        _topmostView.backgroundColor = [UIColor blackColor];
     }
     return _topmostView;
 }
@@ -90,18 +109,30 @@
     return _playerView;
 }
 
-- (void) playerPrepared{
-    if (self.playerModel.startPosition == 0) {
-        //直接开始播放
-        [[VideoPlayerUtil shareInstance] startPlay];
+- (VHNavigationBarView*) navigationBarView{
+    if (!_navigationBarView) {
+        _navigationBarView = [[VHNavigationBarView alloc] initWithNavigationType:Navigation_Trans];
+        [self.view addSubview:_navigationBarView];
     }
-    else{
-        //定位
-        [[VideoPlayerUtil shareInstance] setPlayerStartPositon:self.playerModel.startPosition];
-        if ([VideoPlayerUtil shareInstance].playerState == PlayerState_None) {
-            [[VideoPlayerUtil shareInstance] startPlay];
+    return _navigationBarView;
+}
+
+- (UIView*) tableHeaderView{
+    if (!_tableHeaderView) {
+        CGFloat headerHeight = kScreenWidth * (225. / 375.);
+        if ([[UIDevice currentDevice] isPad]) {
+            headerHeight = kScreenWidth * 0.7 * (225. / 375.);
         }
+        //headerHeight -= Status_Height;
+        _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, headerHeight)];
+        _tableHeaderView.backgroundColor = [UIColor whiteColor];
     }
+    return _tableHeaderView;
+}
+
+#pragma mark - DZNEmptyDataSetDelegate
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView{
+    return NO;
 }
 
 #pragma mark - VideoPlayerDelegate
@@ -132,6 +163,20 @@
         }
         default:
             break;
+    }
+}
+
+- (void) playerPrepared{
+    if (self.playerModel.startPosition == 0) {
+        //直接开始播放
+        [[VideoPlayerUtil shareInstance] startPlay];
+    }
+    else{
+        //定位
+        [[VideoPlayerUtil shareInstance] setPlayerStartPositon:self.playerModel.startPosition];
+        if ([VideoPlayerUtil shareInstance].playerState == PlayerState_None) {
+            [[VideoPlayerUtil shareInstance] startPlay];
+        }
     }
 }
 

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SubjectEntryModel : EntryModel
 
 @property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSString* code;
+@property (nonatomic, strong) NSString* subjectCode;
 
 @end
 

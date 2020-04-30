@@ -10,7 +10,7 @@
 #import "MedicalVideoGroupInfoEntryModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MedicalVideoGridControl : UIView
+@interface MedicalVideoGridControl : UIControl
 
 - (id) initWithVideoGroup:(MedicalVideoGroupInfoEntryModel*) videoGroup;
 

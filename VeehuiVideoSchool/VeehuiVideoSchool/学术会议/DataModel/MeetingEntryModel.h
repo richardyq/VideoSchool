@@ -10,6 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, EMeetingStatus) {
+    MeetingStatus_Unknown,
+    MeetingStatus_Preview,
+    MeetingStatus_Living,
+    MeetingStatus_Replay,
+};
+
 @interface MeetingEntryModel : EntryModel
 
 @property (nonatomic, strong) NSString* title;
@@ -31,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* circleName;
 @property (nonatomic, strong) NSString* circlePortraitUrl;
+
+- (EMeetingStatus) meetingStatus;
 @end
 
 @interface MeetingListModel : ListModel

@@ -237,6 +237,16 @@ SDCycleScrollViewDelegate>
     return 0.01;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    if (section >= SectionCount) {
+        NSInteger index = (section - SectionCount);
+        MedicalVideoClassifyEntryModel* cateModel = self.seniorSubjects[index];
+        MedicalVideoGroupInfoListModel* group = cateModel.medicalVideos[indexPath.row];
+        [MedicalVideoPageRouter entryMedicalVideoDetailPage:group.id];
+    }
+}
+
 #pragma mark - 获取广告里表
 - (void) startLoadAdvertiseList{
     WS(weakSelf)

@@ -10,6 +10,28 @@
 
 @implementation MeetingEntryModel
 
+- (EMeetingStatus) meetingStatus{
+    EMeetingStatus status = MeetingStatus_Unknown;
+    if (self.statusCode && ![self.statusCode isEmpty]) {
+        NSString* meetingStatusCode = self.statusCode;
+        if ([meetingStatusCode isEqualToString:@"01"]) {
+            //预告
+            status = MeetingStatus_Preview;
+        }
+        else if ([meetingStatusCode isEqualToString:@"02"] ||
+            [meetingStatusCode isEqualToString:@"03"]) {
+            //直播
+            status = MeetingStatus_Living;
+        }
+        else if ([meetingStatusCode isEqualToString:@"04"] ||
+            [meetingStatusCode isEqualToString:@"05"]) {
+            //重播
+            status = MeetingStatus_Replay;
+        }
+    }
+    return status;
+}
+
 @end
 
 @implementation MeetingListModel

@@ -11,6 +11,7 @@
 #import "MeetingBussiness.h"
 #import "MeetingEntryModel.h"
 #import "MeetingInfoListTableViewCell.h"
+#import "MeetingPageRouter.h"
 
 @interface MeetingReplayListViewController ()
 
@@ -170,6 +171,11 @@
 
 - (Class) tableViewCellClass:(NSIndexPath *)indexPath{
     return [MeetingInfoListTableViewCell class];
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MeetingEntryModel* meeting = self.models[indexPath.row];
+    [MeetingPageRouter entryMeetingDatailPage:meeting.id];
 }
 
 #pragma mark - settingAndGetting

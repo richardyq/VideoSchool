@@ -9,7 +9,9 @@
 #import "MeetingPageRouter.h"
 #import "MeetingStartViewController.h"
 #import "MeetingReplayListViewController.h"
-
+#import "MeetingBussiness.h"
+#import "MeetingDetailModel.h"
+#import "MeetingReplayViewController.h"
 @implementation MeetingPageRouter
 
 // 跳转进入学术会议首页
@@ -22,5 +24,51 @@
 + (void) entryMeetingReplayPage:(MedicalVideoClassifyEntryModel*) subject{
     VHBaseViewController* controller = [[MeetingReplayListViewController alloc] initWithSeniorSubject:subject];
     [VHPageRouter entryPageController:controller];
+}
+
+//跳转到会议详情页面
++ (void) entryMeetingDatailPage:(NSInteger) meetingId{
+    [MessageHubUtil showWait:@"请稍等，正在加载。。"];
+    __block MeetingDetailModel* meetingDetail = nil;
+    //获取会议详情信息
+    WS(weakSelf)
+    [MeetingBussiness startLoadMeetingDetail:meetingId result:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[MeetingEntryModel class]]) {
+            meetingDetail = result;
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        SAFE_WEAKSELF(weakSelf)
+        [MessageHubUtil hideMessage];
+        if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
+            return;
+        }
+        VHBaseViewController* controller = nil;
+        if (meetingDetail) {
+            switch ([meetingDetail meetingStatus]) {
+                case MeetingStatus_Preview:{
+                    //预告
+                    break;
+                }
+                case MeetingStatus_Living:{
+                    //直播
+                    break;
+                }
+                case MeetingStatus_Replay:{
+                    //重播
+                    controller = [[MeetingReplayViewController alloc] initWithMeetingDetail:meetingDetail];
+                    break;
+                }
+                default:
+                    break;
+            }
+            
+        }
+        
+        if (controller) {
+            [VHPageRouter entryPageController:controller];
+        }
+    }];
 }
 @end

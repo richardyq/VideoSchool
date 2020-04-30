@@ -78,6 +78,28 @@ startLoadHomeMeetings
 + (void) startLoadReplayFavoriteList:(VHRequestResultHandler) result
                             complete:(VHRequestCompleteHandler) complete;
 
+/**
+startLoadMeetingDetail
+获取会议详情信息
+@param meetingId       meetingId  会议id
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadMeetingDetail:(NSInteger) meetingId
+                         result:(VHRequestResultHandler) result
+                       complete:(VHRequestCompleteHandler) complete;
+
+/**
+startLoadMeetingReplayDetail
+获取会议视频（重播）详情信息
+@param meetingId       meetingId  会议id
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadMeetingReplayDetail:(NSInteger) meetingId
+                               result:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

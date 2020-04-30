@@ -27,6 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 + (void) entryMeetingReplayPage:(MedicalVideoClassifyEntryModel*) subject;
+
+/**
+ entryMeetingDatailPage
+ 跳转到会议详情页面（直播、预告、重播）
+ 
+ @param meetingId         会议id
+ */
++ (void) entryMeetingDatailPage:(NSInteger) meetingId;
 @end
 
 NS_ASSUME_NONNULL_END
