@@ -12,6 +12,8 @@
 #import "MeetingBussiness.h"
 #import "MeetingDetailModel.h"
 #import "MeetingReplayViewController.h"
+#import "MeetingLivingViewController.h"
+
 @implementation MeetingPageRouter
 
 // 跳转进入学术会议首页
@@ -53,6 +55,7 @@
                 }
                 case MeetingStatus_Living:{
                     //直播
+                    controller = [[MeetingLivingViewController alloc] initWithMeetingDetail:meetingDetail];
                     break;
                 }
                 case MeetingStatus_Replay:{
@@ -71,4 +74,5 @@
         }
     }];
 }
+
 @end

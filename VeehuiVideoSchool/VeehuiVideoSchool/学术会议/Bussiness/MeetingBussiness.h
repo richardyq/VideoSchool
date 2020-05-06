@@ -100,6 +100,16 @@ startLoadMeetingReplayDetail
                                result:(VHRequestResultHandler) result
                              complete:(VHRequestCompleteHandler) complete;
 
+/**
+startLoadMeetingLivingDetail
+获取会议直播详情信息
+@param meetingId       meetingId  会议id
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadMeetingLivingDetail:(NSInteger) meetingId
+                               result:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

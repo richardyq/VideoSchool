@@ -44,6 +44,16 @@
     return _playLabel;
 }
 
+- (void) setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    if (selected) {
+        self.playLabel.textColor = [UIColor mainThemeColor];
+    }
+    else{
+        self.playLabel.textColor = [UIColor commonTextColor];
+    }
+}
+
 @end
 
 @interface MeetingConferenceTableViewCell ()
@@ -128,11 +138,32 @@
 - (void) buildPlayControls:(MeetingConferenceModel*) conference{
     
     [conference.videoList enumerateObjectsUsingBlock:^(MeetingConferenceVideoModel * _Nonnull video, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.playControls addObject:[[MeetingConferencePlayControl alloc] initWithIndex:idx + 1]];
+        MeetingConferencePlayControl* videoControl = [[MeetingConferencePlayControl alloc] initWithIndex:idx + 1];
+        [self.playControls addObject:videoControl];
+        videoControl.tag = video.id;
+        
+        WS(weakSelf)
+        [videoControl addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            SAFE_WEAKSELF(weakSelf)
+            [weakSelf playingVideoChanged:video];
+        }];
     }];
     
     [self.playControls enumerateObjectsUsingBlock:^(MeetingConferencePlayControl * _Nonnull control, NSUInteger idx, BOOL * _Nonnull stop) {
         [self.conferenceView addSubview:control];
     }];
+}
+
+- (void) setCurrentVideo:(MeetingConferenceVideoModel*) currentVideo{
+    [self.playControls enumerateObjectsUsingBlock:^(MeetingConferencePlayControl * _Nonnull videoControl, NSUInteger idx, BOOL * _Nonnull stop) {
+        videoControl.selected = (videoControl.tag == currentVideo.id);
+    }];
+}
+
+#pragma mark - play control event
+- (void) playingVideoChanged:(MeetingConferenceVideoModel*) videoModel{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(changePlayingVideo:)]) {
+        [self.delegate changePlayingVideo:videoModel];
+    }
 }
 @end

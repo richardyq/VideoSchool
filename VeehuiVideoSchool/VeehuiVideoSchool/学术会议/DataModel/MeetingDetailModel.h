@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString* nextStartTimeSeconds;      //离当前时间
 @property (nonatomic, strong) NSString* speaker;
 @property (nonatomic, strong) NSString* startTime;
-
+@property (nonatomic, strong) NSString* endTime;
 @property (nonatomic, strong) NSString* statusCode;         //会场状态编码 ['01':'预告','02':'直播中','03':'休息中','04':'结束']
 @property (nonatomic, strong) NSString* title;
 

@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, MeetingReplayTableSection) {
 };
 
 @interface MeetingReplayViewController ()
-<UITableViewDataSource>
+<MeetingConferenceTableCellDelegate>
 
 @property (nonatomic, strong) NSString* subjectCode;
 @end
@@ -169,7 +169,10 @@ typedef NS_ENUM(NSUInteger, MeetingReplayTableSection) {
     VHTableViewCell* cell = [super tableViewCell:class indexPath:indexPath];
     switch (indexPath.section) {
         case Conference_Section:{
-            cell = [[MeetingConferenceTableViewCell alloc] initWithConferense:self.meetingDetail.conferenceInfos[indexPath.row]];
+           MeetingConferenceTableViewCell* conferencecell = [[MeetingConferenceTableViewCell alloc] initWithConferense:self.meetingDetail.conferenceInfos[indexPath.row]];
+            [conferencecell setCurrentVideo:self.meetingDetail.currentVideo];
+            conferencecell.delegate = self;
+            cell = conferencecell;
             break;
         }
         default:
@@ -212,5 +215,19 @@ typedef NS_ENUM(NSUInteger, MeetingReplayTableSection) {
         make.left.equalTo(headerview).offset(15);
     }];
     return headerview;
+}
+
+#pragma mark conference current video changed
+- (void) changePlayingVideo:(MeetingConferenceVideoModel*) video{
+    self.meetingDetail.currentVideo = video;
+    [self.tableview reloadData];
+    //切换播放视频内容
+    self.playerModel.title = self.meetingDetail.currentVideo.title;
+    self.playerModel.startPosition = self.meetingDetail.currentVideo.currentTime;
+       //默认播放地址
+    self.playerModel.playerUrl = self.meetingDetail.currentVideo.hdUrl;
+    
+    //初始化播放器
+    [[VideoPlayerUtil shareInstance] setupPlayerModel:self.playerModel];
 }
 @end

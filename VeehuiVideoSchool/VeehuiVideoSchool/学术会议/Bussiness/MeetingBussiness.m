@@ -15,6 +15,7 @@
 #import "ReplayMeetingListFunction.h"
 #import "MeetingDetailFunction.h"
 #import "MeetingReplayDetailFunction.h"
+#import "MeetingLivingDetailFunction.h"
 
 @implementation MeetingBussiness
 
@@ -97,6 +98,14 @@
                                result:(VHRequestResultHandler) result
                              complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[MeetingReplayDetailFunction alloc] initWithMeetingId:meetingId];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取会议直播详情
++ (void) startLoadMeetingLivingDetail:(NSInteger) meetingId
+                               result:(VHRequestResultHandler) result
+                             complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[MeetingLivingDetailFunction alloc] initWithMeetingId:meetingId];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 @end

@@ -16,7 +16,7 @@
 @implementation MeetingConferenceModel
 
 + (NSDictionary*) mj_objectClassInArray{
-    return @{@"videoList": [MeetingConferenceModel class]};
+    return @{@"videoList": [MeetingConferenceVideoModel class]};
 }
 @end
 
