@@ -60,7 +60,7 @@
     if ([UIDevice currentDevice].isPad) {
         tableWidth = kScreenWidth * 0.7;
     }
-    __block CGFloat playerHeight = tableWidth * (225./375.);
+    __block CGFloat playerHeight = tableWidth * (211./375.);
 
     [self.topmostView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.view);
@@ -119,9 +119,9 @@
 
 - (UIView*) tableHeaderView{
     if (!_tableHeaderView) {
-        CGFloat headerHeight = kScreenWidth * (225. / 375.);
+        CGFloat headerHeight = kScreenWidth * (211. / 375.);
         if ([[UIDevice currentDevice] isPad]) {
-            headerHeight = kScreenWidth * 0.7 * (225. / 375.);
+            headerHeight = kScreenWidth * 0.7 * (211. / 375.);
         }
         //headerHeight -= Status_Height;
         _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, headerHeight)];
@@ -251,10 +251,20 @@
         return;
     }
     WS(weakSelf)
-    [VideoFullPlayerViewController showWithOrientation:orientation originalFrame:self.playerView.frame closeAction:^{
+    [[self fullPlayerViewControllerClass] showWithOrientation:orientation originalFrame:self.playerView.frame closeAction:^{
         SAFE_WEAKSELF(weakSelf)
         [[VideoPlayerUtil shareInstance] setupPlayerView:weakSelf.playerView];
     }];
+    
+    [self setupFullPlayerViewController];
+}
+
+- (Class) fullPlayerViewControllerClass{
+    return [VideoFullPlayerViewController class];
+}
+
+- (void) setupFullPlayerViewController{
+    
 }
 
 - (void) closeFullScreenPlayerView{

@@ -106,13 +106,27 @@
     }
     
     MeetingConferenceModel* conference = (MeetingConferenceModel*) model;
-    self.titleLabel                                                                                                                                                           .text = conference.title;
+    self.titleLabel.text = conference.title;
     self.speakerLabel.text = [NSString stringWithFormat:@"主讲专家：%@", conference.speaker];
     self.timeLabel.text = [NSString stringWithFormat:@"%@ ~ %@", conference.startTime, conference.endTime];
     
     self.nextCountDownLabel.text = @"";
     if ([conference.statusCode isEqualToString:@"03"]) {
         self.nextCountDownLabel.text = @"下一次直播倒计时：";
+    }
+    
+    if ([conference.statusCode isEqualToString:@"01"]) {
+        [self.detView addWatermark:@"ic_meeting_status_preview" positon:WatermarPosition_TR];
+    }
+    if ([conference.statusCode isEqualToString:@"02"]) {
+        [self.detView addWatermark:@"ic_meeting_status_live" positon:WatermarPosition_TR];
+    }
+    if ([conference.statusCode isEqualToString:@"03"]) {
+        [self.detView addWatermark:@"ic_meeting_status_live" positon:WatermarPosition_TR];
+    }
+    if ([conference.statusCode isEqualToString:@"04"] || 
+        [conference.statusCode isEqualToString:@"05"]) {
+        [self.detView addWatermark:@"ic_meeting_status_replay" positon:WatermarPosition_TR];
     }
 }
 

@@ -90,9 +90,9 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
 
 - (UIView*) tableHeaderView{
     if (!_tableHeaderView) {
-        CGFloat headerHeight = kScreenWidth * (275. / 375.);
+        CGFloat headerHeight = kScreenWidth * (211. / 375.);
         if ([[UIDevice currentDevice] isPad]) {
-            headerHeight = kScreenWidth * 0.7 * (275. / 375.);
+            headerHeight = kScreenWidth * 0.7 * (211. / 375.);
         }
         //headerHeight -= Status_Height;
         _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, headerHeight)];

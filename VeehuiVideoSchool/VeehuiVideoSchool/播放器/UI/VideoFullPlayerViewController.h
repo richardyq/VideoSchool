@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoFullPlayerViewController : UIViewController
 
+@property (nonatomic, strong) VideoPlayerView* playerView;
+
 + (void) showWithOrientation:(UIDeviceOrientation) orientation
                originalFrame:(CGRect) frame
                  closeAction:(FullPlayerClosedAction) closeAction;

@@ -150,6 +150,11 @@
 		27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD082431BE4B0050CC88 /* HomeCircleUnTreadedView.m */; };
 		27ACCD0C2431C9010050CC88 /* UserJoinedCircleInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */; };
 		27ACCD0F2431C9D40050CC88 /* JoinedCircleEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */; };
+		27BF624D24639DDC00B84ECC /* LivePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF624C24639DDC00B84ECC /* LivePlayerView.m */; };
+		27BF625024639E2300B84ECC /* LivePlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF624F24639E2300B84ECC /* LivePlayerControl.m */; };
+		27BF62532463A10700B84ECC /* LiveFullPlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF62522463A10700B84ECC /* LiveFullPlayerControl.m */; };
+		27BF62562463A18E00B84ECC /* LiveFullPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF62552463A18E00B84ECC /* LiveFullPlayerView.m */; };
+		27BF62592463A27000B84ECC /* LiveFullPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF62582463A27000B84ECC /* LiveFullPlayerViewController.m */; };
 		27C8C4E3244D329B00608B09 /* CircleSecondaryDeptListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C8C4E2244D329B00608B09 /* CircleSecondaryDeptListFunction.m */; };
 		27C8C4E6244D3F9B00608B09 /* ClassifiedProfessorListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C8C4E5244D3F9B00608B09 /* ClassifiedProfessorListFunction.m */; };
 		27DB7701243C0B51000FB2EE /* HomeAdvertisesFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */; };
@@ -480,6 +485,16 @@
 		27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserJoinedCircleInfoFunction.m; sourceTree = "<group>"; };
 		27ACCD0D2431C9D40050CC88 /* JoinedCircleEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoinedCircleEntryModel.h; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.h"; sourceTree = SOURCE_ROOT; };
 		27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoinedCircleEntryModel.m; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.m"; sourceTree = SOURCE_ROOT; };
+		27BF624B24639DDC00B84ECC /* LivePlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePlayerView.h; sourceTree = "<group>"; };
+		27BF624C24639DDC00B84ECC /* LivePlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePlayerView.m; sourceTree = "<group>"; };
+		27BF624E24639E2300B84ECC /* LivePlayerControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePlayerControl.h; sourceTree = "<group>"; };
+		27BF624F24639E2300B84ECC /* LivePlayerControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePlayerControl.m; sourceTree = "<group>"; };
+		27BF62512463A10700B84ECC /* LiveFullPlayerControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveFullPlayerControl.h; sourceTree = "<group>"; };
+		27BF62522463A10700B84ECC /* LiveFullPlayerControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveFullPlayerControl.m; sourceTree = "<group>"; };
+		27BF62542463A18E00B84ECC /* LiveFullPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveFullPlayerView.h; sourceTree = "<group>"; };
+		27BF62552463A18E00B84ECC /* LiveFullPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveFullPlayerView.m; sourceTree = "<group>"; };
+		27BF62572463A27000B84ECC /* LiveFullPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveFullPlayerViewController.h; sourceTree = "<group>"; };
+		27BF62582463A27000B84ECC /* LiveFullPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveFullPlayerViewController.m; sourceTree = "<group>"; };
 		27C8C4E1244D329B00608B09 /* CircleSecondaryDeptListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleSecondaryDeptListFunction.h; sourceTree = "<group>"; };
 		27C8C4E2244D329B00608B09 /* CircleSecondaryDeptListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleSecondaryDeptListFunction.m; sourceTree = "<group>"; };
 		27C8C4E4244D3F9B00608B09 /* ClassifiedProfessorListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifiedProfessorListFunction.h; sourceTree = "<group>"; };
@@ -1453,6 +1468,7 @@
 		27AC9F822421F307008B2698 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				27BF624A24639DC200B84ECC /* 直播播放器 */,
 				27AC9F832421F321008B2698 /* VideoPlayerView.h */,
 				27AC9F842421F321008B2698 /* VideoPlayerView.m */,
 				27AC9F8E24221DDD008B2698 /* VideoPlayerControl.h */,
@@ -1505,6 +1521,23 @@
 				27FF317224342AEB008457BD /* HomeSubjectHeaderView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		27BF624A24639DC200B84ECC /* 直播播放器 */ = {
+			isa = PBXGroup;
+			children = (
+				27BF624B24639DDC00B84ECC /* LivePlayerView.h */,
+				27BF624C24639DDC00B84ECC /* LivePlayerView.m */,
+				27BF624E24639E2300B84ECC /* LivePlayerControl.h */,
+				27BF624F24639E2300B84ECC /* LivePlayerControl.m */,
+				27BF62542463A18E00B84ECC /* LiveFullPlayerView.h */,
+				27BF62552463A18E00B84ECC /* LiveFullPlayerView.m */,
+				27BF62512463A10700B84ECC /* LiveFullPlayerControl.h */,
+				27BF62522463A10700B84ECC /* LiveFullPlayerControl.m */,
+				27BF62572463A27000B84ECC /* LiveFullPlayerViewController.h */,
+				27BF62582463A27000B84ECC /* LiveFullPlayerViewController.m */,
+			);
+			path = "直播播放器";
 			sourceTree = "<group>";
 		};
 		27DB7705243C1827000FB2EE /* Bussiness */ = {
@@ -1758,6 +1791,7 @@
 				27848FCD23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m in Sources */,
 				275463B8245A745D00FA9578 /* MeetingPlayerViewController.m in Sources */,
 				279D129E2437110F00A12FFA /* CirclePageRouter.m in Sources */,
+				27BF62562463A18E00B84ECC /* LiveFullPlayerView.m in Sources */,
 				27848FE023FE6B34004729B2 /* ListModel.m in Sources */,
 				27DB7737243C21FB000FB2EE /* MedicalStartGridTableViewCell.m in Sources */,
 				27002B952456CD5E00370AEF /* ReplayFavoritesFunction.m in Sources */,
@@ -1826,10 +1860,13 @@
 				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,
 				27DB771D243C1827000FB2EE /* MedicalGroupDetailFunction.m in Sources */,
 				27AAC023243EFA8600E5A05B /* HomeMeetingInfoModel.m in Sources */,
+				27BF62532463A10700B84ECC /* LiveFullPlayerControl.m in Sources */,
+				27BF625024639E2300B84ECC /* LivePlayerControl.m in Sources */,
 				27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */,
 				2794BFD2243D69420077E153 /* ProfessorActivityTableViewCell.m in Sources */,
 				274FFDD42446E9C80004252C /* ProfessorInfoEntryModel.m in Sources */,
 				2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */,
+				27BF624D24639DDC00B84ECC /* LivePlayerView.m in Sources */,
 				27DB773D243C56EC000FB2EE /* UserFavoriteFunction.m in Sources */,
 				27E3043F246264A500B9E738 /* MeetingWatchCountTableViewCell.m in Sources */,
 				27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */,
@@ -1851,6 +1888,7 @@
 				277F919223FA274C0055C773 /* main.m in Sources */,
 				2783A4662435B6800058E10A /* VHCache.m in Sources */,
 				277FDA082432DA9900C5CCBF /* HomeRecommandCourseTableViewCell.m in Sources */,
+				27BF62592463A27000B84ECC /* LiveFullPlayerViewController.m in Sources */,
 				2714F97924591398006DCD85 /* VideoFullPlayerViewController.m in Sources */,
 				278A755D2403A6A6005A8994 /* MeetingInfoListTableViewCell.m in Sources */,
 				27DB771B243C1827000FB2EE /* MedicalVideoListBussiness.m in Sources */,
@@ -2036,7 +2074,7 @@
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries",
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WechatSDK",
 				);
-				MARKETING_VERSION = 5.2.5;
+				MARKETING_VERSION = 5.4.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
 				PRODUCT_NAME = "微医汇学习";
@@ -2071,7 +2109,7 @@
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries",
 					"$(PROJECT_DIR)/VHFrameworks/第三方/友盟/UMSocial6.4.8/SocialLibraries/WechatSDK",
 				);
-				MARKETING_VERSION = 5.2.5;
+				MARKETING_VERSION = 5.4.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hushi.VeehuiMoviePlayer;
 				PRODUCT_NAME = "微医汇学习";

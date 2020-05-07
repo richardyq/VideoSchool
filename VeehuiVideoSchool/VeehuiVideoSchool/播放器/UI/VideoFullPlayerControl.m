@@ -13,7 +13,7 @@
 - (void) layoutElements{
     [self.playAndPauseButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(30, 30));
-        make.left.equalTo(self).offset(25);
+        make.left.equalTo(self).offset(Status_Height + 11);
         make.bottom.equalTo(self).offset(-12.5);
     }];
 

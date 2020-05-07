@@ -8,6 +8,7 @@
 
 #import "HomeStartMeetingInfoTableViewCell.h"
 #import "HomeMeetingInfoModel.h"
+#import "MeetingPageRouter.h"
 
 @interface HomeStartMeetingInfoTableViewCell ()
 
@@ -21,7 +22,7 @@
 @property (nonatomic, strong) UILabel* organizationLabel;
 @property (nonatomic, strong) UILabel* watchedNumberLabel;
 
-@property (nonatomic, strong) UIView* moreView;
+@property (nonatomic, strong) UIControl* moreView;
 @property (nonatomic, strong) UILabel* moreLabel;
  
 @end
@@ -150,10 +151,15 @@
     return _watchedNumberLabel;
 }
 
-- (UIView*) moreView{
+- (UIControl*) moreView{
     if (!_moreView) {
-        _moreView = [self.detView addView];
+        _moreView = (UIControl*)[self.detView addView:[UIControl class]];
         [_moreView showBoarder:UIViewBorderLineTypeTop];
+        
+        [_moreView addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            //跳转到学术会议首页
+            [MeetingPageRouter entryMeetingStartPage];
+        }];
     }
     return _moreView;
 }

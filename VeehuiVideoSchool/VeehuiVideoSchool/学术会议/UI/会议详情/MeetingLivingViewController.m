@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
 @end
 
 @implementation MeetingLivingViewController
+@synthesize playerView = _playerView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,6 +52,18 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
     [self.paramDictionary setValue:@(self.meetingDetail.id) forKey:@"meetingId"];
 }
 
+- (VideoPlayerView*) playerView{
+    if (!_playerView) {
+        _playerView = (VideoPlayerView*)[self.view addView:[LivePlayerView class]];
+        _playerView.controlDelegate = self;
+    }
+    return _playerView;
+}
+
+- (Class) fullPlayerViewControllerClass{
+    return [LiveFullPlayerViewController class];
+}
+
 #pragma mark - table view data source
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return SectionCount;
@@ -65,13 +78,20 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
             return self.meetingDetail.conferenceInfos.count;
             break;
         }
-        case Schedule_Section:
+        
+        case Schedule_Section:{
+            if (self.meetingDetail.schedule && [self.meetingDetail.schedule isNotBlank]) {
+                return 1;
+            }
+            break;
+        }
         case Summay_Section:{
-            return 1;
+            if (self.meetingDetail.summary && [self.meetingDetail.summary isNotBlank]) {
+                return 1;
+            }
             break;
         }
     }
-    
     
     return 0;
 }
@@ -138,12 +158,23 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     switch (section) {
         case WatchNumber_Section:
-        case Conference_Section:
-        case Schedule_Section:
-        case Summay_Section:{
+        case Conference_Section:{
             return 7.5;
             break;
         }
+        case Schedule_Section:{
+            if (self.meetingDetail.schedule && [self.meetingDetail.schedule isNotBlank]) {
+                return 7.5;
+            }
+            break;
+        }
+        case Summay_Section:{
+            if (self.meetingDetail.summary && [self.meetingDetail.summary isNotBlank]) {
+                return 7.5;
+            }
+            break;
+        }
+            
         default:
             break;
     }
@@ -206,10 +237,40 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
     }
     self.playerModel.title = self.playingConference.title;
     //self.playerModel.startPosition = self.playingConference.currentTime;
-       //默认播放地址
+    //默认播放地址
     self.playerModel.playerUrl = self.playingConference.originalMuUrl;
+    LivePlayerView* livePlayerView = (LivePlayerView*) self.playerView;
+    if ([self.playingConference.statusCode isEqualToString:@"02"]) {
+        [livePlayerView setStatusText:@"直播"];
+    }
+    else if ([self.playingConference.statusCode isEqualToString:@"03"]){
+        [livePlayerView setStatusText:@"休息"];
+        //茶歇视频
+        self.playerModel.playerUrl = self.playingConference.breakHdUrl;
+    }
     
     //初始化播放器
     [[VideoPlayerUtil shareInstance] setupPlayerModel:self.playerModel];
+}
+
+- (void) setupFullPlayerViewController{
+    __block VideoFullPlayerViewController* fullController = nil;
+    [self.childViewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull controller, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([controller isKindOfClass:[VideoFullPlayerViewController class]] ||
+            [controller isMemberOfClass:[VideoFullPlayerViewController class]]) {
+            fullController = controller;
+            *stop = YES;
+        }
+    }];
+    
+    LivePlayerView* livePlayerView = (LivePlayerView*) fullController.playerView;
+    if ([self.playingConference.statusCode isEqualToString:@"02"]) {
+        [livePlayerView setStatusText:@"直播"];
+    }
+    else if ([self.playingConference.statusCode isEqualToString:@"03"]){
+        [livePlayerView setStatusText:@"休息"];
+        //茶歇视频
+        self.playerModel.playerUrl = self.playingConference.breakHdUrl;
+    }
 }
 @end

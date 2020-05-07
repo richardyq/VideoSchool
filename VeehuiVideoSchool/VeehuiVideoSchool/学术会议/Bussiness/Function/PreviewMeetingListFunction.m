@@ -8,6 +8,7 @@
 
 #import "PreviewMeetingListFunction.h"
 #import "MeetingEntryModel.h"
+#import "UserModuleUtil.h"
 
 @interface PreviewMeetingListFunction ()
 

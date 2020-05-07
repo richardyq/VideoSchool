@@ -13,6 +13,10 @@
 #import "VideoPlayerUtil.h"
 #import "VideoPlayerView.h"
 #import "VideoFullPlayerViewController.h"
+#import "LivePlayerView.h"
+#import "LiveFullPlayerView.h"
+#import "LiveFullPlayerViewController.h"
+
 //阿里云播放器
 #import <AliyunPlayer/AliyunPlayer.h>
 

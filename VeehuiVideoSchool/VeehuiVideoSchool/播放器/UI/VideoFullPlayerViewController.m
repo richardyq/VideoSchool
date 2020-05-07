@@ -13,7 +13,7 @@
 @property (nonatomic) UIDeviceOrientation orientation;
 @property (nonatomic) CGRect originalFrame;
 
-@property (nonatomic, strong) VideoPlayerView* playerView;
+//@property (nonatomic, strong) VideoPlayerView* playerView;
 
 @property (nonatomic, copy) FullPlayerClosedAction closeAction;
 
@@ -61,12 +61,16 @@
 #pragma mark - settingAndGetting
 - (VideoPlayerView*) playerView{
     if (!_playerView) {
-        _playerView = (VideoPlayerView*)[self.view addView:[VideoFullPlayerView class] frame:self.originalFrame];
+        _playerView = (VideoPlayerView*)[self.view addView:[self playerViewClass] frame:self.originalFrame];
         _playerView.backgroundColor = [UIColor blackColor];
         _playerView.controlDelegate = self;
     }
     
     return _playerView;
+}
+
+- (Class) playerViewClass{
+    return [VideoFullPlayerView class];
 }
 
 #pragma mark - 旋转动画

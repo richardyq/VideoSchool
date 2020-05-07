@@ -35,7 +35,7 @@
     if ([UIDevice currentDevice].isPad) {
         tableWidth = kScreenWidth * 0.7;
     }
-    __block CGFloat playerHeight = tableWidth * (275./375.);
+    __block CGFloat playerHeight = tableWidth * (211./375.);
     
     [self.topmostView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.view);

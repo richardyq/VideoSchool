@@ -82,6 +82,9 @@
                      failure:(VHHttpReqeustFailedHandler)failure{
     self.operationManager.requestSerializer.timeoutInterval = 20.f;
     [self setUserTokenToHeaderField];
+    NSString* appVersion=[NSObject appVersion];
+    [self.operationManager.requestSerializer setValue:appVersion forHTTPHeaderField:@"loginVersion"];
+    [self.operationManager.requestSerializer setValue:@"IOS" forHTTPHeaderField:@"os"];
     /*
     if(parameters!=nil&&[parameters count]>0){ //请求参数需要替换
         for (NSString *key in [parameters allKeys]) {
@@ -158,6 +161,9 @@
     
     // 设置请求头
     [self.operationManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    NSString* appVersion=[NSObject appVersion];
+    [self.operationManager.requestSerializer setValue:appVersion forHTTPHeaderField:@"loginVersion"];
+    [self.operationManager.requestSerializer setValue:@"IOS" forHTTPHeaderField:@"os"];
     
     WS(weakSelf)
     NSURLSessionDataTask *dataTask=[self.operationManager PUT:URLString parameters:parameters  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

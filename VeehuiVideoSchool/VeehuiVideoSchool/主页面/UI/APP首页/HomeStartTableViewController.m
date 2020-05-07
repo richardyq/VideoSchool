@@ -427,6 +427,11 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
+        case Meeting_Section:{
+            NSInteger meetingId = self.homeMeetingInfo.id;
+            [MeetingPageRouter entryMeetingDatailPage:meetingId];
+            break;
+        }
         case Video_Section:{
             MedicalVideoGroupInfoListModel* videoGroup = self.recommandVideosList.content[indexPath.row];
             [MedicalVideoPageRouter entryMedicalVideoDetailPage:videoGroup.id];
@@ -446,6 +451,8 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             }
             else if (row <= subject.meetingInfos.count){
                 //跳转到会议
+                MeetingEntryModel* meeting = subject.meetingInfos[row - 1];
+                [MeetingPageRouter entryMeetingDatailPage:meeting.id];
             }
             else{
                 //cell = [tableView dequeueReusableCellWithIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
