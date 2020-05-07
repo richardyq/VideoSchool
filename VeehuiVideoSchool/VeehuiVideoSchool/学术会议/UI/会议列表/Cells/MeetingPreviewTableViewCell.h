@@ -8,13 +8,13 @@
 
 #import "VHTableViewCell.h"
 
-@class MeetingListModel;
+@class MeetingPreviewGatherModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MeetingPreviewTableViewCell : VHTableViewCell
 
-- (id) initWithMeetingList:(MeetingListModel*) meetinglist;
+- (id) initWithMeetingGather:(MeetingPreviewGatherModel*) meetingGather;
 
 @end
 

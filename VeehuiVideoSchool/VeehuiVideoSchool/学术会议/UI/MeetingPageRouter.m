@@ -13,6 +13,7 @@
 #import "MeetingDetailModel.h"
 #import "MeetingReplayViewController.h"
 #import "MeetingLivingViewController.h"
+#import "MeetingPreviewListViewController.h"
 
 @implementation MeetingPageRouter
 
@@ -25,6 +26,12 @@
 //跳转到会议视频（回放）分类列表
 + (void) entryMeetingReplayPage:(MedicalVideoClassifyEntryModel*) subject{
     VHBaseViewController* controller = [[MeetingReplayListViewController alloc] initWithSeniorSubject:subject];
+    [VHPageRouter entryPageController:controller];
+}
+
+//跳转到会议预告列表
++ (void) entryMeetingPreviewsPage{
+    VHBaseViewController* controller = [[MeetingPreviewListViewController alloc] init];
     [VHPageRouter entryPageController:controller];
 }
 

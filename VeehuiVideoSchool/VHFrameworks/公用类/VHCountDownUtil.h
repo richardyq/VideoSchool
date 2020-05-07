@@ -16,9 +16,12 @@ extern NSString* const kCountDownNotifitionName;
 
 + (instancetype)shareInstance;
 
++ (time_t) getCurrentTime;
+
 - (void) startCountDown:(id) sender;
 
 - (void) stopCountDown:(id) sender;
+
 @end
 
 NS_ASSUME_NONNULL_END

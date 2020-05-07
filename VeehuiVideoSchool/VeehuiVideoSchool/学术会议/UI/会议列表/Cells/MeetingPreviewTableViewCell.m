@@ -7,7 +7,8 @@
 //
 
 #import "MeetingPreviewTableViewCell.h"
-#import "MeetingEntryModel.h"
+#import "MeetingPreviewGatherModel.h"
+#import "MeetingPageRouter.h"
 
 @interface MeetingPreviewInfoCell : UIControl
 
@@ -80,11 +81,11 @@
     return self;
 }
 
-- (id) initWithMeetingList:(MeetingListModel*) meetingList{
+- (id) initWithMeetingGather:(MeetingPreviewGatherModel*) meetingGather{
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MeetingPreviewTableViewCell"];
     if (self) {
         self.contentView.backgroundColor = [UIColor commonBackgroundColor];
-        [self setEntryModel:meetingList];
+        [self setEntryModel:meetingGather];
     }
     return self;
 }
@@ -104,7 +105,7 @@
         }
     }];
     
-    __block MASViewAttribute* cellTop = self.infoView.mas_top;
+    __block MASViewAttribute* cellTop = self.previewView.mas_top;
     [self.infoCells enumerateObjectsUsingBlock:^(MeetingPreviewInfoCell * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
         [cell mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.previewView);
@@ -121,6 +122,7 @@
     if (self.showMoreView) {
         [self.moreView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self.infoView);
+            make.top.equalTo(self.previewView.mas_bottom);
             make.height.mas_equalTo(@(41));
         }];
         
@@ -156,7 +158,10 @@
 
 - (UIControl*) moreView{
     if (!_moreView) {
-        _moreView = (UIControl*)[self addView:[UIControl class]];
+        _moreView = (UIControl*)[self.infoView addView:[UIControl class]];
+        [_moreView addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            [MeetingPageRouter entryMeetingPreviewsPage];
+        }];
     }
     return _moreView;
 }
@@ -169,25 +174,23 @@
 }
 
 - (void) setEntryModel:(EntryModel*) model{
-    if (!model || ![model isKindOfClass:[MeetingListModel class]]) {
+    if (!model || ![model isKindOfClass:[MeetingPreviewGatherModel class]]) {
         return;
     }
     
-    MeetingListModel* meetingList = (MeetingListModel*) model;
-    [meetingList.content enumerateObjectsUsingBlock:^(EntryModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+    MeetingPreviewGatherModel* meetingList = (MeetingPreviewGatherModel*) model;
+    [meetingList.meetings enumerateObjectsUsingBlock:^(EntryModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
         MeetingEntryModel* meeting = (MeetingEntryModel*) model;
         MeetingPreviewInfoCell* cell = [[MeetingPreviewInfoCell alloc] initWithMeetingModel:meeting];
         [self.infoCells addObject:cell];
         [self.previewView addSubview:cell];
-        if (idx >= 2) {
-            *stop = YES;
-            self.showMoreView = YES;
-            return ;
-        }
+       
     }];
     
+    self.showMoreView = (meetingList.count > 3);
+    
     if (self.showMoreView) {
-        self.moreLabel.text = [NSString stringWithFormat:@"共%ld场会议直播预告  点击查看全部>>", meetingList.totalElements];
+        self.moreLabel.text = [NSString stringWithFormat:@"共%ld场会议直播预告  点击查看全部>>", meetingList.count];
     }
 }
 

@@ -44,6 +44,15 @@ startLoadPreviewMeetingList
 + (void) startLoadPreviewMeetingList:(VHRequestResultHandler) result
                             complete:(VHRequestCompleteHandler) complete;
 
+/**
+startLoadPreviewMeetingGather
+获取会议预告集合-会议首页调用
+
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) startLoadPreviewMeetingGather:(VHRequestResultHandler) result
+                              complete:(VHRequestCompleteHandler) complete;
 
 /**
 startLoadReplayMeetingList

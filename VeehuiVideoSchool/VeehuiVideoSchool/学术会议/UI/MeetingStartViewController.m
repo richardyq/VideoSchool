@@ -8,7 +8,7 @@
 
 #import "MeetingStartViewController.h"
 #import "MeetingGatherEntryModel.h"
-
+#import "MeetingPreviewGatherModel.h"
 #import "MeetingBussiness.h"
 #import "MeetingEntryModel.h"
 #import "MeetingInfoListTableViewCell.h"
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 //直播会议列表
 @property (nonatomic, strong) NSMutableArray<MeetingEntryModel*>* liveMeetings;
 
-@property (nonatomic, strong) MeetingListModel* previewMeetingList;
+@property (nonatomic, strong) MeetingPreviewGatherModel* previewMeetingGather;
 
 @property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* favorites;
 //@property (nonatomic, strong) SegmentView* favoriteSegmentView;
@@ -127,9 +127,9 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 //获取会议预告列表
 - (void) startLoadPreviewMeetings{
     WS(weakSelf)
-    [MeetingBussiness startLoadPreviewMeetingList:^(id result) {
+    [MeetingBussiness startLoadPreviewMeetingGather:^(id result) {
         SAFE_WEAKSELF(weakSelf)
-        if ([result isKindOfClass:[MeetingListModel class]]) {
+        if ([result isKindOfClass:[MeetingPreviewGatherModel class]]) {
             [weakSelf previewMeetingsLoaded:result];
         }
     } complete:^(NSInteger code, NSString *message) {
@@ -144,8 +144,8 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     }];
 }
 
-- (void) previewMeetingsLoaded:(MeetingListModel*) listModel{
-    self.previewMeetingList = listModel;
+- (void) previewMeetingsLoaded:(MeetingPreviewGatherModel*) gatherModel{
+    self.previewMeetingGather = gatherModel;
 }
 
 //回放兴趣
@@ -230,8 +230,8 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             break;
         }
         case MeetingPreviewSection:{
-            if (self.previewMeetingList &&
-                self.previewMeetingList.content.count > 0) {
+            if (self.previewMeetingGather &&
+                self.previewMeetingGather.count > 0) {
                 return 1;
             }
             return 0;
@@ -269,7 +269,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             break;
         }
         case MeetingPreviewSection:{
-            cell = [[MeetingPreviewTableViewCell alloc] initWithMeetingList:self.previewMeetingList];
+            cell = [[MeetingPreviewTableViewCell alloc] initWithMeetingGather:self.previewMeetingGather];
             break;
         }
         case MeetingFavoriteSection:{
@@ -298,8 +298,8 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
             break;
         }
         case MeetingPreviewSection:{
-            if (self.previewMeetingList &&
-                self.previewMeetingList.content.count > 0) {
+            if (self.previewMeetingGather &&
+                self.previewMeetingGather.count > 0) {
                 return 47.;
             }
             break;
@@ -320,7 +320,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView* headerview= [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableview.width, 47.)];
-    headerview.backgroundColor = [UIColor whiteColor];
+    headerview.backgroundColor = [UIColor commonBackgroundColor];
     
     UILabel* titleLabel = [headerview addLabel:[UIColor commonTextColor] textSize:16 weight:UIFontWeightMedium];
     switch (section) {

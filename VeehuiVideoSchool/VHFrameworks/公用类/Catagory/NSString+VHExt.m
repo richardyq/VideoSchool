@@ -75,10 +75,17 @@
     NSInteger second = duration % 60;
     NSInteger minute = (duration / 60) % 60;
     NSInteger hour = (duration / 3600) % 60;
+    NSInteger day = (duration / (3600 * 24)) ;
     
     NSString* durationString = [NSString stringWithFormat:@"%02zd:%02zd", minute, second];
-    if (hour > 0) {
+    
+    if (hour > 0 || day > 0) {
         durationString = [NSString stringWithFormat:@"%02zd:%02zd:%02zd", hour, minute, second];
+        
+    }
+    if (day > 0) {
+        
+        durationString = [NSString stringWithFormat:@"%ld天 %02zd:%02zd:%02zd", day, hour, minute, second];
     }
     return durationString;
 }

@@ -47,6 +47,12 @@ NSString* const kCountDownNotifitionName = @"CountDownNotifititionName";
     return instatnce;
 }
 
++ (time_t) getCurrentTime{
+    time_t now;
+    time(&now);
+    return now;
+}
+
 - (void) startCountDown:(id) sender{
     if (!sender) {
         return;

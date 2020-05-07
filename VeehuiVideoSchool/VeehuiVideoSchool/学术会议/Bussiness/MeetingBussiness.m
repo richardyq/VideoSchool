@@ -16,6 +16,7 @@
 #import "MeetingDetailFunction.h"
 #import "MeetingReplayDetailFunction.h"
 #import "MeetingLivingDetailFunction.h"
+#import "PreviewMeetingsFunction.h"
 
 @implementation MeetingBussiness
 
@@ -65,6 +66,13 @@
 + (void) startLoadPreviewMeetingList:(VHRequestResultHandler) result
                          complete:(VHRequestCompleteHandler) complete{
     VHHTTPFunction* function = [[PreviewMeetingListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//获取会议预告集合-会议首页调用
++ (void) startLoadPreviewMeetingGather:(VHRequestResultHandler) result
+                              complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[PreviewMeetingsFunction alloc] init];
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 

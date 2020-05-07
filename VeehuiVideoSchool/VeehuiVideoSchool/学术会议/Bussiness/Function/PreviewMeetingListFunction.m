@@ -7,7 +7,7 @@
 //
 
 #import "PreviewMeetingListFunction.h"
-#import "MeetingEntryModel.h"
+#import "MeetingPreviewSectionModel.h"
 #import "UserModuleUtil.h"
 
 @interface PreviewMeetingListFunction ()
@@ -26,8 +26,13 @@
 
 
 - (id) paraserResponse:(id) response{
-    if (response && [response isKindOfClass:[NSDictionary class]]) {
-        return [MeetingListModel mj_objectWithKeyValues:response];
+    if (response && [response isKindOfClass:[NSArray class]]) {
+        NSArray<NSDictionary*>* dicts = (NSArray<NSDictionary*>*) response;
+        NSMutableArray<MeetingPreviewSectionModel*>* sections = [NSMutableArray<MeetingPreviewSectionModel*> array];
+        [dicts enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull dict, NSUInteger idx, BOOL * _Nonnull stop) {
+            [sections addObject:[MeetingPreviewSectionModel mj_objectWithKeyValues:dict]];
+        }];
+        return sections;
     }
     return nil;
 }
