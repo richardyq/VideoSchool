@@ -187,6 +187,55 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
     return footerview;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case Conference_Section:{
+            return 45.;
+            break;
+        }
+        default:
+            break;
+    }
+    return 0;
+}
+
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case Conference_Section:{
+            UIView* headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableview.width, 45)];
+            headerview.backgroundColor = [UIColor commonBackgroundColor];
+            UILabel* nameLabel = [headerview addLabel:[UIColor commonTextColor] textSize:15 weight:UIFontWeightMedium];
+            [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(headerview);
+                make.left.equalTo(headerview).offset(10);
+            }];
+            nameLabel.text = @"会议直播";
+            
+            UIButton* refeshButton = [headerview addButtonWithImageName:@"ic_refresh"];
+            [refeshButton setTitle:@" 刷新" forState:UIControlStateNormal];
+            [refeshButton setTitleColor:[UIColor mainThemeColor] forState:UIControlStateNormal];
+            refeshButton.titleLabel.font = [UIFont systemFontOfSize:12];
+            
+            [refeshButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                //make.size.mas_equalTo(CGSizeMake(25, 25));
+                make.centerY.equalTo(headerview);
+                make.right.equalTo(headerview).offset(-10);
+            }];
+            
+            WS(weakSelf)
+            [refeshButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+                SAFE_WEAKSELF(weakSelf)
+                [weakSelf refreshMeetingDetail];
+            }];
+            return headerview;
+            break;
+        }
+        default:
+            break;
+    }
+    return nil;
+}
+
 - (VHTableViewCell*) tableViewCell:(Class) class indexPath:(NSIndexPath*) indexPath{
     
     VHTableViewCell* cell = [super tableViewCell:class indexPath:indexPath];
@@ -195,7 +244,7 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
         case Conference_Section:{
             MeetingLivingConferenceTableViewCell* conferenceCell = (MeetingLivingConferenceTableViewCell*) cell;
             MeetingConferenceModel* conference = self.meetingDetail.conferenceInfos[indexPath.row];
-            BOOL isPlaying = (self.playingConference == conference);
+            BOOL isPlaying = (self.playingConference.id == conference.id);
             [conferenceCell setIsPlaying:isPlaying];
             break;
         }
@@ -272,5 +321,25 @@ typedef NS_ENUM(NSUInteger, MeetingLivingTableSection) {
         //茶歇视频
         self.playerModel.playerUrl = self.playingConference.breakHdUrl;
     }
+}
+
+#pragma mark 刷新会场信息
+- (void) refreshMeetingDetail{
+    WS(weakSelf)
+    [MessageHubUtil showWait];
+    [MeetingBussiness startLoadMeetingDetail:self.meetingDetail.id result:^(id result) {
+        SAFE_WEAKSELF(weakSelf)
+        if ([result isKindOfClass:[MeetingDetailModel class]]) {
+            weakSelf.meetingDetail = result;
+        }
+    } complete:^(NSInteger code, NSString *message) {
+        [MessageHubUtil hideMessage];
+        SAFE_WEAKSELF(weakSelf)
+        if (code != 0) {
+            [MessageHubUtil showErrorMessage:message];
+            return;
+        }
+        [weakSelf.tableview reloadData];
+    }];
 }
 @end
