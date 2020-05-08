@@ -8,6 +8,7 @@
 
 #import "MeetingPreviewInDayTableViewCell.h"
 #import "MeetingPreviewDayModel.h"
+#import "MeetingPageRouter.h"
 
 @interface MeetingPreviewInDayCell : UIControl
 
@@ -268,6 +269,10 @@
         MeetingPreviewInDayCell* meetingCell = [[MeetingPreviewInDayCell alloc] initWithMeeting:meeting];
         [self.meetingCells addObject:meetingCell];
         [self.contentView addSubview:meetingCell];
+        
+        [meetingCell addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            [MeetingPageRouter entryMeetingDatailPage:meeting.id];
+        }];
     }];
 }
 

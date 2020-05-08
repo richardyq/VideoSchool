@@ -119,6 +119,18 @@ startLoadMeetingLivingDetail
 + (void) startLoadMeetingLivingDetail:(NSInteger) meetingId
                                result:(VHRequestResultHandler) result
                              complete:(VHRequestCompleteHandler) complete;
+
+/**
+ 预约/取消预约会议
+ @param typeCode        操作类型['0':'取消','1':'预约']
+ @param meetingId       meetingId  会议id
+ @param result          result 请求数据结果返回回调方法
+ @param complete        complete 请求结束回调方法
+ */
++ (void) appointMeeting:(NSInteger) typeCode
+              meetingId:(NSInteger) meetingId
+                 result:(VHRequestResultHandler) result
+               complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

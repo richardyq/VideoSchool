@@ -64,7 +64,6 @@
 		275A3B6A2445428D00ECE566 /* ActiveProfessorListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 275A3B692445428D00ECE566 /* ActiveProfessorListFunction.m */; };
 		275A3B6D2445463D00ECE566 /* CircleDeptListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 275A3B6C2445463D00ECE566 /* CircleDeptListFunction.m */; };
 		27634E812457C82D008A3DC6 /* MeetingFavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27634E802457C82D008A3DC6 /* MeetingFavoriteTableViewCell.m */; };
-		27634E842457DA5E008A3DC6 /* MeetingReplayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27634E832457DA5E008A3DC6 /* MeetingReplayListViewController.m */; };
 		2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */; };
 		27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 27765B1024172E7100D6A0A5 /* UITableView+VHExt.m */; };
 		27765B142417394000D6A0A5 /* MedicalCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27765B132417394000D6A0A5 /* MedicalCourseListViewController.m */; };
@@ -160,9 +159,6 @@
 		27BF625C2463B17E00B84ECC /* PreviewMeetingsFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF625B2463B17E00B84ECC /* PreviewMeetingsFunction.m */; };
 		27BF625F2463B28600B84ECC /* MeetingPreviewSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF625E2463B28600B84ECC /* MeetingPreviewSectionModel.m */; };
 		27BF62622463B42800B84ECC /* MeetingPreviewGatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF62612463B42800B84ECC /* MeetingPreviewGatherModel.m */; };
-		27BF62652463D67100B84ECC /* MeetingPreviewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF62642463D67100B84ECC /* MeetingPreviewListViewController.m */; };
-		27BF62682463E50A00B84ECC /* MeetingPreviewSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF62672463E50A00B84ECC /* MeetingPreviewSectionTableViewController.m */; };
-		27BF626B2463E76100B84ECC /* MeetingPreviewWholeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF626A2463E76100B84ECC /* MeetingPreviewWholeTableViewController.m */; };
 		27C8C4E3244D329B00608B09 /* CircleSecondaryDeptListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C8C4E2244D329B00608B09 /* CircleSecondaryDeptListFunction.m */; };
 		27C8C4E6244D3F9B00608B09 /* ClassifiedProfessorListFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C8C4E5244D3F9B00608B09 /* ClassifiedProfessorListFunction.m */; };
 		27DB7701243C0B51000FB2EE /* HomeAdvertisesFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB7700243C0B51000FB2EE /* HomeAdvertisesFunction.m */; };
@@ -192,6 +188,14 @@
 		27E30442246268AC00B9E738 /* MeetingScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E30441246268AC00B9E738 /* MeetingScheduleTableViewCell.m */; };
 		27E304452462767F00B9E738 /* MeetingSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E304442462767F00B9E738 /* MeetingSummaryTableViewCell.m */; };
 		27E30448246276B400B9E738 /* MeetingLivingSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E30447246276B400B9E738 /* MeetingLivingSummaryTableViewCell.m */; };
+		27F6DCC92464E5CD0084BC8E /* MeetingPreviewSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCC22464E5CC0084BC8E /* MeetingPreviewSectionTableViewController.m */; };
+		27F6DCCA2464E5CD0084BC8E /* MeetingReplayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCC32464E5CD0084BC8E /* MeetingReplayListViewController.m */; };
+		27F6DCCB2464E5CD0084BC8E /* MeetingPreviewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCC62464E5CD0084BC8E /* MeetingPreviewListViewController.m */; };
+		27F6DCCC2464E5CD0084BC8E /* MeetingPreviewWholeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCC72464E5CD0084BC8E /* MeetingPreviewWholeTableViewController.m */; };
+		27F6DCD02464E63A0084BC8E /* MeetingPreviewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCCF2464E63A0084BC8E /* MeetingPreviewDetailViewController.m */; };
+		27F6DCD42464E85A0084BC8E /* MeetingPreviewDetailImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCD32464E85A0084BC8E /* MeetingPreviewDetailImageTableViewCell.m */; };
+		27F6DCD72464EDB00084BC8E /* MeetingPreviewDetailCountdownTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCD62464EDB00084BC8E /* MeetingPreviewDetailCountdownTableViewCell.m */; };
+		27F6DCDA2465025C0084BC8E /* AppointMeetingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F6DCD92465025C0084BC8E /* AppointMeetingFunction.m */; };
 		27FF316D24342588008457BD /* SubjectEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316C24342588008457BD /* SubjectEntryModel.m */; };
 		27FF317024342A4A008457BD /* HomeSubjectEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF316F24342A4A008457BD /* HomeSubjectEntry.m */; };
 		27FF317324342AEB008457BD /* HomeSubjectHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF317224342AEB008457BD /* HomeSubjectHeaderView.m */; };
@@ -320,8 +324,6 @@
 		275A3B6C2445463D00ECE566 /* CircleDeptListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleDeptListFunction.m; sourceTree = "<group>"; };
 		27634E7F2457C82D008A3DC6 /* MeetingFavoriteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingFavoriteTableViewCell.h; sourceTree = "<group>"; };
 		27634E802457C82D008A3DC6 /* MeetingFavoriteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingFavoriteTableViewCell.m; sourceTree = "<group>"; };
-		27634E822457DA5E008A3DC6 /* MeetingReplayListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingReplayListViewController.h; sourceTree = "<group>"; };
-		27634E832457DA5E008A3DC6 /* MeetingReplayListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingReplayListViewController.m; sourceTree = "<group>"; };
 		2771A2D523FF7F2E00FCAF7A /* MessageHubUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageHubUtil.h; sourceTree = "<group>"; };
 		2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageHubUtil.m; sourceTree = "<group>"; };
 		27765B0F24172E7100D6A0A5 /* UITableView+VHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+VHExt.h"; sourceTree = "<group>"; };
@@ -513,12 +515,6 @@
 		27BF625E2463B28600B84ECC /* MeetingPreviewSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewSectionModel.m; sourceTree = "<group>"; };
 		27BF62602463B42800B84ECC /* MeetingPreviewGatherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewGatherModel.h; sourceTree = "<group>"; };
 		27BF62612463B42800B84ECC /* MeetingPreviewGatherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewGatherModel.m; sourceTree = "<group>"; };
-		27BF62632463D67100B84ECC /* MeetingPreviewListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewListViewController.h; sourceTree = "<group>"; };
-		27BF62642463D67100B84ECC /* MeetingPreviewListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewListViewController.m; sourceTree = "<group>"; };
-		27BF62662463E50A00B84ECC /* MeetingPreviewSectionTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewSectionTableViewController.h; sourceTree = "<group>"; };
-		27BF62672463E50A00B84ECC /* MeetingPreviewSectionTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewSectionTableViewController.m; sourceTree = "<group>"; };
-		27BF62692463E76100B84ECC /* MeetingPreviewWholeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewWholeTableViewController.h; sourceTree = "<group>"; };
-		27BF626A2463E76100B84ECC /* MeetingPreviewWholeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewWholeTableViewController.m; sourceTree = "<group>"; };
 		27C8C4E1244D329B00608B09 /* CircleSecondaryDeptListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleSecondaryDeptListFunction.h; sourceTree = "<group>"; };
 		27C8C4E2244D329B00608B09 /* CircleSecondaryDeptListFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleSecondaryDeptListFunction.m; sourceTree = "<group>"; };
 		27C8C4E4244D3F9B00608B09 /* ClassifiedProfessorListFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifiedProfessorListFunction.h; sourceTree = "<group>"; };
@@ -577,6 +573,22 @@
 		27E304442462767F00B9E738 /* MeetingSummaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingSummaryTableViewCell.m; sourceTree = "<group>"; };
 		27E30446246276B400B9E738 /* MeetingLivingSummaryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingLivingSummaryTableViewCell.h; sourceTree = "<group>"; };
 		27E30447246276B400B9E738 /* MeetingLivingSummaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingLivingSummaryTableViewCell.m; sourceTree = "<group>"; };
+		27F6DCC12464E5CC0084BC8E /* MeetingPreviewWholeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewWholeTableViewController.h; sourceTree = "<group>"; };
+		27F6DCC22464E5CC0084BC8E /* MeetingPreviewSectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewSectionTableViewController.m; sourceTree = "<group>"; };
+		27F6DCC32464E5CD0084BC8E /* MeetingReplayListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingReplayListViewController.m; sourceTree = "<group>"; };
+		27F6DCC42464E5CD0084BC8E /* MeetingPreviewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewListViewController.h; sourceTree = "<group>"; };
+		27F6DCC52464E5CD0084BC8E /* MeetingPreviewSectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewSectionTableViewController.h; sourceTree = "<group>"; };
+		27F6DCC62464E5CD0084BC8E /* MeetingPreviewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewListViewController.m; sourceTree = "<group>"; };
+		27F6DCC72464E5CD0084BC8E /* MeetingPreviewWholeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewWholeTableViewController.m; sourceTree = "<group>"; };
+		27F6DCC82464E5CD0084BC8E /* MeetingReplayListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingReplayListViewController.h; sourceTree = "<group>"; };
+		27F6DCCE2464E63A0084BC8E /* MeetingPreviewDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewDetailViewController.h; sourceTree = "<group>"; };
+		27F6DCCF2464E63A0084BC8E /* MeetingPreviewDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewDetailViewController.m; sourceTree = "<group>"; };
+		27F6DCD22464E85A0084BC8E /* MeetingPreviewDetailImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewDetailImageTableViewCell.h; sourceTree = "<group>"; };
+		27F6DCD32464E85A0084BC8E /* MeetingPreviewDetailImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewDetailImageTableViewCell.m; sourceTree = "<group>"; };
+		27F6DCD52464EDB00084BC8E /* MeetingPreviewDetailCountdownTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingPreviewDetailCountdownTableViewCell.h; sourceTree = "<group>"; };
+		27F6DCD62464EDB00084BC8E /* MeetingPreviewDetailCountdownTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingPreviewDetailCountdownTableViewCell.m; sourceTree = "<group>"; };
+		27F6DCD82465025C0084BC8E /* AppointMeetingFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointMeetingFunction.h; sourceTree = "<group>"; };
+		27F6DCD92465025C0084BC8E /* AppointMeetingFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointMeetingFunction.m; sourceTree = "<group>"; };
 		27FF316B24342588008457BD /* SubjectEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectEntryModel.h; sourceTree = "<group>"; };
 		27FF316C24342588008457BD /* SubjectEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectEntryModel.m; sourceTree = "<group>"; };
 		27FF316E24342A4A008457BD /* HomeSubjectEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSubjectEntry.h; sourceTree = "<group>"; };
@@ -1255,19 +1267,11 @@
 		278A753C24036C8E005A8994 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				278A754724036F2D005A8994 /* Views */,
+				27F6DCCD2464E5FB0084BC8E /* 会议预告 */,
 				275463B2245A729B00FA9578 /* 会议详情 */,
 				278A753D24036C8E005A8994 /* 会议列表 */,
 				278A754124036D03005A8994 /* MeetingStartViewController.h */,
 				278A754224036D03005A8994 /* MeetingStartViewController.m */,
-				27634E822457DA5E008A3DC6 /* MeetingReplayListViewController.h */,
-				27634E832457DA5E008A3DC6 /* MeetingReplayListViewController.m */,
-				27BF62632463D67100B84ECC /* MeetingPreviewListViewController.h */,
-				27BF62642463D67100B84ECC /* MeetingPreviewListViewController.m */,
-				27BF62662463E50A00B84ECC /* MeetingPreviewSectionTableViewController.h */,
-				27BF62672463E50A00B84ECC /* MeetingPreviewSectionTableViewController.m */,
-				27BF62692463E76100B84ECC /* MeetingPreviewWholeTableViewController.h */,
-				27BF626A2463E76100B84ECC /* MeetingPreviewWholeTableViewController.m */,
 				278A754424036D29005A8994 /* MeetingPageRouter.h */,
 				278A754524036D29005A8994 /* MeetingPageRouter.m */,
 			);
@@ -1278,6 +1282,14 @@
 			isa = PBXGroup;
 			children = (
 				278A755A2403A5E5005A8994 /* Cells */,
+				27F6DCC42464E5CD0084BC8E /* MeetingPreviewListViewController.h */,
+				27F6DCC62464E5CD0084BC8E /* MeetingPreviewListViewController.m */,
+				27F6DCC52464E5CD0084BC8E /* MeetingPreviewSectionTableViewController.h */,
+				27F6DCC22464E5CC0084BC8E /* MeetingPreviewSectionTableViewController.m */,
+				27F6DCC12464E5CC0084BC8E /* MeetingPreviewWholeTableViewController.h */,
+				27F6DCC72464E5CD0084BC8E /* MeetingPreviewWholeTableViewController.m */,
+				27F6DCC82464E5CD0084BC8E /* MeetingReplayListViewController.h */,
+				27F6DCC32464E5CD0084BC8E /* MeetingReplayListViewController.m */,
 			);
 			path = "会议列表";
 			sourceTree = "<group>";
@@ -1315,6 +1327,8 @@
 				275463C4245AB04B00FA9578 /* MeetingReplayDetailFunction.m */,
 				27E304372462563500B9E738 /* MeetingLivingDetailFunction.h */,
 				27E304382462563500B9E738 /* MeetingLivingDetailFunction.m */,
+				27F6DCD82465025C0084BC8E /* AppointMeetingFunction.h */,
+				27F6DCD92465025C0084BC8E /* AppointMeetingFunction.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1338,13 +1352,6 @@
 				27AAC022243EFA8600E5A05B /* HomeMeetingInfoModel.m */,
 			);
 			path = DataModel;
-			sourceTree = "<group>";
-		};
-		278A754724036F2D005A8994 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		278A755A2403A5E5005A8994 /* Cells */ = {
@@ -1632,6 +1639,27 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		27F6DCCD2464E5FB0084BC8E /* 会议预告 */ = {
+			isa = PBXGroup;
+			children = (
+				27F6DCD12464E8410084BC8E /* Cells */,
+				27F6DCCE2464E63A0084BC8E /* MeetingPreviewDetailViewController.h */,
+				27F6DCCF2464E63A0084BC8E /* MeetingPreviewDetailViewController.m */,
+			);
+			path = "会议预告";
+			sourceTree = "<group>";
+		};
+		27F6DCD12464E8410084BC8E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				27F6DCD22464E85A0084BC8E /* MeetingPreviewDetailImageTableViewCell.h */,
+				27F6DCD32464E85A0084BC8E /* MeetingPreviewDetailImageTableViewCell.m */,
+				27F6DCD52464EDB00084BC8E /* MeetingPreviewDetailCountdownTableViewCell.h */,
+				27F6DCD62464EDB00084BC8E /* MeetingPreviewDetailCountdownTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		27FF316A24342577008457BD /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1801,6 +1829,7 @@
 				275463B5245A72BD00FA9578 /* MeetingReplayViewController.m in Sources */,
 				279D12A1243719C600A12FFA /* SeniorSubjectListFunction.m in Sources */,
 				27206DA923FCDFE6004A9C85 /* HomeStartNavigationView.m in Sources */,
+				27F6DCDA2465025C0084BC8E /* AppointMeetingFunction.m in Sources */,
 				27E30436246255D100B9E738 /* MeetingLivingViewController.m in Sources */,
 				27DB7704243C0BA5000FB2EE /* AdvertiseEntryModel.m in Sources */,
 				270A030F23FB90D200FD4431 /* UserInfoBusiness.m in Sources */,
@@ -1811,12 +1840,14 @@
 				27DB771C243C1827000FB2EE /* HomeRecommandCourseListFunction.m in Sources */,
 				271DC8FD2463EBB000D61D0A /* MeetingPreviewDayModel.m in Sources */,
 				270A032B23FBD21300FD4431 /* CommonBaseBussiness.m in Sources */,
+				27F6DCCA2464E5CD0084BC8E /* MeetingReplayListViewController.m in Sources */,
 				27DB7722243C1827000FB2EE /* MedicalCourseListFunction.m in Sources */,
 				278A754D2403703C005A8994 /* MeetingGatherEntryModel.m in Sources */,
 				27AC9F9024221DDD008B2698 /* VideoPlayerControl.m in Sources */,
 				277F91DD23FA752D0055C773 /* WechatUtil.m in Sources */,
 				27DB772F243C1831000FB2EE /* MedicalVideoClassifyEntryModel.m in Sources */,
 				27848FDC23FE6426004729B2 /* VHBaseListViewController.m in Sources */,
+				27F6DCD02464E63A0084BC8E /* MeetingPreviewDetailViewController.m in Sources */,
 				27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */,
 				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
 				2759AD7C2424C098006E4B72 /* UserValidateTokenFunction.m in Sources */,
@@ -1825,10 +1856,8 @@
 				279D12A72437247800A12FFA /* VHCollectionViewCell.m in Sources */,
 				275A3B6A2445428D00ECE566 /* ActiveProfessorListFunction.m in Sources */,
 				278F3FFF242DF38300D0B4AC /* HomeStartMeetingInfoTableViewCell.m in Sources */,
-				27BF626B2463E76100B84ECC /* MeetingPreviewWholeTableViewController.m in Sources */,
 				277FDA0C2432E22500C5CCBF /* MedicalVideoGridControl.m in Sources */,
 				27AA25B22418DB8200D31AA4 /* UILabel+VHExt.m in Sources */,
-				27634E842457DA5E008A3DC6 /* MeetingReplayListViewController.m in Sources */,
 				277F91B923FA30CF0055C773 /* UIImage+VHExt.m in Sources */,
 				27848FCD23FE1A0E004729B2 /* MedicalVideoInfoTableViewCell.m in Sources */,
 				275463B8245A745D00FA9578 /* MeetingPlayerViewController.m in Sources */,
@@ -1841,6 +1870,7 @@
 				27634E812457C82D008A3DC6 /* MeetingFavoriteTableViewCell.m in Sources */,
 				27002B982456D8C000370AEF /* ReplayMeetingListFunction.m in Sources */,
 				27FF317324342AEB008457BD /* HomeSubjectHeaderView.m in Sources */,
+				27F6DCD42464E85A0084BC8E /* MeetingPreviewDetailImageTableViewCell.m in Sources */,
 				277F91BD23FA31A80055C773 /* UIView+VHBoarderExt.m in Sources */,
 				27AA911B241A080B004D93F2 /* MedicalVideoDetailCircleTableViewCell.m in Sources */,
 				2794BFCB243D5B0C0077E153 /* MedicalVideoStartRecommadCourseTableViewCell.m in Sources */,
@@ -1861,8 +1891,9 @@
 				277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */,
 				270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */,
 				278A754324036D03005A8994 /* MeetingStartViewController.m in Sources */,
-				27BF62682463E50A00B84ECC /* MeetingPreviewSectionTableViewController.m in Sources */,
+				27F6DCC92464E5CD0084BC8E /* MeetingPreviewSectionTableViewController.m in Sources */,
 				27DB7720243C1827000FB2EE /* HomeRecommandVideosFunction.m in Sources */,
+				27F6DCCB2464E5CD0084BC8E /* MeetingPreviewListViewController.m in Sources */,
 				27ACCD0524319FFA0050CC88 /* HomeJoinedCircleTableViewCell.m in Sources */,
 				270A033123FBE96C00FD4431 /* UserLoginWithMobileFunction.m in Sources */,
 				27DB7723243C1827000FB2EE /* ClassifiedMedicalVideosFunction.m in Sources */,
@@ -1916,10 +1947,10 @@
 				27BF625C2463B17E00B84ECC /* PreviewMeetingsFunction.m in Sources */,
 				27E3043F246264A500B9E738 /* MeetingWatchCountTableViewCell.m in Sources */,
 				27206DD123FD2E86004A9C85 /* SegmentView.m in Sources */,
+				27F6DCCC2464E5CD0084BC8E /* MeetingPreviewWholeTableViewController.m in Sources */,
 				27848FE623FE7DC4004729B2 /* VHRefeshStatusHeader.m in Sources */,
 				277F91C623FA3B720055C773 /* UserInfoModel.m in Sources */,
 				279A1F60242864AE008AAA5F /* BindMobileViewController.m in Sources */,
-				27BF62652463D67100B84ECC /* MeetingPreviewListViewController.m in Sources */,
 				27206DA323FCDF6D004A9C85 /* MainStartTabbarViewController.m in Sources */,
 				27DB7731243C1831000FB2EE /* MedicalVideoEntryModel.m in Sources */,
 				27DB771E243C1827000FB2EE /* MedicalVideoSecondaryClassifyListFunction.m in Sources */,
@@ -1944,6 +1975,7 @@
 				27002B922456B3FF00370AEF /* MeetingPreviewTableViewCell.m in Sources */,
 				27AC9F812421EC6D008B2698 /* VideoPlayerModel.m in Sources */,
 				27AA91132419C843004D93F2 /* MedicalVideoDetailDirectoryTableViewCell.m in Sources */,
+				27F6DCD72464EDB00084BC8E /* MeetingPreviewDetailCountdownTableViewCell.m in Sources */,
 				27C8C4E6244D3F9B00608B09 /* ClassifiedProfessorListFunction.m in Sources */,
 				270A030023FB7C4700FD4431 /* VHHTTPRequest.m in Sources */,
 				27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */,

@@ -35,6 +35,7 @@ typedef NS_ENUM(NSUInteger, EMeetingStatus) {
 
 @property (nonatomic, strong) NSString* appointmentNumberInfo;
 @property (nonatomic) NSInteger liveCount;
+@property (nonatomic) NSInteger isAppointment;
 
 @property (nonatomic, strong) NSString* circleName;
 @property (nonatomic, strong) NSString* circlePortraitUrl;

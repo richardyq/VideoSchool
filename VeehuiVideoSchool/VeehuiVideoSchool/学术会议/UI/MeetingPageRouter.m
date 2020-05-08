@@ -14,6 +14,7 @@
 #import "MeetingReplayViewController.h"
 #import "MeetingLivingViewController.h"
 #import "MeetingPreviewListViewController.h"
+#import "MeetingPreviewDetailViewController.h"
 
 @implementation MeetingPageRouter
 
@@ -58,6 +59,7 @@
             switch ([meetingDetail meetingStatus]) {
                 case MeetingStatus_Preview:{
                     //预告
+                    controller = [[MeetingPreviewDetailViewController alloc] initWithMeetingDetail:meetingDetail];
                     break;
                 }
                 case MeetingStatus_Living:{
