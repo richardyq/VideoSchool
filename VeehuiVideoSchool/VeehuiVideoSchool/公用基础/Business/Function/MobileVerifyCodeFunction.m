@@ -27,7 +27,7 @@
     return [NSString stringWithFormat:@"%@/v2/o/authVCode/01/86/%@", kURL_BASE_NEWDOMAIN, self.mobile];
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     if (self.mobile && ![self.mobile isEmpty]) {
         [dict setValue:self.mobile forKey:@"mobile"];

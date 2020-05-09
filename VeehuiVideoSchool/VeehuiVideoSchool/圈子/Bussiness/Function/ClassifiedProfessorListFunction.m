@@ -31,7 +31,7 @@
     return nil;
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary* param = [NSMutableDictionary dictionary];
     [param setValue:self.code forKey:@"code"];
     [param setValue:@(self.pageNo) forKey:@"pageNo"];

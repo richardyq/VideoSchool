@@ -46,6 +46,8 @@ entryMainPage
 + (void) entryPageController:(VHBaseViewController*) controller;
 
 + (void) presentViewController:(VHBaseViewController*) controller;
+
++ (void) presentChooseFavoritePage;
 @end
 
 NS_ASSUME_NONNULL_END

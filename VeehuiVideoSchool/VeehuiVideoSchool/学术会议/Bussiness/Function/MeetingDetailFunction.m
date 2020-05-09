@@ -30,7 +30,7 @@
     return [NSString stringWithFormat:@"%@/v3/um/meeting/%ld", kURL_BASE_NEWDOMAIN, self.meetingId];
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     [dict setValue:@(self.meetingId) forKey:@"meetingId"];
     return dict;

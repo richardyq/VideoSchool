@@ -17,6 +17,7 @@
 #import "UserPageRouter.h"
 #import "CircleBussiness.h"
 #import "CommonDataModel.h"
+#import "FavoriteChooseViewController.h"
 
 #define kUMENG_APPKEY @"589c350904e205b6b4002031"
 #define kUMENG_APPCHANNELID @"App Store"
@@ -427,6 +428,19 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
         [MessageHubUtil hideMessage];
         if (code != 0) {
             [MessageHubUtil showMessage:message];
+            return;
+        }
+        
+        NSArray<SubjectEntryModel*>* favoriteSubjects = [UserModuleUtil shareInstance].favoriteSubject;
+        if (!favoriteSubjects || favoriteSubjects.count == 0) {
+        //if (YES) {
+            
+            FavoriteChooseViewController* controller = [[FavoriteChooseViewController alloc] init];
+            [VHPageRouter presentViewController:controller];
+            
+            [controller onDismissControllerHandler:^(id  _Nonnull ret) {
+                [VHPageRouter entryMainPage];
+            }];
             return;
         }
         [VHPageRouter entryMainPage];

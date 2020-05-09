@@ -3,4 +3,22 @@
    uuid = "4B559C72-FF12-40DE-A416-02593EFE35AD"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9AA6F8D-C78D-4EDE-B23F-38154BE21A29"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeehuiVideoSchool/&#x516c;&#x7528;&#x57fa;&#x7840;/Business/Function/&#x5174;&#x8da3;&#x5206;&#x7c7b;/SaveChosenFavoritesFunction.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-reqeustDictionary"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MedicalVideoClassifyEntryModel;
+@class MeetingEntryModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,6 +42,13 @@ entryMeetingPreviewsPage
  @param meetingId         会议id
  */
 + (void) entryMeetingDatailPage:(NSInteger) meetingId;
+
+/**
+ entryApplyMeetingPage
+ 跳转到参会报名页面
+  @param meeting         会议详情
+ */
++ (void) entryApplyMeetingPage:(MeetingEntryModel*) meeting;
 @end
 
 NS_ASSUME_NONNULL_END

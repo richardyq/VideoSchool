@@ -37,7 +37,7 @@
     return requestUrl;
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     if (self.code && ![self.code isEmpty]) {
         [dict setValue:self.code forKey:@"subjectCode"];

@@ -7,7 +7,7 @@
 //
 
 #import "ReplayFavoritesFunction.h"
-#import "MedicalVideoClassifyEntryModel.h"
+#import "SubjectEntryModel.h"
 
 @implementation ReplayFavoritesFunction
 
@@ -18,10 +18,15 @@
 
 - (id) paraserResponse:(id) response{
     if (response && [response isKindOfClass:[NSArray class]]) {
-        NSMutableArray<MedicalVideoClassifyEntryModel*>* favorites = [NSMutableArray<MedicalVideoClassifyEntryModel*> array];
+        NSMutableArray<SubjectEntryModel*>* favorites = [NSMutableArray<SubjectEntryModel*> array];
         NSArray<NSDictionary*>* respDicts = (NSArray<NSDictionary*>*) response;
         [respDicts enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull dict, NSUInteger idx, BOOL * _Nonnull stop) {
-            [favorites addObject:[MedicalVideoClassifyEntryModel mj_objectWithKeyValues:dict]];
+            SubjectEntryModel* subject = [SubjectEntryModel mj_objectWithKeyValues:dict];
+            if (subject.code && [subject.code isNotBlank] && [subject.code isEqualToString:@"00"]) {
+                //剔除【最新分类】
+                return ;
+            }
+            [favorites addObject:[SubjectEntryModel mj_objectWithKeyValues:dict]];
         }];
         return favorites;
     }

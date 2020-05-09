@@ -13,6 +13,7 @@
 #import "MeetingLivingSummaryTableViewCell.h"
 #import "MeetingDetailModel.h"
 #import "MeetingBussiness.h"
+#import "MeetingPageRouter.h"
 
 typedef NS_ENUM(NSUInteger, PreviewDetailSection) {
     PictureImage_Section,
@@ -40,6 +41,11 @@ typedef NS_ENUM(NSUInteger, PreviewDetailSection) {
         _meetingDetail = detail;
     }
     return self;
+}
+
+- (void) makeParamDictionary{
+    //TODO:构建特定参数
+    [self.paramDictionary setValue:@(self.meetingDetail.id) forKey:@"meetingId"];
 }
 
 - (void)viewDidLoad {
@@ -106,6 +112,8 @@ typedef NS_ENUM(NSUInteger, PreviewDetailSection) {
         [_applyButton setBackgroundImage:[UIImage rectImage:[UIColor colorWithHexString:@"2F8ED3"] size:CGSizeMake(150, 75)] forState:UIControlStateNormal];
         [_applyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _applyButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        
+        [_applyButton addTarget:self action:@selector(applyButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyButton;
 }
@@ -239,5 +247,9 @@ typedef NS_ENUM(NSUInteger, PreviewDetailSection) {
 
 - (void) enableAppointButton{
     self.appintButton.enabled = YES;
+}
+
+- (void) applyButtonClicked:(id) sender{
+    [MeetingPageRouter entryApplyMeetingPage:self.meetingDetail];
 }
 @end

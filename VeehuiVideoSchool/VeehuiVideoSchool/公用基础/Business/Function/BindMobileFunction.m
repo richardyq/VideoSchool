@@ -33,7 +33,7 @@
     return Request_POST;
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     if (self.mobile && ![self.mobile isEmpty]) {
         [dict setValue:self.mobile forKey:@"mobile"];

@@ -12,6 +12,8 @@
 
 + (void) load{
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setMinimumDismissTimeInterval:2.5];
+    [SVProgressHUD setMaximumDismissTimeInterval:3];
 }
 
 

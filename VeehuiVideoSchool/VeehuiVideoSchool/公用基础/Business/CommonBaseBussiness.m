@@ -15,6 +15,8 @@
 #import "HomeAdvertisesFunction.h"
 #import "CircleDeptListFunction.h"
 #import "CircleSecondaryDeptListFunction.h"
+#import "FavoriteListFunction.h"
+#import "SaveChosenFavoritesFunction.h"
 
 @implementation CommonBaseBussiness
 
@@ -66,4 +68,18 @@
     [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
 }
 
+//获取所有学科分类
++ (void) loadFavoriteSubjects:(VHRequestResultHandler) result
+                    complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[FavoriteListFunction alloc] init];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
+
+//保存用户选择的兴趣学科
++ (void) saveFavoriteSubjects:(NSArray<FavoriteEntryModel*>*) favories
+                       result:(VHRequestResultHandler) result
+                     complete:(VHRequestCompleteHandler) complete{
+    VHHTTPFunction* function = [[SaveChosenFavoritesFunction alloc] initWithFavorites:favories];
+    [[VHHTTPFunctionManager shareInstance] createFunction:function result:result complete:complete];
+}
 @end

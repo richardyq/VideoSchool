@@ -33,8 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString* verifyCode;        //认证状态(01-未认证，02-已认证，03-已重置)4
 
+#pragma mark - 职业信息
+@property (nonatomic,copy) NSString* organization;
+@property (nonatomic,copy) NSString* duties;            //职务
+@property (nonatomic,copy) NSString* professional;      //职称
+@property (nonatomic,copy) NSString* department;
 
- 
 @end
 
 NS_ASSUME_NONNULL_END

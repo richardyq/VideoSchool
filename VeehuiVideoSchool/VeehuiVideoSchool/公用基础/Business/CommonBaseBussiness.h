@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class FavoriteEntryModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CommonBaseBussiness : NSObject
@@ -84,6 +86,26 @@ loadHomeAdvertises
 */
 + (void) loadHomeAdvertises:(VHRequestResultHandler) result
                    complete:(VHRequestCompleteHandler) complete;
+
+/**
+loadFavoriteSubjects
+获取所有学科分类
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) loadFavoriteSubjects:(VHRequestResultHandler) result
+                     complete:(VHRequestCompleteHandler) complete;
+
+/**
+saveFavoriteSubjects
+保存用户选择的兴趣学科
+@param favories        favories 用户选择的兴趣学科
+@param result          result 请求数据结果返回回调方法
+@param complete        complete 请求结束回调方法
+*/
++ (void) saveFavoriteSubjects:(NSArray<FavoriteEntryModel*>*) favories
+                       result:(VHRequestResultHandler) result
+                     complete:(VHRequestCompleteHandler) complete;
 @end
 
 NS_ASSUME_NONNULL_END

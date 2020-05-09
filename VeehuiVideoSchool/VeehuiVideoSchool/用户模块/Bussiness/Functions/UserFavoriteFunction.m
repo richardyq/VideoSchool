@@ -7,7 +7,7 @@
 //
 
 #import "UserFavoriteFunction.h"
-#import "MedicalVideoClassifyEntryModel.h"
+#import "SubjectEntryModel.h"
 
 @implementation UserFavoriteFunction
 
@@ -17,10 +17,10 @@
 
 - (id) paraserResponse:(id) response{
     if (response && [response isKindOfClass:[NSArray class]]) {
-        NSMutableArray<MedicalVideoClassifyEntryModel*>* subjects = [NSMutableArray<MedicalVideoClassifyEntryModel*> array];
+        NSMutableArray<SubjectEntryModel*>* subjects = [NSMutableArray<SubjectEntryModel*> array];
         NSArray<NSDictionary*>* dicts = (NSArray*) response;
         [dicts enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull dict, NSUInteger idx, BOOL * _Nonnull stop) {
-            MedicalVideoClassifyEntryModel* subject = [MedicalVideoClassifyEntryModel mj_objectWithKeyValues:dict];
+            SubjectEntryModel* subject = [SubjectEntryModel mj_objectWithKeyValues:dict];
             if (!subject.code || [subject.code isEmpty]) {
                 return ;
             }

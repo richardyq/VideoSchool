@@ -59,7 +59,7 @@
 //    requestUrl = [requestUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!$&'()*+,-./:;=?@_~%#[]"]];
 //    requestUrl = [requestUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    NSDictionary* requestDictionary = [self reqeustDictionary];
+    id requestDictionary = [self reqeustDictionary];
     
     BOOL isReachable = [[AFNetworkReachabilityManager sharedManager] isReachable];
     if (!isReachable) {
@@ -136,7 +136,7 @@
     return nil;
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     //NSMutableDictionary *dict= [RequestHelper commonPostParam];
     return dict;

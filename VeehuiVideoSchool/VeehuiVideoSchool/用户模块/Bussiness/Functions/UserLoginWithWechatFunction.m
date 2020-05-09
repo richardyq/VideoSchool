@@ -37,7 +37,7 @@
     return Request_POST;
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     if (self.openId && ![self.openId isEmpty]) {
         [dict setValue:self.openId forKey:@"openId"];

@@ -12,8 +12,9 @@
 @implementation UserInfoFunction
 
 - (NSString*) requestUrl{
-    //NSInteger userId = [UserModuleUtil shareInstance].loginedUserId ;
+    //NSInteger userId = [UserModuleUtil shareInstance].loginedUserId ;  userInfo
     return [NSString stringWithFormat:@"%@/v2/u/mime", kURL_BASE_NEWDOMAIN];
+    //return [NSString stringWithFormat:@"%@/v2/u/userInfo", kURL_BASE_NEWDOMAIN];
 }
 
 - (id) paraserResponse:(id) response{

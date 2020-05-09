@@ -31,7 +31,7 @@
     return [NSString stringWithFormat:@"%@/v3/umv/mvgRecommended/%ld/%ld", kURL_BASE_NEWDOMAIN, self.pageNo, self.pageSize];
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     
     [dict setValue:@(self.pageNo) forKey:@"pageNo"];

@@ -14,7 +14,7 @@
 #import "MeetingInfoListTableViewCell.h"
 #import "MeetingPreviewTableViewCell.h"
 #import "MeetingFavoriteTableViewCell.h"
-#import "MedicalVideoClassifyEntryModel.h"
+#import "SubjectEntryModel.h"
 #import "MeetingPageRouter.h"
 
 typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 
 @property (nonatomic, strong) MeetingPreviewGatherModel* previewMeetingGather;
 
-@property (nonatomic, strong) NSArray<MedicalVideoClassifyEntryModel*>* favorites;
+@property (nonatomic, strong) NSArray<SubjectEntryModel*>* favorites;
 //@property (nonatomic, strong) SegmentView* favoriteSegmentView;
 
 @end
@@ -67,8 +67,8 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
 }
 
 - (void) loadMoreDataCommand{
-    MedicalVideoClassifyEntryModel* subject = self.favorites.firstObject;
-    [self startLoadReplayMeetingList:subject.code pageNo:self.pageNo + 1];
+    //SubjectEntryModel* subject = self.favorites.firstObject;
+    [self startLoadReplayMeetingList:@"00" pageNo:self.pageNo + 1];
 }
 
 //获取会议总览信息
@@ -168,9 +168,9 @@ typedef NS_ENUM(NSUInteger, EMeetingTableSection) {
     
         //获取回放列表
         weakSelf.pageNo = 1;
-        MedicalVideoClassifyEntryModel* subject = weakSelf.favorites.firstObject;
+        //SubjectEntryModel* subject = weakSelf.favorites.firstObject;
         
-        [weakSelf startLoadReplayMeetingList:subject.code pageNo:weakSelf.pageNo];
+        [weakSelf startLoadReplayMeetingList:@"00" pageNo:weakSelf.pageNo];
     }];
 }
 

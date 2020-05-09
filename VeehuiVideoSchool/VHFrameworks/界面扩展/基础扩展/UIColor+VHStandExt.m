@@ -43,4 +43,7 @@
     return [UIColor colorWithHexString:@"666666"];
 }
 
++ (UIColor*) commonLightGrayTextColor{
+    return [UIColor colorWithHexString:@"A8A8A8"];
+}
 @end

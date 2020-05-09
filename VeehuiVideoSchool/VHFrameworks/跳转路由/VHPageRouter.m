@@ -12,6 +12,7 @@
 #import "UserLoginStartViewController.h"
 #import "MainStartTabbarViewController.h"
 #import "BindMobileViewController.h"
+#import "FavoriteChooseViewController.h"
 
 @implementation VHPageRouter
 
@@ -74,5 +75,10 @@
     UINavigationController* navigationController = [[VHBaseNavigationViewController alloc] initWithRootViewController:controller];
     navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
     [topmostController presentViewController:navigationController animated:YES completion:nil];
+}
+
++ (void) presentChooseFavoritePage{
+    FavoriteChooseViewController* controller = [[FavoriteChooseViewController alloc] init];
+    [self presentViewController:controller];
 }
 @end

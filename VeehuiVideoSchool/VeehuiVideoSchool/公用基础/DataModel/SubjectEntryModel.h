@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* subjectCode;
+@property (nonatomic, strong) NSString* code;       //有些地方用code，有些地方用subjectCode
 
 @end
 

@@ -29,7 +29,7 @@
     return [NSString stringWithFormat:@"%@/v3/p/mvgWatchOthers/%ld/1/10", kURL_BASE_NEWDOMAIN, self.groupId];
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     [dict setValue:@(self.groupId) forKey:@"groupId"];
     

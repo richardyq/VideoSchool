@@ -33,7 +33,7 @@
     return [NSString stringWithFormat:@"%@/v3/um/replayMeetingList/%@/%ld/%ld", kURL_BASE_NEWDOMAIN, self.subjectCode, self.pageNo, self.pageSize];
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     [dict setValue:self.subjectCode forKey:@"subjectCode"];
     [dict setValue:@(self.pageNo) forKey:@"pageNo"];

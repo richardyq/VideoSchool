@@ -31,7 +31,7 @@
     return [NSString stringWithFormat:@"%@/v2/u/appointment/%ld", kURL_BASE_NEWDOMAIN, self.opsTypeCode];
 }
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     [dict setValue:@(self.meetingId) forKey:@"meetingId"];
     [dict setValue:@([UserModuleUtil shareInstance].loginedUserId) forKey:@"userId"];

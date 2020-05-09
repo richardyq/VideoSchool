@@ -100,10 +100,6 @@ DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
     return cell;
 }
 
-- (Class) tableViewCellClass:(NSIndexPath *)indexPath{
-    return [VHTableViewCell class];
-}
-
 - (VHTableViewCell*) tableViewCell:(Class) class indexPath:(NSIndexPath*) indexPath{
     VHTableViewCell* cell = [self.tableview dequeueReusableCellWithIdentifier:[VHTableViewCell cellReuseIdentifier]];
     if ([class isSubclassOfClass:[VHTableViewCell class]] ||
@@ -114,6 +110,10 @@ DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
     }
     
     return cell;
+}
+
+- (Class) tableViewCellClass:(NSIndexPath *)indexPath{
+    return [VHTableViewCell class];
 }
 
 - (EntryModel*) entryModel:(NSIndexPath*) indexPath{

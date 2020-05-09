@@ -30,7 +30,7 @@
 }
 
 
-- (NSDictionary*) reqeustDictionary{
+- (id) reqeustDictionary{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     [dict setValue:@(self.groupId) forKey:@"groupId"];
     

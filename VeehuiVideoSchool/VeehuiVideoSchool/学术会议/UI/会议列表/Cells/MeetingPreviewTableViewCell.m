@@ -185,6 +185,9 @@
         [self.infoCells addObject:cell];
         [self.previewView addSubview:cell];
        
+        [cell addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            [MeetingPageRouter entryMeetingDatailPage:meeting.id];
+        }];
     }];
     
     self.showMoreView = (meetingList.count > 3);

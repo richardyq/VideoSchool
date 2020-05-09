@@ -15,6 +15,7 @@
 #import "MeetingLivingViewController.h"
 #import "MeetingPreviewListViewController.h"
 #import "MeetingPreviewDetailViewController.h"
+#import "MeetingApplyViewController.h"
 
 @implementation MeetingPageRouter
 
@@ -82,6 +83,12 @@
             [VHPageRouter entryPageController:controller];
         }
     }];
+}
+
+//跳转到参会报名页面
++ (void) entryApplyMeetingPage:(MeetingDetailModel*) meeting{
+    VHBaseViewController* controller = [[MeetingApplyViewController alloc] initWithMeetingDetail:meeting];
+    [VHPageRouter entryPageController:controller];
 }
 
 @end

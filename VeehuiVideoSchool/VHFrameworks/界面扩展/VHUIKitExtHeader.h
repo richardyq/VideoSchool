@@ -26,5 +26,6 @@
 #import "SegmentView.h"
 #import "VHNavigationBarView.h"
 #import "VHLabelControl.h"
+#import "CommonEditTableViewCell.h"
 
 #endif /* VHUIKitExtHeader_h */

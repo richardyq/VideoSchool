@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor*) commonTextColor;
 + (UIColor*) commonGrayTextColor;
 + (UIColor*) commonDarkGrayTextColor;
-
++ (UIColor*) commonLightGrayTextColor;
 @end
 
 NS_ASSUME_NONNULL_END
