@@ -12,8 +12,6 @@
 #import "HomeStartMeetingInfoTableViewCell.h"
 
 @interface HomeStartViewController ()
-
-@property (nonatomic, strong) UIView* topmostView;
 @property (nonatomic, strong) HomeStartNavigationView* navigationView;
 @property (nonatomic, strong) HomeStartTableViewController* tableViewController;
 
@@ -26,10 +24,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImage* backgroundImage = [UIImage gradientColorImageFromColors:@[[UIColor whiteColor], [UIColor commonBackgroundColor]] gradientType:GradientTypeTopToBottom imgSize:CGSizeMake(kScreenWidth, kScreenHeight/2)];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
+    self.view.backgroundColor = [UIColor commonBackgroundColor];
+    
+    UIView* halfView = [self.view addView];
+    halfView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    [halfView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.mas_equalTo(@(kScreenHeight/2));
+    }];
+    
     // Do any additional setup after loading the view.
     [self setFd_prefersNavigationBarHidden:YES];
     [self setFd_interactivePopDisabled:YES];
-    //self.view.backgroundColor = [UIColor redColor];
 }
 
 - (void) updateViewConstraints{

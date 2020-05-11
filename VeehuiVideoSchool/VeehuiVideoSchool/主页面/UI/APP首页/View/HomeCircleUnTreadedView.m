@@ -11,19 +11,23 @@
 @interface HomeCircleUnTreadedCell : UIControl
 
 @property (nonatomic, strong) UILabel* nameLabel;
+@property (nonatomic, strong) UILabel* valueLabel;
 @property (nonatomic) NSInteger code;
+
+@property (nonatomic, strong) UIView* rightLine;
+
+- (id) initWithName:(NSString*) name value:(NSString*) value code:(NSInteger) code;
 
 @end
 
 @implementation HomeCircleUnTreadedCell
 
-- (id) initWithName:(NSString*) name code:(NSInteger) code{
+- (id) initWithName:(NSString*) name value:(NSString*) value code:(NSInteger) code{
     self = [self init];
     if (self) {
         self.nameLabel.text = name;
+        self.valueLabel.text = value;
         _code = code;
-        
-        [self setCornerRadius:3 color:[UIColor colorWithHexString:@"#51B360"] boarderwidth:1];
     }
     return self;
 }
@@ -32,17 +36,50 @@
     [super updateConstraints];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self);
-        make.edges.equalTo(self).insets(UIEdgeInsetsMake(7, 7, 7, 7));
+        make.centerX.equalTo(self);
+        make.top.equalTo(self).offset(8);
     }];
+    
+    [self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.top.equalTo(self.nameLabel.mas_bottom);
+        make.bottom.equalTo(self).offset(-8);
+    }];
+    
+    [self.rightLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self);
+        make.width.mas_equalTo(@1);
+        make.centerY.equalTo(self);
+        make.height.mas_equalTo(@22);
+    }];
+}
+
+- (void) showRightLine{
+    self.rightLine.hidden = NO;
 }
 
 #pragma mark - settingAndGetting
 - (UILabel*) nameLabel{
     if (!_nameLabel) {
-        _nameLabel = [self addLabel:[UIColor colorWithHexString:@"#51B360"] textSize:12];
+        _nameLabel = [self addLabel:[UIColor commonGrayTextColor] textSize:12];
     }
     return _nameLabel;
+}
+
+- (UILabel*) valueLabel{
+    if (!_valueLabel) {
+        _valueLabel = [self addLabel:[UIColor commonTextColor] textSize:18 weight:UIFontWeightBold];
+    }
+    return _valueLabel;
+}
+
+- (UIView*) rightLine{
+    if (!_rightLine) {
+        _rightLine = [self addView];
+        _rightLine.backgroundColor = [UIColor commonBoarderColor];
+        _rightLine.hidden = YES;
+    }
+    return _rightLine;
 }
 
 @end
@@ -80,36 +117,44 @@
     }];
     [self.untreadcells removeAllObjects];
     
-    if (circle.waitingStudyNumber > 0) {
-         HomeCircleUnTreadedCell* cell = [[HomeCircleUnTreadedCell alloc] initWithName:[NSString stringWithFormat:@"待学课程%ld", circle.waitingStudyNumber] code:1];
-        [self.untreadcells addObject:cell];
-        [self addSubview:cell];
-    }
+    HomeCircleUnTreadedCell* cell = [[HomeCircleUnTreadedCell alloc] initWithName:@"必学课程" value:[NSString stringWithFormat:@"%ld", circle.requiredCourseCount] code:1];
+    [self.untreadcells addObject:cell];
+    [self addSubview:cell];
+    [cell showRightLine];
     
-    if (circle.waitingExamineNumber > 0) {
-         HomeCircleUnTreadedCell* cell = [[HomeCircleUnTreadedCell alloc] initWithName:[NSString stringWithFormat:@"待考课程%ld", circle.waitingExamineNumber] code:3];
-        [self.untreadcells addObject:cell];
-        [self addSubview:cell];
-    }
+    cell = [[HomeCircleUnTreadedCell alloc] initWithName:@"选学课程" value:[NSString stringWithFormat:@"%ld", circle.electiveCourseCount] code:1];
+    [self.untreadcells addObject:cell];
+    [self addSubview:cell];
+    [cell showRightLine];
     
-    if (circle.waitingReceiveCreditNumber > 0) {
-         HomeCircleUnTreadedCell* cell = [[HomeCircleUnTreadedCell alloc] initWithName:[NSString stringWithFormat:@"学分申请%ld", circle.waitingReceiveCreditNumber] code:4];
-        [self.untreadcells addObject:cell];
-        [self addSubview:cell];
-    }
+    cell = [[HomeCircleUnTreadedCell alloc] initWithName:@"待考课程" value:[NSString stringWithFormat:@"%ld", circle.toBeTestedCourseCount] code:1];
+    [self.untreadcells addObject:cell];
+    [self addSubview:cell];
+    [cell showRightLine];
+    
+    cell = [[HomeCircleUnTreadedCell alloc] initWithName:@"学分申请" value:[NSString stringWithFormat:@"%ld", circle.toBeApplyCreditCourseCount] code:1];
+    [self.untreadcells addObject:cell];
+    [self addSubview:cell];
     
     [self layoutUntreadedCell];
 }
 
 - (void) layoutUntreadedCell{
     __block MASViewAttribute* cellLeft = self.mas_left;
+    __block MASViewAttribute* cellWidth = nil;
     [self.untreadcells enumerateObjectsUsingBlock:^(HomeCircleUnTreadedCell * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
         [cell mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(cellLeft).offset(11);
+            make.left.equalTo(cellLeft);
             make.centerY.equalTo(self);
-            make.height.mas_equalTo(@25);
+            if (cellWidth) {
+                make.width.equalTo(cellWidth);
+            }
+            if (cell == self.untreadcells.lastObject) {
+                make.right.equalTo(self);
+            }
         }];
         cellLeft = cell.mas_right;
+        cellWidth = cell.mas_width;
     }];
 }
 

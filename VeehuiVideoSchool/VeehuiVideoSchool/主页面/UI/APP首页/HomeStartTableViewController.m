@@ -62,7 +62,8 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
     [self setFd_interactivePopDisabled:YES];
     self.tableView.estimatedRowHeight = 44.;
 
-    self.tableView.backgroundColor = [UIColor commonBackgroundColor];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.tableHeaderView = self.tableHeaderView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[VHTableViewCell class] forCellReuseIdentifier:[VHTableViewCell cellReuseIdentifier]];
@@ -87,12 +88,12 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             width = kScreenWidth * 0.7;
         }
         CGFloat rate = width / 375;
-        CGFloat height = 128. * rate + 20.;
+        CGFloat height = 126. * rate + 16;
         _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         UIImageView* bannerImageView = [_tableHeaderView addImageView:@"img_default_main"];
         [bannerImageView setCornerRadius:8];
         [bannerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(_tableHeaderView).insets(UIEdgeInsetsMake(9, 13, 9, 13));
+            make.edges.equalTo(_tableHeaderView).insets(UIEdgeInsetsMake(8, 8, 8, 8));
         }];
     }
     return _tableHeaderView;
@@ -105,13 +106,13 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             width = kScreenWidth * 0.7;
         }
         CGFloat rate = width/375.;
-        width -= 26.;
-        CGFloat height = 128. * rate;
+        width -= 16.;
+        CGFloat height = 126. * rate;
         _advertiseView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, width, height) delegate:self placeholderImage:[UIImage imageNamed:@"img_default_main"]];
         [_tableHeaderView addSubview:_advertiseView];
         [_advertiseView setCornerRadius:8];
         [_advertiseView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(_tableHeaderView).insets(UIEdgeInsetsMake(9, 13, 9, 13));
+            make.edges.equalTo(_tableHeaderView).insets(UIEdgeInsetsMake(8, 8, 8, 8));
         }];
         _advertiseView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         _advertiseView.currentPageDotColor = [UIColor grayColor];
@@ -206,8 +207,9 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
             break;
         }
         case Circle_Section:{
-            cell = [[HomeJoinedCircleTableViewCell alloc] initWithJoinedCircle:[CommonDataModel shareInstance].joinedCircleInfo];
-            
+            //cell = [[HomeJoinedCircleTableViewCell alloc] initWithJoinedCircle:[CommonDataModel shareInstance].joinedCircleInfo];
+            cell = [tableView dequeueReusableCellWithIdentifier:[HomeJoinedCircleTableViewCell cellReuseIdentifier]];
+            [cell setEntryModel:[CommonDataModel shareInstance].joinedCircleInfo];
             break;
         }
         case Course_Section:{
@@ -256,6 +258,7 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 
 
 #pragma mark - table view delegate
+/*
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     return [self tableHeaderViewHeight:section];
@@ -278,10 +281,10 @@ typedef NS_ENUM(NSUInteger, EHomeTableSection) {
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, [self tableHeaderViewHeight:section])];
-    
+    headerView.backgroundColor = [UIColor clearColor];
     return headerView;
 }
-
+*/
 #pragma mark - start grid event
 - (void) startGridItemAction:(NSInteger) index{
     switch (index) {

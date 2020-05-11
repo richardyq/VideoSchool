@@ -13,7 +13,7 @@
 
 #pragma mark - 常用颜色
 + (UIColor*) commonBackgroundColor{
-    return [UIColor colorWithHexString:@"F6F6F6"];
+    return [UIColor colorWithHexString:@"F8F8F7"];
 }
 
 + (UIColor*) commonBoarderColor{
@@ -44,6 +44,6 @@
 }
 
 + (UIColor*) commonLightGrayTextColor{
-    return [UIColor colorWithHexString:@"A8A8A8"];
+    return [UIColor colorWithHexString:@"A7A7A7"];
 }
 @end

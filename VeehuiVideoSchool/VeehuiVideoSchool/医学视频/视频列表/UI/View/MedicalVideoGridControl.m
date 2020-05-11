@@ -40,26 +40,27 @@
     }
      */
     [self.pictureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self).offset(-20);
-        make.height.equalTo(self.mas_width).offset(-20);
+        make.width.equalTo(self).offset(-17);
+        make.height.equalTo(self.mas_width).offset(-17);
         make.centerX.equalTo(self);
-        make.top.equalTo(self).offset(15.);
+        make.top.equalTo(self).offset(12.);
         make.bottom.equalTo(self).offset(-65.);
     }];
     
     [self.watchCoverView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.pictureImageView);
-        make.height.mas_equalTo(@20.);
+        make.height.mas_equalTo(@16.);
     }];
     
     [self.playIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.watchCoverView);
-        make.left.equalTo(self.watchCoverView).offset(8);
+        make.size.mas_equalTo(CGSizeMake(8, 10));
+        make.left.equalTo(self.watchCoverView).offset(7);
     }];
     
     [self.watchedNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.watchCoverView);
-        make.left.equalTo(self.playIconImageView.mas_right).offset(2.5);
+        make.left.equalTo(self.playIconImageView.mas_right).offset(4);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,14 +108,14 @@
 
 - (UILabel*) watchedNumberLabel{
     if (!_watchedNumberLabel) {
-        _watchedNumberLabel = [self.watchCoverView addLabel:[UIColor whiteColor] textSize:11];
+        _watchedNumberLabel = [self.watchCoverView addLabel:[UIColor whiteColor] textSize:10];
     }
     return _watchedNumberLabel;
 }
 
 - (UILabel*) titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [self addLabel:[UIColor commonTextColor] textSize:13];
+        _titleLabel = [self addLabel:[UIColor commonTextColor] textSize:13 weight:UIFontWeightMedium];
         _titleLabel.numberOfLines = 2;
     }
     return _titleLabel;
@@ -139,10 +140,11 @@
     [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:videoGroup.pictureUrl] placeholderImage:[UIImage imageNamed:@"img_default_video_in_table"]];
     if (videoGroup.isPrice || videoGroup.price > 0) {
         //精品课程
-        [self.pictureImageView addWatermark:@"ic_video_course" positon:WatermarPosition_TL offset:4];
+        [self.pictureImageView addWatermark:@"ic_video_course" positon:WatermarPosition_TL];
     }
-    self.watchedNumberLabel.text = [NSString formatWithInteger:videoGroup.watchingNumber remain:1 unit:@"万"];
-    self.titleLabel.text = videoGroup.title;
+    self.watchedNumberLabel.text = [NSString formatWithInteger:videoGroup.watchingNumber remain:1 unit:@"W"];
+    //self.titleLabel.text = videoGroup.title;
+    [self.titleLabel setText:videoGroup.title lineSpacing:3];
     [self.circlePortraitImageView sd_setImageWithURL:[NSURL URLWithString:videoGroup.circleInfo.portraitUrl] placeholderImage:[UIImage imageNamed:@"icon_default_circle"]];
     self.circleNameLabel.text = videoGroup.circleName;
 }

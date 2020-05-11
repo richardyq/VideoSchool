@@ -28,8 +28,6 @@
     return [NSString stringWithFormat:@"%@/v2/ucrc/circleActiveInfoInHomePage/%ld", kURL_BASE_NEWDOMAIN, self.circleId];
 }
 
-
-
 - (id) paraserResponse:(id) response{
     if ([response isKindOfClass:[NSDictionary class]]) {
         JoinedCircleEntryModel* circleInfoModel = [JoinedCircleEntryModel mj_objectWithKeyValues:response];

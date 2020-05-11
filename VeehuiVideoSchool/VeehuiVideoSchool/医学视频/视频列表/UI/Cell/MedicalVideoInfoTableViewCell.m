@@ -30,7 +30,8 @@
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.contentView.backgroundColor = [UIColor commonBackgroundColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -39,31 +40,31 @@
     [super updateConstraints];
     
     [self.groupView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(10, 12.5, 5, 12.5));
+        make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(10, 8, 5, 8));
     }];
     
     [self.pictureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(93, 93));
+        make.size.mas_equalTo(CGSizeMake(100, 100));
         make.left.equalTo(self.groupView).offset(10);
-        make.top.equalTo(self.groupView).offset(15);
-        make.bottom.equalTo(self.groupView).offset(-21);
+        make.top.equalTo(self.groupView).offset(13);
+        make.bottom.equalTo(self.groupView).offset(-16);
     }];
     
     [self.videoTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.pictureImageView.mas_right).offset(18);
+        make.left.equalTo(self.pictureImageView.mas_right).offset(14);
         make.top.equalTo(self.pictureImageView);
         make.right.lessThanOrEqualTo(self.groupView).offset(-7);
     }];
     
     [self.composerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.videoTitleLabel);
-        make.top.equalTo(self.pictureImageView).offset(51);
+        make.top.equalTo(self.videoTitleLabel.mas_bottom).offset(4);
         make.right.lessThanOrEqualTo(self.groupView).offset(-7);
     }];
     
     [self.watchedView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.pictureImageView);
-        make.height.mas_equalTo(@21);
+        make.height.mas_equalTo(@16);
     }];
     
     [self.watchIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,7 +74,7 @@
     
     [self.watchedNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.watchedView);
-        make.left.equalTo(self.watchIconImageView.mas_right).offset(5);
+        make.left.equalTo(self.watchIconImageView.mas_right).offset(3);
     }];
     
     [self.categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -89,8 +90,16 @@
 - (UIView*) groupView{
     if (!_groupView) {
         _groupView = [self.contentView addView];
-        [_groupView setCornerRadius:4];
+        [_groupView.layer setCornerRadius:8];
         _groupView.backgroundColor = [UIColor whiteColor];
+        
+        // 阴影颜色
+        _groupView.layer.shadowColor = [UIColor commonBoarderColor].CGColor;
+        _groupView.layer.shadowOffset = CGSizeMake(0,0);
+        // 阴影透明度
+        _groupView.layer.shadowOpacity = 0.5;
+        // 阴影半径
+        _groupView.layer.shadowRadius = 1;
     }
     return _groupView;
 }
@@ -105,9 +114,8 @@
 
 - (UILabel*) videoTitleLabel{
     if (!_videoTitleLabel) {
-        _videoTitleLabel = [self.groupView addLabel:[UIColor commonTextColor] textSize:15];
+        _videoTitleLabel = [self.groupView addLabel:[UIColor commonTextColor] textSize:16 weight:UIFontWeightMedium];
         _videoTitleLabel.numberOfLines = 2;
-        _videoTitleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightMedium];
     }
     return _videoTitleLabel;
 }
@@ -156,7 +164,8 @@
 }
 
 - (void) setVideoGroupInfo:(MedicalVideoGroupInfoEntryModel*) entryModel{
-    self.videoTitleLabel.text = entryModel.title;
+    //self.videoTitleLabel.text = entryModel.title;
+    [self.videoTitleLabel setText:entryModel.title lineSpacing:3];
     self.composerLabel.text = entryModel.medicalVideoComposer;
     
     [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:entryModel.pictureUrl] placeholderImage:[UIImage imageNamed:@"img_default_video_in_table"]];
@@ -166,7 +175,7 @@
         //精品课程
         [self.pictureImageView addWatermark:@"ic_video_course" positon:WatermarPosition_TL];
     }
-    NSString* watchedNumberString = [NSString formatWithInteger:entryModel.watchingNumber remain:2 unit:@"万"];
+    NSString* watchedNumberString = [NSString formatWithInteger:entryModel.watchingNumber remain:2 unit:@"W"];
     self.watchedNumberLabel.text = watchedNumberString;
     
     if ([self showProductTypes]) {

@@ -7,6 +7,7 @@
 //
 
 #import "EntryModel.h"
+#import "CircleAnnouncementEntryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @interface JoinedCircleMeetingModel : NSObject<NSCoding>
@@ -35,14 +36,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) JoinedCircleMeetingModel* circleMeetingInfo;
 @property (nonatomic, strong) NSArray<JoinedCircleVideoGroupModel*>* circleMvgInfos;
+@property (nonatomic, strong) NSArray<CircleAnnouncementEntryModel*>* circleAnnouncements;
 
 @property (nonatomic) NSInteger circleId;
 @property (nonatomic, strong) NSString* circleName;
 @property (nonatomic, strong) NSString* portraitUrl;
 @property (nonatomic) NSInteger haveWaitingProcess;
-@property (nonatomic) NSInteger waitingStudyNumber;       //待学习数量
-@property (nonatomic) NSInteger waitingExamineNumber;       //待考试数量
-@property (nonatomic) NSInteger waitingReceiveCreditNumber;       //待领取学分
+@property (nonatomic) NSInteger requiredCourseCount;      //必学课程
+@property (nonatomic) NSInteger electiveCourseCount;       //选学课程
+@property (nonatomic) NSInteger toBeTestedCourseCount;     //待考课程
+@property (nonatomic) NSInteger toBeApplyCreditCourseCount;       //学分申请
 @property (nonatomic, strong) NSString* introduction;
 
 @end

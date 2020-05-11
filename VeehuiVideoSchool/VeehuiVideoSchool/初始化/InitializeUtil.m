@@ -434,11 +434,12 @@ NSString* const kLicensementVersionKey = @"LicensementVersion";
         NSArray<SubjectEntryModel*>* favoriteSubjects = [UserModuleUtil shareInstance].favoriteSubject;
         if (!favoriteSubjects || favoriteSubjects.count == 0) {
         //if (YES) {
-            
+            //用户没有设置感兴趣的学科，需要设置
             FavoriteChooseViewController* controller = [[FavoriteChooseViewController alloc] init];
             [VHPageRouter presentViewController:controller];
             
             [controller onDismissControllerHandler:^(id  _Nonnull ret) {
+                //设置感兴趣学科成功
                 [VHPageRouter entryMainPage];
             }];
             return;

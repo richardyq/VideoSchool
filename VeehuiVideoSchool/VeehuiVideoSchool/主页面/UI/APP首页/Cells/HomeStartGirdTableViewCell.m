@@ -15,25 +15,25 @@
 @implementation HomeStartGridItemControl
 
 - (UILabel*) buildNameLabel{
-    UILabel* nameLabel = [self addLabel:[UIColor commonTextColor] textSize:12];
-    nameLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightMedium];
+    UILabel* nameLabel = [self addLabel:[UIColor colorWithHexString:@"#4D4D4D"] textSize:13];
+    
     return nameLabel;
 }
 
 - (CGSize) iconImageSize{
-    return CGSizeMake(45, 45);
+    return CGSizeMake(44, 56);
 }
 
 - (CGFloat) iconTopOffset{
-    return 6;
+    return 10;
 }
 
 - (CGFloat) nameTopOffset{
-    return 7;
+    return 0;
 }
 
 - (CGFloat) nameBottomOffset{
-    return 8;
+    return 10;
 }
 
 @end
@@ -101,7 +101,7 @@
     if (!_gridItems) {
         NSMutableArray<HomeStartGridItemControl*>* gridItems = [NSMutableArray<HomeStartGridItemControl*> array];
         
-        NSArray<NSString*>* gridNames = @[@"学术会议", @"医学视频", @"医学专家", @"学分专区", @"医学学科"];
+        NSArray<NSString*>* gridNames = @[@"学术会议", @"医学视频", @"医学专家", @"学分机构", @"医学学科"];
         NSArray<NSString*>* gridIconNames = @[@"img_home_gird_meeting",
                                              @"img_home_gird_video",
                                              @"img_home_gird_professor",

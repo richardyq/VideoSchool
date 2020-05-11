@@ -13,6 +13,7 @@
 #import "MedicalVideoDetailDirectoryTableViewCell.h"
 #import "MedicalVideoDetailCircleTableViewCell.h"
 #import "MedicalVideoGroupOtherVideoTableViewCell.h"
+#import "MedicalVideoInfoTableViewCell.h"
 #import "VHRefeshStatusHeader.h"
 
 typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
@@ -66,7 +67,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
     [self.tableview registerClass:[MedicalVideoDetailTitleTableViewCell class] forCellReuseIdentifier:[MedicalVideoDetailTitleTableViewCell cellReuseIdentifier]];
     [self.tableview registerClass:[MedicalVideoDetailDirectoryTableViewCell class] forCellReuseIdentifier:[MedicalVideoDetailDirectoryTableViewCell cellReuseIdentifier]];
     [self.tableview registerClass:[MedicalVideoDetailCircleTableViewCell class] forCellReuseIdentifier:[MedicalVideoDetailCircleTableViewCell cellReuseIdentifier]];
-    [self.tableview registerClass:[MedicalVideoGroupOtherVideoTableViewCell class] forCellReuseIdentifier:[MedicalVideoGroupOtherVideoTableViewCell cellReuseIdentifier]];
+    [self.tableview registerClass:[MedicalVideoInfoTableViewCell class] forCellReuseIdentifier:[MedicalVideoInfoTableViewCell cellReuseIdentifier]];
 }
 
 - (void) updateViewConstraints{
@@ -210,7 +211,7 @@ typedef NS_ENUM(NSUInteger, EMedicalVideoDetialSection) {
             break;
         }
         case GroupOthersSection:{
-            return [MedicalVideoGroupOtherVideoTableViewCell class];
+            return [MedicalVideoInfoTableViewCell class];
             break;
         }
         default:

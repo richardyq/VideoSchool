@@ -19,9 +19,11 @@
 
 @property (nonatomic, strong) UIView* headerview;
 @property (nonatomic, strong) UILabel* titleLabel;
-@property (nonatomic, strong) UIButton* moreButton;
 
 @property (nonatomic, strong) NSMutableArray<MedicalVideoGridControl*>* groupGridControls;
+
+@property (nonatomic, strong) UIControl* moreView;
+@property (nonatomic, strong) UILabel* moreLabel;
 @end
 
 @implementation HomeSubjectHeaderTableViewCell
@@ -40,25 +42,20 @@
     [super updateConstraints];
     
     [self.detview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(7, 12.5, 8, 12.5));
+        make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(7, 8, 8, 8));
         //make.height.mas_equalTo(@(detHeight));
     }];
     
     [self.headerview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.detview);
         make.width.equalTo(self.detview).offset(-20);
-        make.height.mas_equalTo(@53);
+        make.height.mas_equalTo(@49);
         make.top.equalTo(self.detview);
         //make.bottom.lessThanOrEqualTo(self.detview).offset(-20);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.headerview);
-        make.centerY.equalTo(self.headerview);
-    }];
-    
-    [self.moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.headerview);
         make.centerY.equalTo(self.headerview);
     }];
     
@@ -70,10 +67,19 @@
             make.left.equalTo(controlLeft);
             make.top.equalTo(controlTop);
             make.width.equalTo(self.detview).dividedBy(3.);
-            make.bottom.equalTo(self.detview).offset(-12.5);
         }];
         controlLeft = control.mas_right;
         
+    }];
+    
+    [self.moreView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.detview);
+        make.top.equalTo(self.groupGridControls.lastObject.mas_bottom).offset(4);
+    }];
+    
+    [self.moreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.moreView).insets(UIEdgeInsetsMake(8, 16, 16, 16));
+        make.height.mas_equalTo(@45);
     }];
      
 }
@@ -82,7 +88,15 @@
     if (!_detview) {
         _detview = [self.contentView addView];
         _detview.backgroundColor = [UIColor whiteColor];
-        [_detview setCornerRadius:8];
+        [_detview.layer setCornerRadius:8];
+        
+        // 阴影颜色
+        _detview.layer.shadowColor = [UIColor commonBoarderColor].CGColor;
+        _detview.layer.shadowOffset = CGSizeMake(0,0);
+        // 阴影透明度
+        _detview.layer.shadowOpacity = 0.5;
+        // 阴影半径
+        _detview.layer.shadowRadius = 1;
     }
     return _detview;
 }
@@ -97,23 +111,9 @@
 
 - (UILabel*) titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [self.headerview addLabel:[UIColor commonTextColor] textSize:17];
-        _titleLabel.font = [UIFont boldSystemFontOfSize:17];
-        _titleLabel.text = @"精品课程";
+        _titleLabel = [self.headerview addLabel:[UIColor commonTextColor] textSize:17 weight:UIFontWeightMedium];
     }
     return _titleLabel;
-}
-
-- (UIButton*) moreButton{
-    if (!_moreButton) {
-        _moreButton = [self.headerview addButton:UIButtonTypeCustom];
-        [_moreButton setTitle:@"更多" forState:UIControlStateNormal];
-        [_moreButton setTitleColor:[UIColor mainThemeColor] forState:UIControlStateNormal];
-        _moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
-        
-        
-    }
-    return _moreButton;
 }
 
 - (NSMutableArray<MedicalVideoGridControl*>*) groupGridControls{
@@ -121,6 +121,25 @@
         _groupGridControls = [NSMutableArray<MedicalVideoGridControl*> array];
     }
     return _groupGridControls;
+}
+
+- (UIControl*) moreView{
+    if (!_moreView) {
+        _moreView = (UIControl*)[self.detview addView:[UIControl class]];
+        
+    }
+    return _moreView;
+}
+
+- (UILabel*) moreLabel{
+    if (!_moreLabel) {
+        _moreLabel = [self.moreView addLabel:[UIColor mainThemeColor] textSize:15];
+        _moreLabel.text = @"查看全部 >";
+        _moreLabel.backgroundColor = [UIColor commonBackgroundColor];
+        [_moreLabel setCornerRadius:4];
+        _moreLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _moreLabel;
 }
 
 - (void) setEntryModel:(EntryModel *)model{
@@ -131,7 +150,15 @@
     HomeSubjectEntry* subjectModel = (HomeSubjectEntry*) model;
     self.titleLabel.text = subjectModel.subject.name;
     
+    /*
     [self.moreButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        MedicalVideoClassifyEntryModel* classifyModel = [MedicalVideoClassifyEntryModel new];
+        classifyModel.code = subjectModel.subject.subjectCode;
+        classifyModel.name = subjectModel.subject.name;
+        [MedicalVideoPageRouter entryClassifiedMedicalVideListPage:classifyModel];
+    }];
+     */
+    [self.moreView addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         MedicalVideoClassifyEntryModel* classifyModel = [MedicalVideoClassifyEntryModel new];
         classifyModel.code = subjectModel.subject.subjectCode;
         classifyModel.name = subjectModel.subject.name;

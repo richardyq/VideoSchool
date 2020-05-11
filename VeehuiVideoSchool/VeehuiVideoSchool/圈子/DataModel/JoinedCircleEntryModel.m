@@ -22,7 +22,9 @@ MJCodingImplementation
 @implementation JoinedCircleEntryModel
 MJCodingImplementation
 + (NSDictionary*) mj_objectClassInArray{
-    return @{@"circleMvgInfos": [JoinedCircleVideoGroupModel class]};
+    return @{@"circleMvgInfos": [JoinedCircleVideoGroupModel class],
+             @"circleAnnouncements": [CircleAnnouncementEntryModel class]
+    };
 }
 
 

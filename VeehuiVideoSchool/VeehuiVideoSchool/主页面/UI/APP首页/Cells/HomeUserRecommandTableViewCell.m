@@ -49,12 +49,12 @@
     
     [self.portraitImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(self.userView);
-        make.size.mas_equalTo(CGSizeMake(21, 21));
+        make.size.mas_equalTo(CGSizeMake(24, 24));
     }];
     
     [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.right.equalTo(self.userView);
-        make.left.equalTo(self.portraitImageView.mas_right).offset(7.);
+        make.left.equalTo(self.portraitImageView.mas_right).offset(4.);
     }];
     
     [self.leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,8 +73,8 @@
 #pragma mark - settingAndGetting
 - (UILabel*) recommandLabel{
     if (!_recommandLabel) {
-        _recommandLabel = [self.contentView addLabel:[UIColor commonGrayTextColor] textSize:13];
-        _recommandLabel.text = @"—  根据你感兴趣的学科为你定制  —";
+        _recommandLabel = [self.contentView addLabel:[UIColor commonDarkGrayTextColor] textSize:12];
+        _recommandLabel.text = @"——  根据你感兴趣的学科为你定制  ——";
     }
     return _recommandLabel;
 }
@@ -89,7 +89,7 @@
 - (UIImageView*) portraitImageView{
     if (!_portraitImageView) {
         _portraitImageView = [self.userView addImageView:@"icon_default_user"];
-        [_portraitImageView setCornerRadius:10.5];
+        [_portraitImageView setCornerRadius:12];
         UserInfoModel* user = [UserModuleUtil shareInstance].loginedUserModel;
         [_portraitImageView sd_setImageWithURL:[NSURL URLWithString:user.portraitUrl] placeholderImage:[UIImage imageNamed:@"icon_default_user"]];
     }
@@ -98,8 +98,8 @@
 
 - (UILabel*) userNameLabel{
     if (!_userNameLabel) {
-        _userNameLabel = [self.userView addLabel:[UIColor commonTextColor] textSize:16];
-        _userNameLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+        _userNameLabel = [self.userView addLabel:[UIColor commonTextColor] textSize:14 ];
+        _userNameLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
         UserInfoModel* user = [UserModuleUtil shareInstance].loginedUserModel;
         _userNameLabel.text = user.name;
     }
@@ -109,6 +109,7 @@
 - (UIImageView*) leftImageView{
     if (!_leftImageView) {
         _leftImageView = [self.contentView addImageView:@"index-wldz-bj-dq"];
+        _leftImageView.hidden = YES;
     }
     return _leftImageView;
 }
@@ -116,6 +117,7 @@
 - (UIImageView*) rightImageView{
     if (!_rightImageView) {
         _rightImageView = [self.contentView addImageView:@"index-wldz-bj-dq"];
+        _rightImageView.hidden = YES;
     }
     return _rightImageView;
 }
