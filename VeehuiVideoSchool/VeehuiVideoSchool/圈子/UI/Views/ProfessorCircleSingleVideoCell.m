@@ -8,6 +8,8 @@
 
 #import "ProfessorCircleSingleVideoCell.h"
 #import "MedicalVideoGroupInfoEntryModel.h"
+#import "VideoInfoProductTypeControl.h"
+
 @interface ProfessorCircleSingleVideoCell ()
 
 @property (nonatomic, strong) UIImageView* videoImageView;
@@ -127,15 +129,17 @@
 - (void) setupVideoGroup:(MedicalVideoGroupInfoEntryModel*) videoGroup{
     [self.videoImageView sd_setImageWithURL:[NSURL URLWithString:videoGroup.pictureUrl] placeholderImage:[UIImage imageNamed:@"img_default_video_in_table"]];
     
-    self.watchedNumberLabel.text = [NSString formatWithInteger:videoGroup.watchingNumber remain:1 unit:@"万"];
+    self.watchedNumberLabel.text = [NSString formatWithInteger:videoGroup.watchingNumber remain:1 unit:@"W"];
     self.titleLabel.text = videoGroup.title;
     
     [self.categoryView removeAllSubviews];
     [self.categoryCells removeAllObjects];
     
-    [videoGroup.productTypeInfo enumerateObjectsUsingBlock:^(NSString * _Nonnull cate, NSUInteger idx, BOOL * _Nonnull stop) {
-        VHLabelControl* control = [[VHLabelControl alloc] initWithText:cate font:[UIFont systemFontOfSize:11] textColor:[UIColor mainThemeColor]];
-        [control setCornerRadius:2 color:[UIColor mainThemeColor] boarderwidth:0.5];
+    [videoGroup.productTypeCodeNames enumerateObjectsUsingBlock:^(NSString * _Nonnull cate, NSUInteger idx, BOOL * _Nonnull stop) {
+        VHLabelControl* control = [[VideoInfoProductTypeControl alloc] initWithText:cate font:[UIFont systemFontOfSize:11] textColor:[UIColor mainThemeColor]];
+        //[control setCornerRadius:2 color:[UIColor mainThemeColor] boarderwidth:0.5];
+        [control setCornerRadius:9];
+        control.backgroundColor = [UIColor colorWithHexString:@"#FFE9D9"];
         [self.categoryView addSubview:control];
         [self.categoryCells addObject:control];
     }];
@@ -150,7 +154,7 @@
     __block MASViewAttribute* cellTop = self.categoryView.mas_top;
     
     [self.categoryCells enumerateObjectsUsingBlock:^(VHLabelControl * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
-        CGFloat cellWidth = [cell.textLabel.text widthForFont:cell.textLabel.font] + 3;
+        CGFloat cellWidth = [cell.textLabel.text widthForFont:cell.textLabel.font] + 16;
         if (cellWidth > maxWidth - 15) {
             cellWidth = maxWidth - 15;
         }
@@ -165,7 +169,8 @@
         [cell mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(cellLeft).offset(5);
             make.top.equalTo(cellTop).offset(4);
-            make.size.mas_equalTo(CGSizeMake(cellWidth + 5, 16));
+            //make.size.mas_equalTo(CGSizeMake(cellWidth + 5, 16));
+            make.height.equalTo(@18.);
             if (cell == self.categoryCells.lastObject) {
                 make.bottom.equalTo(self.categoryView);
             }

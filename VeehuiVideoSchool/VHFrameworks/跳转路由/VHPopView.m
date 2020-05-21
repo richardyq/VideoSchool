@@ -22,14 +22,14 @@
 - (id) initWithParam:(id) param action:(PopViewAction) action{
     self = [super init];
     if (self) {
-        [self setupParam];
+        [self setupParam:param];
         _action = action;
         self.backgroundColor = [UIColor commonTransColor];
     }
     return self;
 }
 
-- (void) setupParam{
+- (void) setupParam:(id) param{
     
 }
 

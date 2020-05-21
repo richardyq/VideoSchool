@@ -58,6 +58,12 @@
 		275463BC245A799700FA9578 /* MeetingTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 275463BB245A799700FA9578 /* MeetingTitleTableViewCell.m */; };
 		275463C2245AA10100FA9578 /* MeetingConferenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 275463C1245AA10100FA9578 /* MeetingConferenceTableViewCell.m */; };
 		275463C5245AB04B00FA9578 /* MeetingReplayDetailFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 275463C4245AB04B00FA9578 /* MeetingReplayDetailFunction.m */; };
+		2757C5E224751E3900E72F0F /* InnerCircleStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2757C5E124751E3900E72F0F /* InnerCircleStartViewController.m */; };
+		2757C5E52475210000E72F0F /* InnerCirclePageRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2757C5E42475210000E72F0F /* InnerCirclePageRouter.m */; };
+		2757C5EB247527B000E72F0F /* InnerCircleInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2757C5EA247527B000E72F0F /* InnerCircleInfoFunction.m */; };
+		2757C5EE24752D1500E72F0F /* InnerCircleBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 2757C5ED24752D1500E72F0F /* InnerCircleBussiness.m */; };
+		2757C5F124752EC500E72F0F /* InnerCircleStartInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2757C5F024752EC500E72F0F /* InnerCircleStartInfoTableViewCell.m */; };
+		2757C5F42475350300E72F0F /* InnerCircleStartGridTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2757C5F32475350300E72F0F /* InnerCircleStartGridTableViewCell.m */; };
 		2759AD6F2424A21D006E4B72 /* APPVersionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD6E2424A21D006E4B72 /* APPVersionFunction.m */; };
 		2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD722424A644006E4B72 /* APPVersionInfo.m */; };
 		2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2759AD752424AA28006E4B72 /* AlertUtil.m */; };
@@ -74,6 +80,12 @@
 		2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2771A2D623FF7F2E00FCAF7A /* MessageHubUtil.m */; };
 		27765B1124172E7100D6A0A5 /* UITableView+VHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 27765B1024172E7100D6A0A5 /* UITableView+VHExt.m */; };
 		27765B142417394000D6A0A5 /* MedicalCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27765B132417394000D6A0A5 /* MedicalCourseListViewController.m */; };
+		2777C07B2476207E0058D6E6 /* InnerCircleCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2777C07A2476207E0058D6E6 /* InnerCircleCourseListViewController.m */; };
+		2777C0802476256B0058D6E6 /* InnerCircleCourseFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2777C07F2476256B0058D6E6 /* InnerCircleCourseFilterView.m */; };
+		2777C083247625E80058D6E6 /* InnerCircleCourseFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2777C082247625E80058D6E6 /* InnerCircleCourseFilterCell.m */; };
+		2777C08724764FDB0058D6E6 /* InnerCourseFilterEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2777C08624764FDB0058D6E6 /* InnerCourseFilterEntryModel.m */; };
+		2777C08A247650690058D6E6 /* InnerCourseFilterMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2777C089247650690058D6E6 /* InnerCourseFilterMenuView.m */; };
+		2777C08D247666150058D6E6 /* InnerCourseFilterCateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2777C08C247666150058D6E6 /* InnerCourseFilterCateView.m */; };
 		277F918123FA274B0055C773 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 277F918023FA274B0055C773 /* AppDelegate.m */; };
 		277F918C23FA274C0055C773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277F918B23FA274C0055C773 /* Assets.xcassets */; };
 		277F918F23FA274C0055C773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277F918D23FA274C0055C773 /* LaunchScreen.storyboard */; };
@@ -158,6 +170,7 @@
 		27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD082431BE4B0050CC88 /* HomeCircleUnTreadedView.m */; };
 		27ACCD0C2431C9010050CC88 /* UserJoinedCircleInfoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */; };
 		27ACCD0F2431C9D40050CC88 /* JoinedCircleEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */; };
+		27B39688246A539D000FB66E /* VideoInfoProductTypeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B39687246A539D000FB66E /* VideoInfoProductTypeControl.m */; };
 		27BC4E2624654FDB009BE0EB /* CommonEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BC4E2524654FDB009BE0EB /* CommonEditTableViewCell.m */; };
 		27BC4E2924655E88009BE0EB /* MeetingApplyStayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BC4E2824655E88009BE0EB /* MeetingApplyStayTableViewCell.m */; };
 		27BF624D24639DDC00B84ECC /* LivePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF624C24639DDC00B84ECC /* LivePlayerView.m */; };
@@ -323,6 +336,18 @@
 		275463C1245AA10100FA9578 /* MeetingConferenceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingConferenceTableViewCell.m; sourceTree = "<group>"; };
 		275463C3245AB04B00FA9578 /* MeetingReplayDetailFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingReplayDetailFunction.h; sourceTree = "<group>"; };
 		275463C4245AB04B00FA9578 /* MeetingReplayDetailFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingReplayDetailFunction.m; sourceTree = "<group>"; };
+		2757C5E024751E3900E72F0F /* InnerCircleStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleStartViewController.h; sourceTree = "<group>"; };
+		2757C5E124751E3900E72F0F /* InnerCircleStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleStartViewController.m; sourceTree = "<group>"; };
+		2757C5E32475210000E72F0F /* InnerCirclePageRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCirclePageRouter.h; sourceTree = "<group>"; };
+		2757C5E42475210000E72F0F /* InnerCirclePageRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCirclePageRouter.m; sourceTree = "<group>"; };
+		2757C5E9247527B000E72F0F /* InnerCircleInfoFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleInfoFunction.h; sourceTree = "<group>"; };
+		2757C5EA247527B000E72F0F /* InnerCircleInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleInfoFunction.m; sourceTree = "<group>"; };
+		2757C5EC24752D1500E72F0F /* InnerCircleBussiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleBussiness.h; sourceTree = "<group>"; };
+		2757C5ED24752D1500E72F0F /* InnerCircleBussiness.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleBussiness.m; sourceTree = "<group>"; };
+		2757C5EF24752EC500E72F0F /* InnerCircleStartInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleStartInfoTableViewCell.h; sourceTree = "<group>"; };
+		2757C5F024752EC500E72F0F /* InnerCircleStartInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleStartInfoTableViewCell.m; sourceTree = "<group>"; };
+		2757C5F22475350300E72F0F /* InnerCircleStartGridTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleStartGridTableViewCell.h; sourceTree = "<group>"; };
+		2757C5F32475350300E72F0F /* InnerCircleStartGridTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleStartGridTableViewCell.m; sourceTree = "<group>"; };
 		2759AD6D2424A21D006E4B72 /* APPVersionFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPVersionFunction.h; sourceTree = "<group>"; };
 		2759AD6E2424A21D006E4B72 /* APPVersionFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPVersionFunction.m; sourceTree = "<group>"; };
 		2759AD712424A644006E4B72 /* APPVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPVersionInfo.h; sourceTree = "<group>"; };
@@ -355,6 +380,18 @@
 		27765B1024172E7100D6A0A5 /* UITableView+VHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+VHExt.m"; sourceTree = "<group>"; };
 		27765B122417394000D6A0A5 /* MedicalCourseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicalCourseListViewController.h; sourceTree = "<group>"; };
 		27765B132417394000D6A0A5 /* MedicalCourseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicalCourseListViewController.m; sourceTree = "<group>"; };
+		2777C0792476207E0058D6E6 /* InnerCircleCourseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleCourseListViewController.h; sourceTree = "<group>"; };
+		2777C07A2476207E0058D6E6 /* InnerCircleCourseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleCourseListViewController.m; sourceTree = "<group>"; };
+		2777C07E2476256B0058D6E6 /* InnerCircleCourseFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleCourseFilterView.h; sourceTree = "<group>"; };
+		2777C07F2476256B0058D6E6 /* InnerCircleCourseFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleCourseFilterView.m; sourceTree = "<group>"; };
+		2777C081247625E80058D6E6 /* InnerCircleCourseFilterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCircleCourseFilterCell.h; sourceTree = "<group>"; };
+		2777C082247625E80058D6E6 /* InnerCircleCourseFilterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCircleCourseFilterCell.m; sourceTree = "<group>"; };
+		2777C08524764FDB0058D6E6 /* InnerCourseFilterEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCourseFilterEntryModel.h; sourceTree = "<group>"; };
+		2777C08624764FDB0058D6E6 /* InnerCourseFilterEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCourseFilterEntryModel.m; sourceTree = "<group>"; };
+		2777C088247650690058D6E6 /* InnerCourseFilterMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCourseFilterMenuView.h; sourceTree = "<group>"; };
+		2777C089247650690058D6E6 /* InnerCourseFilterMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCourseFilterMenuView.m; sourceTree = "<group>"; };
+		2777C08B247666150058D6E6 /* InnerCourseFilterCateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnerCourseFilterCateView.h; sourceTree = "<group>"; };
+		2777C08C247666150058D6E6 /* InnerCourseFilterCateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerCourseFilterCateView.m; sourceTree = "<group>"; };
 		277F917C23FA274B0055C773 /* 微医汇学习.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微医汇学习.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277F917F23FA274B0055C773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		277F918023FA274B0055C773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -524,6 +561,8 @@
 		27ACCD0B2431C9010050CC88 /* UserJoinedCircleInfoFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserJoinedCircleInfoFunction.m; sourceTree = "<group>"; };
 		27ACCD0D2431C9D40050CC88 /* JoinedCircleEntryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoinedCircleEntryModel.h; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.h"; sourceTree = SOURCE_ROOT; };
 		27ACCD0E2431C9D40050CC88 /* JoinedCircleEntryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoinedCircleEntryModel.m; path = "VeehuiVideoSchool/圈子/DataModel/JoinedCircleEntryModel.m"; sourceTree = SOURCE_ROOT; };
+		27B39686246A539D000FB66E /* VideoInfoProductTypeControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoInfoProductTypeControl.h; sourceTree = "<group>"; };
+		27B39687246A539D000FB66E /* VideoInfoProductTypeControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoInfoProductTypeControl.m; sourceTree = "<group>"; };
 		27BC4E2424654FDB009BE0EB /* CommonEditTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonEditTableViewCell.h; sourceTree = "<group>"; };
 		27BC4E2524654FDB009BE0EB /* CommonEditTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonEditTableViewCell.m; sourceTree = "<group>"; };
 		27BC4E2724655E88009BE0EB /* MeetingApplyStayTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingApplyStayTableViewCell.h; sourceTree = "<group>"; };
@@ -926,6 +965,61 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		2757C5DE24751DD000E72F0F /* 内部培训 */ = {
+			isa = PBXGroup;
+			children = (
+				2777C08424764F7A0058D6E6 /* DataModel */,
+				2757C5E72475278100E72F0F /* Bussiness */,
+				2757C5DF24751DD000E72F0F /* UI */,
+				2757C5E32475210000E72F0F /* InnerCirclePageRouter.h */,
+				2757C5E42475210000E72F0F /* InnerCirclePageRouter.m */,
+			);
+			path = "内部培训";
+			sourceTree = "<group>";
+		};
+		2757C5DF24751DD000E72F0F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2777C07C247624940058D6E6 /* View */,
+				2757C5E62475273000E72F0F /* Cell */,
+				2757C5E024751E3900E72F0F /* InnerCircleStartViewController.h */,
+				2757C5E124751E3900E72F0F /* InnerCircleStartViewController.m */,
+				2777C0792476207E0058D6E6 /* InnerCircleCourseListViewController.h */,
+				2777C07A2476207E0058D6E6 /* InnerCircleCourseListViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2757C5E62475273000E72F0F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2757C5EF24752EC500E72F0F /* InnerCircleStartInfoTableViewCell.h */,
+				2757C5F024752EC500E72F0F /* InnerCircleStartInfoTableViewCell.m */,
+				2757C5F22475350300E72F0F /* InnerCircleStartGridTableViewCell.h */,
+				2757C5F32475350300E72F0F /* InnerCircleStartGridTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2757C5E72475278100E72F0F /* Bussiness */ = {
+			isa = PBXGroup;
+			children = (
+				2757C5E82475278100E72F0F /* Function */,
+				2757C5EC24752D1500E72F0F /* InnerCircleBussiness.h */,
+				2757C5ED24752D1500E72F0F /* InnerCircleBussiness.m */,
+			);
+			path = Bussiness;
+			sourceTree = "<group>";
+		};
+		2757C5E82475278100E72F0F /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				2757C5E9247527B000E72F0F /* InnerCircleInfoFunction.h */,
+				2757C5EA247527B000E72F0F /* InnerCircleInfoFunction.m */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
 		2759AD6B2424A088006E4B72 /* Bussiness */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,6 +1057,38 @@
 			path = "兴趣分类";
 			sourceTree = "<group>";
 		};
+		2777C07C247624940058D6E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2777C07D247624940058D6E6 /* 课程筛选 */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2777C07D247624940058D6E6 /* 课程筛选 */ = {
+			isa = PBXGroup;
+			children = (
+				2777C07E2476256B0058D6E6 /* InnerCircleCourseFilterView.h */,
+				2777C07F2476256B0058D6E6 /* InnerCircleCourseFilterView.m */,
+				2777C081247625E80058D6E6 /* InnerCircleCourseFilterCell.h */,
+				2777C082247625E80058D6E6 /* InnerCircleCourseFilterCell.m */,
+				2777C088247650690058D6E6 /* InnerCourseFilterMenuView.h */,
+				2777C089247650690058D6E6 /* InnerCourseFilterMenuView.m */,
+				2777C08B247666150058D6E6 /* InnerCourseFilterCateView.h */,
+				2777C08C247666150058D6E6 /* InnerCourseFilterCateView.m */,
+			);
+			path = "课程筛选";
+			sourceTree = "<group>";
+		};
+		2777C08424764F7A0058D6E6 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2777C08524764FDB0058D6E6 /* InnerCourseFilterEntryModel.h */,
+				2777C08624764FDB0058D6E6 /* InnerCourseFilterEntryModel.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		277F917323FA274B0055C773 = {
 			isa = PBXGroup;
 			children = (
@@ -990,6 +1116,7 @@
 				278A753B24036C8E005A8994 /* 学术会议 */,
 				27206DBA23FD25B5004A9C85 /* 医学视频 */,
 				27206D9523FCD61D004A9C85 /* 主页面 */,
+				2757C5DE24751DD000E72F0F /* 内部培训 */,
 				27AA9114241A060E004D93F2 /* 圈子 */,
 				277F91C223FA396B0055C773 /* 用户模块 */,
 				277F919B23FA2B750055C773 /* 初始化 */,
@@ -1275,6 +1402,8 @@
 				277FDA0B2432E22500C5CCBF /* MedicalVideoGridControl.m */,
 				272FB74F24502EBA00B321B4 /* MedicalVideoCategoryView.h */,
 				272FB75024502EBA00B321B4 /* MedicalVideoCategoryView.m */,
+				27B39686246A539D000FB66E /* VideoInfoProductTypeControl.h */,
+				27B39687246A539D000FB66E /* VideoInfoProductTypeControl.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1882,6 +2011,7 @@
 				27206DAC23FD08F1004A9C85 /* HomeStartTableViewController.m in Sources */,
 				27002B8F2456AF3A00370AEF /* PreviewMeetingListFunction.m in Sources */,
 				2794BFD8243DB4100077E153 /* ProfessorCircleInfoTableViewCell.m in Sources */,
+				2777C07B2476207E0058D6E6 /* InnerCircleCourseListViewController.m in Sources */,
 				277F91B623FA30710055C773 /* UIView+VHSubviewExt.m in Sources */,
 				270A031923FBC20700FD4431 /* VHBaseNavigationViewController.m in Sources */,
 				270A030323FB7DCB00FD4431 /* VHHTTPFunction.m in Sources */,
@@ -1912,6 +2042,7 @@
 				27848FDC23FE6426004729B2 /* VHBaseListViewController.m in Sources */,
 				27F6DCD02464E63A0084BC8E /* MeetingPreviewDetailViewController.m in Sources */,
 				27AA9121241A1DBD004D93F2 /* MedicalVideoGroupOtherVideoTableViewCell.m in Sources */,
+				2757C5E224751E3900E72F0F /* InnerCircleStartViewController.m in Sources */,
 				27206DB023FD0C07004A9C85 /* HomeStartGirdTableViewCell.m in Sources */,
 				2759AD7C2424C098006E4B72 /* UserValidateTokenFunction.m in Sources */,
 				27C8C4E3244D329B00608B09 /* CircleSecondaryDeptListFunction.m in Sources */,
@@ -1954,6 +2085,7 @@
 				275463AE245A5D2200FA9578 /* MeetingDetailFunction.m in Sources */,
 				2771A2D723FF7F2E00FCAF7A /* MessageHubUtil.m in Sources */,
 				275463BC245A799700FA9578 /* MeetingTitleTableViewCell.m in Sources */,
+				27B39688246A539D000FB66E /* VideoInfoProductTypeControl.m in Sources */,
 				277F91AD23FA2CB10055C773 /* NSObject+VHRootExt.m in Sources */,
 				270A031323FB933700FD4431 /* WechatAuthRespModel.m in Sources */,
 				278A754324036D03005A8994 /* MeetingStartViewController.m in Sources */,
@@ -1972,6 +2104,7 @@
 				274CF5F7242998450026CEDA /* RootLicensementView.m in Sources */,
 				27DB773A243C4DF4000FB2EE /* MedicalStartVideoSegmentTableViewCell.m in Sources */,
 				27ACCD0F2431C9D40050CC88 /* JoinedCircleEntryModel.m in Sources */,
+				2777C08724764FDB0058D6E6 /* InnerCourseFilterEntryModel.m in Sources */,
 				274FFDD72446EE200004252C /* ProfessorCircleMutiVideoCell.m in Sources */,
 				272FB75124502EBA00B321B4 /* MedicalVideoCategoryView.m in Sources */,
 				271DC9002463F11E00D61D0A /* MeetingPreviewInDayTableViewCell.m in Sources */,
@@ -1982,6 +2115,7 @@
 				270A031C23FBC23400FD4431 /* UIBarButtonItem+VHKitExt.m in Sources */,
 				27AA91102419C819004D93F2 /* MedicalVideoDetailTitleTableViewCell.m in Sources */,
 				27765B142417394000D6A0A5 /* MedicalCourseListViewController.m in Sources */,
+				2757C5F42475350300E72F0F /* InnerCircleStartGridTableViewCell.m in Sources */,
 				278A755624037ABE005A8994 /* LiveMeetingListFunction.m in Sources */,
 				277F91CE23FA3F980055C773 /* UserLoginStartViewController.m in Sources */,
 				2794BFD5243DAEA60077E153 /* RecommandProfessorListFunction.m in Sources */,
@@ -1993,6 +2127,7 @@
 				270A032823FBD10B00FD4431 /* MobileVerifyCodeFunction.m in Sources */,
 				27DB7724243C1827000FB2EE /* HomeSubjectListFunction.m in Sources */,
 				27DB7701243C0B51000FB2EE /* HomeAdvertisesFunction.m in Sources */,
+				2757C5E52475210000E72F0F /* InnerCirclePageRouter.m in Sources */,
 				2759AD732424A644006E4B72 /* APPVersionInfo.m in Sources */,
 				274FFDDA2446EEA30004252C /* ProfessorCircleSingleVideoCell.m in Sources */,
 				27DB771F243C1827000FB2EE /* MedicalGroupOthersFunction.m in Sources */,
@@ -2002,12 +2137,16 @@
 				278A754A24036F8C005A8994 /* MeetingGatherFunction.m in Sources */,
 				27DB771D243C1827000FB2EE /* MedicalGroupDetailFunction.m in Sources */,
 				27AAC023243EFA8600E5A05B /* HomeMeetingInfoModel.m in Sources */,
+				2777C08D247666150058D6E6 /* InnerCourseFilterCateView.m in Sources */,
+				2777C083247625E80058D6E6 /* InnerCircleCourseFilterCell.m in Sources */,
 				27BF62532463A10700B84ECC /* LiveFullPlayerControl.m in Sources */,
 				27BF625024639E2300B84ECC /* LivePlayerControl.m in Sources */,
 				27AA259D2418B32E00D31AA4 /* VHNavigationBarView.m in Sources */,
 				2794BFD2243D69420077E153 /* ProfessorActivityTableViewCell.m in Sources */,
 				274FFDD42446E9C80004252C /* ProfessorInfoEntryModel.m in Sources */,
 				2759AD762424AA28006E4B72 /* AlertUtil.m in Sources */,
+				2757C5F124752EC500E72F0F /* InnerCircleStartInfoTableViewCell.m in Sources */,
+				2777C08A247650690058D6E6 /* InnerCourseFilterMenuView.m in Sources */,
 				27BF624D24639DDC00B84ECC /* LivePlayerView.m in Sources */,
 				27DB773D243C56EC000FB2EE /* UserFavoriteFunction.m in Sources */,
 				2762874024668242006CC33F /* FavoriteEntryModel.m in Sources */,
@@ -2053,6 +2192,7 @@
 				27ACCD092431BE4B0050CC88 /* HomeCircleUnTreadedView.m in Sources */,
 				27AA910C2419C56F004D93F2 /* MedicalVideoDetailViewController.m in Sources */,
 				27BF62622463B42800B84ECC /* MeetingPreviewGatherModel.m in Sources */,
+				2757C5EB247527B000E72F0F /* InnerCircleInfoFunction.m in Sources */,
 				279D12A4243720FD00A12FFA /* ProfessorSubjectCollectionViewController.m in Sources */,
 				277F91D123FA40AD0055C773 /* InitializeUtil.m in Sources */,
 				277F91C023FA32410055C773 /* UIColor+VHStandExt.m in Sources */,
@@ -2064,6 +2204,7 @@
 				274FFDDD2446EF3E0004252C /* VHLabelControl.m in Sources */,
 				274FFDE02446F65A0004252C /* FollowedProfessorListFunction.m in Sources */,
 				27FF316D24342588008457BD /* SubjectEntryModel.m in Sources */,
+				2777C0802476256B0058D6E6 /* InnerCircleCourseFilterView.m in Sources */,
 				27206DC523FD25EE004A9C85 /* MedicalVideoStartViewController.m in Sources */,
 				27206DB823FD0D81004A9C85 /* VHGridItemControl.m in Sources */,
 				277F91C923FA3C350055C773 /* UserModuleUtil.m in Sources */,
@@ -2073,6 +2214,7 @@
 				270B6B2424332D33000A5554 /* HomeUserRecommandTableViewCell.m in Sources */,
 				27E30442246268AC00B9E738 /* MeetingScheduleTableViewCell.m in Sources */,
 				27E051BB246531920086F30C /* CommonInfoTableViewCell.m in Sources */,
+				2757C5EE24752D1500E72F0F /* InnerCircleBussiness.m in Sources */,
 				27DB7730243C1831000FB2EE /* MedicalVideoGroupInfoEntryModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

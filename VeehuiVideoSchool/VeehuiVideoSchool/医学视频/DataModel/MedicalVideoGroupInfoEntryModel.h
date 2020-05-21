@@ -33,7 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger isVip;
 @property (nonatomic) NSInteger price;
 
-@property (nonatomic,copy) NSArray<NSString*>* productTypeInfo;
+@property (nonatomic,copy) NSArray<NSString*>* productTypeCodeNames;
+
 @end
 
 @interface MedicalVideoGroupInfoListModel : ListModel

@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray<CircleAnnouncementEntryModel*>* circleAnnouncements;
 
 @property (nonatomic) NSInteger circleId;
+@property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* circleName;
 @property (nonatomic, strong) NSString* portraitUrl;
 @property (nonatomic) NSInteger haveWaitingProcess;

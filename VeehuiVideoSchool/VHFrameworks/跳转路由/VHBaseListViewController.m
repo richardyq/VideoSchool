@@ -39,6 +39,8 @@ DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
         [weakSelf refreshDataCommand];
     }];
     
+    self.tableview.estimatedRowHeight = 45.;
+    
     MJRefreshStateHeader* stateHeader = (MJRefreshStateHeader*)self.tableview.mj_header ;
     [stateHeader setTitle:@"下拉获取新的数据" forState:MJRefreshStateIdle];
     [stateHeader setTitle:@"松开即可获取新的数据" forState:MJRefreshStatePulling];

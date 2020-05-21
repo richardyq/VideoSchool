@@ -9,6 +9,7 @@
 #import "HomeJoinedCircleTableViewCell.h"
 #import "HomeCircleUnTreadedView.h"
 #import "HomeCircleAnnouncementView.h"
+#import "InnerCirclePageRouter.h"
 
 @interface HomeJoinedCircleVideoCell : UIControl
 
@@ -92,7 +93,7 @@
 @property (nonatomic, strong) HomeCircleUnTreadedView* untreadedView;
 @property (nonatomic, strong) NSMutableArray<HomeJoinedCircleVideoCell*>* videoControls;
 
-@property (nonatomic, strong) UIView* moreView;
+@property (nonatomic, strong) UIControl* moreView;
 @property (nonatomic, strong) UILabel* moreLabel;
 
 @property (nonatomic) NSInteger shownCircleId;
@@ -252,9 +253,14 @@
     return _videoControls;
 }
 
-- (UIView*) moreView{
+- (UIControl*) moreView{
     if (!_moreView) {
-        _moreView = [self.detView addView];
+        _moreView = (UIControl*)[self.detView addView:[UIControl class]];
+        WS(weakSelf)
+        [_moreView addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+            SAFE_WEAKSELF(weakSelf)
+            [InnerCirclePageRouter entryInnerCircleStartPage:weakSelf.shownCircleId];
+        }];
     }
     return _moreView;
 }

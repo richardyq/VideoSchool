@@ -40,13 +40,13 @@
         make.size.mas_equalTo(CGSizeMake(15, 15));
         make.left.equalTo(self.searchControl).offset(16.);
     }];
-    
+    /*
     [self.microPhoneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.searchControl);
         make.size.mas_equalTo(CGSizeMake(13, 18));
         make.right.equalTo(self.searchControl).offset(-16);
     }];
-    
+    */
     [self.searchLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.searchControl);
         make.left.equalTo(self.searchIconIamgeView.mas_right).offset(8.);

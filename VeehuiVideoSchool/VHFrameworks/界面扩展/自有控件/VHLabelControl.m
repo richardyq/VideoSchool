@@ -10,6 +10,8 @@
 
 @interface VHLabelControl ()
 
+@property (nonatomic) CGFloat textOffset;
+ 
 @end
 
 @implementation VHLabelControl
@@ -29,7 +31,7 @@
     [super updateConstraints];
     [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
-        make.width.height.equalTo(self).offset(-3);
+        make.width.height.equalTo(self).offset(-(self.textOffset * 2));
     }];
 }
 
@@ -42,4 +44,7 @@
     return _textLabel;
 }
 
+- (CGFloat) textOffset{
+    return 5;
+}
 @end

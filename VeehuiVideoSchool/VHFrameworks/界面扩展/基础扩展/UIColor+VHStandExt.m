@@ -27,7 +27,7 @@
 
 //半透明遮盖色
 + (UIColor*) commonTransColor{
-    return [UIColor colorWithHexString:@"00000062"];
+    return [UIColor colorWithHexString:@"00000080"];
 }
 
 #pragma mark - 文本颜色
